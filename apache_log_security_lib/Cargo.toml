@@ -4,4 +4,7 @@ version = "0.1.0"
 authors = ["Peter Hrvola <peter.hrvola@hotmail.com>"]
 
 [dependencies]
-url = "1.5.1"
+url = "~1.5"
+
+serde_derive = "0.9"
+serde = "0.9"

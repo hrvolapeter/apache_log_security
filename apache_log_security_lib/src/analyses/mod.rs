@@ -1,5 +1,6 @@
 pub mod injection;
 
+#[derive(Debug)]
 pub struct Log {
     request: String
 }
@@ -16,6 +17,7 @@ impl Log {
     }
 }
 
+#[derive(Debug)]
 pub struct Incident {
     reason: &'static str,
     log: Log
