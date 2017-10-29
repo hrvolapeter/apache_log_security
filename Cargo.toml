@@ -1,0 +1,8 @@
+[package]
+name = "apache-log-security"
+version = "0.1.0"
+authors = ["Peter Hrvola <peter.hrvola@hotmail.com>"]
+
+[dependencies]
+apache_log_security_lib = { path = "apache_log_security_lib" }
+[workspace]
