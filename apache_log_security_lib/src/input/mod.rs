@@ -1,8 +1,8 @@
 pub mod apache;
 
-use analyses::Log;
-use super::Config;
+use analyses;
+use serde;
 
-pub fn load(cfg: &Config) -> Vec<Log> {
-    apache::load(cfg)
+pub trait Input: serde::Deserialize {
+    fn get_logs(&self) -> Vec<Box<analyses::Analysable>>;
 }

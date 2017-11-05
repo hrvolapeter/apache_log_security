@@ -1,30 +1,27 @@
+#![deny(warnings)]
 #[macro_use]
 extern crate serde_derive;
+extern crate serde;
+extern crate chrono;
+extern crate rayon;
+#[macro_use]
+extern crate nom;
+
 
 pub mod analyses;
 pub mod input;
+pub mod config;
+pub mod reporting;
 
-#[derive(PartialEq, Serialize, Deserialize)]
-pub enum WebserverType {
-    Apache,
-    Nginx
-}
+use rayon::iter::*;
 
-#[derive(PartialEq, Serialize, Deserialize)]
-pub struct Config {
-    pub webserver_type: WebserverType,
-    pub path: String
-}
+pub fn run(conf: config::Config) {
+    let incidents: Vec<analyses::Incident> = conf.services.par_iter().flat_map(|x| {
+        use input::Input;
+        match x {
+            &config::Services::Apache(ref apache) => apache.get_logs()
+        }
+    }).flat_map(|x| x.as_ref().run_analysis()).collect();
 
-pub fn run(conf: Config) -> Vec<analyses::Incident> {
-    let logs = input::load(&conf);
-    analyses::analyse(&logs)
-}
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
+    reporting::report_incidents(incidents, &conf);
 }

@@ -1,8 +1,57 @@
-use super::Config;
-use analyses::Log;
+use input;
+use analyses;
+use analyses::access_logs::AccessLog;
+use chrono::prelude::DateTime;
+use std::u32;
+use std::str::from_utf8;
+use std::str::FromStr;
+use std::fs::File;
+use std::io::BufReader;
+use std::io::BufRead;
+use nom;
 
-pub fn load(conf: &Config) -> Vec<Log> {
-    let mut log = Log::new();
-    log.set_request("test SELECT *".to_string());
-    vec![log]
+#[derive(Deserialize)]
+pub struct Apache {
+    path: String,
 }
+
+impl input::Input for Apache {
+    fn get_logs(&self) -> Vec<Box<analyses::Analysable>> {
+        let file = File::open(&self.path).expect("Unable to open log file for reading");
+        let mut logs: Vec<Box<analyses::Analysable>> = Vec::new();
+        for line in BufReader::new(file).lines() {
+            match parse_input(line.unwrap().as_bytes()) {
+                nom::IResult::Done(_, log) => logs.push(Box::new(log)),
+                nom::IResult::Incomplete(err) => eprintln!("Parsing Apache log incomplete {:?}", err),
+                nom::IResult::Error(err) => eprintln!("Error parsing Apache log {:?}", err)
+            }
+        }
+
+        logs
+    }
+}
+
+named!(parse_input<&[u8], AccessLog>,
+  do_parse!(
+    ip: is_not!(" ")   >>
+    tag!(" ") >>
+    user: is_not!(" ") >>
+    tag!(" ") >>
+    host: is_not!(" ") >>
+    tag!(" [") >>
+    date: is_not!("]") >>
+    tag!("] \"") >>
+    method: is_not!(" ") >>
+    tag!(" ") >>
+    path: is_not!(" ") >>
+    tag!(" ") >>
+    http_version: is_not!("\"") >>
+    tag!("\" ") >>
+    response_code: is_not!(" ") >>
+    tag!(" ") >>
+    response_length: is_not!(" ") >>
+    is_not!("\n") >>
+
+    (AccessLog::new(u32::from_str(from_utf8(response_code).unwrap()).expect("Response code is not number"), from_utf8(method).unwrap().to_string(), from_utf8(path).unwrap().to_string(), DateTime::parse_from_str(from_utf8(date).unwrap(), "%d/%b/%Y:%T %z").expect("Invalid date format"), u32::from_str(from_utf8(response_length).unwrap()).unwrap_or(0)))
+  )
+);

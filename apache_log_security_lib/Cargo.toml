@@ -8,3 +8,10 @@ url = "~1.5"
 
 serde_derive = "0.9"
 serde = "0.9"
+
+chrono = "0.4"
+
+rayon = "0.8.2"
+
+nom = "^3.2"
+

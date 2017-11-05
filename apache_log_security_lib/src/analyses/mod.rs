@@ -1,37 +1,11 @@
-pub mod injection;
+pub mod access_logs;
 
-#[derive(Debug)]
-pub struct Log {
-    request: String
-}
-
-impl Log {
-    pub fn new() -> Self {
-        Log { request: "".to_string() }
-    }
-    pub fn get_request(&self) -> &String {
-        &self.request
-    }
-    pub fn set_request(&mut self, str: String) {
-        self.request = str;
-    }
-}
-
-#[derive(Debug)]
 pub struct Incident {
-    reason: &'static str,
-    log: Log
+    pub reason: &'static str,
+    pub log_msg: Box<str>,
 }
 
-
-impl Clone for Log {
-    fn clone(&self) -> Self {
-        Log { request: self.request.clone() }
-    }
-}
-
-pub fn analyse(logs: &Vec<Log>) -> Vec<Incident> {
-    logs.iter().map(|ref log| {
-        injection::analyse(&log)
-    }).filter_map(|item| item).collect()
+pub trait Analysable: Send {
+    fn run_analysis(&self) -> Vec<Incident>;
+    fn show(&self) -> String;
 }
