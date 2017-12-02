@@ -1,8 +1,6 @@
-extern crate url;
-
 use analyses::Incident;
 use analyses::access_logs::AccessLog;
-use self::url::percent_encoding::percent_decode;
+use helper::url;
 use analyses::Analysable;
 
 pub fn analyse(log: &AccessLog) -> Option<Incident> {
@@ -26,6 +24,7 @@ pub fn analyse(log: &AccessLog) -> Option<Incident> {
         , "char("
         , "exec("
         , "unhex("
+        , "eval("
         , "/bin"
         , "$("
         , "shutdown("
@@ -34,24 +33,16 @@ pub fn analyse(log: &AccessLog) -> Option<Incident> {
     let request = log.get_path().to_lowercase();
 
     let result = disallowed.iter().fold(false, |acc, &x| {
-        acc || request.contains(x) || url_decode(&request).contains(x)
+        let mut url = url::url_decode(&request);
+        url = url::remove_non_printable(&url);
+        acc || url.contains(x)
     });
 
     if result {
-        Some(Incident { reason: "Injection Attack", log_msg: log.show().into_boxed_str() })
+        Some(Incident { reason: "Injection Attack", log_msg: log.show() })
     } else {
         None
     }
-}
-
-fn url_decode(str: &String) -> String {
-    let without_invalid_chars: String = str.chars().map(|c| {
-        match c {
-            c if c >= '!' && c <= '~' => c,
-            _ => ' '
-        }
-    }).collect();
-    percent_decode(without_invalid_chars.as_bytes()).decode_utf8_lossy().to_string()
 }
 
 #[cfg(test)]
@@ -88,6 +79,12 @@ mod tests {
     }
 
     #[test]
+    fn test_invalid_char_01() {
+        let log = create_log("SELECTč*".to_string());
+        super::analyse(&log).unwrap();
+    }
+
+    #[test]
     fn test_exec_00() {
         let log = create_log("exec(".to_string());
         super::analyse(&log).unwrap();
@@ -110,6 +107,36 @@ mod tests {
     #[should_panic]
     fn test_valid_01() {
         let log = create_log("https://some.com/valid?valid=pg".to_string());
+        super::analyse(&log).unwrap();
+    }
+
+    #[test]
+    fn test_encoded_00() {
+        let log = create_log(" and%20".to_string());
+        super::analyse(&log).unwrap();
+    }
+
+    #[test]
+    fn test_encoded_01() {
+        let log = create_log("https://some.com/valid?valid=pg%20and%20".to_string());
+        super::analyse(&log).unwrap();
+    }
+
+    #[test]
+    fn test_multiple_spaces_00() {
+        let log = create_log("select  *".to_string());
+        super::analyse(&log).unwrap();
+    }
+
+    #[test]
+    fn test_mixed_case_00() {
+        let log = create_log("SeLect *".to_string());
+        super::analyse(&log).unwrap();
+    }
+
+    #[test]
+    fn test_comment_instead_space_00() {
+        let log = create_log("select/**/*".to_string());
         super::analyse(&log).unwrap();
     }
 }

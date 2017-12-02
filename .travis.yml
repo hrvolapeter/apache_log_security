@@ -1,4 +1,49 @@
+sudo: true
 language: rust
+cache: cargo
+# Dependencies of kcov, used by coverage
+addons:
+  apt:
+    packages:
+      - libcurl4-openssl-dev
+      - libelf-dev
+      - libdw-dev
+      - binutils-dev
+      - cmake
+      - postfix
+    sources:
+      - kalakris-cmake
+
+# run builds for all the trains (and more)
+rust:
+  - nightly
+  - beta
+  # check it compiles on the latest stable compiler
+  - stable
+  # and the first stable one (this should be bumped as the minimum
+  # Rust version required changes)
+  - 1.22.1
+
+matrix:
+  allow_failures:
+    - rust: nightly
+
+before_script:
+  - |
+      (cargo install --list | grep -q "cargo-travis") ||
+      cargo install cargo-travis &&
+      export PATH=$HOME/.cargo/bin:$PATH
+  - sudo service postfix stop
+  - smtp-sink -d "%d.%H.%M.%S" localhost:2500 1000 &
+  - echo -e '#!/usr/bin/env bash\nexit 0' | sudo tee /usr/sbin/sendmail
+
+# the main build
 script:
-  - cargo build --verbose --all
-  - cargo test --verbose --all
+  - |
+      cargo build &&
+      cargo test --all &&
+      cargo bench --all
+
+after_success:
+# measure code coverage and upload to coveralls.io
+  - cargo coveralls --all

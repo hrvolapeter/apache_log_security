@@ -20,7 +20,7 @@ fn main() {
             .takes_value(true))
         .get_matches();
 
-    let config = matches.value_of("config").unwrap_or("/usr/local/etc/apache_log_security.conf");
+    let config = matches.value_of("config").unwrap_or("/etc/apache_log_security.conf");
     let config = load_config(&config);
     run(config);
 }
@@ -32,3 +32,24 @@ fn load_config(path: &str) -> config::Config {
     serde_yaml::from_str(&content).expect("Invalid config format")
 }
 
+#[cfg(test)]
+mod tests {
+    use std::fs::File;
+    use std::fs;
+    use std::io::Write;
+    use std::env;
+
+    #[test]
+    fn load_config_00() {
+        let config_path = format!("{}/{}", env::temp_dir().to_str().unwrap(), "tests.yaml");;
+        let mut config_file = File::create(&config_path).unwrap();
+        config_file.write(b"---\nreporting:\n- Std: {}\nxss_level: Basic\
+        \nservices:\n- Apache:\n    path: test").unwrap();
+
+        let config = super::load_config(&config_path[..]);
+        debug_assert_eq!(config.reporting.len(), 1);
+        debug_assert_eq!(config.services.len(), 1);
+
+        fs::remove_file(config_path).unwrap();
+    }
+}

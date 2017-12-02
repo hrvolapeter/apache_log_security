@@ -8,8 +8,6 @@ apache_log_security_lib = { path = "apache_log_security_lib" }
 
 clap = "~2.27"
 
-serde = "0.9"
-serde_derive = "0.9"
-serde_yaml = "0.6"
+serde_yaml = "0.7"
 
 [workspace]

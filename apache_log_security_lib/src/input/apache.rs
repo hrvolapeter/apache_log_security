@@ -55,3 +55,26 @@ named!(parse_input<&[u8], AccessLog>,
     (AccessLog::new(u32::from_str(from_utf8(response_code).unwrap()).expect("Response code is not number"), from_utf8(method).unwrap().to_string(), from_utf8(path).unwrap().to_string(), DateTime::parse_from_str(from_utf8(date).unwrap(), "%d/%b/%Y:%T %z").expect("Invalid date format"), u32::from_str(from_utf8(response_length).unwrap()).unwrap_or(0)))
   )
 );
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::fs::File;
+    use std::fs;
+    use std::io::Write;
+    use std::env;
+    use input::Input;
+
+    #[test]
+    fn get_logs_00() {
+        let log_path = format!("{}/{}", env::temp_dir().to_str().unwrap(), "tests.log");
+
+        let mut log_file = File::create(&log_path).unwrap();
+        log_file.write(br#"10.5.254.231 - tools-foreman.govcert.lab [18/Jun/2017:04:00:21 +0200] "GET /node/tools-splunk.govcert.lab?format=yml HTTP/1.1" 200 1098 "-" "Ruby"
+10.5.254.231 - tools-foreman.govcert.lab [18/Jun/2017:04:00:21 +0200] "POST /api/config_reports HTTP/1.1" 201 626 "-" "Ruby""#).unwrap();
+
+        let logs = (Apache{path: log_path.clone()}).get_logs();
+        debug_assert_eq!(logs.len(), 2);
+        fs::remove_file(log_path).unwrap();
+    }
+}
