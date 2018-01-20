@@ -27,14 +27,3 @@ impl reporting::Reporting for Email {
         sender.send(&email).unwrap();
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use reporting::Reporting;
-
-    #[test]
-    fn report_incidents() {
-        (Email{email: "a@a.com".to_string()}).report_incidents(&vec![Incident { reason: "Injection Attack", log_msg: "message".to_string() }]);
-    }
-}

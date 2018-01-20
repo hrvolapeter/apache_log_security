@@ -24,13 +24,11 @@ pub fn report_incidents(incidents: Vec<Incident>, config: &Config) {
 mod tests {
     use super::*;
     use reporting::std::Std;
-    use reporting::email::Email;
 
     #[test]
     fn report_incidents_01() {
         let mut cfg = Config::new();
         cfg.reporting.push(config::Reporting::Std(Std{}));
-        cfg.reporting.push(config::Reporting::Email(Email{email: "".to_string()}));
         report_incidents(vec![], &cfg);
     }
 }

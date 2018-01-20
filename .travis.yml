@@ -1,49 +1,50 @@
 sudo: true
 language: rust
 cache: cargo
-# Dependencies of kcov, used by coverage
 addons:
   apt:
     packages:
-      - libcurl4-openssl-dev
-      - libelf-dev
-      - libdw-dev
-      - binutils-dev
-      - cmake
-      - postfix
+    - libcurl4-openssl-dev
+    - libelf-dev
+    - libdw-dev
+    - binutils-dev
+    - cmake
+    - postfix
     sources:
-      - kalakris-cmake
-
-# run builds for all the trains (and more)
+    - kalakris-cmake
 rust:
-  - nightly
-  - beta
-  # check it compiles on the latest stable compiler
-  - stable
-  # and the first stable one (this should be bumped as the minimum
-  # Rust version required changes)
-  - 1.22.1
-
+- nightly
+- beta
+- stable
+- 1.22.1
+os:
+- linux
+- osx
 matrix:
   allow_failures:
-    - rust: nightly
-
+  - rust: nightly
 before_script:
-  - |
-      (cargo install --list | grep -q "cargo-travis") ||
-      cargo install cargo-travis &&
-      export PATH=$HOME/.cargo/bin:$PATH
-  - sudo service postfix stop
-  - smtp-sink -d "%d.%H.%M.%S" localhost:2500 1000 &
-  - echo -e '#!/usr/bin/env bash\nexit 0' | sudo tee /usr/sbin/sendmail
-
-# the main build
+- |
+  (cargo install --list | grep -q "cargo-travis") ||
+  cargo install cargo-travis &&
+  export PATH=$HOME/.cargo/bin:$PATH
 script:
-  - |
-      cargo build &&
-      cargo test --all &&
-      cargo bench --all
-
+- |
+  cargo build &&
+  cargo test --all &&
+  cargo bench --all
 after_success:
-# measure code coverage and upload to coveralls.io
-  - cargo coveralls --all
+- cargo coveralls --all
+services:
+- docker
+before_deploy: "./build-release apache-log-security ${TRAVIS_TAG}-${TRAVIS_OS_NAME}"
+deploy:
+  provider: releases
+  api_key:
+    secure: csohblEbzL9b6/Y7FS+Sx+7949MxiCEFscQ8lU2P+z0YjchXIJlnARhFTr3e8a69m3HIaEaxQ0lZJJIUWujy3LEiiH0MyFNqxhx+Yfvi0i/eIMvX7kLf3+/gjohy/CNrxbh2PnDJbPC0YQXQr4BcSYc6tSFaeE7M2vP736aPEF0r/iYtW+KA10JFnWAdUnGOabXj4gJosG72Dir9Az0OerzU0q/Occ0yiiNaWhXaBU9wiMnog13OqgRfFtuGLN9JkuSWECflL021q2KeylLuclEzysRHEf5I8/hx+bV9EYNoLd2ZV1+4X9RvlLjeC2ilXCVscHXbRppIvg6a8nTpAwSxqF3vkSojCiPjKIf2YU9M5ZNuRDSCBjfbSaiFDhQPMaxptoiuKH9gv8iJZz79tnGO9Bpie55ZUsc66l5ZYhYFlGYlym5OFMV2V7yGgakSbQM6TfHPC3APCht6D22+H+6lCizkSpjt4VnLNlvzeyqixxcCYWuRnzN2uYfsBG/JY3z3EKpqBbxa1dXckwucc+hzgGC1/Oc9ic/A//K+x4JNSjXVUtOOZEJ+P7McJLWybHZUrcE3yyPmfijXHbIepTq8lO8GKObRr7AZAiwyg8UZWzWExCp1HRfmIBSIhnKzDALllQ9u/+obFcUREZNbpN7XY4GBDiO2wngV0vLr3cU=
+  file_glob: true
+  file: apache-log-security-${TRAVIS_TAG}-${TRAVIS_OS_NAME}.*
+  skip_cleanup: true
+  on:
+    rust: stable
+    tags: true
