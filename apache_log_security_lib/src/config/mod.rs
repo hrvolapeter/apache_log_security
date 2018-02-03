@@ -37,18 +37,25 @@ impl Config {
     }
 
     pub fn normalize_glob_path(&mut self) {
-        self.services = self.services.iter().flat_map(|service| {
-            let &Service::Apache(ref apache) = service;
-            glob(&apache.path[..]).expect("Failed to read input file path glob pattern").filter_map(|entry| {
-                match entry {
-                    Ok(path_buf) => Some(Service::Apache(input::apache::Apache{path: path_buf.to_str().unwrap().to_string()})),
-                    Err(e) => {
-                        eprintln!("{:?}", e);
-                        None
-                    },
-                }
-            }).collect(): Vec<Service>
-        }).collect();
+        self.services = self.services
+            .iter()
+            .flat_map(|service| {
+                let &Service::Apache(ref apache) = service;
+                let services: Vec<Service> = glob(&apache.path[..])
+                    .expect("Failed to read input file path glob pattern")
+                    .filter_map(|entry| match entry {
+                        Ok(path_buf) => Some(Service::Apache(input::apache::Apache {
+                            path: path_buf.to_str().unwrap().to_string(),
+                        })),
+                        Err(e) => {
+                            eprintln!("{:?}", e);
+                            None
+                        }
+                    })
+                    .collect();
+                services
+            })
+            .collect();
     }
 }
 
@@ -60,8 +67,10 @@ mod tests {
     #[test]
     fn normalize_glob_path_00() {
         let mut config = Config::new();
-        config.services = vec![Service::Apache(input::apache::Apache{path: "/*".to_string()})];
+        config.services = vec![
+            Service::Apache(input::apache::Apache { path: "/*".to_string() }),
+        ];
         config.normalize_glob_path();
-        assert!(config.services.len() < 1);
+        assert!(config.services.len() > 1);
     }
 }

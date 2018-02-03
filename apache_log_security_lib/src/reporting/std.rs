@@ -9,15 +9,12 @@ pub struct Std {
 }
 
 impl reporting::Reporting for Std {
-
     fn report_incidents(&self, incidents: &Vec<Incident>) {
         match self.verbose {
             true => report_verbose(incidents),
             false => report_statistics(incidents),
         }
     }
-
-
 }
 
 fn report_verbose(incidents: &Vec<Incident>) {
@@ -44,11 +41,21 @@ mod tests {
 
     #[test]
     fn report_incidents_01() {
-        (Std{verbose: true}).report_incidents(&vec![Incident { reason: "Injection Attack", log_msg: "message".to_string() }]);
+        (Std { verbose: true }).report_incidents(&vec![
+            Incident {
+                reason: "Injection Attack",
+                log_msg: "message".to_string(),
+            },
+        ]);
     }
 
     #[test]
     fn report_incidents_02() {
-        (Std{verbose: false}).report_incidents(&vec![Incident { reason: "Injection Attack", log_msg: "message".to_string() }]);
+        (Std { verbose: false }).report_incidents(&vec![
+            Incident {
+                reason: "Injection Attack",
+                log_msg: "message".to_string(),
+            },
+        ]);
     }
 }

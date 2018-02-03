@@ -22,8 +22,10 @@ impl input::Input for Apache {
         for line in BufReader::new(file).lines() {
             match parse_input(line.unwrap().as_bytes()) {
                 nom::IResult::Done(_, log) => logs.push(Box::new(log)),
-                nom::IResult::Incomplete(err) => eprintln!("Parsing Apache log incomplete {:?}", err),
-                nom::IResult::Error(err) => eprintln!("Error parsing Apache log {:?}", err)
+                nom::IResult::Incomplete(err) => {
+                    eprintln!("Parsing Apache log incomplete {:?}", err)
+                }
+                nom::IResult::Error(err) => eprintln!("Error parsing Apache log {:?}", err),
             }
         }
 
@@ -52,7 +54,15 @@ named!(parse_input<&[u8], AccessLog>,
     response_length: is_not!(" ") >>
     is_not!("\n") >>
 
-    (AccessLog::new(u32::from_str(from_utf8(response_code).unwrap()).expect("Response code is not number"), from_utf8(method).unwrap().to_string(), from_utf8(path).unwrap().to_string(), DateTime::parse_from_str(from_utf8(date).unwrap(), "%d/%b/%Y:%T %z").expect("Invalid date format"), u32::from_str(from_utf8(response_length).unwrap()).unwrap_or(0)))
+    (AccessLog::new(
+        u32::from_str(from_utf8(response_code).unwrap()).expect("Response code is not number"),
+        from_utf8(method).unwrap().to_string(),
+        from_utf8(path).unwrap().to_string(),
+        DateTime::parse_from_str(from_utf8(date).unwrap(), "%d/%b/%Y:%T %z")
+            .expect("Invalid date format"),
+        u32::from_str(from_utf8(response_length).unwrap()).unwrap_or(0)
+        )
+    )
   )
 );
 
@@ -73,7 +83,7 @@ mod tests {
         log_file.write(br#"10.5.254.231 - tools-foreman.govcert.lab [18/Jun/2017:04:00:21 +0200] "GET /node/tools-splunk.govcert.lab?format=yml HTTP/1.1" 200 1098 "-" "Ruby"
 10.5.254.231 - tools-foreman.govcert.lab [18/Jun/2017:04:00:21 +0200] "POST /api/config_reports HTTP/1.1" 201 626 "-" "Ruby""#).unwrap();
 
-        let logs = (Apache{path: log_path.clone()}).get_logs();
+        let logs = (Apache { path: log_path.clone() }).get_logs();
         debug_assert_eq!(logs.len(), 2);
         fs::remove_file(log_path).unwrap();
     }

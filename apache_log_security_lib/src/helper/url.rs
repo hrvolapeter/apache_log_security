@@ -3,16 +3,18 @@ extern crate url;
 use self::url::percent_encoding::percent_decode;
 
 pub fn url_decode(str: &String) -> String {
-    percent_decode(str.as_bytes()).decode_utf8_lossy().to_string()
+    percent_decode(str.as_bytes())
+        .decode_utf8_lossy()
+        .to_string()
 }
 
 pub fn remove_non_printable(str: &String) -> String {
-    str.chars().map(|c| {
-        match c {
+    str.chars()
+        .map(|c| match c {
             c if c >= '!' && c <= '~' => c,
-            _ => ' '
-        }
-    }).collect()
+            _ => ' ',
+        })
+        .collect()
 }
 
 #[cfg(test)]
@@ -30,7 +32,10 @@ mod tests {
 
     #[test]
     fn alpha_num_03() {
-        debug_assert_eq!(super::remove_non_printable(&"a\n*^\r🙏".to_string()), "a *^  ");
+        debug_assert_eq!(
+            super::remove_non_printable(&"a\n*^\r🙏".to_string()),
+            "a *^  "
+        );
     }
 
     #[test]

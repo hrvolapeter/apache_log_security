@@ -17,8 +17,20 @@ pub struct AccessLog {
 }
 
 impl AccessLog {
-    pub fn new(_response_code: u32, _client: String, path: String, _date_time: DateTime<FixedOffset>, _size_returned: u32) -> Self {
-        AccessLog { _response_code, _client, path, _date_time, _size_returned }
+    pub fn new(
+        _response_code: u32,
+        _client: String,
+        path: String,
+        _date_time: DateTime<FixedOffset>,
+        _size_returned: u32,
+    ) -> Self {
+        AccessLog {
+            _response_code,
+            _client,
+            path,
+            _date_time,
+            _size_returned,
+        }
     }
 
     fn get_path(&self) -> &String {
@@ -55,7 +67,9 @@ mod tests {
     }
 
     fn create_log(path: String) -> AccessLog {
-        let date_time = "2015-2-18T23:16:9.15Z".parse::<DateTime<FixedOffset>>().unwrap();
+        let date_time = "2015-2-18T23:16:9.15Z"
+            .parse::<DateTime<FixedOffset>>()
+            .unwrap();
         AccessLog::new(200, "".to_string(), path, date_time, 0)
     }
 
@@ -70,18 +84,18 @@ mod tests {
         debug_assert_eq!(analyse_log_with_path("../etc".to_string()).len(), 1);
     }
 
-//    #[bench]
-//    fn run_analysis(b: &mut Bencher) {
-//        let bad = vec![test::black_box(create_log("<script>".to_string()))];
-//        let good = vec![test::black_box(create_log("good?one".to_string()))];
-//
-//
-//
-//        b.iter(|| good.iter().cycle().take(10000)
-//            .chain(bad.iter().cycle().take(100))
-//            .for_each(|item| {
-//                item.run_analysis(&Config::new());
-//            })
-//        );
-//    }
+    //    #[bench]
+    //    fn run_analysis(b: &mut Bencher) {
+    //        let bad = vec![test::black_box(create_log("<script>".to_string()))];
+    //        let good = vec![test::black_box(create_log("good?one".to_string()))];
+    //
+    //
+    //
+    //        b.iter(|| good.iter().cycle().take(10000)
+    //            .chain(bad.iter().cycle().take(100))
+    //            .for_each(|item| {
+    //                item.run_analysis(&Config::new());
+    //            })
+    //        );
+    //    }
 }

@@ -5,30 +5,30 @@ use analyses::Analysable;
 
 pub fn analyse(log: &AccessLog) -> Option<Incident> {
     let disallowed = vec![
-        "select "
-        , " or "
-        , " and "
-        , " union "
-        , " limit "
-        , " order "
-        , "|| "
-        , "&& "
-        , "/*"
-        , "--"
-        , "version("
-        , "@@version"
-        , "'||'"
-        , "substring("
-        , "utl_http.request"
-        , "sleep("
-        , "char("
-        , "exec("
-        , "unhex("
-        , "eval("
-        , "/bin"
-        , "$("
-        , "shutdown("
-        , "pg_"
+        "select ",
+        " or ",
+        " and ",
+        " union ",
+        " limit ",
+        " order ",
+        "|| ",
+        "&& ",
+        "/*",
+        "--",
+        "version(",
+        "@@version",
+        "'||'",
+        "substring(",
+        "utl_http.request",
+        "sleep(",
+        "char(",
+        "exec(",
+        "unhex(",
+        "eval(",
+        "/bin",
+        "$(",
+        "shutdown(",
+        "pg_",
     ];
     let request = log.get_path().to_lowercase();
 
@@ -39,7 +39,10 @@ pub fn analyse(log: &AccessLog) -> Option<Incident> {
     });
 
     if result {
-        Some(Incident { reason: "Injection Attack", log_msg: log.show() })
+        Some(Incident {
+            reason: "Injection Attack",
+            log_msg: log.show(),
+        })
     } else {
         None
     }
@@ -50,7 +53,9 @@ mod tests {
     use chrono::prelude::*;
 
     fn create_log(path: String) -> super::AccessLog {
-        let date_time = "2015-2-18T23:16:9.15Z".parse::<DateTime<FixedOffset>>().unwrap();
+        let date_time = "2015-2-18T23:16:9.15Z"
+            .parse::<DateTime<FixedOffset>>()
+            .unwrap();
         super::AccessLog::new(200, "".to_string(), path, date_time, 0)
     }
 

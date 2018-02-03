@@ -1,5 +1,4 @@
 #![deny(warnings)]
-#![feature(type_ascription)]
 
 #[macro_use]
 extern crate serde_derive;
@@ -21,12 +20,16 @@ pub mod helper;
 use rayon::iter::*;
 
 pub fn run(conf: config::Config) {
-    let incidents: Vec<analyses::Incident> = conf.services.par_iter().flat_map(|x| {
-        use input::Input;
-        match x {
-            &config::Service::Apache(ref apache) => apache.get_logs()
-        }
-    }).flat_map(|x| x.as_ref().run_analysis(&conf)).collect();
+    let incidents: Vec<analyses::Incident> = conf.services
+        .par_iter()
+        .flat_map(|x| {
+            use input::Input;
+            match x {
+                &config::Service::Apache(ref apache) => apache.get_logs(),
+            }
+        })
+        .flat_map(|x| x.as_ref().run_analysis(&conf))
+        .collect();
 
     reporting::report_incidents(incidents, &conf);
 }
