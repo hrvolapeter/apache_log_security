@@ -4,7 +4,7 @@ use lettre::sendmail::SendmailTransport;
 use lettre::{SimpleSendableEmail, EmailTransport, EmailAddress};
 use std::ops::Add;
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize)]
 pub struct Email {
     pub email: String,
 }

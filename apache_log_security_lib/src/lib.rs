@@ -1,4 +1,5 @@
 #![deny(warnings)]
+#![feature(type_ascription)]
 
 #[macro_use]
 extern crate serde_derive;
@@ -8,6 +9,7 @@ extern crate rayon;
 #[macro_use]
 extern crate nom;
 extern crate lettre;
+extern crate glob;
 
 
 pub mod analyses;
@@ -22,7 +24,7 @@ pub fn run(conf: config::Config) {
     let incidents: Vec<analyses::Incident> = conf.services.par_iter().flat_map(|x| {
         use input::Input;
         match x {
-            &config::Services::Apache(ref apache) => apache.get_logs()
+            &config::Service::Apache(ref apache) => apache.get_logs()
         }
     }).flat_map(|x| x.as_ref().run_analysis(&conf)).collect();
 

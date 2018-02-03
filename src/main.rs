@@ -26,10 +26,18 @@ fn main() {
 }
 
 fn load_config(path: &str) -> config::Config {
-    let mut file = File::open(path).expect("Unable to open config file for reading");
+    let mut file = File::open(path).unwrap_or(create_default_config(path));
+
     let mut content = String::new();
     file.read_to_string(&mut content).expect("Unable to parse buffer to string");
     serde_yaml::from_str(&content).expect("Invalid config format")
+}
+
+fn create_default_config(path: &str) -> File {
+    let mut file = File::create(path).expect(&format!("Unable to create default config in: {}.\n Maybe change config path.", path));
+    let config_str = serde_yaml::to_string(&config::Config{reporting: vec![], services: vec![], xss_level: config::XssLevel::Basic}).expect("Unable to serialize default config");
+    file.write(&config_str.as_bytes()).expect(&format!("Unable to write default config to {}.", path));
+    file
 }
 
 #[cfg(test)]

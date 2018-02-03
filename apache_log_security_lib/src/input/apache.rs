@@ -10,9 +10,9 @@ use std::io::BufReader;
 use std::io::BufRead;
 use nom;
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize)]
 pub struct Apache {
-    path: String,
+    pub path: String,
 }
 
 impl input::Input for Apache {
