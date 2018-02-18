@@ -1,14 +1,14 @@
 #![deny(warnings)]
 
-#[macro_use]
-extern crate serde_derive;
-extern crate serde;
 extern crate chrono;
-extern crate rayon;
+extern crate glob;
+extern crate lettre;
 #[macro_use]
 extern crate nom;
-extern crate lettre;
-extern crate glob;
+extern crate rayon;
+extern crate serde;
+#[macro_use]
+extern crate serde_derive;
 
 
 pub mod analyses;

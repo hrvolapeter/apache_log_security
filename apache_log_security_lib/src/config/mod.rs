@@ -68,7 +68,9 @@ mod tests {
     fn normalize_glob_path_00() {
         let mut config = Config::new();
         config.services = vec![
-            Service::Apache(input::apache::Apache { path: "/*".to_string() }),
+            Service::Apache(input::apache::Apache {
+                path: "/*".to_string(),
+            }),
         ];
         config.normalize_glob_path();
         assert!(config.services.len() > 1);

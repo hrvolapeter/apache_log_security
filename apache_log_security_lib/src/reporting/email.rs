@@ -1,7 +1,7 @@
 use reporting;
 use analyses::Incident;
 use lettre::sendmail::SendmailTransport;
-use lettre::{SimpleSendableEmail, EmailTransport, EmailAddress};
+use lettre::{EmailAddress, EmailTransport, SimpleSendableEmail};
 use std::ops::Add;
 
 #[derive(Deserialize, Serialize)]

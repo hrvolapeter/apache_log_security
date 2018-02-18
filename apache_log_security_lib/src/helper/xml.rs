@@ -19,7 +19,10 @@ pub fn parse(str: &String) -> Vec<Element> {
     let mut result: Vec<Element> = vec![];
 
     for e in reader {
-        if let Ok(XmlEvent::StartElement { name, attributes, .. }) = e {
+        if let Ok(XmlEvent::StartElement {
+            name, attributes, ..
+        }) = e
+        {
             if name.local_name != "root" {
                 let attributes = attributes
                     .into_iter()

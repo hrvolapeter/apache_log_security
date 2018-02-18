@@ -253,8 +253,8 @@ fn contains_disallowed(element: &xml::Element) -> bool {
     ];
 
     element.attributes.iter().fold(false, |f, attribute| {
-        f || !allowed_attributes.contains(&&attribute.name[..]) ||
-            contains_disallowed_value(&attribute.value)
+        f || !allowed_attributes.contains(&&attribute.name[..])
+            || contains_disallowed_value(&attribute.value)
     })
 }
 
@@ -271,9 +271,9 @@ fn contains_disallowed_value(str: &String) -> bool {
         "frameset",
     ];
 
-    disallowed_values.iter().fold(false, |f, value| {
-        f || str.contains(value)
-    })
+    disallowed_values
+        .iter()
+        .fold(false, |f, value| f || str.contains(value))
 }
 
 #[cfg(test)]
@@ -345,9 +345,7 @@ mod tests {
 
     #[test]
     fn test_query_02() {
-        analyse_log_with_path(
-            "https://a.com?query=<a href=\"alert('a')\"></a>".to_string(),
-        );
+        analyse_log_with_path("https://a.com?query=<a href=\"alert('a')\"></a>".to_string());
     }
 
     #[test]

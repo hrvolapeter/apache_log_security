@@ -4,13 +4,14 @@ use helper::url;
 use analyses::Analysable;
 
 pub fn analyse(log: &AccessLog) -> Option<Incident> {
-    let disallowed = vec!["/etc/", "../", "..\\", "\\system32"];
+    let disallowed = vec!["/etc", "/tmp", "/..", "\\system32"];
 
     let request = log.get_path().to_lowercase();
 
-    let result = disallowed.iter().fold(false, |acc, &x| {
-        acc || request.contains(x) || url::url_decode(&request).contains(x)
-    });
+    let result = disallowed.iter().fold(
+        false,
+        |acc, &x| acc || url::url_decode(&request).contains(x),
+    );
 
     if result {
         Some(Incident {
@@ -90,13 +91,6 @@ mod tests {
     #[test]
     fn test_etc_00() {
         let log = create_log("/etc/".to_string());
-        super::analyse(&log).unwrap();
-    }
-
-    #[test]
-    #[should_panic]
-    fn test_non_etc_00() {
-        let log = create_log("/etcad/".to_string());
         super::analyse(&log).unwrap();
     }
 

@@ -28,9 +28,8 @@ mod tests {
     #[test]
     fn report_incidents_01() {
         let mut cfg = Config::new();
-        cfg.reporting.push(
-            config::Reporting::Std(Std { verbose: true }),
-        );
+        cfg.reporting
+            .push(config::Reporting::Std(Std { verbose: true }));
         report_incidents(vec![], &cfg);
     }
 }

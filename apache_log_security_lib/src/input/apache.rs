@@ -83,7 +83,9 @@ mod tests {
         log_file.write(br#"10.5.254.231 - tools-foreman.govcert.lab [18/Jun/2017:04:00:21 +0200] "GET /node/tools-splunk.govcert.lab?format=yml HTTP/1.1" 200 1098 "-" "Ruby"
 10.5.254.231 - tools-foreman.govcert.lab [18/Jun/2017:04:00:21 +0200] "POST /api/config_reports HTTP/1.1" 201 626 "-" "Ruby""#).unwrap();
 
-        let logs = (Apache { path: log_path.clone() }).get_logs();
+        let logs = (Apache {
+            path: log_path.clone(),
+        }).get_logs();
         debug_assert_eq!(logs.len(), 2);
         fs::remove_file(log_path).unwrap();
     }
