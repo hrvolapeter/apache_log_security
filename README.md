@@ -17,7 +17,8 @@ Reports to std and as input takes Apache log with path. Paths can be referenced 
 
 ---
 reporting:
-  - Std: {}
+  - Std:
+    verbose: true
 xss_level: Basic
 services:
   - Apache:

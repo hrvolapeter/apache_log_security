@@ -25,7 +25,6 @@ pub fn analyse(log: &AccessLog) -> Option<Incident> {
         "exec(",
         "unhex(",
         "eval(",
-        "/bin",
         "$(",
         "shutdown(",
         "pg_",

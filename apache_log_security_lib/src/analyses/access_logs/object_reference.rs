@@ -4,7 +4,7 @@ use helper::url;
 use analyses::Analysable;
 
 pub fn analyse(log: &AccessLog) -> Option<Incident> {
-    let disallowed = vec!["/etc", "/tmp", "/..", "\\system32"];
+    let disallowed = vec!["/etc/", "/tmp/", "/../", "\\system32"];
 
     let request = log.get_path().to_lowercase();
 
