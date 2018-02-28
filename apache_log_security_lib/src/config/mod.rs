@@ -2,32 +2,39 @@ use input;
 use reporting;
 use glob::glob;
 
-
+/// Define input types
 #[derive(Deserialize, Serialize)]
 pub enum Service {
     Apache(input::apache::Apache),
 }
 
+/// Define output types
 #[derive(Deserialize, Serialize)]
 pub enum Reporting {
     Std(reporting::std::Std),
     Email(reporting::email::Email),
 }
 
+/// Define levels of detection for Xss Analyzer
 #[derive(Deserialize, PartialEq, Serialize)]
 pub enum XssLevel {
     Basic,
     Intelligent,
 }
 
+/// Config struct required to run the library
 #[derive(Deserialize, Serialize)]
 pub struct Config {
+    /// Where to report incidents
     pub reporting: Vec<Reporting>,
+    /// Sources for logs
     pub services: Vec<Service>,
     pub xss_level: XssLevel,
 }
 
 impl Config {
+    /// Create default configuration. With no inputs and outputs.
+    /// Is used for generating default config file.
     pub fn new() -> Config {
         Config {
             reporting: vec![],

@@ -3,6 +3,11 @@ use analyses::access_logs::AccessLog;
 use helper::url;
 use analyses::Analysable;
 
+/// Analyse access log for injection
+///
+/// Steps done before detection:
+///   1. url decoding
+///   2. remove non printable characters
 pub fn analyse(log: &AccessLog) -> Option<Incident> {
     let disallowed = vec![
         "select ",

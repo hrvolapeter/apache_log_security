@@ -1,5 +1,8 @@
+/// Injection detection
 pub mod injection;
+/// Object reference detection
 pub mod object_reference;
+/// Xss detection
 pub mod xss;
 
 use chrono::prelude::*;

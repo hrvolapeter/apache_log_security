@@ -2,7 +2,13 @@ use reporting;
 use analyses::Incident;
 use std::collections::HashMap;
 
-
+/// Std output that just print incidents to std.
+///
+/// It has 2 modes.
+///
+/// Verbose mode print all information about log that caused incident.
+///
+/// Nonverbose mode print just statistic about how many and what type of incidents was detected.
 #[derive(Deserialize, Serialize)]
 pub struct Std {
     pub verbose: bool,

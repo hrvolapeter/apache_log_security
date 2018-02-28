@@ -4,8 +4,10 @@ use lettre::sendmail::SendmailTransport;
 use lettre::{EmailAddress, EmailTransport, SimpleSendableEmail};
 use std::ops::Add;
 
+/// Email output
 #[derive(Deserialize, Serialize)]
 pub struct Email {
+    /// Email to which send the incident report
     pub email: String,
 }
 

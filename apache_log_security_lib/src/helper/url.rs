@@ -2,12 +2,14 @@ extern crate url;
 
 use self::url::percent_encoding::percent_decode;
 
+/// Decode url string.
 pub fn url_decode(str: &String) -> String {
     percent_decode(str.as_bytes())
         .decode_utf8_lossy()
         .to_string()
 }
 
+/// Removes non printable chars by replacing them for space.
 pub fn remove_non_printable(str: &String) -> String {
     str.chars()
         .map(|c| match c {

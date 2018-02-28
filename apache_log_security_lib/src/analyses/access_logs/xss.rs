@@ -6,6 +6,19 @@ use config::Config;
 use config;
 use analyses::Analysable;
 
+/// Analyses access log for object reference
+///
+/// Steps done before detection:
+///   1. url decoding
+///
+/// Can be done in two mods.
+///
+/// Basic mod looks for xml in path. If found incident is created.
+///
+/// Inteligent mod:
+///  1. check if element is allowed
+///  2. check if attribute is allowed
+///  3. check if attirbute value does not contain disallowed strings
 pub fn analyse(log: &AccessLog, cfg: &Config) -> Option<Incident> {
     let request = log.path.to_lowercase();
     let url = url::url_decode(&request);

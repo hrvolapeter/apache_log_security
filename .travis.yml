@@ -16,7 +16,7 @@ rust:
 - nightly
 - beta
 - stable
-- 1.22.1
+- 1.24.0
 os:
 - linux
 - osx
@@ -24,17 +24,19 @@ matrix:
   allow_failures:
   - rust: nightly
 before_script:
-- |
-  (cargo install --list | grep -q "cargo-travis") ||
-  cargo install cargo-travis &&
-  export PATH=$HOME/.cargo/bin:$PATH
+  - export PATH=$HOME/.cargo/bin:$PATH
+  - cargo install cargo-update || echo "cargo-update already installed"
+  - cargo install cargo-travis || echo "cargo-travis already installed"
+  - cargo install-update -a # update outdated cached binaries
 script:
 - |
   cargo build &&
   cargo test --all &&
-  cargo bench --all
+  cargo bench --all &&
+  cargo doc -p apache_log_security_lib
 after_success:
 - cargo coveralls --all
+- cargo doc-upload --branch master
 services:
 - docker
 before_deploy: "./build-release apache-log-security ${TRAVIS_TAG}-${TRAVIS_OS_NAME}"

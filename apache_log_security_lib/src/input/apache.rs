@@ -10,8 +10,10 @@ use std::io::BufReader;
 use std::io::BufRead;
 use nom;
 
+/// Input source type
 #[derive(Deserialize, Serialize)]
 pub struct Apache {
+    /// Path to the log file
     pub path: String,
 }
 

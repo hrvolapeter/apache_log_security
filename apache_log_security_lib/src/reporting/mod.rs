@@ -3,13 +3,17 @@ use config;
 use config::Config;
 use serde;
 
+/// Reporting incidents to std.
 pub mod std;
+/// Reporting incidents using email.
 pub mod email;
 
+/// Trait for output. All new reporters must implement this trait.
 pub trait Reporting: serde::de::DeserializeOwned {
     fn report_incidents(&self, incidents: &Vec<Incident>);
 }
 
+/// Reports passed incidents using configuration.
 pub fn report_incidents(incidents: Vec<Incident>, config: &Config) {
     for report in config.reporting.iter() {
         match report {
@@ -18,7 +22,6 @@ pub fn report_incidents(incidents: Vec<Incident>, config: &Config) {
         }
     }
 }
-
 
 #[cfg(test)]
 mod tests {
