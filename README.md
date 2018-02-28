@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/retep007/apache_log_security.svg?branch=master)](https://travis-ci.org/retep007/apache_log_security)
 [![Coverage Status](https://coveralls.io/repos/github/retep007/apache_log_security/badge.svg?branch=master)](https://coveralls.io/github/retep007/apache_log_security?branch=master)
 
+[Library documentation](https://retep007.github.io/apache_log_security/)
+
 ## Building
 1. Install rust-lang compiler `curl -sSf https://static.rust-lang.org/rustup.sh | sh`
 2. Compile project `cargo build --release`
