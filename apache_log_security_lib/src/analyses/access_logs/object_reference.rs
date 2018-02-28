@@ -3,15 +3,16 @@ use analyses::Incident;
 use helper::url;
 use analyses::Analysable;
 
+/// Analyses access log for object reference
+///
+/// Steps done before detection:
+///   1. url decoding
 pub fn analyse(log: &AccessLog) -> Option<Incident> {
     let disallowed = vec!["/etc/", "/tmp/", "/../", "\\system32"];
 
-    let request = log.get_path().to_lowercase();
-
-    let result = disallowed.iter().fold(
-        false,
-        |acc, &x| acc || url::url_decode(&request).contains(x),
-    );
+    let result = disallowed.iter().fold(false, |acc, &x| {
+        acc || url::url_decode(&log.path.to_lowercase()).contains(x)
+    });
 
     if result {
         Some(Incident {
@@ -49,7 +50,7 @@ mod tests {
 
     #[test]
     fn test_referece_01() {
-        let log = create_log("/..\\".to_string());
+        let log = create_log("/../\\".to_string());
         super::analyse(&log).unwrap();
     }
 

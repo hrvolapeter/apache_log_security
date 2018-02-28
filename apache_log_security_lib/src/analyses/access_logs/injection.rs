@@ -29,10 +29,8 @@ pub fn analyse(log: &AccessLog) -> Option<Incident> {
         "shutdown(",
         "pg_",
     ];
-    let request = log.get_path().to_lowercase();
-
     let result = disallowed.iter().fold(false, |acc, &x| {
-        let mut url = url::url_decode(&request);
+        let mut url = url::url_decode(&log.path.to_lowercase());
         url = url::remove_non_printable(&url);
         acc || url.contains(x)
     });

@@ -18,19 +18,17 @@ pub fn parse(str: &String) -> Vec<Element> {
     let reader = EventReader::from_str(&xml_text[..]);
     let mut result: Vec<Element> = vec![];
 
-    for e in reader {
+    for element in reader {
         if let Ok(XmlEvent::StartElement {
             name, attributes, ..
-        }) = e
+        }) = element
         {
             if name.local_name != "root" {
                 let attributes = attributes
                     .into_iter()
-                    .map(|attribute| {
-                        Attribute {
-                            name: attribute.name.local_name,
-                            value: attribute.value,
-                        }
+                    .map(|attribute| Attribute {
+                        name: attribute.name.local_name,
+                        value: attribute.value,
                     })
                     .collect();
                 result.push(Element {

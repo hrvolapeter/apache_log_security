@@ -20,3 +20,10 @@ nom = "^3.2"
 xml-rs = "0.7.0"
 
 glob = "0.2.11"
+
+[dev-dependencies]
+criterion = "0.2"
+
+[[bench]]
+name = "access_log"
+harness = false

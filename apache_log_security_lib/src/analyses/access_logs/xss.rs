@@ -7,7 +7,7 @@ use config;
 use analyses::Analysable;
 
 pub fn analyse(log: &AccessLog, cfg: &Config) -> Option<Incident> {
-    let request = log.get_path().to_lowercase();
+    let request = log.path.to_lowercase();
     let url = url::url_decode(&request);
     let xml = xml::parse(&url);
 

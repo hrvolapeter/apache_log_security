@@ -36,12 +36,15 @@ impl Config {
         }
     }
 
-    pub fn normalize_glob_path(&mut self) {
+    /// Is used to convert glob paths to concrete paths.
+    ///
+    /// If we have directory `dir` with files `a.log` and `b.log` this will turn `dir/*`
+    /// to concrete paths `dir/a.log` and `dir/b.log` and return new config while consuming the old one.
+    pub fn normalize_glob_path(mut self) -> Config {
         self.services = self.services
-            .iter()
-            .flat_map(|service| {
-                let &Service::Apache(ref apache) = service;
-                let services: Vec<Service> = glob(&apache.path[..])
+            .into_iter()
+            .flat_map(|Service::Apache(apache)| {
+                let services: Vec<_> = glob(&apache.path[..])
                     .expect("Failed to read input file path glob pattern")
                     .filter_map(|entry| match entry {
                         Ok(path_buf) => Some(Service::Apache(input::apache::Apache {
@@ -56,6 +59,8 @@ impl Config {
                 services
             })
             .collect();
+
+        self
     }
 }
 
@@ -72,7 +77,6 @@ mod tests {
                 path: "/*".to_string(),
             }),
         ];
-        config.normalize_glob_path();
-        assert!(config.services.len() > 1);
+        assert!(config.normalize_glob_path().services.len() > 1);
     }
 }

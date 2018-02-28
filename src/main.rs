@@ -23,10 +23,10 @@ fn main() {
         )
         .get_matches();
 
-    let config = matches
+    let config_path = matches
         .value_of("config")
         .unwrap_or("/etc/apache_log_security.conf");
-    let config = load_config(&config);
+    let config = load_config(&config_path).normalize_glob_path();
     run(config);
 }
 
