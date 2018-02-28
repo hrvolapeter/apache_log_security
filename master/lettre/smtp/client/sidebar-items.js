@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["mock",""],["net","A trait to represent a stream"]],"struct":[["Client","Structure that implements the SMTP client"],["ClientCodec","The codec used for transparency"]]});

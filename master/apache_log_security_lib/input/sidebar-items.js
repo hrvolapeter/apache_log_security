@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["apache","Input from Apache logs"]],"trait":[["Input","All new log sources must implement this trait. It allows to use the new source to get logs."]]});

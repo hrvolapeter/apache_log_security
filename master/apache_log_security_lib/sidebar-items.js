@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["run","Run library with given configuration. Logs are beeing read, analyzed and then reported as configured."]],"mod":[["analyses","Analyzers for all log types"],["config","Configuration of library"],["helper","Helper function"],["input","Log inputs"],["reporting","Incident reporting"]]});

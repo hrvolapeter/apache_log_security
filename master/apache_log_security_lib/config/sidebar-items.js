@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Reporting","Define output types"],["Service","Define input types"],["XssLevel","Define levels of detection for Xss Analyzer"]],"struct":[["Config","Config struct required to run the library"]]});

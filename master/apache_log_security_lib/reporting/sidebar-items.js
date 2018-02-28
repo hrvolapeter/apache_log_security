@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["report_incidents","Reports passed incidents using configuration."]],"mod":[["email","Reporting incidents using email."],["std","Reporting incidents to std."]],"trait":[["Reporting","Trait for output. All new reporters must implement this trait."]]});

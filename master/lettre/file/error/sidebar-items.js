@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Error","An enum of all error kinds."]],"type":[["FileResult","SMTP result type"]]});

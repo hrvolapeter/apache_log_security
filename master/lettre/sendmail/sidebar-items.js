@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["error","Error and result type for sendmail transport"]],"struct":[["SendmailTransport","Sends an email using the `sendmail` command"]]});
