@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct NoPadding</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Clone">Clone</a><a href="#impl-Copy">Copy</a><a href="#impl-PaddingProcessor">PaddingProcessor</a></div></div><p class='location'><a href='../index.html'>crypto</a>::<wbr><a href='index.html'>blockmodes</a></p><script>window.sidebarCurrent = {name: 'NoPadding', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct NoPadding</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Clone">Clone</a><a href="#impl-Copy">Copy</a><a href="#impl-PaddingProcessor">PaddingProcessor</a></div><a class="sidebar-title" href="#synthetic-implementations">Auto Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a></div></div><p class='location'><a href='../index.html'>crypto</a>::<wbr><a href='index.html'>blockmodes</a></p><script>window.sidebarCurrent = {name: 'NoPadding', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -65,6 +65,7 @@
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>
+            <div id='implementations-list'>
         <h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../crypto/blockmodes/struct.NoPadding.html" title="struct crypto::blockmodes::NoPadding">NoPadding</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/crypto/blockmodes.rs.html#420' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../crypto/blockmodes/struct.NoPadding.html" title="struct crypto::blockmodes::NoPadding">NoPadding</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/crypto/blockmodes.rs.html#420' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
@@ -76,7 +77,14 @@
 <div class='docblock'><p>Add padding to the last block of input data If the mode can't handle a non-full block, it signals that error by simply leaving the block as it is which will be detected as an InvalidLength error. <a href="../../crypto/blockmodes/trait.PaddingProcessor.html#tymethod.pad_input">Read more</a></p>
 </div><h4 id='method.strip_output' class="method"><span id='strip_output.v' class='invisible'><code>fn <a href='../../crypto/blockmodes/trait.PaddingProcessor.html#tymethod.strip_output' class='fnname'>strip_output</a>&lt;R:&nbsp;<a class="trait" href="../../crypto/buffer/trait.ReadBuffer.html" title="trait crypto::buffer::ReadBuffer">ReadBuffer</a>&gt;(&amp;mut self, _: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>R) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/crypto/blockmodes.rs.html#425' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Remove padding from the last block of output data If false is returned, the processing fails <a href="../../crypto/blockmodes/trait.PaddingProcessor.html#tymethod.strip_output">Read more</a></p>
-</div></div></section>
+</div></div></div>
+            <h2 id='synthetic-implementations' class='small-section-header'>
+              Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
+            </h2>
+            <div id='synthetic-implementations-list'>
+        <h3 id='impl-Send' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="../../crypto/blockmodes/struct.NoPadding.html" title="struct crypto::blockmodes::NoPadding">NoPadding</a></code><a href='#impl-Send' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../../crypto/blockmodes/struct.NoPadding.html" title="struct crypto::blockmodes::NoPadding">NoPadding</a></code><a href='#impl-Sync' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
