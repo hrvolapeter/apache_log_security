@@ -15,7 +15,7 @@ pub struct Incident {
 ///
 /// Trait that has to be implemented for logs to be analysable.
 /// Everytime new type of log is added it must implement this trait.
-pub trait Analysable: Send {
+pub trait Analysable: Send + Sync {
     fn run_analysis(&self, cfg: &Config) -> Vec<Incident>;
     fn show(&self) -> String;
 }

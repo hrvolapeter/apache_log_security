@@ -1,3 +1,5 @@
+#![deny(warnings)]
+
 extern crate apache_log_security_lib;
 extern crate clap;
 extern crate serde_yaml;
@@ -26,8 +28,8 @@ fn main() {
     let config_path = matches
         .value_of("config")
         .unwrap_or("/etc/apache_log_security.conf");
-    let config = load_config(&config_path).normalize_glob_path();
-    run(config);
+    let config = load_config(&config_path).normalize_services_glob();
+    run(config).unwrap();
 }
 
 fn load_config(path: &str) -> config::Config {

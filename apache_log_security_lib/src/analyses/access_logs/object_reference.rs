@@ -29,9 +29,7 @@ mod tests {
     use chrono::prelude::*;
 
     fn create_log(path: String) -> super::AccessLog {
-        let date_time = "2015-2-18T23:16:9.15Z"
-            .parse::<DateTime<FixedOffset>>()
-            .unwrap();
+        let date_time = "2015-2-18T23:16:9.15Z".parse::<DateTime<Utc>>().unwrap();
         super::AccessLog::new(200, "".to_string(), path, date_time, 0)
     }
 

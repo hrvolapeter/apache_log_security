@@ -1,6 +1,7 @@
 use reporting;
 use analyses::Incident;
 use std::collections::HashMap;
+use error::ReportingErr;
 
 /// Std output that just print incidents to std.
 ///
@@ -15,11 +16,12 @@ pub struct Std {
 }
 
 impl reporting::Reporting for Std {
-    fn report_incidents(&self, incidents: &Vec<Incident>) {
+    fn report_incidents(&self, incidents: &Vec<Incident>) -> Result<(), ReportingErr> {
         match self.verbose {
             true => report_verbose(incidents),
             false => report_statistics(incidents),
         }
+        Ok(())
     }
 }
 
@@ -47,21 +49,25 @@ mod tests {
 
     #[test]
     fn report_incidents_01() {
-        (Std { verbose: true }).report_incidents(&vec![
-            Incident {
-                reason: "Injection Attack",
-                log_msg: "message".to_string(),
-            },
-        ]);
+        (Std { verbose: true })
+            .report_incidents(&vec![
+                Incident {
+                    reason: "Injection Attack",
+                    log_msg: "message".to_string(),
+                },
+            ])
+            .unwrap();
     }
 
     #[test]
     fn report_incidents_02() {
-        (Std { verbose: false }).report_incidents(&vec![
-            Incident {
-                reason: "Injection Attack",
-                log_msg: "message".to_string(),
-            },
-        ]);
+        (Std { verbose: false })
+            .report_incidents(&vec![
+                Incident {
+                    reason: "Injection Attack",
+                    log_msg: "message".to_string(),
+                },
+            ])
+            .unwrap();
     }
 }

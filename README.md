@@ -27,19 +27,23 @@ services:
       path: /Users/peterhrvola/Downloads/httpd/foreman-ssl_access_ssl.log-20170618
 ```
 ---
-Reports via email and takes 2 apache files
+Reports via email, elasticsearch and takes apache file and elasticsearch.
 ``` yaml
 
 ---
 reporting:
   - Email:
     email: my@email.com
+  - Elasticsearch:
+    address: http://127.0.0.1:9200
+    index: incidents
 xss_level: Basic
 services:
   - Apache:
       path: /Users/peterhrvola/Downloads/httpd/foreman-ssl_access_ssl.log-20170618
-  - Apache:
-      path: /Users/peterhrvola/Downloads/httpd/foreman-ssl_access_ssl.log-20170618
+  - Elasticsearch:
+      address: http://127.0.0.1:9200
+      index: logs
 ```
 
 ### Path patterns
@@ -69,3 +73,13 @@ A compiled Unix shell style pattern.
    `]` and NOT `]` can be matched by `[]]` and `[!]]` respectively.  The `-`
    character can be specified inside a character sequence pattern by placing
    it at the start or the end, e.g. `[abc-]`.
+
+### Elasticsearch
+Currently only Elasticsearch 5.x is supported. Elasticsearch analyzer currently supports only indexes that conform to particular format and runing multiple instances of `log-security` binary is not recommended due to work synchronization issues.
+``` rust
+pub response_code: i32,
+pub client: String,
+pub path: String,
+pub date_time: DateTime<Utc>,
+pub size_returned: i32,
+```
