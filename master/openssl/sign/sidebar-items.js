@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Signer","A type which computes cryptographic signatures of data."],["Verifier",""]]});
