@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../libc/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct termios</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.c_iflag">c_iflag</a><a href="#structfield.c_oflag">c_oflag</a><a href="#structfield.c_cflag">c_cflag</a><a href="#structfield.c_lflag">c_lflag</a><a href="#structfield.c_cc">c_cc</a><a href="#structfield.c_ispeed">c_ispeed</a><a href="#structfield.c_ospeed">c_ospeed</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='index.html'>libc</a></p><script>window.sidebarCurrent = {name: 'termios', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct termios</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.c_iflag">c_iflag</a><a href="#structfield.c_oflag">c_oflag</a><a href="#structfield.c_cflag">c_cflag</a><a href="#structfield.c_lflag">c_lflag</a><a href="#structfield.c_line">c_line</a><a href="#structfield.c_cc">c_cc</a><a href="#structfield.c_ispeed">c_ispeed</a><a href="#structfield.c_ospeed">c_ospeed</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='index.html'>libc</a></p><script>window.sidebarCurrent = {name: 'termios', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -56,7 +56,8 @@
     pub c_oflag: <a class="type" href="../libc/type.tcflag_t.html" title="type libc::tcflag_t">tcflag_t</a>,
     pub c_cflag: <a class="type" href="../libc/type.tcflag_t.html" title="type libc::tcflag_t">tcflag_t</a>,
     pub c_lflag: <a class="type" href="../libc/type.tcflag_t.html" title="type libc::tcflag_t">tcflag_t</a>,
-    pub c_cc: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.cc_t.html" title="type libc::cc_t">cc_t</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 20]</a>,
+    pub c_line: <a class="type" href="../libc/type.cc_t.html" title="type libc::cc_t">cc_t</a>,
+    pub c_cc: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.cc_t.html" title="type libc::cc_t">cc_t</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 32]</a>,
     pub c_ispeed: <a class="type" href="../libc/type.speed_t.html" title="type libc::speed_t">speed_t</a>,
     pub c_ospeed: <a class="type" href="../libc/type.speed_t.html" title="type libc::speed_t">speed_t</a>,
 }</pre><h2 id='fields' class='fields small-section-header'>
@@ -76,10 +77,14 @@
                            <a href="#structfield.c_lflag" class="anchor field"></a>
                            <span id="c_lflag.v" class='invisible'>
                            <code>c_lflag: <a class="type" href="../libc/type.tcflag_t.html" title="type libc::tcflag_t">tcflag_t</a></code>
+                           </span></span><span id="structfield.c_line" class="structfield small-section-header">
+                           <a href="#structfield.c_line" class="anchor field"></a>
+                           <span id="c_line.v" class='invisible'>
+                           <code>c_line: <a class="type" href="../libc/type.cc_t.html" title="type libc::cc_t">cc_t</a></code>
                            </span></span><span id="structfield.c_cc" class="structfield small-section-header">
                            <a href="#structfield.c_cc" class="anchor field"></a>
                            <span id="c_cc.v" class='invisible'>
-                           <code>c_cc: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.cc_t.html" title="type libc::cc_t">cc_t</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 20]</a></code>
+                           <code>c_cc: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.cc_t.html" title="type libc::cc_t">cc_t</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 32]</a></code>
                            </span></span><span id="structfield.c_ispeed" class="structfield small-section-header">
                            <a href="#structfield.c_ispeed" class="anchor field"></a>
                            <span id="c_ispeed.v" class='invisible'>
