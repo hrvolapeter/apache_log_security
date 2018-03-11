@@ -1,0 +1,240 @@
+
+#
+# File created by Scalp! by Romain Gaucher - http://code.google.com/p/apache-scalp
+# Apache log attack analysis tool based on PHP-IDS filters
+#
+Scalped file: small.log
+Creation date: Sun-11-Mar-2018
+
+Attack Cross-Site Scripting (xss)
+
+	### Impact 6
+	212.129.53.68 - - [22/Feb/2018:22:57:13 +0100] "GET /index.php?option=com_content&amp;view=article&amp;id=46&amp;Itemid=54 HTTP/1.1" 200 8023 "-" "Java/1.6.0_04" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	212.129.53.68 - - [22/Feb/2018:22:57:13 +0100] "GET /index.php?option=com_content&amp;view=article&amp;id=49&amp;Itemid=55 HTTP/1.1" 200 7916 "-" "Java/1.6.0_04" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	212.129.53.68 - - [22/Feb/2018:22:57:13 +0100] "GET /index.php?option=com_content&amp;view=article&amp;id=50&amp;Itemid=56 HTTP/1.1" 200 7971 "-" "Java/1.6.0_04" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	212.129.53.68 - - [22/Feb/2018:22:57:14 +0100] "GET /index.php?option=com_phocagallery&amp;view=category&amp;id=1&amp;Itemid=53 HTTP/1.1" 200 31533 "-" "Java/1.6.0_04" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	54.36.148.166 - - [22/Feb/2018:23:22:43 +0100] "GET /index.php?option=com_content&view=article&id=48:3d-panorama HTTP/1.1" 200 6864 "-" "Mozilla/5.0 (compatible; AhrefsBot/5.2; +http://ahrefs.com/robot/)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	207.46.13.128 - - [23/Feb/2018:00:58:01 +0100] "GET /index.php?option=com_content&view=article&id=49&itemid=55 HTTP/1.1" 200 7876 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	180.180.7.33 - - [23/Feb/2018:02:14:22 +0100] "GET /index.php?option=com_easyblog&view=dashboard&layout=write HTTP/1.1" 404 1397 "http://www.almhuette-raith.at/" "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.17" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	207.46.13.128 - - [23/Feb/2018:07:36:56 +0100] "GET /index.php?option=com_phocagallery&view=category&id=2:winterfotos&itemid=53 HTTP/1.1" 200 29528 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	103.197.171.27 - - [23/Feb/2018:07:57:47 +0100] "GET /index.php?option=com_easyblog&view=dashboard&layout=write HTTP/1.1" 404 1397 "http://www.almhuette-raith.at/" "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.17" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	207.46.13.128 - - [23/Feb/2018:10:43:08 +0100] "GET /index.php?option=com_phocagallery&view=category&id=1&Itemid=53&limitstart=20 HTTP/1.1" 200 15436 "-" "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	216.244.66.247 - - [23/Feb/2018:12:30:19 +0100] "GET /index.php?option=com_content&view=article&id=49&Itemid=55 HTTP/1.1" 200 7896 "-" "Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	216.244.66.195 - - [23/Feb/2018:13:58:50 +0100] "GET /index.php?option=com_phocagallery&view=category&id=1&Itemid=53&limitstart=20 HTTP/1.1" 200 15436 "-" "Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	216.244.66.247 - - [23/Feb/2018:14:34:39 +0100] "GET /index.php?option=com_content&view=article&id=49&Itemid=55 HTTP/1.1" 200 7896 "-" "Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:12 +0100] "GET /index.php?option=com_search HTTP/1.1" 200 8846 "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:15 +0100] "POST /index.php?option=com_jce&task=plugin&plugin=imgmanager&file=imgmanager&version=1576&cid=20 HTTP/1.1" 200 22 "-" "BOT/0.1 (BOT for JCE)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:15 +0100] "POST /index.php?option=com_jce&task=plugin&plugin=imgmanager&file=imgmanager&method=form&cid=20&6bc427c8a7981f4fe1f5ac65c1246b5f=cf6dd3cf1923c950586d0dd595c8e20b HTTP/1.1" 200 22 "-" "BOT/0.1 (BOT for JCE)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:15 +0100] "POST /index.php?option=com_jce&task=plugin&plugin=imgmanager&file=imgmanager&version=1576&cid=20 HTTP/1.1" 200 22 "-" "BOT/0.1 (BOT for JCE)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:15 +0100] "POST /index.php?option=com_jce&task=plugin&plugin=imgmanager&file=imgmanager&method=form&cid=20&6bc427c8a7981f4fe1f5ac65c1246b5f=cf6dd3cf1923c950586d0dd595c8e20b HTTP/1.1" 200 22 "-" "BOT/0.1 (BOT for JCE)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:16 +0100] "POST /index.php?option=com_jce&task=plugin&plugin=imgmanager&file=imgmanager&version=1576&cid=20 HTTP/1.1" 200 22 "-" "BOT/0.1 (BOT for JCE)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:17 +0100] "POST /index.php?option=com_jce&task=plugin&plugin=imgmanager&file=imgmanager&method=form&cid=20&6bc427c8a7981f4fe1f5ac65c1246b5f=cf6dd3cf1923c950586d0dd595c8e20b HTTP/1.1" 200 22 "-" "BOT/0.1 (BOT for JCE)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:17 +0100] "POST /index.php?option=com_jce&task=plugin&plugin=imgmanager&file=imgmanager&version=1576&cid=20 HTTP/1.1" 200 22 "-" "BOT/0.1 (BOT for JCE)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:17 +0100] "POST /index.php?option=com_jce&task=plugin&plugin=imgmanager&file=imgmanager&method=form&cid=20&6bc427c8a7981f4fe1f5ac65c1246b5f=cf6dd3cf1923c950586d0dd595c8e20b HTTP/1.1" 200 22 "-" "BOT/0.1 (BOT for JCE)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:37 +0100] "GET /index.php?option=com_jdownloads&Itemid=0&view=upload HTTP/1.1" 404 1397 "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:45 +0100] "GET /index.php?option=com_adsmanager&task=upload&tmpl=component HTTP/1.1" 404 1397 "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:49 +0100] "GET /index.php?option=com_myblog&task=ajaxupload HTTP/1.1" 404 1397 "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	180.76.15.151 - - [23/Feb/2018:19:32:37 +0100] "GET /index.php?option=com_content&view=article&id=50&Itemid=56 HTTP/1.1" 200 7991 "-" "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	194.96.9.74 - - [23/Feb/2018:22:40:52 +0100] "GET /index.php?option=com_content&view=article&id=49&Itemid=55 HTTP/1.1" 200 7936 "http://www.almhuette-raith.at/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	62.46.106.237 - - [24/Feb/2018:07:47:55 +0100] "GET /index.php?option=com_content&view=article&id=49&Itemid=55 HTTP/1.1" 200 7936 "http://www.almhuette-raith.at/" "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	62.46.106.237 - - [24/Feb/2018:07:48:15 +0100] "GET /index.php?option=com_content&view=article&id=50&Itemid=56 HTTP/1.1" 200 7991 "http://www.almhuette-raith.at/index.php?option=com_content&view=article&id=49&Itemid=55" "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	62.46.106.237 - - [24/Feb/2018:07:48:37 +0100] "GET /index.php?option=com_phocagallery&view=category&id=1&Itemid=53 HTTP/1.1" 200 32583 "http://www.almhuette-raith.at/index.php?option=com_content&view=article&id=50&Itemid=56" "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	62.46.106.237 - - [24/Feb/2018:07:49:00 +0100] "GET /index.php?option=com_content&view=article&id=50&Itemid=56 HTTP/1.1" 200 7991 "http://www.almhuette-raith.at/index.php?option=com_phocagallery&view=category&id=1&Itemid=53" "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	62.46.106.237 - - [24/Feb/2018:07:49:07 +0100] "GET /index.php?option=com_content&view=article&id=49&Itemid=55 HTTP/1.1" 200 7936 "http://www.almhuette-raith.at/index.php?option=com_content&view=article&id=50&Itemid=56" "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+	62.46.106.237 - - [24/Feb/2018:07:49:32 +0100] "GET /index.php?option=com_content&view=article&id=49&Itemid=55 HTTP/1.1" 200 7936 "http://www.almhuette-raith.at/index.php?option=com_content&view=article&id=50&Itemid=56" "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36" "-"
+	Reason: "Detects JavaScript DOM/miscellaneous properties and methods"
+
+
+	### Impact 5
+	74.208.178.116 - - [22/Feb/2018:22:31:48 +0100] "POST /administrator/index.php?el=select%20%2A HTTP/1.1" 401 4494 "http://almhuette-raith.at/administrator/index.php?option=com_login" "Mozilla/5.0 (Linux; U; Android 2.2) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" "-"
+	Reason: "Detects nullbytes and other dangerous characters"
+
+	74.208.178.116 - - [22/Feb/2018:22:31:48 +0100] "POST /administrator/index.php?el=pg_version%28%29 HTTP/1.1" 401 4494 "http://almhuette-raith.at/administrator/index.php?option=com_login" "Mozilla/5.0 (Linux; U; Android 2.2) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" "-"
+	Reason: "Detects nullbytes and other dangerous characters"
+
+
+	### Impact 4
+	74.208.178.116 - - [22/Feb/2018:22:31:48 +0100] "POST /administrator/index.php?el=<script>alert('test')</script> HTTP/1.1" 401 4494 "http://almhuette-raith.at/administrator/index.php?option=com_login" "Mozilla/5.0 (Linux; U; Android 2.2) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" "-"
+	Reason: "finds html breaking injections including whitespace attacks"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:16 +0100] "GET /components/com_jnews/includes/openflashchart/php-ofc-library/ofc_upload_image.php?name=mil.php HTTP/1.1" 404 287 "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6" "-"
+	Reason: "Detects JavaScript object properties and methods"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:18 +0100] "GET /administrator/components/com_acymailing/inc/openflash/php-ofc-library/ofc_upload_image.php?name=mil.php HTTP/1.1" 404 296 "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6" "-"
+	Reason: "Detects JavaScript object properties and methods"
+
+
+	### Impact 3
+	74.208.178.116 - - [22/Feb/2018:22:31:48 +0100] "POST /administrator/index.php?el=%3Ca%20onclick%3D%22alert%28%27test%27%29%22%3Elink%3C%2Fa%3E HTTP/1.1" 401 4494 "http://almhuette-raith.at/administrator/index.php?option=com_login" "Mozilla/5.0 (Linux; U; Android 2.2) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1" "-"
+	Reason: "Detects very basic XSS probings"
+
+Attack Local File Inclusion (lfi)
+
+	### Impact 5
+	178.20.159.183 - - [22/Feb/2018:23:14:39 +0100] "GET /tmp/i.php HTTP/1.1" 404 215 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	178.20.159.183 - - [22/Feb/2018:23:14:40 +0100] "GET /tmp/i.php HTTP/1.1" 404 215 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	89.31.140.14 - - [22/Feb/2018:23:47:16 +0100] "GET /templates/system/7kilekg.php HTTP/1.1" 404 234 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	199.30.24.98 - - [23/Feb/2018:02:14:28 +0100] "GET /media/system/js/caption.js HTTP/1.1" 200 1963 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 BingPreview/1.0b" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	199.30.24.86 - - [23/Feb/2018:02:14:29 +0100] "GET /media/system/js/mootools.js HTTP/1.1" 200 74434 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 BingPreview/1.0b" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	37.97.173.212 - - [23/Feb/2018:02:57:47 +0100] "GET /site/tmp/1.php HTTP/1.1" 404 220 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	37.97.173.212 - - [23/Feb/2018:02:57:54 +0100] "GET /site/tmp/1.php HTTP/1.1" 404 220 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	167.114.46.248 - - [23/Feb/2018:04:45:42 +0100] "GET /tmp/logo_img.php.suspected HTTP/1.1" 404 232 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	217.64.206.195 - - [23/Feb/2018:09:54:32 +0100] "GET /tmp/tmp.php HTTP/1.1" 404 217 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	217.64.206.195 - - [23/Feb/2018:09:54:55 +0100] "GET /tmp/tmp.php HTTP/1.1" 404 217 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	67.212.240.177 - - [23/Feb/2018:10:49:59 +0100] "GET /tmp/sfx.php HTTP/1.1" 404 217 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	67.212.240.177 - - [23/Feb/2018:10:50:01 +0100] "GET /tmp/sfx.php HTTP/1.1" 404 217 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	67.212.240.177 - - [23/Feb/2018:10:50:26 +0100] "GET /tmp/sfx.php HTTP/1.1" 404 217 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	93.90.82.26 - - [23/Feb/2018:12:14:34 +0100] "GET /tmp/tmp.php HTTP/1.1" 404 217 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	93.90.82.26 - - [23/Feb/2018:12:14:36 +0100] "GET /tmp/tmp.php HTTP/1.1" 404 217 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	199.30.24.133 - - [23/Feb/2018:12:46:36 +0100] "GET /media/system/js/mootools.js HTTP/1.1" 200 74434 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	199.30.25.230 - - [23/Feb/2018:12:46:39 +0100] "GET /media/system/js/caption.js HTTP/1.1" 200 1963 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	82.165.35.158 - - [23/Feb/2018:15:18:19 +0100] "GET /tmp/s.php HTTP/1.1" 404 215 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	82.165.35.158 - - [23/Feb/2018:15:18:31 +0100] "GET /tmp/s.php HTTP/1.1" 404 215 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	82.165.35.158 - - [23/Feb/2018:15:18:34 +0100] "GET /tmp/s.php HTTP/1.1" 404 215 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	82.165.35.158 - - [23/Feb/2018:15:18:47 +0100] "GET /tmp/s.php HTTP/1.1" 404 215 "http://site.ru" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	196.11.235.239 - - [23/Feb/2018:17:14:12 +0100] "GET /components/com_hdflvplayer/hdflvplayer/download.php?f=../../../configuration.php HTTP/1.1" 404 257 "-" "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6" "-"
+	Reason: "Detects basic directory traversal"
+
+	138.197.111.183 - - [23/Feb/2018:18:10:01 +0100] "GET /media/system/js/caption.js HTTP/1.1" 200 1963 "-" "Mozilla/5.0 (compatible; DnyzBot/1.0)" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	138.197.111.183 - - [23/Feb/2018:18:10:01 +0100] "GET /media/system/js/mootools.js HTTP/1.1" 200 74434 "-" "Mozilla/5.0 (compatible; DnyzBot/1.0)" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	194.96.9.74 - - [23/Feb/2018:22:40:36 +0100] "GET /media/system/js/caption.js HTTP/1.1" 200 1963 "http://www.almhuette-raith.at/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	194.96.9.74 - - [23/Feb/2018:22:40:37 +0100] "GET /media/system/js/mootools.js HTTP/1.1" 200 74434 "http://www.almhuette-raith.at/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	194.96.9.74 - - [23/Feb/2018:22:41:08 +0100] "GET /media/system/js/caption.js HTTP/1.1" 200 1963 "http://www.almhuette-raith.at/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	194.96.9.74 - - [23/Feb/2018:22:41:08 +0100] "GET /media/system/js/mootools.js HTTP/1.1" 200 74434 "http://www.almhuette-raith.at/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	138.197.96.250 - - [24/Feb/2018:03:48:48 +0100] "GET /media/system/js/caption.js HTTP/1.1" 200 1963 "-" "Mozilla/5.0 (compatible; DnyzBot/1.0) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/64.0.3264.0 Safari/537.36" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	138.197.96.250 - - [24/Feb/2018:03:48:48 +0100] "GET /media/system/js/mootools.js HTTP/1.1" 200 74434 "-" "Mozilla/5.0 (compatible; DnyzBot/1.0) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/64.0.3264.0 Safari/537.36" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	62.46.106.237 - - [24/Feb/2018:07:47:13 +0100] "GET /media/system/js/mootools.js HTTP/1.1" 200 74434 "http://www.almhuette-raith.at/" "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	62.46.106.237 - - [24/Feb/2018:07:47:13 +0100] "GET /media/system/js/caption.js HTTP/1.1" 200 1963 "http://www.almhuette-raith.at/" "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	62.46.106.237 - - [24/Feb/2018:07:48:37 +0100] "GET /media/system/css/modal.css HTTP/1.1" 200 1159 "http://www.almhuette-raith.at/index.php?option=com_phocagallery&view=category&id=1&Itemid=53" "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36" "-"
+	Reason: "Detects specific directory and path traversal"
+
+	62.46.106.237 - - [24/Feb/2018:07:48:37 +0100] "GET /media/system/js/modal.js HTTP/1.1" 200 10588 "http://www.almhuette-raith.at/index.php?option=com_phocagallery&view=category&id=1&Itemid=53" "Mozilla/5.0 (Linux; Android 7.0; VTR-L09 Build/HUAWEIVTR-L09) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.137 Mobile Safari/537.36" "-"
+	Reason: "Detects specific directory and path traversal"
+
+Attack SQL Injection (sqli)
