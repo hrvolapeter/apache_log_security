@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["SEC_KEYCHAIN_SETTINGS_VERS1",""]],"fn":[["SecKeychainCopyDefault",""],["SecKeychainCreate",""],["SecKeychainGetTypeID",""],["SecKeychainOpen",""],["SecKeychainSetSettings",""],["SecKeychainUnlock",""]],"struct":[["SecKeychainSettings",""]]});
