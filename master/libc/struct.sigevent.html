@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../libc/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct sigevent</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.sigev_value">sigev_value</a><a href="#structfield.sigev_signo">sigev_signo</a><a href="#structfield.sigev_notify">sigev_notify</a><a href="#structfield.sigev_notify_thread_id">sigev_notify_thread_id</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='index.html'>libc</a></p><script>window.sidebarCurrent = {name: 'sigevent', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct sigevent</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.sigev_notify">sigev_notify</a><a href="#structfield.sigev_signo">sigev_signo</a><a href="#structfield.sigev_value">sigev_value</a><a href="#structfield.sigev_notify_attributes">sigev_notify_attributes</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='index.html'>libc</a></p><script>window.sidebarCurrent = {name: 'sigevent', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -52,28 +52,28 @@
                </span><a class='srclink' href='../src/libc/macros.rs.html#42' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'><div class="docblock attributes">#[repr(C)]
 </div>pub struct sigevent {
-    pub sigev_value: <a class="struct" href="../libc/struct.sigval.html" title="struct libc::sigval">sigval</a>,
-    pub sigev_signo: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a>,
     pub sigev_notify: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a>,
-    pub sigev_notify_thread_id: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a>,
+    pub sigev_signo: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a>,
+    pub sigev_value: <a class="struct" href="../libc/struct.sigval.html" title="struct libc::sigval">sigval</a>,
+    pub sigev_notify_attributes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../libc/struct.pthread_attr_t.html" title="struct libc::pthread_attr_t">pthread_attr_t</a>,
     // some fields omitted
 }</pre><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.sigev_value" class="structfield small-section-header">
-                           <a href="#structfield.sigev_value" class="anchor field"></a>
-                           <span id="sigev_value.v" class='invisible'>
-                           <code>sigev_value: <a class="struct" href="../libc/struct.sigval.html" title="struct libc::sigval">sigval</a></code>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.sigev_notify" class="structfield small-section-header">
+                           <a href="#structfield.sigev_notify" class="anchor field"></a>
+                           <span id="sigev_notify.v" class='invisible'>
+                           <code>sigev_notify: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a></code>
                            </span></span><span id="structfield.sigev_signo" class="structfield small-section-header">
                            <a href="#structfield.sigev_signo" class="anchor field"></a>
                            <span id="sigev_signo.v" class='invisible'>
                            <code>sigev_signo: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a></code>
-                           </span></span><span id="structfield.sigev_notify" class="structfield small-section-header">
-                           <a href="#structfield.sigev_notify" class="anchor field"></a>
-                           <span id="sigev_notify.v" class='invisible'>
-                           <code>sigev_notify: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a></code>
-                           </span></span><span id="structfield.sigev_notify_thread_id" class="structfield small-section-header">
-                           <a href="#structfield.sigev_notify_thread_id" class="anchor field"></a>
-                           <span id="sigev_notify_thread_id.v" class='invisible'>
-                           <code>sigev_notify_thread_id: <a class="type" href="../libc/type.c_int.html" title="type libc::c_int">c_int</a></code>
+                           </span></span><span id="structfield.sigev_value" class="structfield small-section-header">
+                           <a href="#structfield.sigev_value" class="anchor field"></a>
+                           <span id="sigev_value.v" class='invisible'>
+                           <code>sigev_value: <a class="struct" href="../libc/struct.sigval.html" title="struct libc::sigval">sigval</a></code>
+                           </span></span><span id="structfield.sigev_notify_attributes" class="structfield small-section-header">
+                           <a href="#structfield.sigev_notify_attributes" class="anchor field"></a>
+                           <span id="sigev_notify_attributes.v" class='invisible'>
+                           <code>sigev_notify_attributes: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.pointer.html">*mut </a><a class="struct" href="../libc/struct.pthread_attr_t.html" title="struct libc::pthread_attr_t">pthread_attr_t</a></code>
                            </span></span>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
