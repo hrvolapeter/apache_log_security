@@ -10,8 +10,7 @@
     <title>native_tls::TlsStream - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../dark.css">
     <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
@@ -34,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct TlsStream</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.get_ref">get_ref</a><a href="#method.get_mut">get_mut</a><a href="#method.buffered_read_size">buffered_read_size</a><a href="#method.shutdown">shutdown</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-TlsStreamExt%3CS%3E">TlsStreamExt&lt;S&gt;</a><a href="#impl-Debug">Debug</a><a href="#impl-Read">Read</a><a href="#impl-Write">Write</a></div><a class="sidebar-title" href="#synthetic-implementations">Auto Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a></div></div><p class='location'><a href='index.html'>native_tls</a></p><script>window.sidebarCurrent = {name: 'TlsStream', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct TlsStream</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.get_ref">get_ref</a><a href="#method.get_mut">get_mut</a><a href="#method.buffered_read_size">buffered_read_size</a><a href="#method.shutdown">shutdown</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-TlsStreamExt%3CS%3E">TlsStreamExt&lt;S&gt;</a><a href="#impl-Debug">Debug</a><a href="#impl-Read">Read</a><a href="#impl-Write">Write</a></div></div><p class='location'><a href='index.html'>native_tls</a></p><script>window.sidebarCurrent = {name: 'TlsStream', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -80,7 +79,6 @@ network calls.</p>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>
-            <div id='implementations-list'>
         <h3 id='impl-TlsStreamExt%3CS%3E' class='impl'><span class='in-band'><code>impl&lt;S&gt; <a class="trait" href="../native_tls/backend/openssl/trait.TlsStreamExt.html" title="trait native_tls::backend::openssl::TlsStreamExt">TlsStreamExt</a>&lt;S&gt; for <a class="struct" href="../native_tls/struct.TlsStream.html" title="struct native_tls::TlsStream">TlsStream</a>&lt;S&gt;</code><a href='#impl-TlsStreamExt%3CS%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/native_tls/imp/openssl.rs.html#353-361' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.raw_stream' class="method"><span id='raw_stream.v' class='invisible'><code>fn <a href='../native_tls/backend/openssl/trait.TlsStreamExt.html#tymethod.raw_stream' class='fnname'>raw_stream</a>(&amp;self) -&gt; &amp;<a class="struct" href="../openssl/ssl/struct.SslStream.html" title="struct openssl::ssl::SslStream">SslStream</a>&lt;S&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/native_tls/imp/openssl.rs.html#354-356' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Returns a shared reference to the OpenSSL <code>SslStream</code>.</p>
@@ -122,14 +120,7 @@ network calls.</p>
 <div class='docblock'><p>Writes a formatted string into this writer, returning any error encountered. <a href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html#method.write_fmt">Read more</a></p>
 </div><h4 id='method.by_ref-1' class="method"><span id='by_ref.v-1' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/std/io/trait.Write.html#method.by_ref' class='fnname'>by_ref</a>(&amp;mut self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>Self</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/std/io/mod.rs.html#1205' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Creates a &quot;by reference&quot; adaptor for this instance of <code>Write</code>. <a href="https://doc.rust-lang.org/nightly/std/io/trait.Write.html#method.by_ref">Read more</a></p>
-</div></div></div>
-                <h2 id='synthetic-implementations' class='small-section-header'>
-                  Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
-                </h2>
-                <div id='synthetic-implementations-list'>
-            <h3 id='impl-Send' class='impl'><span class='in-band'><code>impl&lt;S&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="../native_tls/struct.TlsStream.html" title="struct native_tls::TlsStream">TlsStream</a>&lt;S&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,&nbsp;</span></code><a href='#impl-Send' class='anchor'></a></span><span class='out-of-band'></span></h3>
-<div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><code>impl&lt;S&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../native_tls/struct.TlsStream.html" title="struct native_tls::TlsStream">TlsStream</a>&lt;S&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,&nbsp;</span></code><a href='#impl-Sync' class='anchor'></a></span><span class='out-of-band'></span></h3>
-<div class='impl-items'></div></div></section>
+</div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
