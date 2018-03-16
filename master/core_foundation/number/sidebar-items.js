@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["number","A convenience function to create CFNumbers."]],"struct":[["CFNumber","An immutable numeric value."]]});
