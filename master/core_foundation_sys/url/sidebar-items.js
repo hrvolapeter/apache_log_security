@@ -1,1 +1,0 @@
-initSidebarItems({"constant":[["kCFURLHFSPathStyle",""],["kCFURLPOSIXPathStyle",""],["kCFURLWindowsPathStyle",""]],"fn":[["CFURLCreateWithFileSystemPath",""],["CFURLGetString",""],["CFURLGetTypeID",""]],"struct":[["__CFURL",""]],"type":[["CFURLBookmarkCreationOptions",""],["CFURLPathStyle",""],["CFURLRef",""]]});
