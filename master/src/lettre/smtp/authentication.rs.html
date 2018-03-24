@@ -10,7 +10,8 @@
     <title>authentication.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
@@ -400,7 +401,7 @@
         <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
             <span class="ident">Mechanism</span>::<span class="ident">Plain</span> <span class="op">=&gt;</span> {
                 <span class="kw">match</span> <span class="ident">challenge</span> {
-                    <span class="prelude-val">Some</span>(_) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">Error</span>::<span class="ident">Client</span>(<span class="string">&quot;This mechanism does not expect a challenge&quot;</span>)),
+                    <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">Error</span>::<span class="ident">Client</span>(<span class="string">&quot;This mechanism does not expect a challenge&quot;</span>)),
                     <span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="macro">format</span><span class="macro">!</span>(
                         <span class="string">&quot;{}{}{}{}&quot;</span>,
                         <span class="ident">NUL</span>,

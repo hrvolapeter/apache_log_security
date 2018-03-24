@@ -10,7 +10,8 @@
     <title>error.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
@@ -248,7 +249,7 @@
             <span class="ident">Utf8Parsing</span>(<span class="kw-2">ref</span> <span class="ident">err</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">err</span> <span class="kw">as</span> <span class="kw-2">&amp;</span><span class="ident">StdError</span>),
             <span class="ident">Io</span>(<span class="kw-2">ref</span> <span class="ident">err</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">err</span> <span class="kw">as</span> <span class="kw-2">&amp;</span><span class="ident">StdError</span>),
             <span class="ident">Tls</span>(<span class="kw-2">ref</span> <span class="ident">err</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">err</span> <span class="kw">as</span> <span class="kw-2">&amp;</span><span class="ident">StdError</span>),
-            _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
         }
     }
 }
@@ -270,7 +271,7 @@
         <span class="kw">match</span> <span class="ident">response</span>.<span class="ident">code</span>.<span class="ident">severity</span> {
             <span class="ident">Severity</span>::<span class="ident">TransientNegativeCompletion</span> <span class="op">=&gt;</span> <span class="ident">Transient</span>(<span class="ident">response</span>),
             <span class="ident">Severity</span>::<span class="ident">PermanentNegativeCompletion</span> <span class="op">=&gt;</span> <span class="ident">Permanent</span>(<span class="ident">response</span>),
-            _ <span class="op">=&gt;</span> <span class="ident">Client</span>(<span class="string">&quot;Unknown error code&quot;</span>),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">Client</span>(<span class="string">&quot;Unknown error code&quot;</span>),
         }
     }
 }

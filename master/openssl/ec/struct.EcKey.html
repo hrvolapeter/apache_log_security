@@ -10,7 +10,8 @@
     <title>openssl::ec::EcKey - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
     <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
@@ -120,13 +121,13 @@ passphrase.</p>
 </div><h4 id='method.private_key_to_der' class="method"><span id='private_key_to_der.v' class='invisible'><code>pub fn <a href='#method.private_key_to_der' class='fnname'>private_key_to_der</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;, <a class="struct" href="../../openssl/error/struct.ErrorStack.html" title="struct openssl::error::ErrorStack">ErrorStack</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/openssl/macros.rs.html#121-130' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Serializes the private key to DER.</p>
 </div><h4 id='method.group' class="method"><span id='group.v' class='invisible'><code>pub fn <a href='#method.group' class='fnname'>group</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="struct" href="../../openssl/ec/struct.EcGroupRef.html" title="struct openssl::ec::EcGroupRef">EcGroupRef</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/openssl/ec.rs.html#526-535' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Return [<code>EcGroup</code>] of the <code>EcKey</code></p>
+<div class='docblock'><p>Return <a href="../../openssl/ec/struct.EcGroup.html" title="`EcGroup`"><code>EcGroup</code></a> of the <code>EcKey</code></p>
 <p>OpenSSL documentation at <a href="https://www.openssl.org/docs/man1.1.0/crypto/EC_KEY_get0_group.html"><code>EC_KEY_get0_group</code></a></p>
 </div><h4 id='method.public_key' class="method"><span id='public_key.v' class='invisible'><code>pub fn <a href='#method.public_key' class='fnname'>public_key</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="struct" href="../../openssl/ec/struct.EcPointRef.html" title="struct openssl::ec::EcPointRef">EcPointRef</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/openssl/ec.rs.html#542-551' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Return [<code>EcPoint</code>] associated with the public key</p>
+<div class='docblock'><p>Return <a href="../../openssl/ec/struct.EcPoint.html" title="`EcPoint`"><code>EcPoint</code></a> associated with the public key</p>
 <p>OpenSSL documentation at <a href="https://www.openssl.org/docs/man1.1.0/crypto/EC_KEY_get0_public_key.html"><code>EC_KEY_get0_pubic_key</code></a></p>
 </div><h4 id='method.private_key' class="method"><span id='private_key.v' class='invisible'><code>pub fn <a href='#method.private_key' class='fnname'>private_key</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="struct" href="../../openssl/bn/struct.BigNumRef.html" title="struct openssl::bn::BigNumRef">BigNumRef</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/openssl/ec.rs.html#558-567' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Return [<code>EcPoint</code>] associated with the private key</p>
+<div class='docblock'><p>Return <a href="../../openssl/ec/struct.EcPoint.html" title="`EcPoint`"><code>EcPoint</code></a> associated with the private key</p>
 <p>OpenSSL documentation at <a href="https://www.openssl.org/docs/man1.1.0/crypto/EC_KEY_get0_private_key.html"><code>EC_KEY_get0_private_key</code></a></p>
 </div><h4 id='method.check_key' class="method"><span id='check_key.v' class='invisible'><code>pub fn <a href='#method.check_key' class='fnname'>check_key</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>, <a class="struct" href="../../openssl/error/struct.ErrorStack.html" title="struct openssl::error::ErrorStack">ErrorStack</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/openssl/ec.rs.html#574-576' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Checks the key for validity.</p>
@@ -137,6 +138,7 @@ passphrase.</p>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>
+            <div id='implementations-list'>
         <h3 id='impl-ForeignType' class='impl'><span class='in-band'><code>impl <a class="trait" href="../../openssl/types/trait.OpenSslType.html" title="trait openssl::types::OpenSslType">ForeignType</a> for <a class="struct" href="../../openssl/ec/struct.EcKey.html" title="struct openssl::ec::EcKey">EcKey</a></code><a href='#impl-ForeignType' class='anchor'></a></span><span class='out-of-band'></span></h3>
 <div class='impl-items'><h4 id='associatedtype.CType' class="type"><span id='CType.t' class='invisible'><code>type <a href='../../openssl/types/trait.OpenSslType.html#associatedtype.CType' class="type">CType</a> = <a class="enum" href="../../openssl_sys/enum.EC_KEY.html" title="enum openssl_sys::EC_KEY">EC_KEY</a></code></span></h4>
 <div class='docblock'><p>The raw C type.</p>
@@ -165,7 +167,7 @@ passphrase.</p>
 <div class='docblock'><p>Performs the conversion.</p>
 </div></div><h3 id='impl-Send' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="../../openssl/ec/struct.EcKey.html" title="struct openssl::ec::EcKey">EcKey</a></code><a href='#impl-Send' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/openssl/macros.rs.html#243' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../../openssl/ec/struct.EcKey.html" title="struct openssl::ec::EcKey">EcKey</a></code><a href='#impl-Sync' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/openssl/macros.rs.html#245' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'></div></section>
+<div class='impl-items'></div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

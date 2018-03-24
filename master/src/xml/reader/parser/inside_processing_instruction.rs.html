@@ -10,7 +10,8 @@
     <title>inside_processing_instruction.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
     <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
@@ -183,7 +184,7 @@
                             <span class="prelude-val">Some</span>(<span class="macro">self_error</span><span class="macro">!</span>(<span class="self">self</span>; <span class="string">&quot;Invalid processing instruction: &lt;?{}&quot;</span>, <span class="ident">name</span>)),
 
                         <span class="comment">// All is ok, emitting event</span>
-                        _ <span class="op">=&gt;</span> {
+                        <span class="kw">_</span> <span class="op">=&gt;</span> {
                             <span class="self">self</span>.<span class="ident">into_state_emit</span>(
                                 <span class="ident">State</span>::<span class="ident">OutsideTag</span>,
                                 <span class="prelude-val">Ok</span>(<span class="ident">XmlEvent</span>::<span class="ident">ProcessingInstruction</span> {
@@ -195,7 +196,7 @@
                     }
                 }
 
-                <span class="ident">Token</span>::<span class="ident">Whitespace</span>(_) <span class="op">=&gt;</span> {
+                <span class="ident">Token</span>::<span class="ident">Whitespace</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
                     <span class="comment">// self.buf contains PI name</span>
                     <span class="kw">let</span> <span class="ident">name</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">take_buf</span>();
 
@@ -211,7 +212,7 @@
                             <span class="prelude-val">Some</span>(<span class="macro">self_error</span><span class="macro">!</span>(<span class="self">self</span>; <span class="string">&quot;Invalid processing instruction: &lt;?{}&quot;</span>, <span class="ident">name</span>)),
 
                         <span class="comment">// All is ok, starting parsing PI data</span>
-                        _ <span class="op">=&gt;</span> {
+                        <span class="kw">_</span> <span class="op">=&gt;</span> {
                             <span class="self">self</span>.<span class="ident">lexer</span>.<span class="ident">disable_errors</span>();  <span class="comment">// data is arbitrary, so disable errors</span>
                             <span class="self">self</span>.<span class="ident">data</span>.<span class="ident">name</span> <span class="op">=</span> <span class="ident">name</span>;
                             <span class="self">self</span>.<span class="ident">into_state_continue</span>(<span class="ident">State</span>::<span class="ident">InsideProcessingInstruction</span>(<span class="ident">ProcessingInstructionSubstate</span>::<span class="ident">PIInsideData</span>))
@@ -220,7 +221,7 @@
                     }
                 }
 
-                _ <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="macro">self_error</span><span class="macro">!</span>(<span class="self">self</span>; <span class="string">&quot;Unexpected token: &lt;?{}{}&quot;</span>, <span class="self">self</span>.<span class="ident">buf</span>, <span class="ident">t</span>))
+                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="macro">self_error</span><span class="macro">!</span>(<span class="self">self</span>; <span class="string">&quot;Unexpected token: &lt;?{}{}&quot;</span>, <span class="self">self</span>.<span class="ident">buf</span>, <span class="ident">t</span>))
             },
 
             <span class="ident">ProcessingInstructionSubstate</span>::<span class="ident">PIInsideData</span> <span class="op">=&gt;</span> <span class="kw">match</span> <span class="ident">t</span> {
@@ -238,7 +239,7 @@
                 },
 
                 <span class="comment">// Any other token should be treated as plain characters</span>
-                _ <span class="op">=&gt;</span> {
+                <span class="kw">_</span> <span class="op">=&gt;</span> {
                     <span class="ident">t</span>.<span class="ident">push_to_string</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">buf</span>);
                     <span class="prelude-val">None</span>
                 }

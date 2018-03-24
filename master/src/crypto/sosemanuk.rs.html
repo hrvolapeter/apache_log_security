@@ -10,7 +10,8 @@
     <title>sosemanuk.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
     <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
@@ -2776,7 +2777,7 @@
         <span class="comment">//r1 = r2 + (s1 ^ ((r1 &amp; 0x01) != 0 ? s8 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s1</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s8</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s8</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v0</span> <span class="op">=</span> <span class="ident">s0</span>;
@@ -2788,7 +2789,7 @@
         <span class="comment">//r1 = r2 + (s2 ^ ((r1 &amp; 0x01) != 0 ? s9 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s2</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s9</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s9</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v1</span> <span class="op">=</span> <span class="ident">s1</span>;
@@ -2800,7 +2801,7 @@
         <span class="comment">//r1 = r2 + (s3 ^ ((r1 &amp; 0x01) != 0 ? s0 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s3</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s0</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s0</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v2</span> <span class="op">=</span> <span class="ident">s2</span>;
@@ -2812,7 +2813,7 @@
         <span class="comment">//r1 = r2 + (s4 ^ ((r1 &amp; 0x01) != 0 ? s1 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s4</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s1</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s1</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v3</span> <span class="op">=</span> <span class="ident">s3</span>;
@@ -2850,7 +2851,7 @@
         <span class="comment">//r1 = r2 + (s5 ^ ((r1 &amp; 0x01) != 0 ? s2 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s5</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s2</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s2</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v0</span> <span class="op">=</span> <span class="ident">s4</span>;
@@ -2862,7 +2863,7 @@
         <span class="comment">//r1 = r2 + (s6 ^ ((r1 &amp; 0x01) != 0 ? s3 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s6</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s3</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s3</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v1</span> <span class="op">=</span> <span class="ident">s5</span>;
@@ -2874,7 +2875,7 @@
         <span class="comment">//r1 = r2 + (s7 ^ ((r1 &amp; 0x01) != 0 ? s4 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s7</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s4</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s4</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v2</span> <span class="op">=</span> <span class="ident">s6</span>;
@@ -2886,7 +2887,7 @@
         <span class="comment">//r1 = r2 + (s8 ^ ((r1 &amp; 0x01) != 0 ? s5 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s8</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s5</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s5</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v3</span> <span class="op">=</span> <span class="ident">s7</span>;
@@ -2924,7 +2925,7 @@
         <span class="comment">//r1 = r2 + (s9 ^ ((r1 &amp; 0x01) != 0 ? s6 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s9</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s6</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s6</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v0</span> <span class="op">=</span> <span class="ident">s8</span>;
@@ -2936,7 +2937,7 @@
         <span class="comment">//r1 = r2 + (s0 ^ ((r1 &amp; 0x01) != 0 ? s7 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s0</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s7</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s7</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v1</span> <span class="op">=</span> <span class="ident">s9</span>;
@@ -2948,7 +2949,7 @@
         <span class="comment">//r1 = r2 + (s1 ^ ((r1 &amp; 0x01) != 0 ? s8 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s1</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s8</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s8</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v2</span> <span class="op">=</span> <span class="ident">s0</span>;
@@ -2960,7 +2961,7 @@
         <span class="comment">//r1 = r2 + (s2 ^ ((r1 &amp; 0x01) != 0 ? s9 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s2</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s9</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s9</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v3</span> <span class="op">=</span> <span class="ident">s1</span>;
@@ -2998,7 +2999,7 @@
         <span class="comment">//r1 = r2 + (s3 ^ ((r1 &amp; 0x01) != 0 ? s0 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s3</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s0</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s0</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v0</span> <span class="op">=</span> <span class="ident">s2</span>;
@@ -3010,7 +3011,7 @@
         <span class="comment">//r1 = r2 + (s4 ^ ((r1 &amp; 0x01) != 0 ? s1 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s4</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s1</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s1</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v1</span> <span class="op">=</span> <span class="ident">s3</span>;
@@ -3022,7 +3023,7 @@
         <span class="comment">//r1 = r2 + (s5 ^ ((r1 &amp; 0x01) != 0 ? s2 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s5</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s2</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s2</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v2</span> <span class="op">=</span> <span class="ident">s4</span>;
@@ -3034,7 +3035,7 @@
         <span class="comment">//r1 = r2 + (s6 ^ ((r1 &amp; 0x01) != 0 ? s3 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s6</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s3</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s3</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v3</span> <span class="op">=</span> <span class="ident">s5</span>;
@@ -3072,7 +3073,7 @@
         <span class="comment">//r1 = r2 + (s7 ^ ((r1 &amp; 0x01) != 0 ? s4 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s7</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s4</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s4</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v0</span> <span class="op">=</span> <span class="ident">s6</span>;
@@ -3084,7 +3085,7 @@
         <span class="comment">//r1 = r2 + (s8 ^ ((r1 &amp; 0x01) != 0 ? s5 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s8</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s5</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s5</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v1</span> <span class="op">=</span> <span class="ident">s7</span>;
@@ -3096,7 +3097,7 @@
         <span class="comment">//r1 = r2 + (s9 ^ ((r1 &amp; 0x01) != 0 ? s6 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s9</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s6</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s6</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v2</span> <span class="op">=</span> <span class="ident">s8</span>;
@@ -3108,7 +3109,7 @@
         <span class="comment">//r1 = r2 + (s0 ^ ((r1 &amp; 0x01) != 0 ? s7 : 0));</span>
         <span class="ident">r1</span> <span class="op">=</span> <span class="ident">r2</span>.<span class="ident">wrapping_add</span>(<span class="ident">s0</span> <span class="op">^</span> <span class="kw">match</span> <span class="ident">r1</span> <span class="op">&amp;</span> <span class="number">0x01</span> {
             <span class="number">0</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">s7</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">s7</span>
         });
         <span class="ident">r2</span> <span class="op">=</span> <span class="ident">tt</span>.<span class="ident">wrapping_mul</span>(<span class="number">0x54655307</span>).<span class="ident">rotate_left</span>(<span class="number">7</span>);
         <span class="ident">v3</span> <span class="op">=</span> <span class="ident">s9</span>;
@@ -4885,14 +4886,14 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Encryptor</span> <span class="kw">for</span> <span class="ident">Sosemanuk</span> {
-    <span class="kw">fn</span> <span class="ident">encrypt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefReadBuffer</span>, <span class="ident">output</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefWriteBuffer</span>, _: <span class="ident">bool</span>)
+    <span class="kw">fn</span> <span class="ident">encrypt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefReadBuffer</span>, <span class="ident">output</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefWriteBuffer</span>, <span class="kw">_</span>: <span class="ident">bool</span>)
             <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">BufferResult</span>, <span class="ident">SymmetricCipherError</span><span class="op">&gt;</span> {
         <span class="ident">symm_enc_or_dec</span>(<span class="self">self</span>, <span class="ident">input</span>, <span class="ident">output</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">Decryptor</span> <span class="kw">for</span> <span class="ident">Sosemanuk</span> {
-    <span class="kw">fn</span> <span class="ident">decrypt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefReadBuffer</span>, <span class="ident">output</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefWriteBuffer</span>, _: <span class="ident">bool</span>)
+    <span class="kw">fn</span> <span class="ident">decrypt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefReadBuffer</span>, <span class="ident">output</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefWriteBuffer</span>, <span class="kw">_</span>: <span class="ident">bool</span>)
             <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">BufferResult</span>, <span class="ident">SymmetricCipherError</span><span class="op">&gt;</span> {
         <span class="ident">symm_enc_or_dec</span>(<span class="self">self</span>, <span class="ident">input</span>, <span class="ident">output</span>)
     }
