@@ -10,7 +10,8 @@
     <title>nom::fold_many1 - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../dark.css">
     <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
@@ -33,7 +34,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='index.html'>nom</a></p><script>window.sidebarCurrent = {name: 'fold_many1', ty: 'macro', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <div class="sidebar-elems"><p class='location'><a href='index.html'>nom</a></p><script>window.sidebarCurrent = {name: 'fold_many1', ty: 'macro', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -71,7 +72,7 @@ Applies the parser 1 or more times and folds the list of return values</p>
 
 <pre class="rust rust-example-rendered">
  <span class="macro">named</span><span class="macro">!</span>(<span class="ident">multi</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>], <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span> <span class="op">&gt;</span>,
-   <span class="macro">fold_many1</span><span class="macro">!</span>( <span class="macro">tag</span><span class="macro">!</span>( <span class="string">&quot;abcd&quot;</span> ), <span class="ident">Vec</span>::<span class="ident">new</span>(), <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">acc</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span>, <span class="ident">item</span><span class="op">|</span> {
+   <span class="macro">fold_many1</span><span class="macro">!</span>( <span class="macro">tag</span><span class="macro">!</span>( <span class="string">&quot;abcd&quot;</span> ), <span class="ident">Vec</span>::<span class="ident">new</span>(), <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">acc</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span>, <span class="ident">item</span><span class="op">|</span> {
      <span class="ident">acc</span>.<span class="ident">push</span>(<span class="ident">item</span>);
      <span class="ident">acc</span>
  }));
