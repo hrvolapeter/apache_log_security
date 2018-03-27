@@ -4,14 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nom-3.2.1/src/internal.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nom-3.2.1/src/internal.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>internal.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
     <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
@@ -674,22 +673,22 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">I</span>,<span class="ident">O</span>,<span class="ident">E</span><span class="op">&gt;</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="ident">I</span>,<span class="ident">O</span>,<span class="ident">E</span><span class="op">&gt;</span> {
   <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_done</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
-      <span class="ident">Done</span>(<span class="kw">_</span>,<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="bool-val">true</span>,
-      <span class="kw">_</span>         <span class="op">=&gt;</span> <span class="bool-val">false</span>
+      <span class="ident">Done</span>(_,_) <span class="op">=&gt;</span> <span class="bool-val">true</span>,
+      _         <span class="op">=&gt;</span> <span class="bool-val">false</span>
     }
   }
 
   <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_err</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
-      <span class="ident">Error</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="bool-val">true</span>,
-      <span class="kw">_</span>        <span class="op">=&gt;</span> <span class="bool-val">false</span>
+      <span class="ident">Error</span>(_) <span class="op">=&gt;</span> <span class="bool-val">true</span>,
+      _        <span class="op">=&gt;</span> <span class="bool-val">false</span>
     }
   }
 
   <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">is_incomplete</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
-      <span class="ident">Incomplete</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="bool-val">true</span>,
-      <span class="kw">_</span>             <span class="op">=&gt;</span> <span class="bool-val">false</span>
+      <span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span> <span class="bool-val">true</span>,
+      _             <span class="op">=&gt;</span> <span class="bool-val">false</span>
     }
   }
 
@@ -731,8 +730,8 @@
   <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unwrap</span>(<span class="self">self</span>) <span class="op">-&gt;</span> (<span class="ident">I</span>, <span class="ident">O</span>) {
     <span class="kw">match</span> <span class="self">self</span> {
       <span class="ident">Done</span>(<span class="ident">i</span>, <span class="ident">o</span>)    <span class="op">=&gt;</span> (<span class="ident">i</span>, <span class="ident">o</span>),
-      <span class="ident">Incomplete</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unwrap() called on an IResult that is Incomplete&quot;</span>),
-      <span class="ident">Error</span>(<span class="kw">_</span>)      <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unwrap() called on an IResult that is Error&quot;</span>)
+      <span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unwrap() called on an IResult that is Incomplete&quot;</span>),
+      <span class="ident">Error</span>(_)      <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unwrap() called on an IResult that is Error&quot;</span>)
     }
   }
 
@@ -741,8 +740,8 @@
   <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unwrap_or</span>(<span class="self">self</span>, <span class="ident">default</span>: (<span class="ident">I</span>, <span class="ident">O</span>)) <span class="op">-&gt;</span> (<span class="ident">I</span>, <span class="ident">O</span>) {
     <span class="kw">match</span> <span class="self">self</span> {
       <span class="ident">Done</span>(<span class="ident">i</span>, <span class="ident">o</span>)    <span class="op">=&gt;</span> (<span class="ident">i</span>, <span class="ident">o</span>),
-      <span class="ident">Incomplete</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">default</span>,
-      <span class="ident">Error</span>(<span class="kw">_</span>)      <span class="op">=&gt;</span> <span class="ident">default</span>
+      <span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span> <span class="ident">default</span>,
+      <span class="ident">Error</span>(_)      <span class="op">=&gt;</span> <span class="ident">default</span>
     }
   }
 
@@ -751,8 +750,8 @@
   <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">unwrap_inc</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Needed</span> {
     <span class="kw">match</span> <span class="self">self</span> {
       <span class="ident">Incomplete</span>(<span class="ident">n</span>) <span class="op">=&gt;</span> <span class="ident">n</span>,
-      <span class="ident">Done</span>(<span class="kw">_</span>, <span class="kw">_</span>)    <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unwrap_inc() called on an IResult that is Done&quot;</span>),
-      <span class="ident">Error</span>(<span class="kw">_</span>)      <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unwrap_inc() called on an IResult that is Error&quot;</span>)
+      <span class="ident">Done</span>(_, _)    <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unwrap_inc() called on an IResult that is Done&quot;</span>),
+      <span class="ident">Error</span>(_)      <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unwrap_inc() called on an IResult that is Error&quot;</span>)
     }
   }
 }
@@ -768,8 +767,8 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>,<span class="ident">I</span>,<span class="ident">O</span>,<span class="ident">E</span><span class="op">&gt;</span> <span class="ident">GetInput</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span>[<span class="ident">I</span>]<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span>[<span class="ident">I</span>],<span class="ident">O</span>,<span class="ident">E</span><span class="op">&gt;</span> {
   <span class="kw">fn</span> <span class="ident">remaining_input</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span>[<span class="ident">I</span>]<span class="op">&gt;</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
-      <span class="ident">Done</span>(<span class="kw-2">ref</span> <span class="ident">i</span>,<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">*</span><span class="ident">i</span>),
-      <span class="kw">_</span>             <span class="op">=&gt;</span> <span class="prelude-val">None</span>
+      <span class="ident">Done</span>(<span class="kw-2">ref</span> <span class="ident">i</span>,_) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">*</span><span class="ident">i</span>),
+      _             <span class="op">=&gt;</span> <span class="prelude-val">None</span>
     }
   }
 }
@@ -777,8 +776,8 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">O</span>,<span class="ident">E</span><span class="op">&gt;</span> <span class="ident">GetInput</span><span class="op">&lt;</span>()<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">IResult</span><span class="op">&lt;</span>(),<span class="ident">O</span>,<span class="ident">E</span><span class="op">&gt;</span> {
   <span class="kw">fn</span> <span class="ident">remaining_input</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
-      <span class="ident">Done</span>((),<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(()),
-      <span class="kw">_</span>          <span class="op">=&gt;</span> <span class="prelude-val">None</span>
+      <span class="ident">Done</span>((),_) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(()),
+      _          <span class="op">=&gt;</span> <span class="prelude-val">None</span>
     }
   }
 }
@@ -786,8 +785,8 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>,<span class="ident">O</span>,<span class="ident">E</span><span class="op">&gt;</span> <span class="ident">GetInput</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,<span class="ident">O</span>,<span class="ident">E</span><span class="op">&gt;</span> {
   <span class="kw">fn</span> <span class="ident">remaining_input</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span><span class="op">&gt;</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
-      <span class="ident">Done</span>(<span class="kw-2">ref</span> <span class="ident">i</span>,<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">*</span><span class="ident">i</span>),
-      <span class="kw">_</span>          <span class="op">=&gt;</span> <span class="prelude-val">None</span>
+      <span class="ident">Done</span>(<span class="kw-2">ref</span> <span class="ident">i</span>,_) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">*</span><span class="ident">i</span>),
+      _          <span class="op">=&gt;</span> <span class="prelude-val">None</span>
     }
   }
 }
@@ -795,8 +794,8 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>,<span class="ident">I</span>,<span class="ident">O</span>,<span class="ident">E</span><span class="op">&gt;</span> <span class="ident">GetOutput</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span>[<span class="ident">O</span>]<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="ident">I</span>,<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span>[<span class="ident">O</span>],<span class="ident">E</span><span class="op">&gt;</span> {
   <span class="kw">fn</span> <span class="ident">output</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span>[<span class="ident">O</span>]<span class="op">&gt;</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
-      <span class="ident">Done</span>(<span class="kw">_</span>, <span class="kw-2">ref</span> <span class="ident">o</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">*</span><span class="ident">o</span>),
-      <span class="kw">_</span>              <span class="op">=&gt;</span> <span class="prelude-val">None</span>
+      <span class="ident">Done</span>(_, <span class="kw-2">ref</span> <span class="ident">o</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">*</span><span class="ident">o</span>),
+      _              <span class="op">=&gt;</span> <span class="prelude-val">None</span>
     }
   }
 }
@@ -804,8 +803,8 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">I</span>,<span class="ident">E</span><span class="op">&gt;</span> <span class="ident">GetOutput</span><span class="op">&lt;</span>()<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="ident">I</span>,(),<span class="ident">E</span><span class="op">&gt;</span> {
   <span class="kw">fn</span> <span class="ident">output</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
-      <span class="ident">Done</span>(<span class="kw">_</span>,()) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(()),
-      <span class="kw">_</span>          <span class="op">=&gt;</span> <span class="prelude-val">None</span>
+      <span class="ident">Done</span>(_,()) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(()),
+      _          <span class="op">=&gt;</span> <span class="prelude-val">None</span>
     }
   }
 }
@@ -813,8 +812,8 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>,<span class="ident">I</span>,<span class="ident">E</span><span class="op">&gt;</span> <span class="ident">GetOutput</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="ident">I</span>,<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>,<span class="ident">E</span><span class="op">&gt;</span> {
   <span class="kw">fn</span> <span class="ident">output</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span><span class="op">&gt;</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
-      <span class="ident">Done</span>(<span class="kw">_</span>,<span class="kw-2">ref</span> <span class="ident">o</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">*</span><span class="ident">o</span>),
-      <span class="kw">_</span>          <span class="op">=&gt;</span> <span class="prelude-val">None</span>
+      <span class="ident">Done</span>(_,<span class="kw-2">ref</span> <span class="ident">o</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="kw-2">*</span><span class="ident">o</span>),
+      _          <span class="op">=&gt;</span> <span class="prelude-val">None</span>
     }
   }
 }
@@ -996,7 +995,7 @@
 
     <span class="kw">let</span> <span class="ident">error_kind</span> <span class="op">=</span> <span class="macro">error_code</span><span class="macro">!</span>(<span class="ident">ErrorKind</span>::<span class="ident">Custom</span>(<span class="ident">Error</span>(<span class="number">5</span>)));
 
-    <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">DONE</span>.<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">error_kind</span>.<span class="ident">clone</span>()), <span class="ident">IResult</span>::<span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="number">5</span>));
+    <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">DONE</span>.<span class="ident">map_err</span>(<span class="op">|</span>_<span class="op">|</span> <span class="ident">error_kind</span>.<span class="ident">clone</span>()), <span class="ident">IResult</span>::<span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="number">5</span>));
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">ERROR</span>.<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> {<span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;err: {:?}&quot;</span>, <span class="ident">x</span>); <span class="ident">error_kind</span>.<span class="ident">clone</span>()}), <span class="ident">IResult</span>::<span class="ident">Error</span>(<span class="ident">error_kind</span>.<span class="ident">clone</span>()));
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">INCOMPLETE</span>.<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> {<span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;err: {:?}&quot;</span>, <span class="ident">x</span>); <span class="ident">error_kind</span>.<span class="ident">clone</span>()}), <span class="ident">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">Needed</span>::<span class="ident">Unknown</span>));
   }

@@ -10,8 +10,7 @@
     <title>nom::escaped_transform - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../dark.css">
     <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
@@ -34,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <div class="sidebar-elems"><p class='location'><a href='index.html'>nom</a></p><script>window.sidebarCurrent = {name: 'escaped_transform', ty: 'macro', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'><a href='index.html'>nom</a></p><script>window.sidebarCurrent = {name: 'escaped_transform', ty: 'macro', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <div class="theme-picker">
@@ -85,9 +84,9 @@ because of a type inference error</p>
    <span class="macro">map</span><span class="macro">!</span>(
      <span class="macro">escaped_transform</span><span class="macro">!</span>(<span class="macro">call</span><span class="macro">!</span>(<span class="ident">alpha</span>), <span class="string">&#39;\\&#39;</span>,
        <span class="macro">alt</span><span class="macro">!</span>(
-           <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;\\&quot;</span>)       <span class="op">=&gt;</span> { <span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw-2">&amp;</span><span class="string">b&quot;\\&quot;</span>[..] }
-         <span class="op">|</span> <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;\&quot;&quot;</span>)       <span class="op">=&gt;</span> { <span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw-2">&amp;</span><span class="string">b&quot;\&quot;&quot;</span>[..] }
-         <span class="op">|</span> <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;n&quot;</span>)        <span class="op">=&gt;</span> { <span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="kw-2">&amp;</span><span class="string">b&quot;\n&quot;</span>[..] }
+           <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;\\&quot;</span>)       <span class="op">=&gt;</span> { <span class="op">|</span>_<span class="op">|</span> <span class="kw-2">&amp;</span><span class="string">b&quot;\\&quot;</span>[..] }
+         <span class="op">|</span> <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;\&quot;&quot;</span>)       <span class="op">=&gt;</span> { <span class="op">|</span>_<span class="op">|</span> <span class="kw-2">&amp;</span><span class="string">b&quot;\&quot;&quot;</span>[..] }
+         <span class="op">|</span> <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;n&quot;</span>)        <span class="op">=&gt;</span> { <span class="op">|</span>_<span class="op">|</span> <span class="kw-2">&amp;</span><span class="string">b&quot;\n&quot;</span>[..] }
        )
      ), <span class="ident">to_s</span>
    )

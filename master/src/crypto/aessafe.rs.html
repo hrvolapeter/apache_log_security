@@ -4,14 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/rust-crypto-0.2.36/src/aessafe.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/rust-crypto-0.2.36/src/aessafe.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>aessafe.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
     <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
@@ -1651,7 +1650,7 @@ finite field which allows for efficient computation of the AES S-Boxes. See [7] 
         <span class="number">16</span> <span class="op">=&gt;</span> (<span class="number">4</span>, <span class="number">10</span>),
         <span class="number">24</span> <span class="op">=&gt;</span> (<span class="number">6</span>, <span class="number">12</span>),
         <span class="number">32</span> <span class="op">=&gt;</span> (<span class="number">8</span>, <span class="number">14</span>),
-        <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Invalid AES key size.&quot;</span>)
+        _ <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Invalid AES key size.&quot;</span>)
     };
 
     <span class="comment">// The key is copied directly into the first few round keys</span>
@@ -2047,7 +2046,7 @@ finite field which allows for efficient computation of the AES S-Boxes. See [7] 
 
 <span class="comment">// Un Bit Slice into a single u32. This is used when creating the round keys.</span>
 <span class="kw">fn</span> <span class="ident">un_bit_slice_4x1_with_u16</span>(<span class="ident">bs</span>: <span class="kw-2">&amp;</span><span class="ident">Bs8State</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">u32</span> {
-    <span class="kw">let</span> (<span class="ident">a</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">un_bit_slice_4x4_with_u16</span>(<span class="ident">bs</span>);
+    <span class="kw">let</span> (<span class="ident">a</span>, _, _, _) <span class="op">=</span> <span class="ident">un_bit_slice_4x4_with_u16</span>(<span class="ident">bs</span>);
     <span class="ident">a</span>
 }
 
