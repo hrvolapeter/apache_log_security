@@ -10,7 +10,8 @@
     <title>scopeguard - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../dark.css">
     <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
@@ -109,10 +110,10 @@ synced at scope exit.</p>
     <span class="kw">let</span> <span class="ident">f</span> <span class="op">=</span> <span class="ident">File</span>::<span class="ident">create</span>(<span class="string">&quot;newfile.txt&quot;</span>)<span class="question-mark">?</span>;
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">file</span> <span class="op">=</span> <span class="ident">scopeguard</span>::<span class="ident">guard</span>(<span class="ident">f</span>, <span class="op">|</span><span class="ident">f</span><span class="op">|</span> {
         <span class="comment">// ensure we flush file at return or panic</span>
-        <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">f</span>.<span class="ident">sync_all</span>();
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">f</span>.<span class="ident">sync_all</span>();
     });
     <span class="comment">// Access the file through the scope guard itself</span>
-    <span class="ident">file</span>.<span class="ident">write</span>(<span class="string">b&quot;test me\n&quot;</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+    <span class="ident">file</span>.<span class="ident">write</span>(<span class="string">b&quot;test me\n&quot;</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
 }
 
 <span class="kw">fn</span> <span class="ident">main</span>() {

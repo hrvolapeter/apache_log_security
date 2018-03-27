@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_derive-1.0.27/src/de.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/serde_derive-1.0.27/src/de.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>de.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
     <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
@@ -2559,7 +2560,7 @@
 
     <span class="kw">let</span> <span class="ident">ident</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">cont</span>.<span class="ident">ident</span>;
     <span class="kw">let</span> <span class="ident">params</span> <span class="op">=</span> <span class="ident">Parameters</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">cont</span>);
-    <span class="kw">let</span> (<span class="ident">de_impl_generics</span>, _, <span class="ident">ty_generics</span>, <span class="ident">where_clause</span>) <span class="op">=</span> <span class="ident">split_with_de_lifetime</span>(<span class="kw-2">&amp;</span><span class="ident">params</span>);
+    <span class="kw">let</span> (<span class="ident">de_impl_generics</span>, <span class="kw">_</span>, <span class="ident">ty_generics</span>, <span class="ident">where_clause</span>) <span class="op">=</span> <span class="ident">split_with_de_lifetime</span>(<span class="kw-2">&amp;</span><span class="ident">params</span>);
     <span class="kw">let</span> <span class="ident">dummy_const</span> <span class="op">=</span> <span class="ident">Ident</span>::<span class="ident">new</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;_IMPL_DESERIALIZE_FOR_{}&quot;</span>, <span class="ident">ident</span>));
     <span class="kw">let</span> <span class="ident">body</span> <span class="op">=</span> <span class="ident">Stmts</span>(<span class="ident">deserialize_body</span>(<span class="kw-2">&amp;</span><span class="ident">cont</span>, <span class="kw-2">&amp;</span><span class="ident">params</span>));
     <span class="kw">let</span> <span class="ident">delife</span> <span class="op">=</span> <span class="ident">params</span>.<span class="ident">borrowed</span>.<span class="ident">de_lifetime</span>();
@@ -2665,7 +2666,7 @@
                 <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="ident">Default</span> <span class="op">=&gt;</span> {
                     <span class="ident">bound</span>::<span class="ident">with_self_bound</span>(<span class="ident">cont</span>, <span class="kw-2">&amp;</span><span class="ident">generics</span>, <span class="kw-2">&amp;</span><span class="macro">path</span><span class="macro">!</span>(<span class="ident">_serde</span>::<span class="ident">export</span>::<span class="ident">Default</span>))
                 }
-                <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="prelude-val">None</span> <span class="op">|</span> <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="ident">Path</span>(_) <span class="op">=&gt;</span> <span class="ident">generics</span>,
+                <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="prelude-val">None</span> <span class="op">|</span> <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="ident">Path</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">generics</span>,
             };
 
             <span class="kw">let</span> <span class="ident">delife</span> <span class="op">=</span> <span class="ident">borrowed</span>.<span class="ident">de_lifetime</span>();
@@ -2709,7 +2710,7 @@
 <span class="kw">impl</span> <span class="ident">BorrowedLifetimes</span> {
     <span class="kw">fn</span> <span class="ident">de_lifetime</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">syn</span>::<span class="ident">Lifetime</span> {
         <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
-            <span class="ident">BorrowedLifetimes</span>::<span class="ident">Borrowed</span>(_) <span class="op">=&gt;</span> <span class="ident">syn</span>::<span class="ident">Lifetime</span>::<span class="ident">new</span>(<span class="string">&quot;&#39;de&quot;</span>),
+            <span class="ident">BorrowedLifetimes</span>::<span class="ident">Borrowed</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">syn</span>::<span class="ident">Lifetime</span>::<span class="ident">new</span>(<span class="string">&quot;&#39;de&quot;</span>),
             <span class="ident">BorrowedLifetimes</span>::<span class="ident">Static</span> <span class="op">=&gt;</span> <span class="ident">syn</span>::<span class="ident">Lifetime</span>::<span class="ident">new</span>(<span class="string">&quot;&#39;static&quot;</span>),
         }
     }
@@ -2767,14 +2768,14 @@
                 }
                 <span class="ident">deserialize_tuple</span>(<span class="prelude-val">None</span>, <span class="ident">params</span>, <span class="ident">fields</span>, <span class="kw-2">&amp;</span><span class="ident">cont</span>.<span class="ident">attrs</span>, <span class="prelude-val">None</span>)
             }
-            <span class="ident">Body</span>::<span class="ident">Struct</span>(<span class="ident">Style</span>::<span class="ident">Unit</span>, _) <span class="op">=&gt;</span> <span class="ident">deserialize_unit_struct</span>(<span class="ident">params</span>, <span class="kw-2">&amp;</span><span class="ident">cont</span>.<span class="ident">attrs</span>),
+            <span class="ident">Body</span>::<span class="ident">Struct</span>(<span class="ident">Style</span>::<span class="ident">Unit</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">deserialize_unit_struct</span>(<span class="ident">params</span>, <span class="kw-2">&amp;</span><span class="ident">cont</span>.<span class="ident">attrs</span>),
         }
     } <span class="kw">else</span> {
         <span class="kw">match</span> <span class="ident">cont</span>.<span class="ident">body</span> {
             <span class="ident">Body</span>::<span class="ident">Enum</span>(<span class="kw-2">ref</span> <span class="ident">variants</span>) <span class="op">=&gt;</span> {
                 <span class="ident">deserialize_custom_identifier</span>(<span class="ident">params</span>, <span class="ident">variants</span>, <span class="kw-2">&amp;</span><span class="ident">cont</span>.<span class="ident">attrs</span>)
             }
-            <span class="ident">Body</span>::<span class="ident">Struct</span>(_, _) <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;checked in serde_derive_internals&quot;</span>),
+            <span class="ident">Body</span>::<span class="ident">Struct</span>(<span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;checked in serde_derive_internals&quot;</span>),
         }
     }
 }
@@ -2800,7 +2801,7 @@
         <span class="ident">Body</span>::<span class="ident">Struct</span>(<span class="ident">Style</span>::<span class="ident">Tuple</span>, <span class="kw-2">ref</span> <span class="ident">fields</span>) <span class="op">|</span> <span class="ident">Body</span>::<span class="ident">Struct</span>(<span class="ident">Style</span>::<span class="ident">Newtype</span>, <span class="kw-2">ref</span> <span class="ident">fields</span>) <span class="op">=&gt;</span> {
             <span class="ident">deserialize_tuple_in_place</span>(<span class="prelude-val">None</span>, <span class="ident">params</span>, <span class="ident">fields</span>, <span class="kw-2">&amp;</span><span class="ident">cont</span>.<span class="ident">attrs</span>, <span class="prelude-val">None</span>)
         }
-        <span class="ident">Body</span>::<span class="ident">Enum</span>(_) <span class="op">|</span> <span class="ident">Body</span>::<span class="ident">Struct</span>(<span class="ident">Style</span>::<span class="ident">Unit</span>, _) <span class="op">=&gt;</span> {
+        <span class="ident">Body</span>::<span class="ident">Enum</span>(<span class="kw">_</span>) <span class="op">|</span> <span class="ident">Body</span>::<span class="ident">Struct</span>(<span class="ident">Style</span>::<span class="ident">Unit</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> {
             <span class="kw">return</span> <span class="prelude-val">None</span>;
         }
     };
@@ -2922,7 +2923,7 @@
 
     <span class="kw">let</span> <span class="ident">all_skipped</span> <span class="op">=</span> <span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">all</span>(<span class="op">|</span><span class="ident">field</span><span class="op">|</span> <span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>());
     <span class="kw">let</span> <span class="ident">visitor_var</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">all_skipped</span> {
-        <span class="macro">quote</span><span class="macro">!</span>(_)
+        <span class="macro">quote</span><span class="macro">!</span>(<span class="kw">_</span>)
     } <span class="kw">else</span> {
         <span class="macro">quote</span><span class="macro">!</span>(<span class="kw-2">mut</span> <span class="ident">__seq</span>)
     };
@@ -3004,7 +3005,7 @@
 
     <span class="kw">let</span> <span class="ident">all_skipped</span> <span class="op">=</span> <span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">all</span>(<span class="op">|</span><span class="ident">field</span><span class="op">|</span> <span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>());
     <span class="kw">let</span> <span class="ident">visitor_var</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">all_skipped</span> {
-        <span class="macro">quote</span><span class="macro">!</span>(_)
+        <span class="macro">quote</span><span class="macro">!</span>(<span class="kw">_</span>)
     } <span class="kw">else</span> {
         <span class="macro">quote</span><span class="macro">!</span>(<span class="kw-2">mut</span> <span class="ident">__seq</span>)
     };
@@ -3047,7 +3048,7 @@
     <span class="ident">is_struct</span>: <span class="ident">bool</span>,
     <span class="ident">cattrs</span>: <span class="kw-2">&amp;</span><span class="ident">attr</span>::<span class="ident">Container</span>,
 ) <span class="op">-&gt;</span> <span class="ident">Fragment</span> {
-    <span class="kw">let</span> <span class="ident">vars</span> <span class="op">=</span> (<span class="number">0</span>..<span class="ident">fields</span>.<span class="ident">len</span>()).<span class="ident">map</span>(<span class="ident">field_i</span> <span class="kw">as</span> <span class="kw">fn</span>(_) <span class="op">-&gt;</span> _);
+    <span class="kw">let</span> <span class="ident">vars</span> <span class="op">=</span> (<span class="number">0</span>..<span class="ident">fields</span>.<span class="ident">len</span>()).<span class="ident">map</span>(<span class="ident">field_i</span> <span class="kw">as</span> <span class="kw">fn</span>(<span class="kw">_</span>) <span class="op">-&gt;</span> <span class="kw">_</span>);
 
     <span class="kw">let</span> <span class="ident">deserialized_count</span> <span class="op">=</span> <span class="ident">fields</span>
         .<span class="ident">iter</span>()
@@ -3136,7 +3137,7 @@
     <span class="ident">fields</span>: <span class="kw-2">&amp;</span>[<span class="ident">Field</span>],
     <span class="ident">cattrs</span>: <span class="kw-2">&amp;</span><span class="ident">attr</span>::<span class="ident">Container</span>,
 ) <span class="op">-&gt;</span> <span class="ident">Fragment</span> {
-    <span class="kw">let</span> <span class="ident">vars</span> <span class="op">=</span> (<span class="number">0</span>..<span class="ident">fields</span>.<span class="ident">len</span>()).<span class="ident">map</span>(<span class="ident">field_i</span> <span class="kw">as</span> <span class="kw">fn</span>(_) <span class="op">-&gt;</span> _);
+    <span class="kw">let</span> <span class="ident">vars</span> <span class="op">=</span> (<span class="number">0</span>..<span class="ident">fields</span>.<span class="ident">len</span>()).<span class="ident">map</span>(<span class="ident">field_i</span> <span class="kw">as</span> <span class="kw">fn</span>(<span class="kw">_</span>) <span class="op">-&gt;</span> <span class="kw">_</span>);
 
     <span class="kw">let</span> <span class="ident">deserialized_count</span> <span class="op">=</span> <span class="ident">fields</span>
         .<span class="ident">iter</span>()
@@ -3148,7 +3149,7 @@
     <span class="kw">let</span> <span class="ident">write_values</span> <span class="op">=</span> <span class="ident">vars</span>.<span class="ident">clone</span>()
         .<span class="ident">zip</span>(<span class="ident">fields</span>)
         .<span class="ident">enumerate</span>()
-        .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">field_index</span>, (_, <span class="ident">field</span>))<span class="op">|</span> {
+        .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">field_index</span>, (<span class="kw">_</span>, <span class="ident">field</span>))<span class="op">|</span> {
             <span class="comment">// If there&#39;s no field name, assume we&#39;re a tuple-struct and use a numeric index</span>
             <span class="kw">let</span> <span class="ident">field_name</span> <span class="op">=</span> <span class="ident">field</span>
                 .<span class="ident">ident</span>
@@ -3196,7 +3197,7 @@
         });
 
     <span class="kw">let</span> <span class="ident">this</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">params</span>.<span class="ident">this</span>;
-    <span class="kw">let</span> (_, <span class="ident">ty_generics</span>, _) <span class="op">=</span> <span class="ident">params</span>.<span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
+    <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">ty_generics</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">params</span>.<span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
     <span class="kw">let</span> <span class="ident">let_default</span> <span class="op">=</span> <span class="kw">match</span> <span class="kw-2">*</span><span class="ident">cattrs</span>.<span class="ident">default</span>() {
         <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="ident">Default</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="macro">quote</span><span class="macro">!</span>(
             <span class="kw">let</span> <span class="ident">__default</span>: #<span class="ident">this</span> #<span class="ident">ty_generics</span>  <span class="op">=</span> <span class="ident">_serde</span>::<span class="ident">export</span>::<span class="ident">Default</span>::<span class="ident">default</span>();
@@ -3342,7 +3343,7 @@
 
     <span class="kw">let</span> <span class="ident">all_skipped</span> <span class="op">=</span> <span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">all</span>(<span class="op">|</span><span class="ident">field</span><span class="op">|</span> <span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>());
     <span class="kw">let</span> <span class="ident">visitor_var</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">all_skipped</span> {
-        <span class="macro">quote</span><span class="macro">!</span>(_)
+        <span class="macro">quote</span><span class="macro">!</span>(<span class="kw">_</span>)
     } <span class="kw">else</span> {
         <span class="macro">quote</span><span class="macro">!</span>(<span class="kw-2">mut</span> <span class="ident">__seq</span>)
     };
@@ -3443,7 +3444,7 @@
 
     <span class="kw">let</span> <span class="ident">all_skipped</span> <span class="op">=</span> <span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">all</span>(<span class="op">|</span><span class="ident">field</span><span class="op">|</span> <span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>());
     <span class="kw">let</span> <span class="ident">visitor_var</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">all_skipped</span> {
-        <span class="macro">quote</span><span class="macro">!</span>(_)
+        <span class="macro">quote</span><span class="macro">!</span>(<span class="kw">_</span>)
     } <span class="kw">else</span> {
         <span class="macro">quote</span><span class="macro">!</span>(<span class="kw-2">mut</span> <span class="ident">__seq</span>)
     };
@@ -3528,15 +3529,15 @@
 
     <span class="kw">let</span> <span class="ident">expecting</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;enum {}&quot;</span>, <span class="ident">params</span>.<span class="ident">type_name</span>());
 
-    <span class="kw">let</span> <span class="ident">variant_names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">variants</span>
+    <span class="kw">let</span> <span class="ident">variant_names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">variants</span>
         .<span class="ident">iter</span>()
         .<span class="ident">enumerate</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">variant</span>)<span class="op">|</span> (<span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">name</span>().<span class="ident">deserialize_name</span>(), <span class="ident">field_i</span>(<span class="ident">i</span>)))
         .<span class="ident">collect</span>();
 
     <span class="kw">let</span> <span class="ident">variants_stmt</span> <span class="op">=</span> {
-        <span class="kw">let</span> <span class="ident">variant_names</span> <span class="op">=</span> <span class="ident">variant_names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, _)<span class="op">|</span> <span class="ident">name</span>);
+        <span class="kw">let</span> <span class="ident">variant_names</span> <span class="op">=</span> <span class="ident">variant_names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="ident">name</span>);
         <span class="macro">quote</span><span class="macro">!</span> {
             <span class="kw">const</span> <span class="ident">VARIANTS</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[ #(#<span class="ident">variant_names</span>),<span class="op">*</span> ];
         }
@@ -3552,7 +3553,7 @@
     <span class="kw">let</span> <span class="ident">variant_arms</span> <span class="op">=</span> <span class="ident">variants</span>
         .<span class="ident">iter</span>()
         .<span class="ident">enumerate</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">variant</span>)<span class="op">|</span> {
             <span class="kw">let</span> <span class="ident">variant_name</span> <span class="op">=</span> <span class="ident">field_i</span>(<span class="ident">i</span>);
 
@@ -3579,7 +3580,7 @@
             <span class="comment">// _serde::export::Err(__err)</span>
             <span class="ident">_serde</span>::<span class="ident">export</span>::<span class="prelude-ty">Result</span>::<span class="ident">map</span>(
                 <span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">EnumAccess</span>::<span class="ident">variant</span>::<span class="op">&lt;</span><span class="ident">__Field</span><span class="op">&gt;</span>(<span class="ident">__data</span>),
-                <span class="op">|</span>(<span class="ident">__impossible</span>, _)<span class="op">|</span> <span class="kw">match</span> <span class="ident">__impossible</span> {})
+                <span class="op">|</span>(<span class="ident">__impossible</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="kw">match</span> <span class="ident">__impossible</span> {})
         }
     } <span class="kw">else</span> {
         <span class="macro">quote</span><span class="macro">!</span> {
@@ -3627,15 +3628,15 @@
     <span class="ident">cattrs</span>: <span class="kw-2">&amp;</span><span class="ident">attr</span>::<span class="ident">Container</span>,
     <span class="ident">tag</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
 ) <span class="op">-&gt;</span> <span class="ident">Fragment</span> {
-    <span class="kw">let</span> <span class="ident">variant_names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">variants</span>
+    <span class="kw">let</span> <span class="ident">variant_names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">variants</span>
         .<span class="ident">iter</span>()
         .<span class="ident">enumerate</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">variant</span>)<span class="op">|</span> (<span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">name</span>().<span class="ident">deserialize_name</span>(), <span class="ident">field_i</span>(<span class="ident">i</span>)))
         .<span class="ident">collect</span>();
 
     <span class="kw">let</span> <span class="ident">variants_stmt</span> <span class="op">=</span> {
-        <span class="kw">let</span> <span class="ident">variant_names</span> <span class="op">=</span> <span class="ident">variant_names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, _)<span class="op">|</span> <span class="ident">name</span>);
+        <span class="kw">let</span> <span class="ident">variant_names</span> <span class="op">=</span> <span class="ident">variant_names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="ident">name</span>);
         <span class="macro">quote</span><span class="macro">!</span> {
             <span class="kw">const</span> <span class="ident">VARIANTS</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[ #(#<span class="ident">variant_names</span>),<span class="op">*</span> ];
         }
@@ -3651,7 +3652,7 @@
     <span class="kw">let</span> <span class="ident">variant_arms</span> <span class="op">=</span> <span class="ident">variants</span>
         .<span class="ident">iter</span>()
         .<span class="ident">enumerate</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">variant</span>)<span class="op">|</span> {
             <span class="kw">let</span> <span class="ident">variant_name</span> <span class="op">=</span> <span class="ident">field_i</span>(<span class="ident">i</span>);
 
@@ -3696,15 +3697,15 @@
         <span class="ident">split_with_de_lifetime</span>(<span class="ident">params</span>);
     <span class="kw">let</span> <span class="ident">delife</span> <span class="op">=</span> <span class="ident">params</span>.<span class="ident">borrowed</span>.<span class="ident">de_lifetime</span>();
 
-    <span class="kw">let</span> <span class="ident">variant_names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">variants</span>
+    <span class="kw">let</span> <span class="ident">variant_names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">variants</span>
         .<span class="ident">iter</span>()
         .<span class="ident">enumerate</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">variant</span>)<span class="op">|</span> (<span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">name</span>().<span class="ident">deserialize_name</span>(), <span class="ident">field_i</span>(<span class="ident">i</span>)))
         .<span class="ident">collect</span>();
 
     <span class="kw">let</span> <span class="ident">variants_stmt</span> <span class="op">=</span> {
-        <span class="kw">let</span> <span class="ident">variant_names</span> <span class="op">=</span> <span class="ident">variant_names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, _)<span class="op">|</span> <span class="ident">name</span>);
+        <span class="kw">let</span> <span class="ident">variant_names</span> <span class="op">=</span> <span class="ident">variant_names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="ident">name</span>);
         <span class="macro">quote</span><span class="macro">!</span> {
             <span class="kw">const</span> <span class="ident">VARIANTS</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[ #(#<span class="ident">variant_names</span>),<span class="op">*</span> ];
         }
@@ -3716,10 +3717,10 @@
         <span class="bool-val">true</span>,
     ));
 
-    <span class="kw">let</span> <span class="kw-2">ref</span> <span class="ident">variant_arms</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">variants</span>
+    <span class="kw">let</span> <span class="kw-2">ref</span> <span class="ident">variant_arms</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">variants</span>
         .<span class="ident">iter</span>()
         .<span class="ident">enumerate</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">variant</span>)<span class="op">|</span> {
             <span class="kw">let</span> <span class="ident">variant_index</span> <span class="op">=</span> <span class="ident">field_i</span>(<span class="ident">i</span>);
 
@@ -3770,13 +3771,13 @@
             <span class="prelude-val">None</span>
         } <span class="kw">else</span> {
             <span class="prelude-val">Some</span>(<span class="macro">quote</span><span class="macro">!</span> {
-                _ <span class="op">=&gt;</span> #<span class="ident">missing_content</span>
+                <span class="kw">_</span> <span class="op">=&gt;</span> #<span class="ident">missing_content</span>
             })
         };
         <span class="kw">let</span> <span class="ident">arms</span> <span class="op">=</span> <span class="ident">variants</span>
             .<span class="ident">iter</span>()
             .<span class="ident">enumerate</span>()
-            .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>() <span class="op">&amp;&amp;</span> <span class="ident">is_unit</span>(<span class="ident">variant</span>))
+            .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">variant</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">variant</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>() <span class="op">&amp;&amp;</span> <span class="ident">is_unit</span>(<span class="ident">variant</span>))
             .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">variant</span>)<span class="op">|</span> {
                 <span class="kw">let</span> <span class="ident">variant_index</span> <span class="op">=</span> <span class="ident">field_i</span>(<span class="ident">i</span>);
                 <span class="kw">let</span> <span class="ident">variant_ident</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">variant</span>.<span class="ident">ident</span>;
@@ -4216,7 +4217,7 @@
     <span class="ident">is_variant</span>: <span class="ident">bool</span>,
 ) <span class="op">-&gt;</span> <span class="ident">Fragment</span> {
     <span class="kw">let</span> <span class="ident">this</span> <span class="op">=</span> <span class="macro">quote</span><span class="macro">!</span>(<span class="ident">__Field</span>);
-    <span class="kw">let</span> <span class="ident">field_idents</span>: <span class="kw-2">&amp;</span><span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="kw-2">ref</span> <span class="ident">ident</span>)<span class="op">|</span> <span class="ident">ident</span>).<span class="ident">collect</span>();
+    <span class="kw">let</span> <span class="ident">field_idents</span>: <span class="kw-2">&amp;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="kw-2">ref</span> <span class="ident">ident</span>)<span class="op">|</span> <span class="ident">ident</span>).<span class="ident">collect</span>();
 
     <span class="kw">let</span> (<span class="ident">ignore_variant</span>, <span class="ident">fallthrough</span>) <span class="op">=</span> <span class="kw">if</span> <span class="ident">is_variant</span> <span class="op">||</span> <span class="ident">cattrs</span>.<span class="ident">deny_unknown_fields</span>() {
         (<span class="prelude-val">None</span>, <span class="prelude-val">None</span>)
@@ -4295,7 +4296,7 @@
         (<span class="ident">variants</span>, <span class="prelude-val">None</span>)
     };
 
-    <span class="kw">let</span> <span class="ident">names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ordinary</span>
+    <span class="kw">let</span> <span class="ident">names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ordinary</span>
         .<span class="ident">iter</span>()
         .<span class="ident">map</span>(<span class="op">|</span><span class="ident">variant</span><span class="op">|</span> {
             (
@@ -4305,7 +4306,7 @@
         })
         .<span class="ident">collect</span>();
 
-    <span class="kw">let</span> <span class="ident">names</span> <span class="op">=</span> <span class="ident">names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, _)<span class="op">|</span> <span class="ident">name</span>);
+    <span class="kw">let</span> <span class="ident">names</span> <span class="op">=</span> <span class="ident">names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="ident">name</span>);
 
     <span class="kw">let</span> <span class="ident">names_const</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">fallthrough</span>.<span class="ident">is_some</span>() {
         <span class="prelude-val">None</span>
@@ -4359,12 +4360,12 @@
     <span class="ident">is_variant</span>: <span class="ident">bool</span>,
     <span class="ident">fallthrough</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Tokens</span><span class="op">&gt;</span>,
 ) <span class="op">-&gt;</span> <span class="ident">Fragment</span> {
-    <span class="kw">let</span> <span class="ident">field_strs</span> <span class="op">=</span> <span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, _)<span class="op">|</span> <span class="ident">name</span>);
-    <span class="kw">let</span> <span class="ident">field_bytes</span> <span class="op">=</span> <span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, _)<span class="op">|</span> <span class="ident">quote</span>::<span class="ident">ByteStr</span>(<span class="ident">name</span>));
+    <span class="kw">let</span> <span class="ident">field_strs</span> <span class="op">=</span> <span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="ident">name</span>);
+    <span class="kw">let</span> <span class="ident">field_bytes</span> <span class="op">=</span> <span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="ident">quote</span>::<span class="ident">ByteStr</span>(<span class="ident">name</span>));
 
-    <span class="kw">let</span> <span class="ident">constructors</span>: <span class="kw-2">&amp;</span><span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">fields</span>
+    <span class="kw">let</span> <span class="ident">constructors</span>: <span class="kw-2">&amp;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">fields</span>
         .<span class="ident">iter</span>()
-        .<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="kw-2">ref</span> <span class="ident">ident</span>)<span class="op">|</span> <span class="macro">quote</span><span class="macro">!</span>(#<span class="ident">this</span>::#<span class="ident">ident</span>))
+        .<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="kw-2">ref</span> <span class="ident">ident</span>)<span class="op">|</span> <span class="macro">quote</span><span class="macro">!</span>(#<span class="ident">this</span>::#<span class="ident">ident</span>))
         .<span class="ident">collect</span>();
 
     <span class="kw">let</span> <span class="ident">expecting</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">is_variant</span> {
@@ -4385,7 +4386,7 @@
                 #(
                     #<span class="ident">variant_indices</span> <span class="op">=&gt;</span> <span class="ident">_serde</span>::<span class="ident">export</span>::<span class="prelude-val">Ok</span>(#<span class="ident">constructors</span>),
                 )<span class="op">*</span>
-                _ <span class="op">=&gt;</span> <span class="ident">_serde</span>::<span class="ident">export</span>::<span class="prelude-val">Err</span>(<span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">Error</span>::<span class="ident">invalid_value</span>(
+                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">_serde</span>::<span class="ident">export</span>::<span class="prelude-val">Err</span>(<span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">Error</span>::<span class="ident">invalid_value</span>(
                             <span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">Unexpected</span>::<span class="ident">Unsigned</span>(<span class="ident">__value</span>),
                             <span class="kw-2">&amp;</span>#<span class="ident">fallthrough_msg</span>))
             }
@@ -4427,7 +4428,7 @@
                 #(
                     #<span class="ident">field_strs</span> <span class="op">=&gt;</span> <span class="ident">_serde</span>::<span class="ident">export</span>::<span class="prelude-val">Ok</span>(#<span class="ident">constructors</span>),
                 )<span class="op">*</span>
-                _ <span class="op">=&gt;</span> #<span class="ident">fallthrough_arm</span>
+                <span class="kw">_</span> <span class="op">=&gt;</span> #<span class="ident">fallthrough_arm</span>
             }
         }
 
@@ -4438,7 +4439,7 @@
                 #(
                     #<span class="ident">field_bytes</span> <span class="op">=&gt;</span> <span class="ident">_serde</span>::<span class="ident">export</span>::<span class="prelude-val">Ok</span>(#<span class="ident">constructors</span>),
                 )<span class="op">*</span>
-                _ <span class="op">=&gt;</span> {
+                <span class="kw">_</span> <span class="op">=&gt;</span> {
                     #<span class="ident">bytes_to_str</span>
                     #<span class="ident">fallthrough_arm</span>
                 }
@@ -4453,15 +4454,15 @@
     <span class="ident">fields</span>: <span class="kw-2">&amp;</span>[<span class="ident">Field</span>],
     <span class="ident">cattrs</span>: <span class="kw-2">&amp;</span><span class="ident">attr</span>::<span class="ident">Container</span>,
 ) <span class="op">-&gt;</span> (<span class="ident">Fragment</span>, <span class="ident">Fragment</span>, <span class="ident">Fragment</span>) {
-    <span class="kw">let</span> <span class="ident">field_names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">fields</span>
+    <span class="kw">let</span> <span class="ident">field_names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">fields</span>
         .<span class="ident">iter</span>()
         .<span class="ident">enumerate</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">field</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">field</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">field</span>)<span class="op">|</span> (<span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">name</span>().<span class="ident">deserialize_name</span>(), <span class="ident">field_i</span>(<span class="ident">i</span>)))
         .<span class="ident">collect</span>();
 
     <span class="kw">let</span> <span class="ident">fields_stmt</span> <span class="op">=</span> {
-        <span class="kw">let</span> <span class="ident">field_names</span> <span class="op">=</span> <span class="ident">field_names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, _)<span class="op">|</span> <span class="ident">name</span>);
+        <span class="kw">let</span> <span class="ident">field_names</span> <span class="op">=</span> <span class="ident">field_names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="ident">name</span>);
         <span class="macro">quote_block</span><span class="macro">!</span> {
             <span class="kw">const</span> <span class="ident">FIELDS</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[ #(#<span class="ident">field_names</span>),<span class="op">*</span> ];
         }
@@ -4481,7 +4482,7 @@
     <span class="ident">cattrs</span>: <span class="kw-2">&amp;</span><span class="ident">attr</span>::<span class="ident">Container</span>,
 ) <span class="op">-&gt;</span> <span class="ident">Fragment</span> {
     <span class="comment">// Create the field names for the fields.</span>
-    <span class="kw">let</span> <span class="ident">fields_names</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">fields</span>
+    <span class="kw">let</span> <span class="ident">fields_names</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">fields</span>
         .<span class="ident">iter</span>()
         .<span class="ident">enumerate</span>()
         .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">field</span>)<span class="op">|</span> (<span class="ident">field</span>, <span class="ident">field_i</span>(<span class="ident">i</span>)))
@@ -4490,7 +4491,7 @@
     <span class="comment">// Declare each field that will be deserialized.</span>
     <span class="kw">let</span> <span class="ident">let_values</span> <span class="op">=</span> <span class="ident">fields_names</span>
         .<span class="ident">iter</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, _)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="ident">field</span>, <span class="kw-2">ref</span> <span class="ident">name</span>)<span class="op">|</span> {
             <span class="kw">let</span> <span class="ident">field_ty</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">field</span>.<span class="ident">ty</span>;
             <span class="macro">quote</span><span class="macro">!</span> {
@@ -4501,7 +4502,7 @@
     <span class="comment">// Match arms to extract a value for a field.</span>
     <span class="kw">let</span> <span class="ident">value_arms</span> <span class="op">=</span> <span class="ident">fields_names</span>
         .<span class="ident">iter</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, _)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="ident">field</span>, <span class="kw-2">ref</span> <span class="ident">name</span>)<span class="op">|</span> {
             <span class="kw">let</span> <span class="ident">deser_name</span> <span class="op">=</span> <span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">name</span>().<span class="ident">deserialize_name</span>();
 
@@ -4535,7 +4536,7 @@
         <span class="prelude-val">None</span>
     } <span class="kw">else</span> {
         <span class="prelude-val">Some</span>(<span class="macro">quote</span><span class="macro">!</span> {
-            _ <span class="op">=&gt;</span> { <span class="kw">let</span> _ <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">MapAccess</span>::<span class="ident">next_value</span>::<span class="op">&lt;</span><span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">IgnoredAny</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">__map</span>)); }
+            <span class="kw">_</span> <span class="op">=&gt;</span> { <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">MapAccess</span>::<span class="ident">next_value</span>::<span class="op">&lt;</span><span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">IgnoredAny</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">__map</span>)); }
         })
     };
 
@@ -4561,7 +4562,7 @@
 
     <span class="kw">let</span> <span class="ident">extract_values</span> <span class="op">=</span> <span class="ident">fields_names</span>
         .<span class="ident">iter</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, _)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="ident">field</span>, <span class="kw-2">ref</span> <span class="ident">name</span>)<span class="op">|</span> {
             <span class="kw">let</span> <span class="ident">missing_expr</span> <span class="op">=</span> <span class="ident">Match</span>(<span class="ident">expr_is_missing</span>(<span class="kw-2">&amp;</span><span class="ident">field</span>, <span class="ident">cattrs</span>));
 
@@ -4624,15 +4625,15 @@
     <span class="ident">fields</span>: <span class="kw-2">&amp;</span>[<span class="ident">Field</span>],
     <span class="ident">cattrs</span>: <span class="kw-2">&amp;</span><span class="ident">attr</span>::<span class="ident">Container</span>,
 ) <span class="op">-&gt;</span> (<span class="ident">Fragment</span>, <span class="ident">Fragment</span>, <span class="ident">Fragment</span>) {
-    <span class="kw">let</span> <span class="ident">field_names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">fields</span>
+    <span class="kw">let</span> <span class="ident">field_names_idents</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">fields</span>
         .<span class="ident">iter</span>()
         .<span class="ident">enumerate</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="ident">field</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="ident">field</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">field</span>)<span class="op">|</span> (<span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">name</span>().<span class="ident">deserialize_name</span>(), <span class="ident">field_i</span>(<span class="ident">i</span>)))
         .<span class="ident">collect</span>();
 
     <span class="kw">let</span> <span class="ident">fields_stmt</span> <span class="op">=</span> {
-        <span class="kw">let</span> <span class="ident">field_names</span> <span class="op">=</span> <span class="ident">field_names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, _)<span class="op">|</span> <span class="ident">name</span>);
+        <span class="kw">let</span> <span class="ident">field_names</span> <span class="op">=</span> <span class="ident">field_names_idents</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="ident">name</span>);
         <span class="macro">quote_block</span><span class="macro">!</span> {
             <span class="kw">const</span> <span class="ident">FIELDS</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>] <span class="op">=</span> <span class="kw-2">&amp;</span>[ #(#<span class="ident">field_names</span>),<span class="op">*</span> ];
         }
@@ -4652,7 +4653,7 @@
     <span class="ident">cattrs</span>: <span class="kw-2">&amp;</span><span class="ident">attr</span>::<span class="ident">Container</span>,
 ) <span class="op">-&gt;</span> <span class="ident">Fragment</span> {
     <span class="comment">// Create the field names for the fields.</span>
-    <span class="kw">let</span> <span class="ident">fields_names</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">fields</span>
+    <span class="kw">let</span> <span class="ident">fields_names</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">fields</span>
         .<span class="ident">iter</span>()
         .<span class="ident">enumerate</span>()
         .<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">i</span>, <span class="ident">field</span>)<span class="op">|</span> (<span class="ident">field</span>, <span class="ident">field_i</span>(<span class="ident">i</span>)))
@@ -4661,8 +4662,8 @@
     <span class="comment">// For deserialize_in_place, declare booleans for each field that will be deserialized.</span>
     <span class="kw">let</span> <span class="ident">let_flags</span> <span class="op">=</span> <span class="ident">fields_names</span>
         .<span class="ident">iter</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, _)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
-        .<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(_, <span class="kw-2">ref</span> <span class="ident">name</span>)<span class="op">|</span> {
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="kw">_</span>, <span class="kw-2">ref</span> <span class="ident">name</span>)<span class="op">|</span> {
             <span class="macro">quote</span><span class="macro">!</span> {
                 <span class="kw">let</span> <span class="kw-2">mut</span> #<span class="ident">name</span>: <span class="ident">bool</span> <span class="op">=</span> <span class="bool-val">false</span>;
             }
@@ -4671,7 +4672,7 @@
     <span class="comment">// Match arms to extract a value for a field.</span>
     <span class="kw">let</span> <span class="ident">value_arms_from</span> <span class="op">=</span> <span class="ident">fields_names</span>
         .<span class="ident">iter</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, _)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="ident">field</span>, <span class="kw-2">ref</span> <span class="ident">name</span>)<span class="op">|</span> {
             <span class="kw">let</span> <span class="ident">deser_name</span> <span class="op">=</span> <span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">name</span>().<span class="ident">deserialize_name</span>();
             <span class="kw">let</span> <span class="ident">field_name</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">field</span>.<span class="ident">ident</span>;
@@ -4706,7 +4707,7 @@
         <span class="prelude-val">None</span>
     } <span class="kw">else</span> {
         <span class="prelude-val">Some</span>(<span class="macro">quote</span><span class="macro">!</span> {
-            _ <span class="op">=&gt;</span> { <span class="kw">let</span> _ <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">MapAccess</span>::<span class="ident">next_value</span>::<span class="op">&lt;</span><span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">IgnoredAny</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">__map</span>)); }
+            <span class="kw">_</span> <span class="op">=&gt;</span> { <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">MapAccess</span>::<span class="ident">next_value</span>::<span class="op">&lt;</span><span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">IgnoredAny</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">__map</span>)); }
         })
     };
 
@@ -4733,7 +4734,7 @@
 
     <span class="kw">let</span> <span class="ident">check_flags</span> <span class="op">=</span> <span class="ident">fields_names</span>
         .<span class="ident">iter</span>()
-        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, _)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
+        .<span class="ident">filter</span>(<span class="op">|</span><span class="op">&amp;&amp;</span>(<span class="ident">field</span>, <span class="kw">_</span>)<span class="op">|</span> <span class="op">!</span><span class="ident">field</span>.<span class="ident">attrs</span>.<span class="ident">skip_deserializing</span>())
         .<span class="ident">map</span>(<span class="op">|</span><span class="kw-2">&amp;</span>(<span class="ident">field</span>, <span class="kw-2">ref</span> <span class="ident">name</span>)<span class="op">|</span> {
             <span class="kw">let</span> <span class="ident">missing_expr</span> <span class="op">=</span> <span class="ident">expr_is_missing</span>(<span class="kw-2">&amp;</span><span class="ident">field</span>, <span class="ident">cattrs</span>);
             <span class="comment">// If missing_expr unconditionally returns an error, don&#39;t try</span>
@@ -4758,7 +4759,7 @@
         });
 
     <span class="kw">let</span> <span class="ident">this</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">params</span>.<span class="ident">this</span>;
-    <span class="kw">let</span> (_, _, <span class="ident">ty_generics</span>, _) <span class="op">=</span> <span class="ident">split_with_de_lifetime</span>(<span class="ident">params</span>);
+    <span class="kw">let</span> (<span class="kw">_</span>, <span class="kw">_</span>, <span class="ident">ty_generics</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">split_with_de_lifetime</span>(<span class="ident">params</span>);
 
     <span class="kw">let</span> <span class="ident">let_default</span> <span class="op">=</span> <span class="kw">match</span> <span class="kw-2">*</span><span class="ident">cattrs</span>.<span class="ident">default</span>() {
         <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="ident">Default</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="macro">quote</span><span class="macro">!</span>(
@@ -4891,7 +4892,7 @@
     }
 
     <span class="kw">match</span> <span class="kw-2">*</span><span class="ident">cattrs</span>.<span class="ident">default</span>() {
-        <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="ident">Default</span> <span class="op">|</span> <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="ident">Path</span>(_) <span class="op">=&gt;</span> {
+        <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="ident">Default</span> <span class="op">|</span> <span class="ident">attr</span>::<span class="ident">Default</span>::<span class="ident">Path</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
             <span class="kw">let</span> <span class="ident">ident</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">field</span>.<span class="ident">ident</span>;
             <span class="kw">return</span> <span class="macro">quote_expr</span><span class="macro">!</span>(<span class="ident">__default</span>.#<span class="ident">ident</span>);
         }
@@ -4905,7 +4906,7 @@
                 <span class="macro">try</span><span class="macro">!</span>(<span class="ident">_serde</span>::<span class="ident">private</span>::<span class="ident">de</span>::<span class="ident">missing_field</span>(#<span class="ident">name</span>))
             }
         }
-        <span class="prelude-val">Some</span>(_) <span class="op">=&gt;</span> {
+        <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
             <span class="macro">quote_expr</span><span class="macro">!</span> {
                 <span class="kw">return</span> <span class="ident">_serde</span>::<span class="ident">export</span>::<span class="prelude-val">Err</span>(<span class="op">&lt;</span><span class="ident">__A</span>::<span class="ident">Error</span> <span class="kw">as</span> <span class="ident">_serde</span>::<span class="ident">de</span>::<span class="ident">Error</span><span class="op">&gt;</span>::<span class="ident">missing_field</span>(#<span class="ident">name</span>))
             }
@@ -4923,7 +4924,7 @@
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">de_lifetime</span>) <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">borrowed</span>.<span class="ident">de_lifetime_def</span>() {
             <span class="ident">generics</span>.<span class="ident">lifetimes</span>.<span class="ident">insert</span>(<span class="number">0</span>, <span class="ident">de_lifetime</span>);
         }
-        <span class="kw">let</span> (<span class="ident">impl_generics</span>, _, _) <span class="op">=</span> <span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
+        <span class="kw">let</span> (<span class="ident">impl_generics</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
         <span class="ident">impl_generics</span>.<span class="ident">to_tokens</span>(<span class="ident">tokens</span>);
     }
 }
@@ -4947,7 +4948,7 @@
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">de_lifetime</span>) <span class="op">=</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">borrowed</span>.<span class="ident">de_lifetime_def</span>() {
             <span class="ident">generics</span>.<span class="ident">lifetimes</span>.<span class="ident">insert</span>(<span class="number">0</span>, <span class="ident">de_lifetime</span>);
         }
-        <span class="kw">let</span> (<span class="ident">impl_generics</span>, _, _) <span class="op">=</span> <span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
+        <span class="kw">let</span> (<span class="ident">impl_generics</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
         <span class="ident">impl_generics</span>.<span class="ident">to_tokens</span>(<span class="ident">tokens</span>);
     }
 }
@@ -4969,7 +4970,7 @@
         <span class="kw">if</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">borrowed</span>.<span class="ident">de_lifetime_def</span>().<span class="ident">is_some</span>() {
             <span class="ident">generics</span>.<span class="ident">lifetimes</span>.<span class="ident">insert</span>(<span class="number">0</span>, <span class="ident">syn</span>::<span class="ident">LifetimeDef</span>::<span class="ident">new</span>(<span class="string">&quot;&#39;de&quot;</span>));
         }
-        <span class="kw">let</span> (_, <span class="ident">ty_generics</span>, _) <span class="op">=</span> <span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
+        <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">ty_generics</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
         <span class="ident">ty_generics</span>.<span class="ident">to_tokens</span>(<span class="ident">tokens</span>);
     }
 }
@@ -4983,7 +4984,7 @@
         <span class="kw">if</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">borrowed</span>.<span class="ident">de_lifetime_def</span>().<span class="ident">is_some</span>() {
             <span class="ident">generics</span>.<span class="ident">lifetimes</span>.<span class="ident">insert</span>(<span class="number">0</span>, <span class="ident">syn</span>::<span class="ident">LifetimeDef</span>::<span class="ident">new</span>(<span class="string">&quot;&#39;de&quot;</span>));
         }
-        <span class="kw">let</span> (_, <span class="ident">ty_generics</span>, _) <span class="op">=</span> <span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
+        <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">ty_generics</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
         <span class="ident">ty_generics</span>.<span class="ident">to_tokens</span>(<span class="ident">tokens</span>);
     }
 }
@@ -5010,7 +5011,7 @@
 ) {
     <span class="kw">let</span> <span class="ident">de_impl_generics</span> <span class="op">=</span> <span class="ident">DeImplGenerics</span>(<span class="kw-2">&amp;</span><span class="ident">params</span>);
     <span class="kw">let</span> <span class="ident">de_ty_generics</span> <span class="op">=</span> <span class="ident">DeTyGenerics</span>(<span class="kw-2">&amp;</span><span class="ident">params</span>);
-    <span class="kw">let</span> (_, <span class="ident">ty_generics</span>, <span class="ident">where_clause</span>) <span class="op">=</span> <span class="ident">params</span>.<span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
+    <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">ty_generics</span>, <span class="ident">where_clause</span>) <span class="op">=</span> <span class="ident">params</span>.<span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
     (<span class="ident">de_impl_generics</span>, <span class="ident">de_ty_generics</span>, <span class="ident">ty_generics</span>, <span class="ident">where_clause</span>)
 }
 </pre>
