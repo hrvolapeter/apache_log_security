@@ -10,8 +10,12 @@
     <title>security_framework::os::macos::import_export::ImportOptions - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <script src="../../../../storage.js"></script>
     
 
     
@@ -30,9 +34,16 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct ImportOptions</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.filename">filename</a><a href="#method.passphrase">passphrase</a><a href="#method.passphrase_bytes">passphrase_bytes</a><a href="#method.secure_passphrase">secure_passphrase</a><a href="#method.no_access_control">no_access_control</a><a href="#method.alert_title">alert_title</a><a href="#method.alert_prompt">alert_prompt</a><a href="#method.items">items</a><a href="#method.keychain">keychain</a><a href="#method.import">import</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Default">Default</a></div></div><p class='location'><a href='../../../index.html'>security_framework</a>::<wbr><a href='../../index.html'>os</a>::<wbr><a href='../index.html'>macos</a>::<wbr><a href='index.html'>import_export</a></p><script>window.sidebarCurrent = {name: 'ImportOptions', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct ImportOptions</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.filename">filename</a><a href="#method.passphrase">passphrase</a><a href="#method.passphrase_bytes">passphrase_bytes</a><a href="#method.secure_passphrase">secure_passphrase</a><a href="#method.no_access_control">no_access_control</a><a href="#method.alert_title">alert_title</a><a href="#method.alert_prompt">alert_prompt</a><a href="#method.items">items</a><a href="#method.keychain">keychain</a><a href="#method.import">import</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Default">Default</a></div><a class="sidebar-title" href="#synthetic-implementations">Auto Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">!Send</a><a href="#impl-Sync">!Sync</a></div></div><p class='location'><a href='../../../index.html'>security_framework</a>::<wbr><a href='../../index.html'>os</a>::<wbr><a href='../index.html'>macos</a>::<wbr><a href='index.html'>import_export</a></p><script>window.sidebarCurrent = {name: 'ImportOptions', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -60,7 +71,6 @@
 <div class='docblock'><p>Creates a new builder with default options.</p>
 </div><h4 id='method.filename' class="method"><span id='filename.v' class='invisible'><code>pub fn <a href='#method.filename' class='fnname'>filename</a>(&amp;mut self, filename: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; &amp;mut <a class="struct" href="../../../../security_framework/os/macos/import_export/struct.ImportOptions.html" title="struct security_framework::os::macos::import_export::ImportOptions">ImportOptions</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/security_framework/os/macos/import_export.rs.html#65-68' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Sets the filename from which the imported data came.</p>
-
 <p>The extension of the file will used as a hint for parsing.</p>
 </div><h4 id='method.passphrase' class="method"><span id='passphrase.v' class='invisible'><code>pub fn <a href='#method.passphrase' class='fnname'>passphrase</a>(&amp;mut self, passphrase: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; &amp;mut <a class="struct" href="../../../../security_framework/os/macos/import_export/struct.ImportOptions.html" title="struct security_framework::os::macos::import_export::ImportOptions">ImportOptions</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/security_framework/os/macos/import_export.rs.html#71-74' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Sets the passphrase to be used to decrypt the imported data.</p>
@@ -81,7 +91,6 @@ option.</p>
 <div class='docblock'><p>Sets the object into which imported items will be placed.</p>
 </div><h4 id='method.keychain' class="method"><span id='keychain.v' class='invisible'><code>pub fn <a href='#method.keychain' class='fnname'>keychain</a>(&amp;mut self, keychain: &amp;<a class="struct" href="../../../../security_framework/os/macos/keychain/struct.SecKeychain.html" title="struct security_framework::os::macos::keychain::SecKeychain">SecKeychain</a>) -&gt; &amp;mut <a class="struct" href="../../../../security_framework/os/macos/import_export/struct.ImportOptions.html" title="struct security_framework::os::macos::import_export::ImportOptions">ImportOptions</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/security_framework/os/macos/import_export.rs.html#118-121' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Sets the keychain into which items will be imported.</p>
-
 <p>This must be specified to import <code>SecIdentity</code>s.</p>
 </div><h4 id='method.import' class="method"><span id='import.v' class='invisible'><code>pub fn <a href='#method.import' class='fnname'>import</a>(&amp;mut self, data: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>) -&gt; <a class="type" href="../../../../security_framework/base/type.Result.html" title="type security_framework::base::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/security_framework/os/macos/import_export.rs.html#124-207' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Imports items from serialized data.</p>
@@ -89,10 +98,18 @@ option.</p>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
             </h2>
+            <div id='implementations-list'>
         <h3 id='impl-Default' class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="../../../../security_framework/os/macos/import_export/struct.ImportOptions.html" title="struct security_framework::os::macos::import_export::ImportOptions">ImportOptions</a>&lt;'a&gt;</code><a href='#impl-Default' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/security_framework/os/macos/import_export.rs.html#44' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.default' class="method"><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class="struct" href="../../../../security_framework/os/macos/import_export/struct.ImportOptions.html" title="struct security_framework::os::macos::import_export::ImportOptions">ImportOptions</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/security_framework/os/macos/import_export.rs.html#44' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Returns the &quot;default value&quot; for a type. <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Read more</a></p>
-</div></div></section>
+</div></div></div>
+                <h2 id='synthetic-implementations' class='small-section-header'>
+                  Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
+                </h2>
+                <div id='synthetic-implementations-list'>
+            <h3 id='impl-Send' class='impl'><span class='in-band'><code>impl&lt;'a&gt; !<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="../../../../security_framework/os/macos/import_export/struct.ImportOptions.html" title="struct security_framework::os::macos::import_export::ImportOptions">ImportOptions</a>&lt;'a&gt;</code><a href='#impl-Send' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><code>impl&lt;'a&gt; !<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../../../../security_framework/os/macos/import_export/struct.ImportOptions.html" title="struct security_framework::os::macos::import_export::ImportOptions">ImportOptions</a>&lt;'a&gt;</code><a href='#impl-Sync' class='anchor'></a></span><span class='out-of-band'></span></h3>
+<div class='impl-items'></div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -105,20 +122,22 @@ option.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
