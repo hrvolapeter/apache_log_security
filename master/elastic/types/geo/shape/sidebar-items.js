@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["mapping","Mapping for Elasticsearch `geo_shape` types. "],["prelude","Includes all types for the `geo_shape` types."]],"struct":[["GeoShape","Geo shape type with a given mapping."]]});

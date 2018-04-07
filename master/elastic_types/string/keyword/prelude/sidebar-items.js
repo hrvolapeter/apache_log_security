@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Keyword","An Elasticsearch `keyword` with a mapping."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["DeriveElasticTypeError",""]],"fn":[["expand_derive","Derive `DocumentType` for the given input."]]});

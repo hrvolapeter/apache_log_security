@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nom-3.2.1/src/branch.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nom-2.2.1/src/branch.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>branch.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -811,205 +821,51 @@
 <span id="765">765</span>
 <span id="766">766</span>
 <span id="767">767</span>
-<span id="768">768</span>
-<span id="769">769</span>
-<span id="770">770</span>
-<span id="771">771</span>
-<span id="772">772</span>
-<span id="773">773</span>
-<span id="774">774</span>
-<span id="775">775</span>
-<span id="776">776</span>
-<span id="777">777</span>
-<span id="778">778</span>
-<span id="779">779</span>
-<span id="780">780</span>
-<span id="781">781</span>
-<span id="782">782</span>
-<span id="783">783</span>
-<span id="784">784</span>
-<span id="785">785</span>
-<span id="786">786</span>
-<span id="787">787</span>
-<span id="788">788</span>
-<span id="789">789</span>
-<span id="790">790</span>
-<span id="791">791</span>
-<span id="792">792</span>
-<span id="793">793</span>
-<span id="794">794</span>
-<span id="795">795</span>
-<span id="796">796</span>
-<span id="797">797</span>
-<span id="798">798</span>
-<span id="799">799</span>
-<span id="800">800</span>
-<span id="801">801</span>
-<span id="802">802</span>
-<span id="803">803</span>
-<span id="804">804</span>
-<span id="805">805</span>
-<span id="806">806</span>
-<span id="807">807</span>
-<span id="808">808</span>
-<span id="809">809</span>
-<span id="810">810</span>
-<span id="811">811</span>
-<span id="812">812</span>
-<span id="813">813</span>
-<span id="814">814</span>
-<span id="815">815</span>
-<span id="816">816</span>
-<span id="817">817</span>
-<span id="818">818</span>
-<span id="819">819</span>
-<span id="820">820</span>
-<span id="821">821</span>
-<span id="822">822</span>
-<span id="823">823</span>
-<span id="824">824</span>
-<span id="825">825</span>
-<span id="826">826</span>
-<span id="827">827</span>
-<span id="828">828</span>
-<span id="829">829</span>
-<span id="830">830</span>
-<span id="831">831</span>
-<span id="832">832</span>
-<span id="833">833</span>
-<span id="834">834</span>
-<span id="835">835</span>
-<span id="836">836</span>
-<span id="837">837</span>
-<span id="838">838</span>
-<span id="839">839</span>
-<span id="840">840</span>
-<span id="841">841</span>
-<span id="842">842</span>
-<span id="843">843</span>
-<span id="844">844</span>
-<span id="845">845</span>
-<span id="846">846</span>
-<span id="847">847</span>
-<span id="848">848</span>
-<span id="849">849</span>
-<span id="850">850</span>
-<span id="851">851</span>
-<span id="852">852</span>
-<span id="853">853</span>
-<span id="854">854</span>
-<span id="855">855</span>
-<span id="856">856</span>
-<span id="857">857</span>
-<span id="858">858</span>
-<span id="859">859</span>
-<span id="860">860</span>
-<span id="861">861</span>
-<span id="862">862</span>
-<span id="863">863</span>
-<span id="864">864</span>
-<span id="865">865</span>
-<span id="866">866</span>
-<span id="867">867</span>
-<span id="868">868</span>
-<span id="869">869</span>
-<span id="870">870</span>
-<span id="871">871</span>
 </pre><pre class="rust ">
-<span class="doccomment">/// Try a list of parsers and return the result of the first successful one</span>
+<span class="doccomment">/// `alt!(I -&gt; IResult&lt;I,O&gt; | I -&gt; IResult&lt;I,O&gt; | ... | I -&gt; IResult&lt;I,O&gt; ) =&gt; I -&gt; IResult&lt;I, O&gt;`</span>
+<span class="doccomment">/// try a list of parsers, return the result of the first successful one</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ```rust,ignore</span>
-<span class="doccomment">/// alt!(I -&gt; IResult&lt;I,O&gt; | I -&gt; IResult&lt;I,O&gt; | ... | I -&gt; IResult&lt;I,O&gt; ) =&gt; I -&gt; IResult&lt;I, O&gt;</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">/// All the parsers must have the same return type.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// If one of the parsers returns `Incomplete`, `alt!` will return `Incomplete`, to retry</span>
+<span class="doccomment">/// If one of the parser returns Incomplete, alt will return Incomplete, to retry</span>
 <span class="doccomment">/// once you get more input. Note that it is better for performance to know the</span>
-<span class="doccomment">/// minimum size of data you need before you get into `alt!`.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// The `alt!` combinator is used in the following way:</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust,ignore</span>
-<span class="doccomment">/// alt!(parser_1 | parser_2 | ... | parser_n)</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Basic example</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">/// # #[macro_use] extern crate nom;</span>
-<span class="doccomment">/// # fn main() {</span>
-<span class="doccomment">///  // Create a parser that will match either &quot;dragon&quot; or &quot;beast&quot;</span>
-<span class="doccomment">///  named!( dragon_or_beast, alt!( tag!( &quot;dragon&quot; ) | tag!( &quot;beast&quot; ) ) );</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///  // Given the input &quot;dragon slayer&quot;, the parser will match &quot;dragon&quot;</span>
-<span class="doccomment">///  // and the rest will be &quot; slayer&quot;</span>
-<span class="doccomment">///  let (rest, result) = dragon_or_beast(b&quot;dragon slayer&quot;).unwrap();</span>
-<span class="doccomment">///  assert_eq!(result, b&quot;dragon&quot;);</span>
-<span class="doccomment">///  assert_eq!(rest, b&quot; slayer&quot;);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">///  // Given the input &quot;beast of Gevaudan&quot;, the parser will match &quot;beast&quot;</span>
-<span class="doccomment">///  // and the rest will be &quot; of Gevaudan&quot;</span>
-<span class="doccomment">///  let (rest, result) = dragon_or_beast(&amp;b&quot;beast of Gevaudan&quot;[..]).unwrap();</span>
-<span class="doccomment">///  assert_eq!(result, b&quot;beast&quot;);</span>
-<span class="doccomment">///  assert_eq!(rest, b&quot; of Gevaudan&quot;);</span>
-<span class="doccomment">///  # }</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// # Manipulate results</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// There exists another syntax for `alt!` that gives you the ability to</span>
-<span class="doccomment">/// manipulate the result from each parser:</span>
+<span class="doccomment">/// minimum size of data you need before you get into alt.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">/// # #[macro_use] extern crate nom;</span>
 <span class="doccomment">/// # use nom::IResult::Done;</span>
 <span class="doccomment">/// # fn main() {</span>
-<span class="doccomment">/// #</span>
-<span class="doccomment">/// // We create an enum to represent our creatures</span>
-<span class="doccomment">/// #[derive(Debug,PartialEq,Eq)]</span>
-<span class="doccomment">/// enum Creature {</span>
-<span class="doccomment">///     Dragon,</span>
-<span class="doccomment">///     Beast,</span>
-<span class="doccomment">///     Unknown(usize)</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Let&#39;s make a helper function that returns true when not a space</span>
-<span class="doccomment">/// // we are required to do this because the `take_while!` macro is limited</span>
-<span class="doccomment">/// // to idents, so we can&#39;t negate `ìs_space` at the call site</span>
-<span class="doccomment">/// fn is_not_space(c: u8) -&gt; bool { ! nom::is_space(c) }</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Our parser will return the `Dragon` variant when matching &quot;dragon&quot;,</span>
-<span class="doccomment">/// // the `Beast` variant when matching &quot;beast&quot; and otherwise it will consume</span>
-<span class="doccomment">/// // the input until a space is found and return an `Unknown` creature with</span>
-<span class="doccomment">/// // the size of it&#39;s name.</span>
-<span class="doccomment">/// named!(creature&lt;Creature&gt;, alt!(</span>
-<span class="doccomment">///     tag!(&quot;dragon&quot;)            =&gt; { |_| Creature::Dragon } |</span>
-<span class="doccomment">///     tag!(&quot;beast&quot;)             =&gt; { |_| Creature::Beast }  |</span>
-<span class="doccomment">///     take_while!(is_not_space) =&gt; { |r: &amp;[u8]| Creature::Unknown(r.len()) }</span>
-<span class="doccomment">///     // the closure takes the result as argument if the parser is successful</span>
-<span class="doccomment">/// ));</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Given the input &quot;dragon slayer&quot; the parser will return `Creature::Dragon`</span>
-<span class="doccomment">/// // and the rest will be &quot; slayer&quot;</span>
-<span class="doccomment">/// let (rest, result) = creature(b&quot;dragon slayer&quot;).unwrap();</span>
-<span class="doccomment">/// assert_eq!(result, Creature::Dragon);</span>
-<span class="doccomment">/// assert_eq!(rest, b&quot; slayer&quot;);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Given the input &quot;beast of Gevaudan&quot; the parser will return `Creature::Beast`</span>
-<span class="doccomment">/// // and the rest will be &quot; of Gevaudan&quot;</span>
-<span class="doccomment">/// let (rest, result) = creature(b&quot;beast of Gevaudan&quot;).unwrap();</span>
-<span class="doccomment">/// assert_eq!(result, Creature::Beast);</span>
-<span class="doccomment">/// assert_eq!(rest, b&quot; of Gevaudan&quot;);</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// // Given the input &quot;demon hunter&quot; the parser will return `Creature::Unkown(5)`</span>
-<span class="doccomment">/// // and the rest will be &quot; hunter&quot;</span>
-<span class="doccomment">/// let (rest, result) = creature(b&quot;demon hunter&quot;).unwrap();</span>
-<span class="doccomment">/// assert_eq!(result, Creature::Unknown(5));</span>
-<span class="doccomment">/// assert_eq!(rest, b&quot; hunter&quot;);</span>
-<span class="doccomment">/// # }</span>
+<span class="doccomment">///  named!( test, alt!( tag!( &quot;abcd&quot; ) | tag!( &quot;efgh&quot; ) ) );</span>
+<span class="doccomment">///  let r1 = test(b&quot;abcdefgh&quot;);</span>
+<span class="doccomment">///  assert_eq!(r1, Done(&amp;b&quot;efgh&quot;[..], &amp;b&quot;abcd&quot;[..]));</span>
+<span class="doccomment">///  let r2 = test(&amp;b&quot;efghijkl&quot;[..]);</span>
+<span class="doccomment">///  assert_eq!(r2, Done(&amp;b&quot;ijkl&quot;[..], &amp;b&quot;efgh&quot;[..]));</span>
+<span class="doccomment">///  # }</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// # Behaviour of `alt!`</span>
+<span class="doccomment">/// There is another syntax for alt allowing a block to manipulate the result:</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">/// # #[macro_use] extern crate nom;</span>
+<span class="doccomment">/// # use nom::IResult::Done;</span>
+<span class="doccomment">/// # fn main() {</span>
+<span class="doccomment">///     #[derive(Debug,PartialEq,Eq)]</span>
+<span class="doccomment">///     enum Tagged {</span>
+<span class="doccomment">///       Abcd,</span>
+<span class="doccomment">///       Efgh,</span>
+<span class="doccomment">///       Took(usize)</span>
+<span class="doccomment">///     }</span>
+<span class="doccomment">///     named!(test&lt;Tagged&gt;, alt!(</span>
+<span class="doccomment">///         tag!(&quot;abcd&quot;) =&gt; { |_|          Tagged::Abcd }</span>
+<span class="doccomment">///       | tag!(&quot;efgh&quot;) =&gt; { |_|          Tagged::Efgh }</span>
+<span class="doccomment">///       | take!(5)     =&gt; { |res: &amp;[u8]| Tagged::Took(res.len()) } // the closure takes the result as argument if the parser is successful</span>
+<span class="doccomment">///     ));</span>
+<span class="doccomment">///     let r1 = test(b&quot;abcdefgh&quot;);</span>
+<span class="doccomment">///     assert_eq!(r1, Done(&amp;b&quot;efgh&quot;[..], Tagged::Abcd));</span>
+<span class="doccomment">///     let r2 = test(&amp;b&quot;efghijkl&quot;[..]);</span>
+<span class="doccomment">///     assert_eq!(r2, Done(&amp;b&quot;ijkl&quot;[..], Tagged::Efgh));</span>
+<span class="doccomment">///     let r3 = test(&amp;b&quot;mnopqrst&quot;[..]);</span>
+<span class="doccomment">///     assert_eq!(r3, Done(&amp;b&quot;rst&quot;[..],  Tagged::Took(5)));</span>
+<span class="doccomment">/// # }</span>
+<span class="doccomment">/// ```</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// **BE CAREFUL** there is a case where the behaviour of `alt!` can be confusing:</span>
 <span class="doccomment">///</span>
@@ -1086,63 +942,28 @@
 <span class="doccomment">///</span>
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">alt</span> (
-  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ), $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="op">*</span> ) <span class="op">=&gt;</span> (
-    <span class="macro">compiler_error</span><span class="macro">!</span>(<span class="string">&quot;alt uses &#39;|&#39; as separator, not &#39;,&#39;:
-
-      alt!(
-        tag!(\&quot;abcd\&quot;) |
-        tag!(\&quot;efgh\&quot;) |
-        tag!(\&quot;ijkl\&quot;)
-      )
-    &quot;</span>);
-  );
-  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">ident</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="op">*</span> ) <span class="op">=&gt;</span> (
-    <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>) , $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
-  );
   (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">ident</span> <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> (
     <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>) <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
   );
 
   (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>);
+      <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>);
       <span class="kw">match</span> <span class="ident">res</span> {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(_,_)     <span class="op">=&gt;</span> <span class="ident">res</span>,
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span> <span class="ident">res</span>,
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> {
-          <span class="kw">let</span> <span class="ident">out</span> <span class="op">=</span> <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
-
-          <span class="comment">// Compile-time hack to ensure that res&#39;s E type is not under-specified.</span>
-          <span class="comment">// This all has no effect at runtime.</span>
-          <span class="kw">fn</span> <span class="ident">unify_types</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(_: <span class="kw-2">&amp;</span><span class="ident">T</span>, _: <span class="kw-2">&amp;</span><span class="ident">T</span>) {}
-          <span class="kw">if</span> <span class="kw">let</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw-2">ref</span> <span class="ident">e2</span>) <span class="op">=</span> <span class="ident">out</span> {
-            <span class="ident">unify_types</span>(<span class="kw-2">&amp;</span><span class="ident">e</span>, <span class="ident">e2</span>);
-          }
-
-          <span class="ident">out</span>
-        }
+        _                              <span class="op">=&gt;</span> <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>)
       }
     }
   );
 
-  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ) <span class="op">=&gt;</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>:<span class="ident">expr</span> } <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> (
+  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ) <span class="op">=&gt;</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>:<span class="ident">expr</span> } <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="op">+</span>) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="op">*</span> ) {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="op">*</span> ) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>)     <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>(<span class="ident">o</span>)),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>),
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> {
-          <span class="kw">let</span> <span class="ident">out</span> <span class="op">=</span> <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
-
-          <span class="comment">// Compile-time hack to ensure that res&#39;s E type is not under-specified.</span>
-          <span class="comment">// This all has no effect at runtime.</span>
-          <span class="kw">fn</span> <span class="ident">unify_types</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(_: <span class="kw-2">&amp;</span><span class="ident">T</span>, _: <span class="kw-2">&amp;</span><span class="ident">T</span>) {}
-          <span class="kw">if</span> <span class="kw">let</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw-2">ref</span> <span class="ident">e2</span>) <span class="op">=</span> <span class="ident">out</span> {
-            <span class="ident">unify_types</span>(<span class="kw-2">&amp;</span><span class="ident">e</span>, <span class="ident">e2</span>);
-          }
-
-          <span class="ident">out</span>
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_)      <span class="op">=&gt;</span> {
+          <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>)
         }
       }
     }
@@ -1152,37 +973,54 @@
     <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>) <span class="op">=&gt;</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span> } <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
   );
 
-  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="ident">__end</span>) <span class="op">=&gt;</span> (
+  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">ident</span> <span class="op">=&gt;</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>:<span class="ident">expr</span> }) <span class="op">=&gt;</span> (
+    <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>) <span class="op">=&gt;</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span> });
+  );
+
+  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ) <span class="op">=&gt;</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>:<span class="ident">expr</span> }) <span class="op">=&gt;</span> (
+    {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="op">*</span> ) {
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>)     <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>(<span class="ident">o</span>)),
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>),
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_)      <span class="op">=&gt;</span> {
+          <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>)
+        }
+      }
+    }
+  );
+
+  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">ident</span>) <span class="op">=&gt;</span> (
+    <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>));
+  );
+
+  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>)) <span class="op">=&gt;</span> (
+    {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="op">*</span> ) {
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>)     <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>),
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>),
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_)      <span class="op">=&gt;</span> {
+          <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>)
+        }
+      }
+    }
+  );
+
+  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> (
     <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">ErrorKind</span>::<span class="ident">Alt</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>))
   );
 
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> (
     {
-      <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="op">*</span> <span class="op">|</span> <span class="ident">__end</span>)
+      <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>)
     }
   );
 );
 
-<span class="doccomment">/// Is equivalent to the `alt!` combinator, except that it will not return `Incomplete`</span>
-<span class="doccomment">/// when one of the constituting parsers returns `Incomplete`. Instead, it will try the</span>
-<span class="doccomment">/// next alternative in the chain.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// You should use this combinator only if you know you</span>
+<span class="doccomment">/// This is a combination of the `alt!` and `complete!` combinators. Rather</span>
+<span class="doccomment">/// than returning `Incomplete` on partial input, `alt_complete!` will try the</span>
+<span class="doccomment">/// next alternative in the chain. You should use this only if you know you</span>
 <span class="doccomment">/// will not receive partial input for the rules you&#39;re trying to match (this</span>
 <span class="doccomment">/// is almost always the case for parsing programming languages).</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust,ignore</span>
-<span class="doccomment">/// alt_complete!(I -&gt; IResult&lt;I,O&gt; | I -&gt; IResult&lt;I,O&gt; | ... | I -&gt; IResult&lt;I,O&gt; ) =&gt; I -&gt; IResult&lt;I, O&gt;</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">/// All the parsers must have the same return type.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// If one of the parsers return `Incomplete`, `alt_complete!` will try the next alternative.</span>
-<span class="doccomment">/// If there is no other parser left to try, an `Error` will be returned.</span>
-<span class="doccomment">///</span>
-<span class="doccomment">/// ```rust,ignore</span>
-<span class="doccomment">/// alt_complete!(parser_1 | parser_2 | ... | parser_n)</span>
-<span class="doccomment">/// ```</span>
-<span class="doccomment">/// **For more in depth examples, refer to the documentation of `alt!`**</span>
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">alt_complete</span> (
   <span class="comment">// Recursive rules (must include `complete!` around the head)</span>
@@ -1193,43 +1031,19 @@
 
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="macro">complete</span><span class="macro">!</span>(<span class="ident">i_</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>));
+      <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="macro">complete</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>));
       <span class="kw">match</span> <span class="ident">res</span> {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(_,_) <span class="op">=&gt;</span> <span class="ident">res</span>,
-        <span class="ident">e</span> <span class="op">=&gt;</span> {
-          <span class="kw">let</span> <span class="ident">out</span> <span class="op">=</span> <span class="macro">alt_complete</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
-
-          <span class="kw">if</span> <span class="kw">let</span> (<span class="kw-2">&amp;</span><span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw-2">ref</span> <span class="ident">e1</span>), <span class="kw-2">&amp;</span><span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw-2">ref</span> <span class="ident">e2</span>)) <span class="op">=</span> (<span class="kw-2">&amp;</span><span class="ident">e</span>, <span class="kw-2">&amp;</span><span class="ident">out</span>) {
-            <span class="comment">// Compile-time hack to ensure that res&#39;s E type is not under-specified.</span>
-            <span class="comment">// This all has no effect at runtime.</span>
-            <span class="kw">fn</span> <span class="ident">unify_types</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(_: <span class="kw-2">&amp;</span><span class="ident">T</span>, _: <span class="kw-2">&amp;</span><span class="ident">T</span>) {}
-            <span class="ident">unify_types</span>(<span class="ident">e1</span>, <span class="ident">e2</span>);
-          }
-
-          <span class="ident">out</span>
-        },
+        _ <span class="op">=&gt;</span> <span class="macro">alt_complete</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>),
       }
     }
   );
 
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ) <span class="op">=&gt;</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>:<span class="ident">expr</span> } <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="op">+</span>) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro">complete</span><span class="macro">!</span>(<span class="ident">i_</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)) {
+      <span class="kw">match</span> <span class="macro">complete</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>(<span class="ident">o</span>)),
-        <span class="ident">e</span> <span class="op">=&gt;</span> {
-          <span class="kw">let</span> <span class="ident">out</span> <span class="op">=</span> <span class="macro">alt_complete</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
-
-          <span class="kw">if</span> <span class="kw">let</span> (<span class="kw-2">&amp;</span><span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw-2">ref</span> <span class="ident">e1</span>), <span class="kw-2">&amp;</span><span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw-2">ref</span> <span class="ident">e2</span>)) <span class="op">=</span> (<span class="kw-2">&amp;</span><span class="ident">e</span>, <span class="kw-2">&amp;</span><span class="ident">out</span>) {
-            <span class="comment">// Compile-time hack to ensure that res&#39;s E type is not under-specified.</span>
-            <span class="comment">// This all has no effect at runtime.</span>
-            <span class="kw">fn</span> <span class="ident">unify_types</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(_: <span class="kw-2">&amp;</span><span class="ident">T</span>, _: <span class="kw-2">&amp;</span><span class="ident">T</span>) {}
-            <span class="ident">unify_types</span>(<span class="ident">e1</span>, <span class="ident">e2</span>);
-          }
-
-          <span class="ident">out</span>
-        },
+        _ <span class="op">=&gt;</span> <span class="macro">alt_complete</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>),
       }
     }
   );
@@ -1245,7 +1059,7 @@
   );
 
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ) <span class="op">=&gt;</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>:<span class="ident">expr</span> }) <span class="op">=&gt;</span> (
-    <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">complete</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)) <span class="op">=&gt;</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span> } <span class="op">|</span> <span class="ident">__end</span>)
+    <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span> })
   );
 
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">ident</span>) <span class="op">=&gt;</span> (
@@ -1253,7 +1067,7 @@
   );
 
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>)) <span class="op">=&gt;</span> (
-    <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">complete</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)) <span class="op">|</span> <span class="ident">__end</span>)
+    <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>))
   );
 );
 
@@ -1338,8 +1152,7 @@
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">switch</span> (
   (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ), $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">p</span>:<span class="ident">pat</span> <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>:<span class="ident">tt</span>)<span class="op">*</span> ))<span class="op">|</span><span class="op">*</span> ) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro">map</span><span class="macro">!</span>(<span class="ident">i_</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>), <span class="op">|</span><span class="ident">o</span><span class="op">|</span> <span class="prelude-val">Some</span>(<span class="ident">o</span>)) {
+      <span class="kw">match</span> <span class="macro">map</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>), <span class="op">|</span><span class="ident">o</span><span class="op">|</span> <span class="prelude-val">Some</span>(<span class="ident">o</span>)) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="macro">error_node_position</span><span class="macro">!</span>(
             <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">ErrorKind</span>::<span class="ident">Switch</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="ident">e</span>
         )),
@@ -1699,11 +1512,6 @@
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">alt5</span>(<span class="ident">a</span>), <span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="bool-val">false</span>));
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">alt5</span>(<span class="ident">b</span>), <span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="bool-val">true</span>));
 
-    <span class="comment">// compile-time test guarding against an underspecified E generic type (#474)</span>
-    <span class="macro">named</span><span class="macro">!</span>(<span class="ident">alt_eof1</span>, <span class="macro">alt</span><span class="macro">!</span>(<span class="macro">eof</span><span class="macro">!</span>() <span class="op">|</span> <span class="macro">eof</span><span class="macro">!</span>()));
-    <span class="macro">named</span><span class="macro">!</span>(<span class="ident">alt_eof2</span>, <span class="macro">alt</span><span class="macro">!</span>(<span class="macro">eof</span><span class="macro">!</span>() <span class="op">=&gt;</span> {<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>} <span class="op">|</span> <span class="macro">eof</span><span class="macro">!</span>() <span class="op">=&gt;</span> {<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>}));
-    <span class="kw">let</span> _ <span class="op">=</span> (<span class="ident">alt_eof1</span>, <span class="ident">alt_eof2</span>);
-
   }
 
   <span class="attribute">#[<span class="ident">test</span>]</span>
@@ -1731,7 +1539,7 @@
     );
 
     <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..];
-    <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">ac</span>(<span class="ident">a</span>), <span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="ident">ErrorKind</span>::<span class="ident">Alt</span>, <span class="ident">a</span>)));
+    <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">ac</span>(<span class="ident">a</span>), <span class="ident">Incomplete</span>(<span class="ident">Needed</span>::<span class="ident">Size</span>(<span class="number">2</span>)));
     <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="string">b&quot;ef&quot;</span>[..];
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">ac</span>(<span class="ident">a</span>), <span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="kw-2">&amp;</span><span class="string">b&quot;ef&quot;</span>[..]));
     <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="string">b&quot;cde&quot;</span>[..];
@@ -1780,12 +1588,6 @@
     <span class="kw">let</span> <span class="ident">e</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="string">b&quot;efgabc&quot;</span>[..];
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">perm</span>(<span class="ident">e</span>), <span class="ident">Incomplete</span>(<span class="ident">Needed</span>::<span class="ident">Size</span>(<span class="number">7</span>)));
   }
-
-  <span class="comment">/*
-  named!(does_not_compile,
-    alt!(tag!(&quot;abcd&quot;), tag!(&quot;efgh&quot;))
-  );
-  */</span>
 }
 </pre>
 </section>
@@ -1801,20 +1603,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

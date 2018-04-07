@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Pending","A future returned by calling `send`. "]],"type":[["GetRequestBuilder","A [get document request][docs-get] builder that can be configured before sending."]]});

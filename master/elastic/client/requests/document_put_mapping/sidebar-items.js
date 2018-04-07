@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Pending","A future returned by calling `send`. "]],"type":[["PutMappingRequestBuilder","A [put mapping request][docs-mapping] builder that can be configured before sending."]]});

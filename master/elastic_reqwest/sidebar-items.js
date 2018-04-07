@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Error","An error sending a request or parsing a response. "]],"fn":[["parse",""]],"mod":[["async","Asynchronous http client. "],["req","Request types."],["res","Response types."],["sync","Synchronous http client. "]],"struct":[["RequestParams","Misc parameters for any request."]]});

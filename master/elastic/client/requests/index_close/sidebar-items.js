@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Pending","A future returned by calling `send`. "]],"type":[["IndexCloseRequestBuilder","A [close index request][docs-close-index] builder that can be configured before sending. "]]});

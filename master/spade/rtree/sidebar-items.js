@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["RTreeNodeIterator",""]],"struct":[["RTree","A rust implementation of n dimensional r*-trees"],["RTreeIterator","Iterates over all entries in an r-tree. Returned by `RTree::iter()`"]]});

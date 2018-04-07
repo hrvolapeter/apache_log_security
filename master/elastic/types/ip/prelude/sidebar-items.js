@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DefaultIpMapping","Default mapping for `geo_shape`. "],["Ip","An Elasticsearch `ip` with a mapping."]],"trait":[["IpFieldType","A field that will be mapped as an `ip`. "],["IpMapping","The base requirements for mapping a `ip` type."]]});

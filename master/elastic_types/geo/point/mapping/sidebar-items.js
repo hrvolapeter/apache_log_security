@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["DefaultGeoPointMapping","Default mapping for `geo_point`. "]],"trait":[["GeoPointFieldType","A field that will be mapped as a `geo_point`. "],["GeoPointMapping","The base requirements for mapping a `geo_point` type."]]});

@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nom-3.2.1/src/str.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nom-2.2.1/src/str.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>str.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -701,7 +711,6 @@
 <span id="655">655</span>
 <span id="656">656</span>
 <span id="657">657</span>
-<span id="658">658</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Parsers and helper functions operating on strings, especially useful when writing parsers for</span>
 <span class="doccomment">//! text-based formats.</span>
@@ -891,7 +900,7 @@
 );
 
 
-<span class="doccomment">/// `take_till_s!(char -&gt; bool) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;`</span>
+<span class="doccomment">/// `take_till_s!(&amp;str -&gt; bool) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;`</span>
 <span class="doccomment">/// returns the longest list of characters until the provided function succeeds</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The argument is either a function `char -&gt; bool` or a macro returning a `bool</span>
@@ -907,7 +916,7 @@
   );
 );
 
-<span class="doccomment">/// `take_till1_s!(char -&gt; bool) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;`</span>
+<span class="doccomment">/// `take_till1_s!(&amp;str -&gt; bool) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;`</span>
 <span class="doccomment">/// returns the longest non empty list of characters until the provided function succeeds</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// The argument is either a function `char -&gt; bool` or a macro returning a `bool</span>
@@ -1327,7 +1336,6 @@
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
-  <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;std&quot;</span>)]</span>
     <span class="kw">fn</span> <span class="ident">recognize_is_a_s</span>() {
     <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="string">&quot;aabbab&quot;</span>;
     <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="string">&quot;ababcd&quot;</span>;
@@ -1375,20 +1383,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

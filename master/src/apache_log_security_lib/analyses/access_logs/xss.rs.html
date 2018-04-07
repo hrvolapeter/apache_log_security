@@ -10,8 +10,11 @@
     <title>xss.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <script src="../../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -458,10 +468,6 @@
 <span id="412">412</span>
 <span id="413">413</span>
 <span id="414">414</span>
-<span id="415">415</span>
-<span id="416">416</span>
-<span id="417">417</span>
-<span id="418">418</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">analyses</span>::<span class="ident">access_logs</span>::<span class="ident">AccessLog</span>;
 <span class="kw">use</span> <span class="ident">analyses</span>::<span class="ident">Incident</span>;
@@ -762,17 +768,13 @@
     <span class="kw">use</span> <span class="ident">analyses</span>::<span class="ident">Incident</span>;
 
     <span class="kw">fn</span> <span class="ident">analyse_log_with_path</span>(<span class="ident">path</span>: <span class="ident">String</span>) <span class="op">-&gt;</span> <span class="ident">Incident</span> {
-        <span class="kw">let</span> <span class="ident">date_time</span> <span class="op">=</span> <span class="string">&quot;2015-2-18T23:16:9.15Z&quot;</span>
-            .<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">DateTime</span><span class="op">&lt;</span><span class="ident">FixedOffset</span><span class="op">&gt;&gt;</span>()
-            .<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">date_time</span> <span class="op">=</span> <span class="string">&quot;2015-2-18T23:16:9.15Z&quot;</span>.<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">DateTime</span><span class="op">&lt;</span><span class="ident">Utc</span><span class="op">&gt;&gt;</span>().<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">log</span> <span class="op">=</span> <span class="kw">super</span>::<span class="ident">AccessLog</span>::<span class="ident">new</span>(<span class="number">200</span>, <span class="string">&quot;&quot;</span>.<span class="ident">to_string</span>(), <span class="ident">path</span>, <span class="ident">date_time</span>, <span class="number">0</span>);
         <span class="kw">super</span>::<span class="ident">analyse</span>(<span class="kw-2">&amp;</span><span class="ident">log</span>, <span class="kw-2">&amp;</span><span class="ident">Config</span>::<span class="ident">new</span>()).<span class="ident">unwrap</span>()
     }
 
     <span class="kw">fn</span> <span class="ident">analyse_inteligent_log_with_path</span>(<span class="ident">path</span>: <span class="ident">String</span>) <span class="op">-&gt;</span> <span class="ident">Incident</span> {
-        <span class="kw">let</span> <span class="ident">date_time</span> <span class="op">=</span> <span class="string">&quot;2015-2-18T23:16:9.15Z&quot;</span>
-            .<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">DateTime</span><span class="op">&lt;</span><span class="ident">FixedOffset</span><span class="op">&gt;&gt;</span>()
-            .<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">date_time</span> <span class="op">=</span> <span class="string">&quot;2015-2-18T23:16:9.15Z&quot;</span>.<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">DateTime</span><span class="op">&lt;</span><span class="ident">Utc</span><span class="op">&gt;&gt;</span>().<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">log</span> <span class="op">=</span> <span class="kw">super</span>::<span class="ident">AccessLog</span>::<span class="ident">new</span>(<span class="number">200</span>, <span class="string">&quot;&quot;</span>.<span class="ident">to_string</span>(), <span class="ident">path</span>, <span class="ident">date_time</span>, <span class="number">0</span>);
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">Config</span>::<span class="ident">new</span>();
         <span class="ident">config</span>.<span class="ident">xss_level</span> <span class="op">=</span> <span class="ident">config</span>::<span class="ident">XssLevel</span>::<span class="ident">Intelligent</span>;
@@ -895,20 +897,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

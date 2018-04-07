@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nom-3.2.1/src/macros.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nom-2.2.1/src/macros.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>macros.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -1359,33 +1369,6 @@
 <span id="1313">1313</span>
 <span id="1314">1314</span>
 <span id="1315">1315</span>
-<span id="1316">1316</span>
-<span id="1317">1317</span>
-<span id="1318">1318</span>
-<span id="1319">1319</span>
-<span id="1320">1320</span>
-<span id="1321">1321</span>
-<span id="1322">1322</span>
-<span id="1323">1323</span>
-<span id="1324">1324</span>
-<span id="1325">1325</span>
-<span id="1326">1326</span>
-<span id="1327">1327</span>
-<span id="1328">1328</span>
-<span id="1329">1329</span>
-<span id="1330">1330</span>
-<span id="1331">1331</span>
-<span id="1332">1332</span>
-<span id="1333">1333</span>
-<span id="1334">1334</span>
-<span id="1335">1335</span>
-<span id="1336">1336</span>
-<span id="1337">1337</span>
-<span id="1338">1338</span>
-<span id="1339">1339</span>
-<span id="1340">1340</span>
-<span id="1341">1341</span>
-<span id="1342">1342</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Macro combinators</span>
 <span class="doccomment">//!</span>
@@ -1450,7 +1433,7 @@
 <span class="doccomment">//!     take_while!($input, call!($f));</span>
 <span class="doccomment">//!   );</span>
 <span class="doccomment">//! );</span>
-<span class="doccomment">//! ```</span>
+<span class="doccomment">//!</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_variables</span>)]</span>
 
 <span class="doccomment">/// Wraps a parser in a closure</span>
@@ -1557,7 +1540,7 @@
         }
     };
     (<span class="kw">pub</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">func_name</span>:<span class="ident">ident</span> <span class="op">&lt;</span> <span class="lifetime">&#39;a</span> <span class="op">&gt;</span> ( $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">arg</span>:<span class="ident">ident</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">typ</span>:<span class="ident">ty</span> ),<span class="op">*</span> ) <span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">return_type</span>:<span class="ident">ty</span> <span class="op">&gt;</span> , <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ) ) <span class="op">=&gt;</span> {
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">func_name</span><span class="op">&lt;</span><span class="lifetime">&#39;this_is_probably_unique_i_hope_please</span>, <span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;this_is_probably_unique_i_hope_please</span> [<span class="ident">u8</span>], $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">arg</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">typ</span> ),<span class="kw-2">*</span>) <span class="op">-&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;this_is_probably_unique_i_hope_please</span> [<span class="ident">u8</span>], <span class="macro-nonterminal">$</span><span class="macro-nonterminal">return_type</span><span class="op">&gt;</span> {
+        <span class="kw">pub</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">func_name</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>], $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">arg</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">typ</span> ),<span class="kw-2">*</span>) <span class="op">-&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>], <span class="macro-nonterminal">$</span><span class="macro-nonterminal">return_type</span><span class="op">&gt;</span> {
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">input</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
         }
     };
@@ -1567,7 +1550,7 @@
         }
     };
     (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">func_name</span>:<span class="ident">ident</span> <span class="op">&lt;</span> <span class="lifetime">&#39;a</span> <span class="op">&gt;</span> ( $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">arg</span>:<span class="ident">ident</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">typ</span>:<span class="ident">ty</span> ),<span class="op">*</span> ) <span class="op">&lt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">return_type</span>:<span class="ident">ty</span> <span class="op">&gt;</span> , <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ) ) <span class="op">=&gt;</span> {
-        <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">func_name</span><span class="op">&lt;</span><span class="lifetime">&#39;this_is_probably_unique_i_hope_please</span>, <span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;this_is_probably_unique_i_hope_please</span> [<span class="ident">u8</span>], $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">arg</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">typ</span> ),<span class="kw-2">*</span>) <span class="op">-&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;this_is_probably_unique_i_hope_please</span> [<span class="ident">u8</span>], <span class="macro-nonterminal">$</span><span class="macro-nonterminal">return_type</span><span class="op">&gt;</span> {
+        <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">func_name</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>], $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">arg</span> : <span class="macro-nonterminal">$</span><span class="macro-nonterminal">typ</span> ),<span class="kw-2">*</span>) <span class="op">-&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>], <span class="macro-nonterminal">$</span><span class="macro-nonterminal">return_type</span><span class="op">&gt;</span> {
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">input</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
         }
     };
@@ -1741,9 +1724,8 @@
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">return_error</span> (
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">code</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
       <span class="kw">let</span> <span class="ident">cl</span> <span class="op">=</span> <span class="op">||</span> {
-        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
+        <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)
       };
 
       <span class="kw">match</span> <span class="ident">cl</span>() {
@@ -1823,8 +1805,7 @@
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">complete</span> (
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, <span class="ident">o</span>)    <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, <span class="ident">o</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span>  {
@@ -1885,24 +1866,27 @@
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">map</span>(
   <span class="comment">// Internal parser, do not use directly</span>
-  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> (
+  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac2</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
-      <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">_unify</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">R</span>, <span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="ident">T</span>) <span class="op">-&gt;</span> <span class="ident">R</span><span class="op">&gt;</span>(<span class="ident">f</span>: <span class="ident">F</span>, <span class="ident">t</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="ident">R</span> {
-       <span class="ident">f</span>(<span class="ident">t</span>)
-      }
       <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)                            <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)),
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, <span class="ident">o</span>)                          <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, <span class="ident">_unify</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>, <span class="ident">o</span>))
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, <span class="ident">o</span>)                          <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac2</span><span class="op">!</span>(<span class="ident">o</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>)<span class="kw-2">*</span>))
       }
     }
   );
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> (
-    <span class="macro">map</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>);
+    <span class="macro">map</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>), <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>));
+  );
+  (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac2</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
+    <span class="macro">map</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac2</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>)<span class="kw-2">*</span>));
   );
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> (
-    <span class="macro">map</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span>), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>);
+    <span class="macro">map</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span>), <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">g</span>));
+  );
+  (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
+    <span class="macro">map</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span>), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>));
   );
 );
 
@@ -1913,8 +1897,7 @@
   <span class="comment">// Internal parser, do not use directly</span>
   (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac2</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)                            <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)),
@@ -1946,8 +1929,7 @@
   <span class="comment">// Internal parser, do not use directly</span>
   (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac2</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)                            <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)),
@@ -1982,7 +1964,6 @@
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">t</span>:<span class="ident">ty</span> ) <span class="op">=&gt;</span> (
     {
       <span class="kw">use</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">ParseTo</span>;
-      <span class="kw">use</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Slice</span>;
       <span class="kw">use</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">InputLength</span>;
       <span class="kw">match</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">parse_to</span>() {
         ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">Some</span>(<span class="ident">output</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">slice</span>(..<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">input_len</span>()), <span class="ident">output</span>),
@@ -1993,7 +1974,7 @@
 );
 
 <span class="doccomment">/// `verify!(I -&gt; IResult&lt;I,O&gt;, O -&gt; bool) =&gt; I -&gt; IResult&lt;I, O&gt;`</span>
-<span class="doccomment">/// returns the result of the child parser if it satisfies a verification function</span>
+<span class="doccomment">/// returns the result of the child parser if it satisfies a verifcation function</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">/// # #[macro_use] extern crate nom;</span>
@@ -2008,8 +1989,7 @@
   <span class="comment">// Internal parser, do not use directly</span>
   (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> ), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac2</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)                            <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)),
@@ -2061,8 +2041,7 @@
     {
       <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,_)     <span class="op">=&gt;</span> {
-          <span class="kw">let</span> <span class="ident">res</span>: <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span>_,_<span class="op">&gt;</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">res</span>);
-          <span class="ident">res</span>
+          <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">res</span>)
         },
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>)
@@ -2073,10 +2052,7 @@
     <span class="macro">value</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">res</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">f</span>))
   );
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">res</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> (
-    {
-      <span class="kw">let</span> <span class="ident">res</span>: <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span>_,_<span class="op">&gt;</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">res</span>);
-      <span class="ident">res</span>
-    }
+    <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">res</span>)
   );
 );
 
@@ -2161,14 +2137,10 @@
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">opt</span>(
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>)     <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">Some</span>(<span class="ident">o</span>)),
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>),
-        _                              <span class="op">=&gt;</span> {
-          <span class="kw">let</span> <span class="ident">res</span>: <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span>_,_<span class="op">&gt;</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">None</span>);
-          <span class="ident">res</span>
-        },
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">None</span>),
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>)
       }
     }
   );
@@ -2201,8 +2173,7 @@
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">opt_res</span> (
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>)     <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,  ::<span class="ident">std</span>::<span class="ident">result</span>::<span class="prelude-ty">Result</span>::<span class="prelude-val">Ok</span>(<span class="ident">o</span>)),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, ::<span class="ident">std</span>::<span class="ident">result</span>::<span class="prelude-ty">Result</span>::<span class="prelude-val">Err</span>(<span class="ident">e</span>)),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>)
@@ -2258,8 +2229,7 @@
           <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>)
         }
       } <span class="kw">else</span> {
-        <span class="kw">let</span> <span class="ident">res</span>: <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span>_,_<span class="op">&gt;</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">None</span>);
-        <span class="ident">res</span>
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">None</span>)
       }
     }
   );
@@ -2306,18 +2276,13 @@
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">cond</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
       <span class="kw">if</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">cond</span> {
-        <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-        <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
+        <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
           <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>)     <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">Some</span>(<span class="ident">o</span>)),
-          <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>),
-          <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_)      <span class="op">=&gt;</span> {
-            <span class="kw">let</span> <span class="ident">res</span>: <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span>_,_<span class="op">&gt;</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">None</span>);
-            <span class="ident">res</span>
-          },
+          <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">None</span>),
+          <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>)
         }
       } <span class="kw">else</span> {
-        <span class="kw">let</span> <span class="ident">res</span>: <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span>_,_<span class="op">&gt;</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">None</span>);
-        <span class="ident">res</span>
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">None</span>)
       }
     }
   );
@@ -2397,8 +2362,7 @@
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">peek</span>(
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(_,<span class="ident">o</span>)     <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="ident">o</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">a</span>)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">a</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>)
@@ -2439,8 +2403,7 @@
   (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="op">*</span> )) <span class="op">=&gt;</span> (
     {
       <span class="kw">use</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Slice</span>;
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(_, _)    <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">ErrorKind</span>::<span class="ident">Not</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>)),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">slice</span>(..<span class="number">0</span>)),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">slice</span>(..<span class="number">0</span>))
@@ -2486,7 +2449,7 @@
   );
 );
 
-<span class="doccomment">/// `eof!()` returns its input if it is at the end of input data</span>
+<span class="doccomment">/// `eof!(i)` returns `i` if it is at the end of input data</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// please note that for now, eof only means there&#39;s no more</span>
 <span class="doccomment">/// data available, it does not work yet with smarter input</span>
@@ -2505,7 +2468,7 @@
   );
 );
 
-<span class="doccomment">/// `recognize!(I -&gt; IResult&lt;I, O&gt; ) =&gt; I -&gt; IResult&lt;I, I&gt;`</span>
+<span class="doccomment">/// `recognize!(&amp;[T] -&gt; IResult&lt;&amp;[T], O&gt; ) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;`</span>
 <span class="doccomment">/// if the child parser was successful, return the consumed input as produced value</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```</span>
@@ -2523,10 +2486,9 @@
     {
       <span class="kw">use</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Offset</span>;
       <span class="kw">use</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Slice</span>;
-      <span class="kw">let</span> <span class="ident">i_</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">clone</span>();
-      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i_</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
+      <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,_)     <span class="op">=&gt;</span> {
-          <span class="kw">let</span> <span class="ident">index</span> <span class="op">=</span> (<span class="kw-2">&amp;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">offset</span>(<span class="kw-2">&amp;</span><span class="ident">i</span>);
+          <span class="kw">let</span> <span class="ident">index</span> <span class="op">=</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">offset</span>(<span class="ident">i</span>);
           <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">slice</span>(..<span class="ident">index</span>))
         },
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>),
@@ -2667,12 +2629,9 @@
   }
 
   <span class="attribute">#[<span class="ident">test</span>]</span>
-  <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;std&quot;</span>)]</span>
   <span class="kw">fn</span> <span class="ident">cond</span>() {
-    <span class="kw">let</span> <span class="ident">f_true</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>],<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;&gt;</span>  <span class="op">=</span>
-      <span class="ident">Box</span>::<span class="ident">new</span>(<span class="macro">closure</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>], <span class="macro">fix_error</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="macro">cond</span><span class="macro">!</span>( <span class="bool-val">true</span>, <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;abcd&quot;</span>) ) )));
-    <span class="kw">let</span> <span class="ident">f_false</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>],<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;&gt;</span> <span class="op">=</span>
-      <span class="ident">Box</span>::<span class="ident">new</span>(<span class="macro">closure</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>], <span class="macro">fix_error</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="macro">cond</span><span class="macro">!</span>( <span class="bool-val">false</span>, <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;abcd&quot;</span>) ) )));
+    <span class="kw">let</span> <span class="ident">f_true</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>],<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">Box</span>::<span class="ident">new</span>(<span class="macro">closure</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>], <span class="macro">cond</span><span class="macro">!</span>( <span class="bool-val">true</span>, <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;abcd&quot;</span>) ) ));
+    <span class="kw">let</span> <span class="ident">f_false</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>],<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">Box</span>::<span class="ident">new</span>(<span class="macro">closure</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>], <span class="macro">cond</span><span class="macro">!</span>( <span class="bool-val">false</span>, <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;abcd&quot;</span>) ) ));
     <span class="comment">//let f_false = closure!(&amp;&#39;static [u8], cond!( false, tag!(&quot;abcd&quot;) ) );</span>
 
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">f_true</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;abcdef&quot;</span>[..]), <span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;ef&quot;</span>[..], <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;abcd&quot;</span>[..])));
@@ -2685,14 +2644,11 @@
   }
 
   <span class="attribute">#[<span class="ident">test</span>]</span>
-  <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;std&quot;</span>)]</span>
   <span class="kw">fn</span> <span class="ident">cond_wrapping</span>() {
     <span class="comment">// Test that cond!() will wrap a given identifier in the call!() macro.</span>
     <span class="macro">named</span><span class="macro">!</span>( <span class="ident">tag_abcd</span>, <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;abcd&quot;</span>) );
-    <span class="kw">let</span> <span class="ident">f_true</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>],<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;&gt;</span>  <span class="op">=</span>
-      <span class="ident">Box</span>::<span class="ident">new</span>(<span class="macro">closure</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>], <span class="macro">fix_error</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="macro">cond</span><span class="macro">!</span>( <span class="bool-val">true</span>, <span class="ident">tag_abcd</span> ) )));
-    <span class="kw">let</span> <span class="ident">f_false</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>],<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;&gt;</span> <span class="op">=</span>
-      <span class="ident">Box</span>::<span class="ident">new</span>(<span class="macro">closure</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>], <span class="macro">fix_error</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="macro">cond</span><span class="macro">!</span>( <span class="bool-val">false</span>, <span class="ident">tag_abcd</span> ) )));
+    <span class="kw">let</span> <span class="ident">f_true</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>],<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">Box</span>::<span class="ident">new</span>(<span class="macro">closure</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>], <span class="macro">cond</span><span class="macro">!</span>( <span class="bool-val">true</span>, <span class="ident">tag_abcd</span> ) ));
+    <span class="kw">let</span> <span class="ident">f_false</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>],<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">Box</span>::<span class="ident">new</span>(<span class="macro">closure</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [<span class="ident">u8</span>], <span class="macro">cond</span><span class="macro">!</span>( <span class="bool-val">false</span>, <span class="ident">tag_abcd</span> ) ));
     <span class="comment">//let f_false = closure!(&amp;&#39;static [u8], cond!( b2, tag!(&quot;abcd&quot;) ) );</span>
 
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">f_true</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;abcdef&quot;</span>[..]), <span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;ef&quot;</span>[..], <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;abcd&quot;</span>[..])));
@@ -2743,20 +2699,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

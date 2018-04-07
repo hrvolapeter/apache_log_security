@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["GeoShape","Geo shape type with a given mapping."]]});

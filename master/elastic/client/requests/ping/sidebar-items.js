@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Pending","A future returned by calling `send`. "]],"type":[["PingRequestBuilder","A ping request builder that can be configured before sending. "]]});

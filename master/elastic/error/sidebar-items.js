@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["ApiError","A REST API error response. "],["Error","An error encountered while interacting with Elasticsearch."]],"struct":[["ClientError","An error building a client, sending a request or receiving a response. "]],"type":[["Result","An alias for a result. "]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["AsyncClientBuilder","A builder for an asynchronous client. "],["RequestParams","Misc parameters for any request."],["SyncClientBuilder","A builder for a syncronous client. "]],"type":[["AsyncClient","An asynchronous Elasticsearch client."],["SyncClient","A synchronous Elasticsearch client."]]});

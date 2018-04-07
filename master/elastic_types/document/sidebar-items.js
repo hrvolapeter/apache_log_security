@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["mapping","Mapping for Elasticsearch document types. "],["prelude","Includes all types for document types."]],"struct":[["IndexDocumentMapping","A wrapper type for serialising user types."],["ValueDocumentMapping","Mapping for an anonymous json object. "]],"trait":[["DocumentType","The additional fields available to an indexable Elasticsearch type."]]});

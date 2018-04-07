@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["derive_date_format",""],["derive_elastic_type",""]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Boolean","An Elasticsearch `boolean` with a mapping."],["DefaultBooleanMapping","Default mapping for `bool`. "]],"trait":[["BooleanFieldType","A field that will be mapped as a `boolean`. "],["BooleanMapping","The base requirements for mapping a `boolean` type."]]});

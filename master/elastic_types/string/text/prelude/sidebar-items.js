@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Text","An Elasticsearch `text` field with a mapping."]]});

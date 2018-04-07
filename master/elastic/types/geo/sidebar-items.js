@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["mapping","Common mapping for the Elasticsearch `geo` types. "],["point","Implementation of the Elasticsearch `geo_point` type."],["prelude","Includes all types for the `geo_point` and `geo_shape` types."],["shape","Implementation of the Elasticsearch `geo_shape` type."]]});

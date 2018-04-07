@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["Simplify","Simplifies a geometry."]]});

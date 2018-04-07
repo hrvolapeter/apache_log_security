@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["mapping","Mapping for the Elasticsearch `keyword` type. "],["prelude","Includes all types for the `keyword` type."]],"struct":[["Keyword","An Elasticsearch `keyword` with a mapping."]]});

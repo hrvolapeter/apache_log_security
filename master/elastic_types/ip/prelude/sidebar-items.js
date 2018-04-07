@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Ip","An Elasticsearch `ip` with a mapping."]]});

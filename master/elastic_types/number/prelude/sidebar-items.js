@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Byte","Number type with a given mapping. "],["Double","Number type with a given mapping. "],["Float","Number type with a given mapping. "],["Integer","Number type with a given mapping. "],["Long","Number type with a given mapping. "],["Short","Number type with a given mapping. "]]});

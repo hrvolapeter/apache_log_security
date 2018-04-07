@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Elasticsearch","Elasticsearch output"],["IncidentLog",""],["IncidentLogMapping",""]]});

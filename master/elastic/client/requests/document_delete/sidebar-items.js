@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Pending","A future returned by calling `send`. "]],"type":[["DeleteRequestBuilder","A [delete document request][docs-delete] builder that can be configured before sending."]]});
