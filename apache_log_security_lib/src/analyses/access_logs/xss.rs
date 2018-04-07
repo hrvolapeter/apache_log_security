@@ -297,17 +297,13 @@ mod tests {
     use analyses::Incident;
 
     fn analyse_log_with_path(path: String) -> Incident {
-        let date_time = "2015-2-18T23:16:9.15Z"
-            .parse::<DateTime<FixedOffset>>()
-            .unwrap();
+        let date_time = "2015-2-18T23:16:9.15Z".parse::<DateTime<Utc>>().unwrap();
         let log = super::AccessLog::new(200, "".to_string(), path, date_time, 0);
         super::analyse(&log, &Config::new()).unwrap()
     }
 
     fn analyse_inteligent_log_with_path(path: String) -> Incident {
-        let date_time = "2015-2-18T23:16:9.15Z"
-            .parse::<DateTime<FixedOffset>>()
-            .unwrap();
+        let date_time = "2015-2-18T23:16:9.15Z".parse::<DateTime<Utc>>().unwrap();
         let log = super::AccessLog::new(200, "".to_string(), path, date_time, 0);
         let mut config = Config::new();
         config.xss_level = config::XssLevel::Intelligent;

@@ -1,4 +1,5 @@
 use reporting;
+use error::ReportingErr;
 use analyses::Incident;
 use lettre::sendmail::SendmailTransport;
 use lettre::{EmailAddress, EmailTransport, SimpleSendableEmail};
@@ -12,7 +13,7 @@ pub struct Email {
 }
 
 impl reporting::Reporting for Email {
-    fn report_incidents(&self, incidents: &Vec<Incident>) {
+    fn report_incidents(&self, incidents: &Vec<Incident>) -> Result<(), ReportingErr> {
         let mut message = "Incidents detected: \n\n".to_string();
         for incident in incidents {
             message = message.add(&format!("{}: {}\n", incident.reason, incident.log_msg)[..]);
@@ -26,6 +27,7 @@ impl reporting::Reporting for Email {
         );
 
         let mut sender = SendmailTransport::new();
-        sender.send(&email).unwrap();
+        sender.send(&email)?;
+        Ok(())
     }
 }

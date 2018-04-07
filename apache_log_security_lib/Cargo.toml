@@ -8,18 +8,22 @@ url = "~1.5"
 
 serde = "1.0"
 serde_derive = "1.0"
+serde_json = "*"
+elastic_derive = "*"
 
 lettre = "0.7"
 
 chrono = "0.4"
 
-rayon = "0.8.2"
+rayon = "1.0"
 
 nom = "^3.2"
 
 xml-rs = "0.7.0"
 
 glob = "0.2.11"
+
+elastic = "0.20"
 
 [dev-dependencies]
 criterion = "0.2"

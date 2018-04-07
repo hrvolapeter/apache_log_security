@@ -24,7 +24,7 @@ use config::Config;
 /// # use chrono::prelude::*;
 /// #
 /// # let date_time = "2015-2-18T23:16:9.15Z"
-/// #    .parse::<DateTime<FixedOffset>>()
+/// #    .parse::<DateTime<Utc>>()
 /// #    .unwrap();
 /// let log = AccessLog::new(200, "".to_string(), "<script>".to_string(), date_time, 0);
 /// debug_assert_eq!(log.run_analysis(&Config::new()).len(), 1);
@@ -37,7 +37,7 @@ pub struct AccessLog {
     response_code: u32,
     client: String,
     path: String,
-    date_time: DateTime<FixedOffset>,
+    date_time: DateTime<Utc>,
     size_returned: u32,
 }
 
@@ -47,7 +47,7 @@ impl AccessLog {
         response_code: u32,
         client: String,
         path: String,
-        date_time: DateTime<FixedOffset>,
+        date_time: DateTime<Utc>,
         size_returned: u32,
     ) -> Self {
         AccessLog {

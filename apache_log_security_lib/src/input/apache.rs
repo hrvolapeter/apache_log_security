@@ -1,7 +1,7 @@
 use input;
 use analyses;
 use analyses::access_logs::AccessLog;
-use chrono::prelude::DateTime;
+use chrono::prelude::*;
 use std::u32;
 use std::str::from_utf8;
 use std::str::FromStr;
@@ -9,6 +9,7 @@ use std::fs::File;
 use std::io::BufReader;
 use std::io::BufRead;
 use nom;
+use error::InputErr;
 
 /// Input source type
 #[derive(Deserialize, Serialize)]
@@ -18,11 +19,11 @@ pub struct Apache {
 }
 
 impl input::Input for Apache {
-    fn get_logs(&self) -> Vec<Box<analyses::Analysable>> {
-        let file = File::open(&self.path).expect("Unable to open log file for reading");
+    fn get_logs(&self) -> Result<Vec<Box<analyses::Analysable>>, InputErr> {
+        let file = File::open(&self.path)?;
         let mut logs: Vec<Box<analyses::Analysable>> = Vec::new();
         for line in BufReader::new(file).lines() {
-            match parse_input(line.unwrap().as_bytes()) {
+            match parse_input(line?.as_bytes()) {
                 nom::IResult::Done(_, log) => logs.push(Box::new(log)),
                 nom::IResult::Incomplete(err) => {
                     eprintln!("Parsing Apache log incomplete {:?}", err)
@@ -31,7 +32,7 @@ impl input::Input for Apache {
             }
         }
 
-        logs
+        Ok(logs)
     }
 }
 
@@ -61,7 +62,7 @@ named!(parse_input<&[u8], AccessLog>,
         from_utf8(method).unwrap().to_string(),
         from_utf8(path).unwrap().to_string(),
         DateTime::parse_from_str(from_utf8(date).unwrap(), "%d/%b/%Y:%T %z")
-            .expect("Invalid date format"),
+            .expect("Invalid date format").with_timezone(&Utc),
         u32::from_str(from_utf8(response_length).unwrap()).unwrap_or(0)
         )
     )
@@ -87,7 +88,8 @@ mod tests {
 
         let logs = (Apache {
             path: log_path.clone(),
-        }).get_logs();
+        }).get_logs()
+            .unwrap();
         debug_assert_eq!(logs.len(), 2);
         fs::remove_file(log_path).unwrap();
     }

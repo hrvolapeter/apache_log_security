@@ -6,6 +6,7 @@ use glob::glob;
 #[derive(Deserialize, Serialize)]
 pub enum Service {
     Apache(input::apache::Apache),
+    Elasticsearch(input::elasticsearch::Elasticsearch),
 }
 
 /// Define output types
@@ -13,6 +14,7 @@ pub enum Service {
 pub enum Reporting {
     Std(reporting::std::Std),
     Email(reporting::email::Email),
+    Elasticsearch(reporting::elasticsearch::Elasticsearch),
 }
 
 /// Define levels of detection for Xss Analyzer
@@ -47,28 +49,33 @@ impl Config {
     ///
     /// If we have directory `dir` with files `a.log` and `b.log` this will turn `dir/*`
     /// to concrete paths `dir/a.log` and `dir/b.log` and return new config while consuming the old one.
-    pub fn normalize_glob_path(mut self) -> Config {
+    pub fn normalize_services_glob(mut self) -> Config {
         self.services = self.services
             .into_iter()
-            .flat_map(|Service::Apache(apache)| {
-                let services: Vec<_> = glob(&apache.path[..])
-                    .expect("Failed to read input file path glob pattern")
-                    .filter_map(|entry| match entry {
-                        Ok(path_buf) => Some(Service::Apache(input::apache::Apache {
-                            path: path_buf.to_str().unwrap().to_string(),
-                        })),
-                        Err(e) => {
-                            eprintln!("{:?}", e);
-                            None
-                        }
-                    })
-                    .collect();
-                services
+            .flat_map(|service| match service {
+                Service::Apache(apache) => convert_glob_path(&apache.path[..]),
+                _ => vec![service],
             })
             .collect();
-
         self
     }
+}
+
+/// Convert glob path to full path
+fn convert_glob_path(path: &str) -> Vec<Service> {
+    let services: Vec<_> = glob(path)
+        .expect("Failed to read input file path glob pattern")
+        .filter_map(|entry| match entry {
+            Ok(path_buf) => Some(Service::Apache(input::apache::Apache {
+                path: path_buf.to_str().unwrap().to_string(),
+            })),
+            Err(e) => {
+                eprintln!("{:?}", e);
+                None
+            }
+        })
+        .collect();
+    services
 }
 
 #[cfg(test)]
@@ -84,6 +91,6 @@ mod tests {
                 path: "/*".to_string(),
             }),
         ];
-        assert!(config.normalize_glob_path().services.len() > 1);
+        assert!(config.normalize_services_glob().services.len() > 1);
     }
 }

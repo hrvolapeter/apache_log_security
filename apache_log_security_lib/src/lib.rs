@@ -1,6 +1,9 @@
 #![deny(warnings)]
 
 extern crate chrono;
+extern crate elastic;
+#[macro_use]
+extern crate elastic_derive;
 extern crate glob;
 extern crate lettre;
 #[macro_use]
@@ -9,6 +12,8 @@ extern crate rayon;
 extern crate serde;
 #[macro_use]
 extern crate serde_derive;
+#[macro_use]
+extern crate serde_json;
 
 /// Analyzers for all log types
 pub mod analyses;
@@ -20,8 +25,11 @@ pub mod config;
 pub mod reporting;
 /// Helper function
 pub mod helper;
+/// Library errors
+pub mod error;
 
-use rayon::iter::*;
+use rayon::prelude::*;
+use error::LibErr;
 
 /// Run library with given configuration.
 /// Logs are beeing read, analyzed and then reported as configured.
@@ -52,17 +60,25 @@ use rayon::iter::*;
 /// };
 /// run(config);
 /// ```
-pub fn run(conf: config::Config) {
-    let incidents: Vec<analyses::Incident> = conf.services
+pub fn run(conf: config::Config) -> Result<(), LibErr> {
+    let incidents: Vec<analyses::Incident> = get_logs(&conf)?
         .par_iter()
-        .flat_map(|x| {
-            use input::Input;
-            match x {
-                &config::Service::Apache(ref apache) => apache.get_logs(),
-            }
-        })
-        .flat_map(|x| x.as_ref().run_analysis(&conf))
+        .flat_map(|x| x.run_analysis(&conf))
         .collect();
 
-    reporting::report_incidents(incidents, &conf);
+    reporting::report_incidents(incidents, &conf)?;
+    Ok(())
+}
+
+fn get_logs(conf: &config::Config) -> Result<Vec<Box<analyses::Analysable>>, LibErr> {
+    let mut logs: Vec<Box<analyses::Analysable>> = Vec::new();
+    for service in &conf.services {
+        use input::Input;
+        let mut service_logs = match service {
+            &config::Service::Apache(ref apache) => apache.get_logs()?,
+            &config::Service::Elasticsearch(ref elastic) => elastic.get_logs()?,
+        };
+        logs.append(&mut service_logs);
+    }
+    Ok(logs)
 }

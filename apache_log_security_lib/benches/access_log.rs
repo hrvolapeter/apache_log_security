@@ -11,10 +11,7 @@ use criterion::black_box;
 use chrono::prelude::*;
 
 fn create_log(path: String) -> AccessLog {
-    let date_time = "2015-2-18T23:16:9.15Z"
-        .parse::<DateTime<FixedOffset>>()
-        .unwrap();
-    AccessLog::new(200, "".to_string(), path, date_time, 0)
+    AccessLog::new(200, "".to_string(), path, Utc::now(), 0)
 }
 
 fn criterion_benchmark(c: &mut Criterion) {
