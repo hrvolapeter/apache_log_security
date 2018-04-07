@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         <a href='../libc/index.html'><img src='https://www.rust-lang.org/logos/rust-logo-128x128-blk-v2.png' alt='logo' width='100'></a>
-        <p class='location'>Struct statfs</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.f_bsize">f_bsize</a><a href="#structfield.f_iosize">f_iosize</a><a href="#structfield.f_blocks">f_blocks</a><a href="#structfield.f_bfree">f_bfree</a><a href="#structfield.f_bavail">f_bavail</a><a href="#structfield.f_files">f_files</a><a href="#structfield.f_ffree">f_ffree</a><a href="#structfield.f_fsid">f_fsid</a><a href="#structfield.f_owner">f_owner</a><a href="#structfield.f_type">f_type</a><a href="#structfield.f_flags">f_flags</a><a href="#structfield.f_fssubtype">f_fssubtype</a><a href="#structfield.f_fstypename">f_fstypename</a><a href="#structfield.f_mntonname">f_mntonname</a><a href="#structfield.f_mntfromname">f_mntfromname</a><a href="#structfield.f_reserved">f_reserved</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='index.html'>libc</a></p><script>window.sidebarCurrent = {name: 'statfs', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct statfs</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.f_type">f_type</a><a href="#structfield.f_bsize">f_bsize</a><a href="#structfield.f_blocks">f_blocks</a><a href="#structfield.f_bfree">f_bfree</a><a href="#structfield.f_bavail">f_bavail</a><a href="#structfield.f_files">f_files</a><a href="#structfield.f_ffree">f_ffree</a><a href="#structfield.f_fsid">f_fsid</a><a href="#structfield.f_namelen">f_namelen</a><a href="#structfield.f_frsize">f_frsize</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='index.html'>libc</a></p><script>window.sidebarCurrent = {name: 'statfs', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -52,87 +52,58 @@
                </span><a class='srclink' href='../src/libc/macros.rs.html#42' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'><div class="docblock attributes">#[repr(C)]
 </div>pub struct statfs {
-    pub f_bsize: <a class="type" href="../libc/type.uint32_t.html" title="type libc::uint32_t">uint32_t</a>,
-    pub f_iosize: <a class="type" href="../libc/type.int32_t.html" title="type libc::int32_t">int32_t</a>,
-    pub f_blocks: <a class="type" href="../libc/type.uint64_t.html" title="type libc::uint64_t">uint64_t</a>,
-    pub f_bfree: <a class="type" href="../libc/type.uint64_t.html" title="type libc::uint64_t">uint64_t</a>,
-    pub f_bavail: <a class="type" href="../libc/type.uint64_t.html" title="type libc::uint64_t">uint64_t</a>,
-    pub f_files: <a class="type" href="../libc/type.uint64_t.html" title="type libc::uint64_t">uint64_t</a>,
-    pub f_ffree: <a class="type" href="../libc/type.uint64_t.html" title="type libc::uint64_t">uint64_t</a>,
+    pub f_type: <a class="type" href="../libc/type.__fsword_t.html" title="type libc::__fsword_t">__fsword_t</a>,
+    pub f_bsize: <a class="type" href="../libc/type.__fsword_t.html" title="type libc::__fsword_t">__fsword_t</a>,
+    pub f_blocks: <a class="type" href="../libc/type.fsblkcnt_t.html" title="type libc::fsblkcnt_t">fsblkcnt_t</a>,
+    pub f_bfree: <a class="type" href="../libc/type.fsblkcnt_t.html" title="type libc::fsblkcnt_t">fsblkcnt_t</a>,
+    pub f_bavail: <a class="type" href="../libc/type.fsblkcnt_t.html" title="type libc::fsblkcnt_t">fsblkcnt_t</a>,
+    pub f_files: <a class="type" href="../libc/type.fsfilcnt_t.html" title="type libc::fsfilcnt_t">fsfilcnt_t</a>,
+    pub f_ffree: <a class="type" href="../libc/type.fsfilcnt_t.html" title="type libc::fsfilcnt_t">fsfilcnt_t</a>,
     pub f_fsid: <a class="struct" href="../libc/struct.fsid_t.html" title="struct libc::fsid_t">fsid_t</a>,
-    pub f_owner: <a class="type" href="../libc/type.uid_t.html" title="type libc::uid_t">uid_t</a>,
-    pub f_type: <a class="type" href="../libc/type.uint32_t.html" title="type libc::uint32_t">uint32_t</a>,
-    pub f_flags: <a class="type" href="../libc/type.uint32_t.html" title="type libc::uint32_t">uint32_t</a>,
-    pub f_fssubtype: <a class="type" href="../libc/type.uint32_t.html" title="type libc::uint32_t">uint32_t</a>,
-    pub f_fstypename: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.c_char.html" title="type libc::c_char">c_char</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 16]</a>,
-    pub f_mntonname: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.c_char.html" title="type libc::c_char">c_char</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 1024]</a>,
-    pub f_mntfromname: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.c_char.html" title="type libc::c_char">c_char</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 1024]</a>,
-    pub f_reserved: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.uint32_t.html" title="type libc::uint32_t">uint32_t</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 8]</a>,
+    pub f_namelen: <a class="type" href="../libc/type.__fsword_t.html" title="type libc::__fsword_t">__fsword_t</a>,
+    pub f_frsize: <a class="type" href="../libc/type.__fsword_t.html" title="type libc::__fsword_t">__fsword_t</a>,
+    // some fields omitted
 }</pre><h2 id='fields' class='fields small-section-header'>
-                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.f_bsize" class="structfield small-section-header">
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.f_type" class="structfield small-section-header">
+                           <a href="#structfield.f_type" class="anchor field"></a>
+                           <span id="f_type.v" class='invisible'>
+                           <code>f_type: <a class="type" href="../libc/type.__fsword_t.html" title="type libc::__fsword_t">__fsword_t</a></code>
+                           </span></span><span id="structfield.f_bsize" class="structfield small-section-header">
                            <a href="#structfield.f_bsize" class="anchor field"></a>
                            <span id="f_bsize.v" class='invisible'>
-                           <code>f_bsize: <a class="type" href="../libc/type.uint32_t.html" title="type libc::uint32_t">uint32_t</a></code>
-                           </span></span><span id="structfield.f_iosize" class="structfield small-section-header">
-                           <a href="#structfield.f_iosize" class="anchor field"></a>
-                           <span id="f_iosize.v" class='invisible'>
-                           <code>f_iosize: <a class="type" href="../libc/type.int32_t.html" title="type libc::int32_t">int32_t</a></code>
+                           <code>f_bsize: <a class="type" href="../libc/type.__fsword_t.html" title="type libc::__fsword_t">__fsword_t</a></code>
                            </span></span><span id="structfield.f_blocks" class="structfield small-section-header">
                            <a href="#structfield.f_blocks" class="anchor field"></a>
                            <span id="f_blocks.v" class='invisible'>
-                           <code>f_blocks: <a class="type" href="../libc/type.uint64_t.html" title="type libc::uint64_t">uint64_t</a></code>
+                           <code>f_blocks: <a class="type" href="../libc/type.fsblkcnt_t.html" title="type libc::fsblkcnt_t">fsblkcnt_t</a></code>
                            </span></span><span id="structfield.f_bfree" class="structfield small-section-header">
                            <a href="#structfield.f_bfree" class="anchor field"></a>
                            <span id="f_bfree.v" class='invisible'>
-                           <code>f_bfree: <a class="type" href="../libc/type.uint64_t.html" title="type libc::uint64_t">uint64_t</a></code>
+                           <code>f_bfree: <a class="type" href="../libc/type.fsblkcnt_t.html" title="type libc::fsblkcnt_t">fsblkcnt_t</a></code>
                            </span></span><span id="structfield.f_bavail" class="structfield small-section-header">
                            <a href="#structfield.f_bavail" class="anchor field"></a>
                            <span id="f_bavail.v" class='invisible'>
-                           <code>f_bavail: <a class="type" href="../libc/type.uint64_t.html" title="type libc::uint64_t">uint64_t</a></code>
+                           <code>f_bavail: <a class="type" href="../libc/type.fsblkcnt_t.html" title="type libc::fsblkcnt_t">fsblkcnt_t</a></code>
                            </span></span><span id="structfield.f_files" class="structfield small-section-header">
                            <a href="#structfield.f_files" class="anchor field"></a>
                            <span id="f_files.v" class='invisible'>
-                           <code>f_files: <a class="type" href="../libc/type.uint64_t.html" title="type libc::uint64_t">uint64_t</a></code>
+                           <code>f_files: <a class="type" href="../libc/type.fsfilcnt_t.html" title="type libc::fsfilcnt_t">fsfilcnt_t</a></code>
                            </span></span><span id="structfield.f_ffree" class="structfield small-section-header">
                            <a href="#structfield.f_ffree" class="anchor field"></a>
                            <span id="f_ffree.v" class='invisible'>
-                           <code>f_ffree: <a class="type" href="../libc/type.uint64_t.html" title="type libc::uint64_t">uint64_t</a></code>
+                           <code>f_ffree: <a class="type" href="../libc/type.fsfilcnt_t.html" title="type libc::fsfilcnt_t">fsfilcnt_t</a></code>
                            </span></span><span id="structfield.f_fsid" class="structfield small-section-header">
                            <a href="#structfield.f_fsid" class="anchor field"></a>
                            <span id="f_fsid.v" class='invisible'>
                            <code>f_fsid: <a class="struct" href="../libc/struct.fsid_t.html" title="struct libc::fsid_t">fsid_t</a></code>
-                           </span></span><span id="structfield.f_owner" class="structfield small-section-header">
-                           <a href="#structfield.f_owner" class="anchor field"></a>
-                           <span id="f_owner.v" class='invisible'>
-                           <code>f_owner: <a class="type" href="../libc/type.uid_t.html" title="type libc::uid_t">uid_t</a></code>
-                           </span></span><span id="structfield.f_type" class="structfield small-section-header">
-                           <a href="#structfield.f_type" class="anchor field"></a>
-                           <span id="f_type.v" class='invisible'>
-                           <code>f_type: <a class="type" href="../libc/type.uint32_t.html" title="type libc::uint32_t">uint32_t</a></code>
-                           </span></span><span id="structfield.f_flags" class="structfield small-section-header">
-                           <a href="#structfield.f_flags" class="anchor field"></a>
-                           <span id="f_flags.v" class='invisible'>
-                           <code>f_flags: <a class="type" href="../libc/type.uint32_t.html" title="type libc::uint32_t">uint32_t</a></code>
-                           </span></span><span id="structfield.f_fssubtype" class="structfield small-section-header">
-                           <a href="#structfield.f_fssubtype" class="anchor field"></a>
-                           <span id="f_fssubtype.v" class='invisible'>
-                           <code>f_fssubtype: <a class="type" href="../libc/type.uint32_t.html" title="type libc::uint32_t">uint32_t</a></code>
-                           </span></span><span id="structfield.f_fstypename" class="structfield small-section-header">
-                           <a href="#structfield.f_fstypename" class="anchor field"></a>
-                           <span id="f_fstypename.v" class='invisible'>
-                           <code>f_fstypename: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.c_char.html" title="type libc::c_char">c_char</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 16]</a></code>
-                           </span></span><span id="structfield.f_mntonname" class="structfield small-section-header">
-                           <a href="#structfield.f_mntonname" class="anchor field"></a>
-                           <span id="f_mntonname.v" class='invisible'>
-                           <code>f_mntonname: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.c_char.html" title="type libc::c_char">c_char</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 1024]</a></code>
-                           </span></span><span id="structfield.f_mntfromname" class="structfield small-section-header">
-                           <a href="#structfield.f_mntfromname" class="anchor field"></a>
-                           <span id="f_mntfromname.v" class='invisible'>
-                           <code>f_mntfromname: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.c_char.html" title="type libc::c_char">c_char</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 1024]</a></code>
-                           </span></span><span id="structfield.f_reserved" class="structfield small-section-header">
-                           <a href="#structfield.f_reserved" class="anchor field"></a>
-                           <span id="f_reserved.v" class='invisible'>
-                           <code>f_reserved: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">[</a><a class="type" href="../libc/type.uint32_t.html" title="type libc::uint32_t">uint32_t</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.array.html">; 8]</a></code>
+                           </span></span><span id="structfield.f_namelen" class="structfield small-section-header">
+                           <a href="#structfield.f_namelen" class="anchor field"></a>
+                           <span id="f_namelen.v" class='invisible'>
+                           <code>f_namelen: <a class="type" href="../libc/type.__fsword_t.html" title="type libc::__fsword_t">__fsword_t</a></code>
+                           </span></span><span id="structfield.f_frsize" class="structfield small-section-header">
+                           <a href="#structfield.f_frsize" class="anchor field"></a>
+                           <span id="f_frsize.v" class='invisible'>
+                           <code>f_frsize: <a class="type" href="../libc/type.__fsword_t.html" title="type libc::__fsword_t">__fsword_t</a></code>
                            </span></span>
             <h2 id='implementations' class='small-section-header'>
               Trait Implementations<a href='#implementations' class='anchor'></a>
