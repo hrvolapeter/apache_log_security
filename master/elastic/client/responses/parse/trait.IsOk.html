@@ -10,11 +10,8 @@
     <title>elastic::client::responses::parse::IsOk - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
-    <script src="../../../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css">
     
 
     
@@ -36,13 +33,6 @@
         <p class='location'>Trait IsOk</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.is_ok">is_ok</a></div><a class="sidebar-title" href="#foreign-impls">Implementations on Foreign Types</a><div class="sidebar-links"><a href="#impl-IsOk">Value</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>responses</a>::<wbr><a href='index.html'>parse</a></p><script>window.sidebarCurrent = {name: 'IsOk', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -64,21 +54,26 @@
     fn <a href='#tymethod.is_ok' class='fnname'>is_ok</a>&lt;B&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;head: <a class="struct" href="../../../../elastic/client/responses/parse/struct.HttpResponseHead.html" title="struct elastic::client::responses::parse::HttpResponseHead">HttpResponseHead</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unbuffered: <a class="struct" href="../../../../elastic/client/responses/parse/struct.Unbuffered.html" title="struct elastic::client::responses::parse::Unbuffered">Unbuffered</a>&lt;B&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../../../../elastic/client/responses/parse/struct.MaybeOkResponse.html" title="struct elastic::client::responses::parse::MaybeOkResponse">MaybeOkResponse</a>&lt;B&gt;, <a class="enum" href="../../../../elastic/client/responses/parse/enum.ParseResponseError.html" title="enum elastic::client::responses::parse::ParseResponseError">ParseResponseError</a>&gt;<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B: <a class="trait" href="../../../../elastic/client/responses/parse/trait.ResponseBody.html" title="trait elastic::client::responses::parse::ResponseBody">ResponseBody</a></span>;
 }</pre><div class='docblock'><p>Convert a response message into a either a success
 or failure result.</p>
+
 <p>This is the main trait that drives response parsing by inspecting the http status and potentially
 buffering the response to determine whether or not it represents a successful operation.
-This trait doesn't do the actual deserialisation, it just passes on a <code>MaybeOkResponse</code>.</p>
+This trait doesn&#39;t do the actual deserialisation, it just passes on a <code>MaybeOkResponse</code>.</p>
+
 <p>Some endpoints may not map success or error responses directly to a status code.
 In this case, the <code>Unbuffered</code> body can be buffered into an anonymous json object and inspected
 for an error node.
 The <code>Unbuffered</code> type takes care of response bodies that can only be buffered once.</p>
+
 <p>Any type that implements <code>IsOk</code> can be deserialised by <code>parse</code>.
 Implementations should behave in the following way:</p>
+
 <ul>
 <li>If the response is successful, this trait should return <code>Ok(MaybeOkResponse::ok)</code>.</li>
 <li>If the response is an error, this trait should return <code>Ok(MaybeOkResponse::err)</code>.</li>
-<li>If the response isn't recognised or is otherwise invalid, this trait should return <code>Err</code>.</li>
+<li>If the response isn&#39;t recognised or is otherwise invalid, this trait should return <code>Err</code>.</li>
 </ul>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <p>Implement <code>IsOk</code> for a custom response type, where a http <code>404</code> might still contain a valid response:</p>
 
 <pre class="rust rust-example-rendered">
@@ -118,16 +113,16 @@ Implementations should behave in the following way:</p>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/delete.rs.html#56-63' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.DeleteResponse.html" title="struct elastic::client::responses::prelude::DeleteResponse">DeleteResponse</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/bulk.rs.html#523-530' title='goto source code'>[src]</a></div><code>impl&lt;TIndex, TType, TId&gt; IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.BulkResponse.html" title="struct elastic::client::responses::prelude::BulkResponse">BulkResponse</a>&lt;TIndex, TType, TId&gt;</code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/update.rs.html#50-57' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.UpdateResponse.html" title="struct elastic::client::responses::prelude::UpdateResponse">UpdateResponse</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/indices_exists.rs.html#21-29' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.IndicesExistsResponse.html" title="struct elastic::client::responses::prelude::IndicesExistsResponse">IndicesExistsResponse</a></code></li>
+    <li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/update.rs.html#50-57' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.UpdateResponse.html" title="struct elastic::client::responses::prelude::UpdateResponse">UpdateResponse</a></code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/get.rs.html#59-78' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.GetResponse.html" title="struct elastic::client::responses::prelude::GetResponse">GetResponse</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../../serde/de/trait.DeserializeOwned.html" title="trait serde::de::DeserializeOwned">DeserializeOwned</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/command.rs.html#25-32' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.CommandResponse.html" title="struct elastic::client::responses::prelude::CommandResponse">CommandResponse</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/indices_exists.rs.html#21-29' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.IndicesExistsResponse.html" title="struct elastic::client::responses::prelude::IndicesExistsResponse">IndicesExistsResponse</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/delete.rs.html#56-63' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.DeleteResponse.html" title="struct elastic::client::responses::prelude::DeleteResponse">DeleteResponse</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/bulk.rs.html#523-530' title='goto source code'>[src]</a></div><code>impl&lt;TIndex, TType, TId&gt; IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.BulkResponse.html" title="struct elastic::client::responses::prelude::BulkResponse">BulkResponse</a>&lt;TIndex, TType, TId&gt;</code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/search.rs.html#145-152' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.SearchResponse.html" title="struct elastic::client::responses::prelude::SearchResponse">SearchResponse</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../../serde/de/trait.DeserializeOwned.html" title="trait serde::de::DeserializeOwned">DeserializeOwned</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/ping.rs.html#71-78' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.PingResponse.html" title="struct elastic::client::responses::prelude::PingResponse">PingResponse</a></code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/bulk.rs.html#532-539' title='goto source code'>[src]</a></div><code>impl&lt;TIndex, TType, TId&gt; IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.BulkErrorsResponse.html" title="struct elastic::client::responses::prelude::BulkErrorsResponse">BulkErrorsResponse</a>&lt;TIndex, TType, TId&gt;</code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/index.rs.html#52-59' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.IndexResponse.html" title="struct elastic::client::responses::prelude::IndexResponse">IndexResponse</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/command.rs.html#25-32' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.CommandResponse.html" title="struct elastic::client::responses::prelude::CommandResponse">CommandResponse</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_responses/ping.rs.html#71-78' title='goto source code'>[src]</a></div><code>impl IsOk for <a class="struct" href="../../../../elastic/client/responses/prelude/struct.PingResponse.html" title="struct elastic::client::responses::prelude::PingResponse">PingResponse</a></code></li>
 </ul><script type="text/javascript" async
                          src="../../../../implementors/elastic_responses/parsing/trait.IsOk.js">
                  </script></section>
@@ -143,22 +138,20 @@ Implementations should behave in the following way:</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
