@@ -10,8 +10,11 @@
     <title>nom - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
+    <script src="../storage.js"></script>
     
 
     
@@ -30,9 +33,16 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Crate nom</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'nom', ty: 'mod', relpath: '../'};</script></div>
+        <p class='location'>Crate nom</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#modules">Modules</a></li><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'nom', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -51,23 +61,17 @@
                    </a>
                </span><a class='srclink' href='../src/nom/lib.rs.html#1-181' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>nom, eating data byte by byte</p>
-
 <p>nom is a parser combinator library with a focus on safe parsing,
 streaming patterns, and as much as possible zero copy.</p>
-
 <p>The code is available on <a href="https://github.com/Geal/nom">Github</a></p>
-
 <p>There are a few <a href="home.html">guides</a> with more details
 about <a href="how_nom_macros_work.html">the design of nom</a>,
 <a href="making_a_new_parser_from_scratch.html">how to write parsers</a>,
 or the <a href="error_management.html">error management system</a>.</p>
-
 <p>If you are upgrading to nom 2.0, please read the
 <a href="upgrading_to_nom_2.html">migration document</a>.</p>
-
 <p>See also the <a href="FAQ.html">FAQ</a>.</p>
-
-<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
+<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">nom</span>;
@@ -136,7 +140,7 @@ or the <a href="error_management.html">error management system</a>.</p>
   <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">expr</span>(<span class="string">b&quot;2*(3+4)&quot;</span>),     <span class="ident">IResult</span>::<span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="number">14</span>));
   <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">expr</span>(<span class="string">b&quot;2*2/(5-1)+3&quot;</span>), <span class="ident">IResult</span>::<span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="number">4</span>));
 }</pre>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Re-exports</a></h2>
 <table><tr><td><code>pub use self::<a class="mod" href="../nom/simple_errors/index.html" title="mod nom::simple_errors">simple_errors</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../nom/methods/index.html" title="mod nom::methods">methods</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../nom/bits/index.html" title="mod nom::bits">bits</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../nom/whitespace/index.html" title="mod nom::whitespace">whitespace</a>::*;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -144,6 +148,7 @@ or the <a href="error_management.html">error management system</a>.</p>
                                   title='mod nom::bits'>bits</a></td>
                            <td class='docblock-short'>
                                 <p>Bit level parsers and combinators</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -151,6 +156,7 @@ or the <a href="error_management.html">error management system</a>.</p>
                                   title='mod nom::methods'>methods</a></td>
                            <td class='docblock-short'>
                                 <p>Method macro combinators</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -158,6 +164,7 @@ or the <a href="error_management.html">error management system</a>.</p>
                                   title='mod nom::simple_errors'>simple_errors</a></td>
                            <td class='docblock-short'>
                                 <p>Error management</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -165,6 +172,7 @@ or the <a href="error_management.html">error management system</a>.</p>
                                   title='mod nom::whitespace'>whitespace</a></td>
                            <td class='docblock-short'>
                                 <p>Support for whitespace delimited formats</p>
+
                            </td>
                        </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
 <table>
@@ -173,6 +181,7 @@ or the <a href="error_management.html">error management system</a>.</p>
                                   title='macro nom::add_return_error'>add_return_error</a></td>
                            <td class='docblock-short'>
                                 <p>Add an error if the child parser fails</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -181,6 +190,7 @@ or the <a href="error_management.html">error management system</a>.</p>
                            <td class='docblock-short'>
                                 <p><code>alt!(I -&gt; IResult&lt;I,O&gt; | I -&gt; IResult&lt;I,O&gt; | ... | I -&gt; IResult&lt;I,O&gt; ) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 try a list of parsers, return the result of the first successful one</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -190,8 +200,9 @@ try a list of parsers, return the result of the first successful one</p>
                                 <p>This is a combination of the <code>alt!</code> and <code>complete!</code> combinators. Rather
 than returning <code>Incomplete</code> on partial input, <code>alt_complete!</code> will try the
 next alternative in the chain. You should use this only if you know you
-will not receive partial input for the rules you&#39;re trying to match (this
+will not receive partial input for the rules you're trying to match (this
 is almost always the case for parsing programming languages).</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -199,6 +210,7 @@ is almost always the case for parsing programming languages).</p>
                                   title='macro nom::apply'>apply</a></td>
                            <td class='docblock-short'>
                                 <p>emulate function currying: <code>apply!(my_function, arg1, arg2, ...)</code> becomes <code>my_function(input, arg1, arg2, ...)</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -207,6 +219,7 @@ is almost always the case for parsing programming languages).</p>
                            <td class='docblock-short'>
                                 <p>emulate function currying for method calls on structs
 <code>apply_m!(self.my_function, arg1, arg2, ...)</code> becomes <code>self.my_function(input, arg1, arg2, ...)</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -215,6 +228,7 @@ is almost always the case for parsing programming languages).</p>
                            <td class='docblock-short'>
                                 <p><code>bits!( parser ) =&gt; ( &amp;[u8], (&amp;[u8], usize) -&gt; IResult&lt;(&amp;[u8], usize), T&gt; ) -&gt; IResult&lt;&amp;[u8], T&gt;</code>
 transforms its byte slice input into a bit stream for the underlying parsers</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -222,6 +236,7 @@ transforms its byte slice input into a bit stream for the underlying parsers</p>
                                   title='macro nom::call'>call</a></td>
                            <td class='docblock-short'>
                                 <p>Used to wrap common expressions and function as macros</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -229,6 +244,7 @@ transforms its byte slice input into a bit stream for the underlying parsers</p>
                                   title='macro nom::call_m'>call_m</a></td>
                            <td class='docblock-short'>
                                 <p>Used to called methods then move self back into self</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -237,6 +253,7 @@ transforms its byte slice input into a bit stream for the underlying parsers</p>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p><code>chain!(I-&gt;IResult&lt;I,A&gt; ~ I-&gt;IResult&lt;I,B&gt; ~ ... I-&gt;IResult&lt;I,X&gt; , || { return O } ) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 chains parsers and assemble the results through a closure</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -244,6 +261,7 @@ chains parsers and assemble the results through a closure</p>
                                   title='macro nom::char'>char</a></td>
                            <td class='docblock-short'>
                                 <p>matches one character: `char!(char) =&gt; &amp;[u8] -&gt; IResult&lt;&amp;[u8], char&gt;</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -251,6 +269,7 @@ chains parsers and assemble the results through a closure</p>
                                   title='macro nom::closure'>closure</a></td>
                            <td class='docblock-short'>
                                 <p>Wraps a parser in a closure</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -259,6 +278,7 @@ chains parsers and assemble the results through a closure</p>
                            <td class='docblock-short'>
                                 <p>replaces a <code>Incomplete</code> returned by the child parser
 with an <code>Error</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -267,6 +287,7 @@ with an <code>Error</code></p>
                            <td class='docblock-short'>
                                 <p><code>cond!(bool, I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, Option&lt;O&gt;&gt;</code>
 Conditional combinator</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -275,6 +296,7 @@ Conditional combinator</p>
                            <td class='docblock-short'>
                                 <p><code>cond_reduce!(bool, I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 Conditional combinator with error</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -283,6 +305,7 @@ Conditional combinator with error</p>
                            <td class='docblock-short'>
                                 <p><code>cond_with_error!(bool, I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, Option&lt;O&gt;&gt;</code>
 Conditional combinator</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -298,6 +321,7 @@ Conditional combinator</p>
                            <td class='docblock-short'>
                                 <p><code>count!(I -&gt; IResult&lt;I,O&gt;, nb) =&gt; I -&gt; IResult&lt;I, Vec&lt;O&gt;&gt;</code>
 Applies the child parser a specified number of times</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -307,6 +331,7 @@ Applies the child parser a specified number of times</p>
                                 <p><code>count_fixed!(O, I -&gt; IResult&lt;I,O&gt;, nb) =&gt; I -&gt; IResult&lt;I, [O; nb]&gt;</code>
 Applies the child parser a fixed number of times and returns a fixed size array
 The type must be specified and it must be <code>Copy</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -314,6 +339,7 @@ The type must be specified and it must be <code>Copy</code></p>
                                   title='macro nom::dbg'>dbg</a></td>
                            <td class='docblock-short'>
                                 <p>Prints a message if the parser fails</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -321,6 +347,7 @@ The type must be specified and it must be <code>Copy</code></p>
                                   title='macro nom::dbg_dmp'>dbg_dmp</a></td>
                            <td class='docblock-short'>
                                 <p>Prints a message and the input if the parser fails</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -329,6 +356,7 @@ The type must be specified and it must be <code>Copy</code></p>
                            <td class='docblock-short'>
                                 <p><code>delimited!(I -&gt; IResult&lt;I,T&gt;, I -&gt; IResult&lt;I,O&gt;, I -&gt; IResult&lt;I,U&gt;) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 delimited(opening, X, closing) returns X</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -339,6 +367,7 @@ delimited(opening, X, closing) returns X</p>
 do_parse applies sub parsers in a sequence.
 it can store intermediary results and make them available
 for later parsers</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -346,6 +375,7 @@ for later parsers</p>
                                   title='macro nom::eat_separator'>eat_separator</a></td>
                            <td class='docblock-short'>
                                 <p>helper macros to build a separator parser</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -353,6 +383,7 @@ for later parsers</p>
                                   title='macro nom::eof'>eof</a></td>
                            <td class='docblock-short'>
                                 <p><code>eof!(i)</code> returns <code>i</code> if it is at the end of input data</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -360,6 +391,7 @@ for later parsers</p>
                                   title='macro nom::error_code'>error_code</a></td>
                            <td class='docblock-short'>
                                 <p>creates a parse error from a <code>nom::ErrorKind</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -370,6 +402,7 @@ for later parsers</p>
 and the next error in the parsing tree.
 if &quot;verbose-errors&quot; is not activated,
 it default to only the error code</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -381,6 +414,7 @@ the position in the input and the next error in
 the parsing tree.
 if &quot;verbose-errors&quot; is not activated,
 it default to only the error code</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -391,6 +425,7 @@ it default to only the error code</p>
 and the position in the input
 if &quot;verbose-errors&quot; is not activated,
 it default to only the error code</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -399,6 +434,7 @@ it default to only the error code</p>
                            <td class='docblock-short'>
                                 <p><code>escaped!(&amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;, T, &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 matches a byte string with escaped characters.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -407,6 +443,7 @@ matches a byte string with escaped characters.</p>
                            <td class='docblock-short'>
                                 <p><code>escaped_transform!(&amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;, T, &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], Vec&lt;T&gt;&gt;</code>
 matches a byte string with escaped characters.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -415,6 +452,7 @@ matches a byte string with escaped characters.</p>
                            <td class='docblock-short'>
                                 <p><code>expr_opt!(Option&lt;O&gt;) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 evaluate an expression that returns a Option<T> and returns a IResult::Done(I,T) if Some</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -422,14 +460,16 @@ evaluate an expression that returns a Option<T> and returns a IResult::Done(I,T)
                                   title='macro nom::expr_res'>expr_res</a></td>
                            <td class='docblock-short'>
                                 <p><code>expr_res!(Result&lt;E,O&gt;) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
-evaluate an expression that returns a Result<T,E> and returns a IResult::Done(I,T) if Ok</p>
+evaluate an expression that returns a Result&lt;T,E&gt; and returns a IResult::Done(I,T) if Ok</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="macro" href="macro.fix_error.html"
                                   title='macro nom::fix_error'>fix_error</a></td>
                            <td class='docblock-short'>
-                                <p>translate parser result from IResult<I,O,u32> to IResult<I,O,E> with a custom type</p>
+                                <p>translate parser result from IResult&lt;I,O,u32&gt; to IResult&lt;I,O,E&gt; with a custom type</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -437,6 +477,7 @@ evaluate an expression that returns a Result<T,E> and returns a IResult::Done(I,
                                   title='macro nom::flat_map'>flat_map</a></td>
                            <td class='docblock-short'>
                                 <p><code>flat_map!(R -&gt; IResult&lt;R,S&gt;, S -&gt; IResult&lt;S,T&gt;) =&gt; R -&gt; IResult&lt;R, T&gt;</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -445,6 +486,7 @@ evaluate an expression that returns a Result<T,E> and returns a IResult::Done(I,
                            <td class='docblock-short'>
                                 <p><code>fold_many0!(I -&gt; IResult&lt;I,O&gt;, R, Fn(R, O) -&gt; R) =&gt; I -&gt; IResult&lt;I, R&gt;</code>
 Applies the parser 0 or more times and folds the list of return values</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -453,6 +495,7 @@ Applies the parser 0 or more times and folds the list of return values</p>
                            <td class='docblock-short'>
                                 <p><code>fold_many1!(I -&gt; IResult&lt;I,O&gt;, R, Fn(R, O) -&gt; R) =&gt; I -&gt; IResult&lt;I, R&gt;</code>
 Applies the parser 1 or more times and folds the list of return values</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -461,6 +504,7 @@ Applies the parser 1 or more times and folds the list of return values</p>
                            <td class='docblock-short'>
                                 <p><code>fold_many_m_n!(usize, usize, I -&gt; IResult&lt;I,O&gt;, R, Fn(R, O) -&gt; R) =&gt; I -&gt; IResult&lt;I, R&gt;</code>
 Applies the parser between m and n times (n included) and folds the list of return value</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -469,6 +513,7 @@ Applies the parser between m and n times (n included) and folds the list of retu
                            <td class='docblock-short'>
                                 <p>if the parameter is nom::Endianness::Big, parse a big endian i16 integer,
 otherwise a little endian i16 integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -477,6 +522,7 @@ otherwise a little endian i16 integer</p>
                            <td class='docblock-short'>
                                 <p>if the parameter is nom::Endianness::Big, parse a big endian i32 integer,
 otherwise a little endian i32 integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -485,6 +531,7 @@ otherwise a little endian i32 integer</p>
                            <td class='docblock-short'>
                                 <p>if the parameter is nom::Endianness::Big, parse a big endian i64 integer,
 otherwise a little endian i64 integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -493,6 +540,7 @@ otherwise a little endian i64 integer</p>
                            <td class='docblock-short'>
                                 <p><code>is_a!(&amp;[T]) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 returns the longest list of bytes that appear in the provided array</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -501,6 +549,7 @@ returns the longest list of bytes that appear in the provided array</p>
                            <td class='docblock-short'>
                                 <p><code>is_a_s!(&amp;str) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 returns the longest list of characters that appear in the provided array</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -509,6 +558,7 @@ returns the longest list of characters that appear in the provided array</p>
                            <td class='docblock-short'>
                                 <p><code>is_not!(&amp;[T:AsBytes]) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 returns the longest list of bytes that do not appear in the provided array</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -517,6 +567,7 @@ returns the longest list of bytes that do not appear in the provided array</p>
                            <td class='docblock-short'>
                                 <p><code>is_not_s!(&amp;str) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 returns the longest list of characters that do not appear in the provided array</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -526,6 +577,7 @@ returns the longest list of characters that do not appear in the provided array<
                                 <p><code>length_bytes!(&amp;[T] -&gt; IResult&lt;&amp;[T], nb&gt;) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 Gets a number from the first parser, then extracts that many bytes from the
 remaining stream</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -534,6 +586,7 @@ remaining stream</p>
                            <td class='docblock-short'>
                                 <p><code>length_count!(I -&gt; IResult&lt;I, nb&gt;, I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, Vec&lt;O&gt;&gt;</code>
 gets a number from the first parser, then applies the second parser that many times</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -541,6 +594,7 @@ gets a number from the first parser, then applies the second parser that many ti
                                   title='macro nom::length_data'>length_data</a></td>
                            <td class='docblock-short'>
                                 <p><code>length_data!(I -&gt; IResult&lt;I, nb&gt;) =&gt; O</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -551,6 +605,7 @@ gets a number from the first parser, then applies the second parser that many ti
 gets a number from the first parser, takes a subslice of the input of that size,
 then applies the second parser on that subslice. If the second parser returns
 <code>Incomplete</code>, <code>length_value</code> will return an error</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -559,6 +614,7 @@ then applies the second parser on that subslice. If the second parser returns
                            <td class='docblock-short'>
                                 <p><code>many0!(I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, Vec&lt;O&gt;&gt;</code>
 Applies the parser 0 or more times and returns the list of results in a Vec</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -567,6 +623,7 @@ Applies the parser 0 or more times and returns the list of results in a Vec</p>
                            <td class='docblock-short'>
                                 <p><code>many1!(I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, Vec&lt;O&gt;&gt;</code>
 Applies the parser 1 or more times and returns the list of results in a Vec</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -576,6 +633,7 @@ Applies the parser 1 or more times and returns the list of results in a Vec</p>
                                 <p><code>many_m_n!(usize, usize, I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, Vec&lt;O&gt;&gt;</code>
 Applies the parser between m and n times (n included) and returns the list of
 results in a Vec</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -585,6 +643,7 @@ results in a Vec</p>
                                 <p><code>many_till!(I -&gt; IResult&lt;I,O&gt;, I -&gt; IResult&lt;I,P&gt;) =&gt; I -&gt; IResult&lt;I, (Vec&lt;O&gt;, P)&gt;</code>
 Applies the first parser until the second applies. Returns a tuple containing the list
 of results from the first in a Vec and the result of the second.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -593,6 +652,7 @@ of results from the first in a Vec and the result of the second.</p>
                            <td class='docblock-short'>
                                 <p><code>map!(I -&gt; IResult&lt;I,O&gt;, O -&gt; P) =&gt; I -&gt; IResult&lt;I, P&gt;</code>
 maps a function on the result of a parser</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -601,6 +661,7 @@ maps a function on the result of a parser</p>
                            <td class='docblock-short'>
                                 <p><code>map_opt!(I -&gt; IResult&lt;I,O&gt;, O -&gt; Option&lt;P&gt;) =&gt; I -&gt; IResult&lt;I, P&gt;</code>
 maps a function returning an Option on the output of a parser</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -609,6 +670,7 @@ maps a function returning an Option on the output of a parser</p>
                            <td class='docblock-short'>
                                 <p><code>map_res!(I -&gt; IResult&lt;I,O&gt;, O -&gt; Result&lt;P&gt;) =&gt; I -&gt; IResult&lt;I, P&gt;</code>
 maps a function returning a Result on the output of a parser</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -616,6 +678,7 @@ maps a function returning a Result on the output of a parser</p>
                                   title='macro nom::method'>method</a></td>
                            <td class='docblock-short'>
                                 <p>Makes a method from a parser combination</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -623,6 +686,7 @@ maps a function returning a Result on the output of a parser</p>
                                   title='macro nom::named'>named</a></td>
                            <td class='docblock-short'>
                                 <p>Makes a function from a parser combination</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -630,6 +694,7 @@ maps a function returning a Result on the output of a parser</p>
                                   title='macro nom::named_args'>named_args</a></td>
                            <td class='docblock-short'>
                                 <p>Makes a function from a parser combination with arguments.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -637,6 +702,7 @@ maps a function returning a Result on the output of a parser</p>
                                   title='macro nom::named_attr'>named_attr</a></td>
                            <td class='docblock-short'>
                                 <p>Makes a function from a parser combination, with attributes</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -644,6 +710,7 @@ maps a function returning a Result on the output of a parser</p>
                                   title='macro nom::none_of'>none_of</a></td>
                            <td class='docblock-short'>
                                 <p>matches anything but the provided characters</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -653,6 +720,7 @@ maps a function returning a Result on the output of a parser</p>
                                 <p><code>not!(I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 returns a result only if the embedded parser returns Error or Incomplete
 does not consume the input</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -660,6 +728,7 @@ does not consume the input</p>
                                   title='macro nom::one_of'>one_of</a></td>
                            <td class='docblock-short'>
                                 <p>matches one of the provided characters</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -668,6 +737,7 @@ does not consume the input</p>
                            <td class='docblock-short'>
                                 <p><code>opt!(I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, Option&lt;O&gt;&gt;</code>
 make the underlying parser optional</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -676,6 +746,7 @@ make the underlying parser optional</p>
                            <td class='docblock-short'>
                                 <p><code>opt_res!(I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, Result&lt;nom::Err,O&gt;&gt;</code>
 make the underlying parser optional</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -684,6 +755,7 @@ make the underlying parser optional</p>
                            <td class='docblock-short'>
                                 <p><code>pair!(I -&gt; IResult&lt;I,O&gt;, I -&gt; IResult&lt;I,P&gt;) =&gt; I -&gt; IResult&lt;I, (O,P)&gt;</code>
 pair(X,Y), returns (x,y)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -693,6 +765,7 @@ pair(X,Y), returns (x,y)</p>
                                 <p><code>parse_to!(O) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 uses the <code>parse</code> method from <code>std::str::FromStr</code> to convert the current
 input to the specified type</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -701,6 +774,7 @@ input to the specified type</p>
                            <td class='docblock-short'>
                                 <p><code>peek!(I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 returns a result without consuming the input</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -710,6 +784,7 @@ returns a result without consuming the input</p>
                                 <p><code>permutation!(I -&gt; IResult&lt;I,A&gt;, I -&gt; IResult&lt;I,B&gt;, ... I -&gt; IResult&lt;I,X&gt; ) =&gt; I -&gt; IResult&lt;I, (A,B,...X)&gt;</code>
 applies its sub parsers in a sequence, but independent from their order
 this parser will only succeed if all of its sub parsers succeed</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -718,6 +793,7 @@ this parser will only succeed if all of its sub parsers succeed</p>
                            <td class='docblock-short'>
                                 <p><code>preceded!(I -&gt; IResult&lt;I,T&gt;, I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 preceded(opening, X) returns X</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -726,6 +802,7 @@ preceded(opening, X) returns X</p>
                            <td class='docblock-short'>
                                 <p><code>recognize!(&amp;[T] -&gt; IResult&lt;&amp;[T], O&gt; ) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 if the child parser was successful, return the consumed input as produced value</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -733,6 +810,7 @@ if the child parser was successful, return the consumed input as produced value<
                                   title='macro nom::return_error'>return_error</a></td>
                            <td class='docblock-short'>
                                 <p>Prevents backtracking if the child parser fails</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -740,6 +818,7 @@ if the child parser was successful, return the consumed input as produced value<
                                   title='macro nom::sep'>sep</a></td>
                            <td class='docblock-short'>
                                 <p>sep is the parser rewriting macro for whitespace separated formats</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -748,6 +827,7 @@ if the child parser was successful, return the consumed input as produced value<
                            <td class='docblock-short'>
                                 <p><code>separated_list!(I -&gt; IResult&lt;I,T&gt;, I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, Vec&lt;O&gt;&gt;</code>
 separated_list(sep, X) returns Vec<X></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -756,6 +836,7 @@ separated_list(sep, X) returns Vec<X></p>
                            <td class='docblock-short'>
                                 <p><code>separated_nonempty_list!(I -&gt; IResult&lt;I,T&gt;, I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, Vec&lt;O&gt;&gt;</code>
 separated_nonempty_list(sep, X) returns Vec<X></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -764,6 +845,7 @@ separated_nonempty_list(sep, X) returns Vec<X></p>
                            <td class='docblock-short'>
                                 <p><code>separated_pair!(I -&gt; IResult&lt;I,O&gt;, I -&gt; IResult&lt;I, T&gt;, I -&gt; IResult&lt;I,P&gt;) =&gt; I -&gt; IResult&lt;I, (O,P)&gt;</code>
 separated_pair(X,sep,Y) returns (x,y)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -773,6 +855,7 @@ separated_pair(X,sep,Y) returns (x,y)</p>
                                 <p><code>switch!(I -&gt; IResult&lt;I,P&gt;, P =&gt; I -&gt; IResult&lt;I,O&gt; | ... | P =&gt; I -&gt; IResult&lt;I,O&gt; ) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 choose the next parser depending on the result of the first one, if successful,
 and returns the result of the second parser</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -781,6 +864,7 @@ and returns the result of the second parser</p>
                            <td class='docblock-short'>
                                 <p><code>tag!(&amp;[T]: nom::AsBytes) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 declares a byte array as a suite to recognize</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -788,6 +872,7 @@ declares a byte array as a suite to recognize</p>
                                   title='macro nom::tag_bits'>tag_bits</a></td>
                            <td class='docblock-short'>
                                 <p>matches an integer pattern to a bitstream. The number of bits of the input to compare must be specified</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -796,6 +881,7 @@ declares a byte array as a suite to recognize</p>
                            <td class='docblock-short'>
                                 <p><code>tag_no_case!(&amp;[T]) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 declares a case insensitive ascii string as a suite to recognize</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -804,6 +890,7 @@ declares a case insensitive ascii string as a suite to recognize</p>
                            <td class='docblock-short'>
                                 <p><code>tag_no_case_s!(&amp;str) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 declares a case-insensitive string as a suite to recognize</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -812,6 +899,7 @@ declares a case-insensitive string as a suite to recognize</p>
                            <td class='docblock-short'>
                                 <p><code>tag_s!(&amp;str) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 declares a string as a suite to recognize</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -820,6 +908,7 @@ declares a string as a suite to recognize</p>
                            <td class='docblock-short'>
                                 <p><code>take!(nb) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 generates a parser consuming the specified number of bytes</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -828,6 +917,7 @@ generates a parser consuming the specified number of bytes</p>
                            <td class='docblock-short'>
                                 <p><code>take_bits!(type, nb) =&gt; ( (&amp;[T], usize), U, usize) -&gt; IResult&lt;(&amp;[T], usize), U&gt;</code>
 generates a parser consuming the specified number of bits.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -836,6 +926,7 @@ generates a parser consuming the specified number of bits.</p>
                            <td class='docblock-short'>
                                 <p><code>take_s!(nb) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 generates a parser consuming the specified number of characters</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -844,6 +935,7 @@ generates a parser consuming the specified number of characters</p>
                            <td class='docblock-short'>
                                 <p><code>take!(nb) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;str&gt;</code>
 same as take! but returning a &amp;str</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -852,6 +944,7 @@ same as take! but returning a &amp;str</p>
                            <td class='docblock-short'>
                                 <p><code>take_till!(T -&gt; bool) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 returns the longest list of bytes until the provided function succeeds</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -860,6 +953,7 @@ returns the longest list of bytes until the provided function succeeds</p>
                            <td class='docblock-short'>
                                 <p><code>take_till1!(T -&gt; bool) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 returns the longest non empty list of bytes until the provided function succeeds</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -868,6 +962,7 @@ returns the longest non empty list of bytes until the provided function succeeds
                            <td class='docblock-short'>
                                 <p><code>take_till1_s!(&amp;str -&gt; bool) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 returns the longest non empty list of characters until the provided function succeeds</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -876,6 +971,7 @@ returns the longest non empty list of characters until the provided function suc
                            <td class='docblock-short'>
                                 <p><code>take_till_s!(&amp;str -&gt; bool) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 returns the longest list of characters until the provided function succeeds</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -884,6 +980,7 @@ returns the longest list of characters until the provided function succeeds</p>
                            <td class='docblock-short'>
                                 <p><code>take_until!(tag) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 consumes data until it finds the specified tag</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -892,6 +989,7 @@ consumes data until it finds the specified tag</p>
                            <td class='docblock-short'>
                                 <p><code>take_until1!(tag) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 consumes data until it finds the specified tag</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -900,6 +998,7 @@ consumes data until it finds the specified tag</p>
                            <td class='docblock-short'>
                                 <p><code>take_until_and_consume!(tag) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 generates a parser consuming bytes until the specified byte sequence is found, and consumes it</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -908,6 +1007,7 @@ generates a parser consuming bytes until the specified byte sequence is found, a
                            <td class='docblock-short'>
                                 <p><code>take_until_and_consume1!(tag) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 generates a parser consuming bytes (at least 1) until the specified byte sequence is found, and consumes it</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -916,6 +1016,7 @@ generates a parser consuming bytes (at least 1) until the specified byte sequenc
                            <td class='docblock-short'>
                                 <p><code>take_until_and_consume_s!(&amp;str) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 generates a parser consuming all chars until the specified string is found and consumes it</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -923,6 +1024,7 @@ generates a parser consuming all chars until the specified string is found and c
                                   title='macro nom::take_until_either'>take_until_either</a></td>
                            <td class='docblock-short'>
                                 <p><code>take_until_either!(tag) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -931,6 +1033,7 @@ generates a parser consuming all chars until the specified string is found and c
                            <td class='docblock-short'>
                                 <p><code>take_until_either_and_consume!(tag) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 consumes data until it finds any of the specified characters, and consume it</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -939,6 +1042,7 @@ consumes data until it finds any of the specified characters, and consume it</p>
                            <td class='docblock-short'>
                                 <p><code>take_until_s!(&amp;str) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 generates a parser consuming all chars until the specified string is found and leaves it in the remaining input</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -947,6 +1051,7 @@ generates a parser consuming all chars until the specified string is found and l
                            <td class='docblock-short'>
                                 <p><code>take_while!(T -&gt; bool) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 returns the longest list of bytes until the provided function fails.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -955,6 +1060,7 @@ returns the longest list of bytes until the provided function fails.</p>
                            <td class='docblock-short'>
                                 <p><code>take_while1!(T -&gt; bool) =&gt; &amp;[T] -&gt; IResult&lt;&amp;[T], &amp;[T]&gt;</code>
 returns the longest (non empty) list of bytes until the provided function fails.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -963,6 +1069,7 @@ returns the longest (non empty) list of bytes until the provided function fails.
                            <td class='docblock-short'>
                                 <p><code>take_while1_s!(char -&gt; bool) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 returns the longest (non empty) list of characters until the provided function fails.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -971,6 +1078,7 @@ returns the longest (non empty) list of characters until the provided function f
                            <td class='docblock-short'>
                                 <p><code>take_while_s!(char -&gt; bool) =&gt; &amp;str -&gt; IResult&lt;&amp;str, &amp;str&gt;</code>
 returns the longest list of characters until the provided function fails.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -978,7 +1086,8 @@ returns the longest list of characters until the provided function fails.</p>
                                   title='macro nom::tap'>tap</a></td>
                            <td class='docblock-short'>
                                 <p><code>tap!(name: I -&gt; IResult&lt;I,O&gt; =&gt; { block }) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
-allows access to the parser&#39;s result without affecting it</p>
+allows access to the parser's result without affecting it</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -987,6 +1096,7 @@ allows access to the parser&#39;s result without affecting it</p>
                            <td class='docblock-short'>
                                 <p><code>terminated!(I -&gt; IResult&lt;I,O&gt;, I -&gt; IResult&lt;I,T&gt;) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 terminated(X, closing) returns X</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -996,6 +1106,7 @@ terminated(X, closing) returns X</p>
                                 <p>A bit like <code>std::try!</code>, this macro will return the remaining input and parsed value if the child parser returned <code>Done</code>,
 and will do an early return for <code>Error</code> and <code>Incomplete</code>
 this can provide more flexibility than <code>do_parse!</code> if needed</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1004,6 +1115,7 @@ this can provide more flexibility than <code>do_parse!</code> if needed</p>
                            <td class='docblock-short'>
                                 <p><code>tuple!(I-&gt;IResult&lt;I,A&gt;, I-&gt;IResult&lt;I,B&gt;, ... I-&gt;IResult&lt;I,X&gt;) =&gt; I -&gt; IResult&lt;I, (A, B, ..., X)&gt;</code>
 chains parsers and assemble the sub results in a tuple.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1012,6 +1124,7 @@ chains parsers and assemble the sub results in a tuple.</p>
                            <td class='docblock-short'>
                                 <p>if the parameter is nom::Endianness::Big, parse a big endian u16 integer,
 otherwise a little endian u16 integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1020,6 +1133,7 @@ otherwise a little endian u16 integer</p>
                            <td class='docblock-short'>
                                 <p>if the parameter is nom::Endianness::Big, parse a big endian u32 integer,
 otherwise a little endian u32 integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1028,6 +1142,7 @@ otherwise a little endian u32 integer</p>
                            <td class='docblock-short'>
                                 <p>if the parameter is nom::Endianness::Big, parse a big endian u64 integer,
 otherwise a little endian u64 integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1035,6 +1150,7 @@ otherwise a little endian u64 integer</p>
                                   title='macro nom::value'>value</a></td>
                            <td class='docblock-short'>
                                 <p><code>value!(T, R -&gt; IResult&lt;R, S&gt; ) =&gt; R -&gt; IResult&lt;R, T&gt;</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1043,6 +1159,7 @@ otherwise a little endian u64 integer</p>
                            <td class='docblock-short'>
                                 <p><code>verify!(I -&gt; IResult&lt;I,O&gt;, O -&gt; bool) =&gt; I -&gt; IResult&lt;I, O&gt;</code>
 returns the result of the child parser if it satisfies a verifcation function</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1057,6 +1174,7 @@ returns the result of the child parser if it satisfies a verifcation function</p
                                   title='macro nom::ws'>ws</a></td>
                            <td class='docblock-short'>
                                 <p><code>ws!(I -&gt; IResult&lt;I,O&gt;) =&gt; I -&gt; IResult&lt;I, O&gt;</code></p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -1064,7 +1182,8 @@ returns the result of the child parser if it satisfies a verifcation function</p
                            <td><a class="struct" href="struct.ChainConsumer.html"
                                   title='struct nom::ChainConsumer'>ChainConsumer</a></td>
                            <td class='docblock-short'>
-                                <p>ChainConsumer takes a consumer C1 R -&gt; S, and a consumer C2 S -&gt; T, and makes a consumer R -&gt; T by applying C2 on C1&#39;s result</p>
+                                <p>ChainConsumer takes a consumer C1 R -&gt; S, and a consumer C2 S -&gt; T, and makes a consumer R -&gt; T by applying C2 on C1's result</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1079,6 +1198,7 @@ returns the result of the child parser if it satisfies a verifcation function</p
                                   title='struct nom::MapConsumer'>MapConsumer</a></td>
                            <td class='docblock-short'>
                                 <p>MapConsumer takes a function S -&gt; T and applies it on a consumer producing values of type S</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1086,6 +1206,7 @@ returns the result of the child parser if it satisfies a verifcation function</p
                                   title='struct nom::MemProducer'>MemProducer</a></td>
                            <td class='docblock-short'>
                                 <p>A MemProducer generates values from an in memory byte buffer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1093,6 +1214,7 @@ returns the result of the child parser if it satisfies a verifcation function</p
                                   title='struct nom::ProducerRepeat'>ProducerRepeat</a></td>
                            <td class='docblock-short'>
                                 <p>ProducerRepeat takes a single value, and generates it at each step</p>
+
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -1102,13 +1224,15 @@ returns the result of the child parser if it satisfies a verifcation function</p
                            <td class='docblock-short'>
                                 <p>indicates wether a comparison was successful, an error, or
 if more data was needed</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="enum" href="enum.ConsumerState.html"
                                   title='enum nom::ConsumerState'>ConsumerState</a></td>
                            <td class='docblock-short'>
-                                <p>Stores a consumer&#39;s current computation state</p>
+                                <p>Stores a consumer's current computation state</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1116,6 +1240,7 @@ if more data was needed</p>
                                   title='enum nom::Endianness'>Endianness</a></td>
                            <td class='docblock-short'>
                                 <p>Configurable endianness</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1123,6 +1248,7 @@ if more data was needed</p>
                                   title='enum nom::ErrorKind'>ErrorKind</a></td>
                            <td class='docblock-short'>
                                 <p>indicates which parser returned an error</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1137,6 +1263,7 @@ if more data was needed</p>
                                   title='enum nom::IError'>IError</a></td>
                            <td class='docblock-short'>
                                 <p>This is the same as IResult, but without Done</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1144,6 +1271,7 @@ if more data was needed</p>
                                   title='enum nom::IResult'>IResult</a></td>
                            <td class='docblock-short'>
                                 <p>Holds the result of parsing functions</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1165,6 +1293,7 @@ if more data was needed</p>
                                   title='enum nom::Needed'>Needed</a></td>
                            <td class='docblock-short'>
                                 <p>Contains information on needed data if a parser returned <code>Incomplete</code></p>
+
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -1180,6 +1309,7 @@ if more data was needed</p>
                                   title='trait nom::AsChar'>AsChar</a></td>
                            <td class='docblock-short'>
                                 <p>transforms common types to a char for basic token parsing</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1187,6 +1317,7 @@ if more data was needed</p>
                                   title='trait nom::Compare'>Compare</a></td>
                            <td class='docblock-short'>
                                 <p>abstracts comparison operations</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1194,6 +1325,7 @@ if more data was needed</p>
                                   title='trait nom::Consumer'>Consumer</a></td>
                            <td class='docblock-short'>
                                 <p>The Consumer trait wraps a computation and its state</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1201,6 +1333,7 @@ if more data was needed</p>
                                   title='trait nom::FindSubstring'>FindSubstring</a></td>
                            <td class='docblock-short'>
                                 <p>look for a substring in self</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1208,6 +1341,7 @@ if more data was needed</p>
                                   title='trait nom::FindToken'>FindToken</a></td>
                            <td class='docblock-short'>
                                 <p>look for self in the given input stream</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1236,6 +1370,7 @@ if more data was needed</p>
                                   title='trait nom::InputIter'>InputIter</a></td>
                            <td class='docblock-short'>
                                 <p>abstracts common iteration operations on the input type</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1243,6 +1378,7 @@ if more data was needed</p>
                                   title='trait nom::InputLength'>InputLength</a></td>
                            <td class='docblock-short'>
                                 <p>abstract method to calculate the input length</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1250,6 +1386,7 @@ if more data was needed</p>
                                   title='trait nom::InputTake'>InputTake</a></td>
                            <td class='docblock-short'>
                                 <p>abstracts slicing operations</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1257,6 +1394,7 @@ if more data was needed</p>
                                   title='trait nom::Offset'>Offset</a></td>
                            <td class='docblock-short'>
                                 <p>useful functions to calculate the offset between slices and show a hexdump of a slice</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1264,6 +1402,7 @@ if more data was needed</p>
                                   title='trait nom::ParseTo'>ParseTo</a></td>
                            <td class='docblock-short'>
                                 <p>abstract method to calculate the input length</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1271,6 +1410,7 @@ if more data was needed</p>
                                   title='trait nom::Producer'>Producer</a></td>
                            <td class='docblock-short'>
                                 <p>The producer wraps a data source, like file or network, and applies a consumer on it</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1278,6 +1418,7 @@ if more data was needed</p>
                                   title='trait nom::Slice'>Slice</a></td>
                            <td class='docblock-short'>
                                 <p>slicing operations using ranges</p>
+
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -1286,6 +1427,7 @@ if more data was needed</p>
                                   title='fn nom::alpha'>alpha</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes one or more lowercase and uppercase alphabetic characters: a-zA-Z</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1293,6 +1435,7 @@ if more data was needed</p>
                                   title='fn nom::alphanumeric'>alphanumeric</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes one or more numerical and alphabetic characters: 0-9a-zA-Z</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1307,6 +1450,7 @@ if more data was needed</p>
                                   title='fn nom::be_f32'>be_f32</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes big endian 4 bytes floating point number</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1314,6 +1458,7 @@ if more data was needed</p>
                                   title='fn nom::be_f64'>be_f64</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes big endian 8 bytes floating point number</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1321,6 +1466,7 @@ if more data was needed</p>
                                   title='fn nom::be_i8'>be_i8</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes a signed 1 byte integer (equivalent to take!(1)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1328,6 +1474,7 @@ if more data was needed</p>
                                   title='fn nom::be_i16'>be_i16</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes big endian signed 2 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1335,6 +1482,7 @@ if more data was needed</p>
                                   title='fn nom::be_i32'>be_i32</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes big endian signed 4 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1342,6 +1490,7 @@ if more data was needed</p>
                                   title='fn nom::be_i64'>be_i64</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes big endian signed 8 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1349,6 +1498,7 @@ if more data was needed</p>
                                   title='fn nom::be_u8'>be_u8</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes an unsigned 1 byte integer (equivalent to take!(1)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1356,6 +1506,7 @@ if more data was needed</p>
                                   title='fn nom::be_u16'>be_u16</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes big endian unsigned 2 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1363,6 +1514,7 @@ if more data was needed</p>
                                   title='fn nom::be_u32'>be_u32</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes big endian unsigned 4 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1370,6 +1522,7 @@ if more data was needed</p>
                                   title='fn nom::be_u64'>be_u64</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes big endian unsigned 8 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1398,6 +1551,7 @@ if more data was needed</p>
                                   title='fn nom::digit'>digit</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes one or more numerical characters: 0-9</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1405,6 +1559,7 @@ if more data was needed</p>
                                   title='fn nom::double'>double</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes floating point number in a byte string and returs a f64</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1412,6 +1567,7 @@ if more data was needed</p>
                                   title='fn nom::double_s'>double_s</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes floating point number in a string and returs a f64</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1433,6 +1589,7 @@ if more data was needed</p>
                                   title='fn nom::float'>float</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes floating point number in a byte string and returs a f32</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1440,6 +1597,7 @@ if more data was needed</p>
                                   title='fn nom::float_s'>float_s</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes floating point number in a string and returs a f32</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1447,6 +1605,7 @@ if more data was needed</p>
                                   title='fn nom::hex_digit'>hex_digit</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes one or more hexadecimal numerical characters: 0-9, A-F, a-f</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1454,6 +1613,7 @@ if more data was needed</p>
                                   title='fn nom::hex_u32'>hex_u32</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes a hex-encoded integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1461,6 +1621,7 @@ if more data was needed</p>
                                   title='fn nom::is_alphabetic'>is_alphabetic</a></td>
                            <td class='docblock-short'>
                                 <p>Tests if byte is ASCII alphabetic: A-Z, a-z</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1468,6 +1629,7 @@ if more data was needed</p>
                                   title='fn nom::is_alphanumeric'>is_alphanumeric</a></td>
                            <td class='docblock-short'>
                                 <p>Tests if byte is ASCII alphanumeric: A-Z, a-z, 0-9</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1475,6 +1637,7 @@ if more data was needed</p>
                                   title='fn nom::is_digit'>is_digit</a></td>
                            <td class='docblock-short'>
                                 <p>Tests if byte is ASCII digit: 0-9</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1482,6 +1645,7 @@ if more data was needed</p>
                                   title='fn nom::is_hex_digit'>is_hex_digit</a></td>
                            <td class='docblock-short'>
                                 <p>Tests if byte is ASCII hex digit: 0-9, A-F, a-f</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1489,6 +1653,7 @@ if more data was needed</p>
                                   title='fn nom::is_oct_digit'>is_oct_digit</a></td>
                            <td class='docblock-short'>
                                 <p>Tests if byte is ASCII octal digit: 0-7</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1496,6 +1661,7 @@ if more data was needed</p>
                                   title='fn nom::is_space'>is_space</a></td>
                            <td class='docblock-short'>
                                 <p>Tests if byte is ASCII space or tab</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1503,6 +1669,7 @@ if more data was needed</p>
                                   title='fn nom::le_f32'>le_f32</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes little endian 4 bytes floating point number</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1510,6 +1677,7 @@ if more data was needed</p>
                                   title='fn nom::le_f64'>le_f64</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes little endian 8 bytes floating point number</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1517,6 +1685,7 @@ if more data was needed</p>
                                   title='fn nom::le_i8'>le_i8</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes a signed 1 byte integer (equivalent to take!(1)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1524,6 +1693,7 @@ if more data was needed</p>
                                   title='fn nom::le_i16'>le_i16</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes little endian signed 2 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1531,6 +1701,7 @@ if more data was needed</p>
                                   title='fn nom::le_i32'>le_i32</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes little endian signed 4 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1538,6 +1709,7 @@ if more data was needed</p>
                                   title='fn nom::le_i64'>le_i64</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes little endian signed 8 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1545,6 +1717,7 @@ if more data was needed</p>
                                   title='fn nom::le_u8'>le_u8</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes an unsigned 1 byte integer (equivalent to take!(1)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1552,6 +1725,7 @@ if more data was needed</p>
                                   title='fn nom::le_u16'>le_u16</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes little endian unsigned 2 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1559,6 +1733,7 @@ if more data was needed</p>
                                   title='fn nom::le_u32'>le_u32</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes little endian unsigned 4 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1566,13 +1741,15 @@ if more data was needed</p>
                                   title='fn nom::le_u64'>le_u64</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes little endian unsigned 8 bytes integer</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="fn" href="fn.line_ending.html"
                                   title='fn nom::line_ending'>line_ending</a></td>
                            <td class='docblock-short'>
-                                <p>Recognizes an end of line (both &#39;\n&#39; and &#39;\r\n&#39;)</p>
+                                <p>Recognizes an end of line (both '\n' and '\r\n')</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1580,13 +1757,15 @@ if more data was needed</p>
                                   title='fn nom::multispace'>multispace</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes one or more spaces, tabs, carriage returns and line feeds</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="fn" href="fn.newline.html"
                                   title='fn nom::newline'>newline</a></td>
                            <td class='docblock-short'>
-                                <p>Matches a newline character &#39;\n&#39;</p>
+                                <p>Matches a newline character '\n'</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1594,6 +1773,7 @@ if more data was needed</p>
                                   title='fn nom::non_empty'>non_empty</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes non empty buffers</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1608,6 +1788,7 @@ if more data was needed</p>
                                   title='fn nom::oct_digit'>oct_digit</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes one or more octal characters: 0-7</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1636,6 +1817,7 @@ if more data was needed</p>
                                   title='fn nom::rest'>rest</a></td>
                            <td class='docblock-short'>
                                 <p>Return the remaining input.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1643,6 +1825,7 @@ if more data was needed</p>
                                   title='fn nom::rest_s'>rest_s</a></td>
                            <td class='docblock-short'>
                                 <p>Return the remaining input, for strings.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1671,13 +1854,15 @@ if more data was needed</p>
                                   title='fn nom::space'>space</a></td>
                            <td class='docblock-short'>
                                 <p>Recognizes one or more spaces and tabs</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="fn" href="fn.tab.html"
                                   title='fn nom::tab'>tab</a></td>
                            <td class='docblock-short'>
-                                <p>Matches a tab character &#39;\t&#39;</p>
+                                <p>Matches a tab character '\t'</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -1706,20 +1891,22 @@ if more data was needed</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
