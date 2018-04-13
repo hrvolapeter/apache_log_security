@@ -1,14 +1,13 @@
 use analyses::Incident;
 use analyses::access_logs::AccessLog;
 use helper::url;
-use analyses::Analysable;
 
 /// Analyse access log for injection
 ///
 /// Steps done before detection:
 ///   1. url decoding
 ///   2. remove non printable characters
-pub fn analyse(log: &AccessLog) -> Option<Incident> {
+pub fn analyse<'a>(log: &'a AccessLog) -> Option<Incident<'a>> {
     let disallowed = vec![
         "select ",
         " or ",
@@ -43,7 +42,7 @@ pub fn analyse(log: &AccessLog) -> Option<Incident> {
     if result {
         Some(Incident {
             reason: "Injection Attack",
-            log_msg: log.show(),
+            log,
         })
     } else {
         None

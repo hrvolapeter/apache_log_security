@@ -87,7 +87,7 @@ fn incident_to_elastic_incident(incidents: &Vec<Incident>) -> Vec<IncidentLog> {
         .iter()
         .map(|x| IncidentLog {
             reason: x.reason,
-            log_msg: x.log_msg.clone(),
+            log_msg: x.log.show(),
             timestamp: Date::new(Utc::now()),
         })
         .collect()

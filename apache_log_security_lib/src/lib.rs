@@ -61,7 +61,8 @@ use error::LibErr;
 /// run(config);
 /// ```
 pub fn run(conf: config::Config) -> Result<(), LibErr> {
-    let incidents: Vec<analyses::Incident> = get_logs(&conf)?
+    let logs = get_logs(&conf)?;
+    let incidents: Vec<analyses::Incident> = logs
         .par_iter()
         .flat_map(|x| x.run_analysis(&conf))
         .collect();
