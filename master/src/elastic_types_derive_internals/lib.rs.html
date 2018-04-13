@@ -10,11 +10,10 @@
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -151,7 +150,7 @@ This crate contains the internals for `elastic_types`-related codegen.
     <span class="kw">match</span> <span class="ident">attr</span>.<span class="ident">value</span> {
         <span class="comment">// Get elastic meta items</span>
         <span class="ident">syn</span>::<span class="ident">MetaItem</span>::<span class="ident">List</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw-2">ref</span> <span class="ident">items</span>) <span class="kw">if</span> <span class="ident">name</span> <span class="op">==</span> <span class="kw-2">&amp;</span><span class="string">&quot;elastic&quot;</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">items</span>),
-        <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
+        _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
     }
 }
 
@@ -164,7 +163,7 @@ This crate contains the internals for `elastic_types`-related codegen.
                 <span class="ident">syn</span>::<span class="ident">NestedMetaItem</span>::<span class="ident">MetaItem</span>(<span class="ident">syn</span>::<span class="ident">MetaItem</span>::<span class="ident">NameValue</span>(<span class="kw-2">ref</span> <span class="ident">key</span>, <span class="kw-2">ref</span> <span class="ident">lit</span>)) <span class="kw">if</span> <span class="ident">key</span> <span class="op">==</span> <span class="ident">name</span> <span class="op">=&gt;</span> {
                     <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="ident">lit</span>);
                 }
-                <span class="kw">_</span> <span class="op">=&gt;</span> (),
+                _ <span class="op">=&gt;</span> (),
             }
         }
     }
@@ -178,8 +177,8 @@ This crate contains the internals for `elastic_types`-related codegen.
 
 <span class="kw">fn</span> <span class="ident">get_str_from_lit</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">lit</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">syn</span>::<span class="ident">Lit</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="ident">lit</span> {
-        <span class="ident">syn</span>::<span class="ident">Lit</span>::<span class="ident">Str</span>(<span class="kw-2">ref</span> <span class="ident">s</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">s</span>.<span class="ident">as_str</span>()),
-        <span class="kw">_</span> <span class="op">=&gt;</span> {
+        <span class="ident">syn</span>::<span class="ident">Lit</span>::<span class="ident">Str</span>(<span class="kw-2">ref</span> <span class="ident">s</span>, _) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">s</span>.<span class="ident">as_str</span>()),
+        _ <span class="op">=&gt;</span> {
             <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="string">&quot;Unable to get str from lit&quot;</span>);
         }
     }

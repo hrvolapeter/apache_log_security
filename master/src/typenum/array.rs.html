@@ -10,11 +10,10 @@
     <title>array.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -417,7 +416,7 @@
 
 <span class="kw">impl</span> <span class="ident">Add</span><span class="op">&lt;</span><span class="ident">ATerm</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ATerm</span> {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">ATerm</span>;
-    <span class="kw">fn</span> <span class="ident">add</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">ATerm</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">add</span>(<span class="self">self</span>, _: <span class="ident">ATerm</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="ident">ATerm</span>
     }
 }
@@ -428,7 +427,7 @@
     <span class="ident">Vl</span>: <span class="ident">Add</span><span class="op">&lt;</span><span class="ident">Vr</span><span class="op">&gt;</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Sum</span><span class="op">&lt;</span><span class="ident">Vl</span>, <span class="ident">Vr</span><span class="op">&gt;</span>, <span class="ident">Sum</span><span class="op">&lt;</span><span class="ident">Al</span>, <span class="ident">Ar</span><span class="op">&gt;&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">add</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Vr</span>, <span class="ident">Ar</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">add</span>(<span class="self">self</span>, _: <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Vr</span>, <span class="ident">Ar</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">unsafe</span> { ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">uninitialized</span>() }
     }
 }
@@ -439,7 +438,7 @@
 
 <span class="kw">impl</span> <span class="ident">Sub</span><span class="op">&lt;</span><span class="ident">ATerm</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ATerm</span> {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">ATerm</span>;
-    <span class="kw">fn</span> <span class="ident">sub</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">ATerm</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">sub</span>(<span class="self">self</span>, _: <span class="ident">ATerm</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="ident">ATerm</span>
     }
 }
@@ -450,7 +449,7 @@
     <span class="ident">Al</span>: <span class="ident">Sub</span><span class="op">&lt;</span><span class="ident">Ar</span><span class="op">&gt;</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Diff</span><span class="op">&lt;</span><span class="ident">Vl</span>, <span class="ident">Vr</span><span class="op">&gt;</span>, <span class="ident">Diff</span><span class="op">&lt;</span><span class="ident">Al</span>, <span class="ident">Ar</span><span class="op">&gt;&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">sub</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Vr</span>, <span class="ident">Ar</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">sub</span>(<span class="self">self</span>, _: <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Vr</span>, <span class="ident">Ar</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">unsafe</span> { ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">uninitialized</span>() }
     }
 }
@@ -460,7 +459,7 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span> <span class="ident">Mul</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ATerm</span> {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">ATerm</span>;
-    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, _: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="ident">ATerm</span>
     }
 }
@@ -471,14 +470,14 @@
     <span class="ident">A</span>: <span class="ident">Mul</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Prod</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">Rhs</span><span class="op">&gt;</span>, <span class="ident">Prod</span><span class="op">&lt;</span><span class="ident">A</span>, <span class="ident">Rhs</span><span class="op">&gt;&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, _: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">unsafe</span> { ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">uninitialized</span>() }
     }
 }
 
 <span class="kw">impl</span> <span class="ident">Mul</span><span class="op">&lt;</span><span class="ident">ATerm</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Z0</span> {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">ATerm</span>;
-    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">ATerm</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, _: <span class="ident">ATerm</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="ident">ATerm</span>
     }
 }
@@ -488,7 +487,7 @@
     <span class="ident">U</span>: <span class="ident">Unsigned</span> <span class="op">+</span> <span class="ident">NonZero</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">ATerm</span>;
-    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">ATerm</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, _: <span class="ident">ATerm</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="ident">ATerm</span>
     }
 }
@@ -498,7 +497,7 @@
     <span class="ident">U</span>: <span class="ident">Unsigned</span> <span class="op">+</span> <span class="ident">NonZero</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">ATerm</span>;
-    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">ATerm</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, _: <span class="ident">ATerm</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="ident">ATerm</span>
     }
 }
@@ -508,7 +507,7 @@
     <span class="ident">Z0</span>: <span class="ident">Mul</span><span class="op">&lt;</span><span class="ident">A</span><span class="op">&gt;</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Z0</span>, <span class="ident">Prod</span><span class="op">&lt;</span><span class="ident">Z0</span>, <span class="ident">A</span><span class="op">&gt;&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">A</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, _: <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">A</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">unsafe</span> { ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">uninitialized</span>() }
     }
 }
@@ -519,7 +518,7 @@
     <span class="ident">PInt</span><span class="op">&lt;</span><span class="ident">U</span><span class="op">&gt;</span>: <span class="ident">Mul</span><span class="op">&lt;</span><span class="ident">A</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Mul</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Prod</span><span class="op">&lt;</span><span class="ident">PInt</span><span class="op">&lt;</span><span class="ident">U</span><span class="op">&gt;</span>, <span class="ident">V</span><span class="op">&gt;</span>, <span class="ident">Prod</span><span class="op">&lt;</span><span class="ident">PInt</span><span class="op">&lt;</span><span class="ident">U</span><span class="op">&gt;</span>, <span class="ident">A</span><span class="op">&gt;&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">A</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, _: <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">A</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">unsafe</span> { ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">uninitialized</span>() }
     }
 }
@@ -530,7 +529,7 @@
     <span class="ident">NInt</span><span class="op">&lt;</span><span class="ident">U</span><span class="op">&gt;</span>: <span class="ident">Mul</span><span class="op">&lt;</span><span class="ident">A</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Mul</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Prod</span><span class="op">&lt;</span><span class="ident">NInt</span><span class="op">&lt;</span><span class="ident">U</span><span class="op">&gt;</span>, <span class="ident">V</span><span class="op">&gt;</span>, <span class="ident">Prod</span><span class="op">&lt;</span><span class="ident">NInt</span><span class="op">&lt;</span><span class="ident">U</span><span class="op">&gt;</span>, <span class="ident">A</span><span class="op">&gt;&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">A</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">mul</span>(<span class="self">self</span>, _: <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">A</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">unsafe</span> { ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">uninitialized</span>() }
     }
 }
@@ -540,7 +539,7 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span> <span class="ident">Div</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ATerm</span> {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">ATerm</span>;
-    <span class="kw">fn</span> <span class="ident">div</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">div</span>(<span class="self">self</span>, _: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="ident">ATerm</span>
     }
 }
@@ -551,7 +550,7 @@
     <span class="ident">A</span>: <span class="ident">Div</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Quot</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">Rhs</span><span class="op">&gt;</span>, <span class="ident">Quot</span><span class="op">&lt;</span><span class="ident">A</span>, <span class="ident">Rhs</span><span class="op">&gt;&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">div</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">div</span>(<span class="self">self</span>, _: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">unsafe</span> { ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">uninitialized</span>() }
     }
 }
@@ -561,7 +560,7 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span> <span class="ident">PartialDiv</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ATerm</span> {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">ATerm</span>;
-    <span class="kw">fn</span> <span class="ident">partial_div</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">partial_div</span>(<span class="self">self</span>, _: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="ident">ATerm</span>
     }
 }
@@ -572,7 +571,7 @@
     <span class="ident">A</span>: <span class="ident">PartialDiv</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">PartialQuot</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">Rhs</span><span class="op">&gt;</span>, <span class="ident">PartialQuot</span><span class="op">&lt;</span><span class="ident">A</span>, <span class="ident">Rhs</span><span class="op">&gt;&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">partial_div</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">partial_div</span>(<span class="self">self</span>, _: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">unsafe</span> { ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">uninitialized</span>() }
     }
 }
@@ -583,7 +582,7 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span> <span class="ident">Rem</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">ATerm</span> {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">ATerm</span>;
-    <span class="kw">fn</span> <span class="ident">rem</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">rem</span>(<span class="self">self</span>, _: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="ident">ATerm</span>
     }
 }
@@ -594,7 +593,7 @@
     <span class="ident">A</span>: <span class="ident">Rem</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span>,
 {
     <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">TArr</span><span class="op">&lt;</span><span class="ident">Mod</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">Rhs</span><span class="op">&gt;</span>, <span class="ident">Mod</span><span class="op">&lt;</span><span class="ident">A</span>, <span class="ident">Rhs</span><span class="op">&gt;&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">rem</span>(<span class="self">self</span>, <span class="kw">_</span>: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+    <span class="kw">fn</span> <span class="ident">rem</span>(<span class="self">self</span>, _: <span class="ident">Rhs</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">unsafe</span> { ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">uninitialized</span>() }
     }
 }

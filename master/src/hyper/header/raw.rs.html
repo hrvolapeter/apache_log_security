@@ -10,11 +10,10 @@
     <title>raw.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -393,7 +392,7 @@
         <span class="kw">match</span> <span class="self">self</span>.<span class="number">0</span> {
             <span class="ident">Lines</span>::<span class="ident">One</span>(<span class="kw-2">ref</span> <span class="ident">line</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">line</span>.<span class="ident">as_ref</span>()),
             <span class="ident">Lines</span>::<span class="ident">Many</span>(<span class="kw-2">ref</span> <span class="ident">lines</span>) <span class="kw">if</span> <span class="ident">lines</span>.<span class="ident">len</span>() <span class="op">==</span> <span class="number">1</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">lines</span>[<span class="number">0</span>].<span class="ident">as_ref</span>()),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>
+            _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>
         }
     }
 
@@ -611,7 +610,7 @@
                     )<span class="op">+</span>
                 })<span class="op">+</span>
 
-                <span class="kw">_</span> <span class="op">=&gt;</span> ()
+                _ <span class="op">=&gt;</span> ()
             }
 
             <span class="ident">Bytes</span>::<span class="ident">from</span>(<span class="ident">s</span>.<span class="ident">into_owned</span>())

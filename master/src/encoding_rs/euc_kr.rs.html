@@ -10,11 +10,10 @@
     <title>euc_kr.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -482,7 +481,7 @@
         <span class="ident">byte_length</span>.<span class="ident">checked_add</span>(
             <span class="kw">match</span> <span class="self">self</span>.<span class="ident">lead</span> {
                 <span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-                <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="number">1</span>,
+                <span class="prelude-val">Some</span>(_) <span class="op">=&gt;</span> <span class="number">1</span>,
             }
         )
     }
@@ -705,7 +704,7 @@
                         <span class="kw">let</span> <span class="ident">ksx_hangul_trail</span> <span class="op">=</span> (<span class="ident">ksx_hangul_pointer</span> <span class="op">%</span> <span class="number">94</span>) <span class="op">+</span> <span class="number">0xA1</span>;
                         (<span class="ident">ksx_hangul_lead</span>, <span class="ident">ksx_hangul_trail</span>)
                     }
-                    <span class="prelude-val">Err</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
+                    <span class="prelude-val">Err</span>(_) <span class="op">=&gt;</span> {
                         <span class="kw">let</span> (<span class="ident">lead</span>, <span class="ident">cp949_trail</span>) <span class="op">=</span> <span class="kw">if</span> <span class="ident">bmp</span> <span class="op">&lt;</span> <span class="number">0xC8A5</span> {
                             <span class="comment">// Above KS X 1001</span>
                             <span class="kw">let</span> <span class="ident">top_pointer</span> <span class="op">=</span> <span class="ident">cp949_top_hangul_encode</span>(<span class="ident">bmp</span>) <span class="kw">as</span> <span class="ident">usize</span>;

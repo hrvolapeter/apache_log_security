@@ -10,11 +10,10 @@
     <title>propertylist.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -224,7 +223,7 @@
                                                       (<span class="ident">foo</span>.<span class="ident">as_CFType</span>(), <span class="ident">n42</span>.<span class="ident">as_CFType</span>())]);
 
         <span class="kw">let</span> <span class="ident">data</span> <span class="op">=</span> <span class="ident">create_data</span>(<span class="ident">dict1</span>.<span class="ident">as_CFTypeRef</span>(), <span class="ident">kCFPropertyListXMLFormat_v1_0</span>).<span class="ident">unwrap</span>();
-        <span class="kw">let</span> (<span class="ident">dict2</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">create_with_data</span>(<span class="ident">data</span>, <span class="ident">kCFPropertyListImmutable</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let</span> (<span class="ident">dict2</span>, _) <span class="op">=</span> <span class="ident">create_with_data</span>(<span class="ident">data</span>, <span class="ident">kCFPropertyListImmutable</span>).<span class="ident">unwrap</span>();
         <span class="kw">unsafe</span> {
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">CFEqual</span>(<span class="ident">dict1</span>.<span class="ident">as_CFTypeRef</span>(), <span class="ident">dict2</span>) <span class="op">==</span> <span class="number">1</span>);
         }
