@@ -4,11 +4,11 @@ use config::Config;
 pub mod access_logs;
 
 /// Structure that is returned when incident is detected.
-pub struct Incident {
+pub struct Incident<'a> {
     /// Reason why the incident was created.
     pub reason: &'static str,
     /// Text representation of log.
-    pub log_msg: String,
+    pub log: &'a Analysable,
 }
 
 /// Analysable trait for log types

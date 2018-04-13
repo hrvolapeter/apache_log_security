@@ -27,7 +27,7 @@ impl reporting::Reporting for Std {
 
 fn report_verbose(incidents: &Vec<Incident>) {
     for incident in incidents {
-        println!("{}: {}", incident.reason, incident.log_msg);
+        println!("{}: {}", incident.reason, incident.log.show());
     }
 }
 
@@ -46,6 +46,13 @@ fn report_statistics(incidents: &Vec<Incident>) {
 mod tests {
     use super::*;
     use reporting::Reporting;
+    use chrono::prelude::*;
+    use analyses::access_logs::AccessLog;
+
+    fn get_log(path: &'static str) -> AccessLog {
+        let date_time = "2015-2-18T23:16:9.15Z".parse::<DateTime<Utc>>().unwrap();
+        AccessLog::new(200, "".to_string(), path.to_string(), date_time, 0)
+    }
 
     #[test]
     fn report_incidents_01() {
@@ -53,7 +60,7 @@ mod tests {
             .report_incidents(&vec![
                 Incident {
                     reason: "Injection Attack",
-                    log_msg: "message".to_string(),
+                    log: &get_log("message"),
                 },
             ])
             .unwrap();
@@ -65,7 +72,7 @@ mod tests {
             .report_incidents(&vec![
                 Incident {
                     reason: "Injection Attack",
-                    log_msg: "message".to_string(),
+                    log: &get_log("message"),
                 },
             ])
             .unwrap();

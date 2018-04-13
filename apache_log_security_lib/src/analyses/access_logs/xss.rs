@@ -4,7 +4,6 @@ use helper::url;
 use helper::xml;
 use config::Config;
 use config;
-use analyses::Analysable;
 
 /// Analyses access log for object reference
 ///
@@ -19,7 +18,7 @@ use analyses::Analysable;
 ///  1. check if element is allowed
 ///  2. check if attribute is allowed
 ///  3. check if attirbute value does not contain disallowed strings
-pub fn analyse(log: &AccessLog, cfg: &Config) -> Option<Incident> {
+pub fn analyse<'a>(log: &'a AccessLog, cfg: &Config) -> Option<Incident<'a>> {
     let request = log.path.to_lowercase();
     let url = url::url_decode(&request);
     let xml = xml::parse(&url);
@@ -27,7 +26,7 @@ pub fn analyse(log: &AccessLog, cfg: &Config) -> Option<Incident> {
     if (cfg.xss_level == config::XssLevel::Basic && xml.len() != 0) || intelligent_analyse(&xml) {
         Some(Incident {
             reason: "Xss Reference Attack",
-            log_msg: log.show(),
+            log,
         })
     } else {
         None
@@ -294,20 +293,19 @@ mod tests {
     use chrono::prelude::*;
     use config::Config;
     use config;
-    use analyses::Incident;
 
-    fn analyse_log_with_path(path: String) -> Incident {
+    fn analyse_log_with_path(path: String) {
         let date_time = "2015-2-18T23:16:9.15Z".parse::<DateTime<Utc>>().unwrap();
         let log = super::AccessLog::new(200, "".to_string(), path, date_time, 0);
-        super::analyse(&log, &Config::new()).unwrap()
+        super::analyse(&log, &Config::new()).unwrap();
     }
 
-    fn analyse_inteligent_log_with_path(path: String) -> Incident {
+    fn analyse_inteligent_log_with_path(path: String) {
         let date_time = "2015-2-18T23:16:9.15Z".parse::<DateTime<Utc>>().unwrap();
         let log = super::AccessLog::new(200, "".to_string(), path, date_time, 0);
         let mut config = Config::new();
         config.xss_level = config::XssLevel::Intelligent;
-        super::analyse(&log, &config).unwrap()
+        super::analyse(&log, &config).unwrap();
     }
 
     #[test]

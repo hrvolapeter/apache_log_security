@@ -1,13 +1,12 @@
 use analyses::access_logs::AccessLog;
 use analyses::Incident;
 use helper::url;
-use analyses::Analysable;
 
 /// Analyses access log for object reference
 ///
 /// Steps done before detection:
 ///   1. url decoding
-pub fn analyse(log: &AccessLog) -> Option<Incident> {
+pub fn analyse<'a>(log: &'a AccessLog) -> Option<Incident<'a>> {
     let disallowed = vec!["/etc/", "/tmp/", "/../", "\\system32"];
 
     let result = disallowed.iter().fold(false, |acc, &x| {
@@ -17,7 +16,7 @@ pub fn analyse(log: &AccessLog) -> Option<Incident> {
     if result {
         Some(Incident {
             reason: "Object Reference Attack",
-            log_msg: log.show(),
+            log,
         })
     } else {
         None

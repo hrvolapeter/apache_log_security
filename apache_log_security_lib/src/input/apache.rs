@@ -28,7 +28,7 @@ impl input::Input for Apache {
                 nom::IResult::Incomplete(err) => {
                     eprintln!("Parsing Apache log incomplete {:?}", err)
                 }
-                nom::IResult::Error(err) => eprintln!("Error parsing Apache log {:?}", err),
+                nom::IResult::Error(_) => {},
             }
         }
 

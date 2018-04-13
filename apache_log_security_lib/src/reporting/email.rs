@@ -16,7 +16,7 @@ impl reporting::Reporting for Email {
     fn report_incidents(&self, incidents: &Vec<Incident>) -> Result<(), ReportingErr> {
         let mut message = "Incidents detected: \n\n".to_string();
         for incident in incidents {
-            message = message.add(&format!("{}: {}\n", incident.reason, incident.log_msg)[..]);
+            message = message.add(&format!("{}: {}\n", incident.reason, incident.log.show())[..]);
         }
 
         let email = SimpleSendableEmail::new(
