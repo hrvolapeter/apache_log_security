@@ -49,10 +49,9 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/smallvec/lib.rs.html#5-1424' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Small vectors in various sizes. These store a certain number of elements inline, and fall back
-to the heap for larger allocations.  This can be a useful optimization for improving cache
-locality and reducing allocator traffic for workloads that fit within the inline buffer.</p>
+               </span><a class='srclink' href='../src/smallvec/lib.rs.html#5-1017' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Small vectors in various sizes. These store a certain number of elements inline and fall back
+to the heap for larger allocations.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -73,7 +72,7 @@ locality and reducing allocator traffic for workloads that fit within the inline
                            <td><a class="struct" href="struct.SmallVec.html"
                                   title='struct smallvec::SmallVec'>SmallVec</a></td>
                            <td class='docblock-short'>
-                                <p>A <code>Vec</code>-like container that can store a small number of elements inline.</p>
+                                
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -81,14 +80,14 @@ locality and reducing allocator traffic for workloads that fit within the inline
                            <td><a class="trait" href="trait.Array.html"
                                   title='trait smallvec::Array'>Array</a></td>
                            <td class='docblock-short'>
-                                <p>Types that can be used as the backing store for a SmallVec</p>
+                                
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="trait" href="trait.VecLike.html"
                                   title='trait smallvec::VecLike'>VecLike</a></td>
                            <td class='docblock-short'>
-                                <p>Common operations implemented by both <code>Vec</code> and <code>SmallVec</code>.</p>
+                                
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
