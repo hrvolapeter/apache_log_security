@@ -10,8 +10,12 @@
     <title>ec.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -1090,7 +1101,7 @@
                 <span class="ident">a</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">b</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">ctx</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -1119,7 +1130,7 @@
                 <span class="ident">a</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">b</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">ctx</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -1147,7 +1158,7 @@
                 <span class="self">self</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">order</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">ctx</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -1199,7 +1210,7 @@
                 <span class="ident">a</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">b</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">ctx</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -1223,7 +1234,7 @@
                 <span class="ident">q</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">m</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">ctx</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -1242,7 +1253,7 @@
                 <span class="ident">ptr</span>::<span class="ident">null</span>(),
                 <span class="ident">ptr</span>::<span class="ident">null</span>(),
                 <span class="ident">ctx</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -1263,7 +1274,7 @@
                 <span class="ident">q</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">m</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">ctx</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -1278,7 +1289,7 @@
                 <span class="ident">group</span>.<span class="ident">as_ptr</span>(),
                 <span class="self">self</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">ctx</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -1364,7 +1375,7 @@
                 <span class="ident">x</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">y</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">ctx</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -1389,7 +1400,7 @@
                 <span class="ident">x</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">y</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">ctx</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 }
@@ -1459,7 +1470,7 @@
             <span class="kw">if</span> <span class="ident">ptr</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
-                <span class="prelude-val">Some</span>(<span class="ident">EcGroupRef</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _))
+                <span class="prelude-val">Some</span>(<span class="ident">EcGroupRef</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>))
             }
         }
     }
@@ -1475,7 +1486,7 @@
             <span class="kw">if</span> <span class="ident">ptr</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
-                <span class="prelude-val">Some</span>(<span class="ident">EcPointRef</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _))
+                <span class="prelude-val">Some</span>(<span class="ident">EcPointRef</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>))
             }
         }
     }
@@ -1491,7 +1502,7 @@
             <span class="kw">if</span> <span class="ident">ptr</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
-                <span class="prelude-val">Some</span>(<span class="ident">BigNumRef</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _))
+                <span class="prelude-val">Some</span>(<span class="ident">BigNumRef</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>))
             }
         }
     }
@@ -1502,7 +1513,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`EC_KEY_check_key`]: https://www.openssl.org/docs/man1.1.0/crypto/EC_KEY_check_key.html</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">check_key</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EC_KEY_check_key</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EC_KEY_check_key</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Create a copy of the `EcKey` to allow modification</span>
@@ -1616,7 +1627,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`EcGroup`]: struct.EcGroup.html</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_group</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">group</span>: <span class="kw-2">&amp;</span><span class="ident">EcGroupRef</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">EcKeyBuilderRef</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EC_KEY_set_group</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">group</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> <span class="self">self</span>) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EC_KEY_set_group</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">group</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="self">self</span>) }
     }
 
     <span class="doccomment">/// Set public key to given `EcPoint`</span>
@@ -1628,13 +1639,13 @@
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EC_KEY_set_public_key</span>(
                 <span class="self">self</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">public_key</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> <span class="self">self</span>)
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="self">self</span>)
         }
     }
 
     <span class="doccomment">/// Generate public and private keys.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">generate_key</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">EcKeyBuilderRef</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EC_KEY_generate_key</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> <span class="self">self</span>) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EC_KEY_generate_key</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="self">self</span>) }
     }
 
     <span class="doccomment">/// Sets the public key based on affine coordinates.</span>
@@ -1648,13 +1659,13 @@
                 <span class="self">self</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">x</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">y</span>.<span class="ident">as_ptr</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> <span class="self">self</span>)
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="self">self</span>)
         }
     }
 
     <span class="doccomment">/// Sets the private key.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_private_key</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span><span class="ident">BigNumRef</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">EcKeyBuilderRef</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EC_KEY_set_private_key</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">key</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> <span class="self">self</span>) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EC_KEY_set_private_key</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">key</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="self">self</span>) }
     }
 }
 
@@ -1825,20 +1836,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

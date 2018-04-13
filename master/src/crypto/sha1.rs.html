@@ -10,8 +10,12 @@
     <title>sha1.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -715,15 +726,15 @@ algorithms, but some, like &quot;parity&quot; is only found in SHA-1.
 
 <span class="doccomment">/// Emulates `llvm.x86.sha1msg1` intrinsic.</span>
 <span class="kw">fn</span> <span class="ident">sha1msg1</span>(<span class="ident">a</span>: <span class="ident">u32x4</span>, <span class="ident">b</span>: <span class="ident">u32x4</span>) <span class="op">-&gt;</span> <span class="ident">u32x4</span> {
-    <span class="kw">let</span> <span class="ident">u32x4</span>(_, _, <span class="ident">w2</span>, <span class="ident">w3</span>) <span class="op">=</span> <span class="ident">a</span>;
-    <span class="kw">let</span> <span class="ident">u32x4</span>(<span class="ident">w4</span>, <span class="ident">w5</span>, _, _) <span class="op">=</span> <span class="ident">b</span>;
+    <span class="kw">let</span> <span class="ident">u32x4</span>(<span class="kw">_</span>, <span class="kw">_</span>, <span class="ident">w2</span>, <span class="ident">w3</span>) <span class="op">=</span> <span class="ident">a</span>;
+    <span class="kw">let</span> <span class="ident">u32x4</span>(<span class="ident">w4</span>, <span class="ident">w5</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">b</span>;
     <span class="ident">a</span> <span class="op">^</span> <span class="ident">u32x4</span>(<span class="ident">w2</span>, <span class="ident">w3</span>, <span class="ident">w4</span>, <span class="ident">w5</span>)
 }
 
 <span class="doccomment">/// Emulates `llvm.x86.sha1msg2` intrinsic.</span>
 <span class="kw">fn</span> <span class="ident">sha1msg2</span>(<span class="ident">a</span>: <span class="ident">u32x4</span>, <span class="ident">b</span>: <span class="ident">u32x4</span>) <span class="op">-&gt;</span> <span class="ident">u32x4</span> {
     <span class="kw">let</span> <span class="ident">u32x4</span>(<span class="ident">x0</span>, <span class="ident">x1</span>, <span class="ident">x2</span>, <span class="ident">x3</span>) <span class="op">=</span> <span class="ident">a</span>;
-    <span class="kw">let</span> <span class="ident">u32x4</span>(_, <span class="ident">w13</span>, <span class="ident">w14</span>, <span class="ident">w15</span>) <span class="op">=</span> <span class="ident">b</span>;
+    <span class="kw">let</span> <span class="ident">u32x4</span>(<span class="kw">_</span>, <span class="ident">w13</span>, <span class="ident">w14</span>, <span class="ident">w15</span>) <span class="op">=</span> <span class="ident">b</span>;
 
     <span class="kw">let</span> <span class="ident">w16</span> <span class="op">=</span> (<span class="ident">x0</span> <span class="op">^</span> <span class="ident">w13</span>).<span class="ident">rotate_left</span>(<span class="number">1</span>);
     <span class="kw">let</span> <span class="ident">w17</span> <span class="op">=</span> (<span class="ident">x1</span> <span class="op">^</span> <span class="ident">w14</span>).<span class="ident">rotate_left</span>(<span class="number">1</span>);
@@ -757,7 +768,7 @@ algorithms, but some, like &quot;parity&quot; is only found in SHA-1.
         <span class="number">1</span> <span class="op">=&gt;</span> <span class="ident">sha1rnds4p</span>(<span class="ident">abcd</span>, <span class="ident">work</span> <span class="op">+</span> <span class="ident">K1V</span>),
         <span class="number">2</span> <span class="op">=&gt;</span> <span class="ident">sha1rnds4m</span>(<span class="ident">abcd</span>, <span class="ident">work</span> <span class="op">+</span> <span class="ident">K2V</span>),
         <span class="number">3</span> <span class="op">=&gt;</span> <span class="ident">sha1rnds4p</span>(<span class="ident">abcd</span>, <span class="ident">work</span> <span class="op">+</span> <span class="ident">K3V</span>),
-        _ <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unknown icosaround index&quot;</span>)
+        <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unknown icosaround index&quot;</span>)
     }
 }
 
@@ -1221,20 +1232,22 @@ algorithms, but some, like &quot;parity&quot; is only found in SHA-1.
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

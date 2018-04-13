@@ -10,8 +10,12 @@
     <title>elastic_types::geo::shape::mapping - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <script src="../../../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         <p class='location'>Module mapping</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../../../index.html'>elastic_types</a>::<wbr><a href='../../index.html'>geo</a>::<wbr><a href='../index.html'>shape</a></p><script>window.sidebarCurrent = {name: 'mapping', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>elastic_types</a>::<wbr><a href='../../index.html'>geo</a>::<wbr><a href='../index.html'>shape</a>::<wbr><a class="mod" href=''>mapping</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>elastic_types</a>::<wbr><a href='../../index.html'>geo</a>::<wbr><a href='../index.html'>shape</a>::<wbr><a class="mod" href=''>mapping</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../../src/elastic_types/geo/shape/mapping.rs.html#1-338' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Mapping for Elasticsearch <code>geo_shape</code> types. </p>
+               </span><a class='srclink' href='../../../../src/elastic_types/geo/shape/mapping.rs.html#1-338' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Mapping for Elasticsearch <code>geo_shape</code> types. </p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -58,6 +67,7 @@
                                   title='struct elastic_types::geo::shape::mapping::DefaultGeoShapeMapping'>DefaultGeoShapeMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for <code>geo_shape</code>. </p>
+
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -66,11 +76,8 @@
                                   title='enum elastic_types::geo::shape::mapping::Orientation'>Orientation</a></td>
                            <td class='docblock-short'>
                                 <p>This parameter defines one of two coordinate system rules (Right-hand or Left-hand)
-each of which can be specified in a few different ways.
-- Right-hand rule: right, ccw, counterclockwise,
-- Left-hand rule: left, cw, clockwise.
-The default orientation (counterclockwise) complies with the OGC standard which defines outer
-ring vertices in counterclockwise order with inner ring(s) vertices (holes) in clockwise order.</p>
+each of which can be specified in a few different ways.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -78,6 +85,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='enum elastic_types::geo::shape::mapping::Strategy'>Strategy</a></td>
                            <td class='docblock-short'>
                                 <p>The strategy defines the approach for how to represent shapes at indexing and search time. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -85,6 +93,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='enum elastic_types::geo::shape::mapping::Tree'>Tree</a></td>
                            <td class='docblock-short'>
                                 <p>Name of the <code>PrefixTree</code> implementation to be used. </p>
+
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -93,6 +102,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic_types::geo::shape::mapping::GeoShapeFieldType'>GeoShapeFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a <code>geo_shape</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -100,6 +110,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic_types::geo::shape::mapping::GeoShapeMapping'>GeoShapeMapping</a></td>
                            <td class='docblock-short'>
                                 <p>The base requirements for mapping a <code>geo_shape</code> type.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -114,20 +125,22 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

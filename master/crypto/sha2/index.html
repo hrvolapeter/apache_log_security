@@ -10,8 +10,12 @@
     <title>crypto::sha2 - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         <p class='location'>Module sha2</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#constants">Constants</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>crypto</a></p><script>window.sidebarCurrent = {name: 'sha2', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,16 +55,12 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>crypto</a>::<wbr><a class="mod" href=''>sha2</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>crypto</a>::<wbr><a class="mod" href=''>sha2</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/crypto/sha2.rs.html#11-1496' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>An implementation of the SHA-2 cryptographic hash algorithms.</p>
-
+               </span><a class='srclink' href='../../src/crypto/sha2.rs.html#11-1496' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>An implementation of the SHA-2 cryptographic hash algorithms.</p>
 <p>There are 6 standard algorithms specified in the SHA-2 standard:</p>
-
 <ul>
 <li><code>Sha224</code>, which is the 32-bit <code>Sha256</code> algorithm with the result truncated to 224 bits.</li>
 <li><code>Sha256</code>, which is the 32-bit <code>Sha256</code> algorithm.</li>
@@ -62,12 +69,10 @@
 <li><code>Sha512Trunc224</code>, which is the 64-bit <code>Sha512</code> algorithm with the result truncated to 224 bits.</li>
 <li><code>Sha512Trunc256</code>, which is the 64-bit <code>Sha512</code> algorithm with the result truncated to 256 bits.</li>
 </ul>
-
 <p>Algorithmically, there are only 2 core algorithms: <code>Sha256</code> and <code>Sha512</code>.
 All other algorithms are just applications of these with different initial hash
 values, and truncated to different digest bit lengths.</p>
-
-<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
+<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
 <p>An example of using <code>Sha256</code> is:</p>
 
 <pre class="rust rust-example-rendered">
@@ -86,7 +91,6 @@ values, and truncated to different digest bit lengths.</p>
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">hex</span>,
            <span class="macro">concat</span><span class="macro">!</span>(<span class="string">&quot;b94d27b9934d3e08a52e52d7da7dabfa&quot;</span>,
                    <span class="string">&quot;c484efe37a5380ee9088f7ace2efcde9&quot;</span>));</pre>
-
 <p>An example of using <code>Sha512</code> is:</p>
 
 <pre class="rust rust-example-rendered">
@@ -114,6 +118,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='struct crypto::sha2::Sha224'>Sha224</a></td>
                            <td class='docblock-short'>
                                 <p>The SHA-256 hash algorithm with the SHA-224 initial hash value. The result is truncated to 224 bits.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -121,6 +126,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='struct crypto::sha2::Sha256'>Sha256</a></td>
                            <td class='docblock-short'>
                                 <p>The SHA-256 hash algorithm with the SHA-256 initial hash value.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -128,6 +134,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='struct crypto::sha2::Sha384'>Sha384</a></td>
                            <td class='docblock-short'>
                                 <p>The SHA-512 hash algorithm with the SHA-384 initial hash value. The result is truncated to 384 bits.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -135,6 +142,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='struct crypto::sha2::Sha512'>Sha512</a></td>
                            <td class='docblock-short'>
                                 <p>The SHA-512 hash algorithm with the SHA-512 initial hash value.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -142,6 +150,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='struct crypto::sha2::Sha512Trunc224'>Sha512Trunc224</a></td>
                            <td class='docblock-short'>
                                 <p>The SHA-512 hash algorithm with the SHA-512/224 initial hash value. The result is truncated to 224 bits.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -149,6 +158,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='struct crypto::sha2::Sha512Trunc256'>Sha512Trunc256</a></td>
                            <td class='docblock-short'>
                                 <p>The SHA-512 hash algorithm with the SHA-512/256 initial hash value. The result is truncated to 256 bits.</p>
+
                            </td>
                        </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
 <table>
@@ -157,6 +167,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='constant crypto::sha2::K32'>K32</a></td>
                            <td class='docblock-short'>
                                 <p>Constants necessary for SHA-256 family of digests.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -164,6 +175,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='constant crypto::sha2::K64'>K64</a></td>
                            <td class='docblock-short'>
                                 <p>Constants necessary for SHA-512 family of digests.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -171,6 +183,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='constant crypto::sha2::K32X4'>K32X4</a></td>
                            <td class='docblock-short'>
                                 <p>Constants necessary for SHA-256 family of digests.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -178,6 +191,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='constant crypto::sha2::K64X2'>K64X2</a></td>
                            <td class='docblock-short'>
                                 <p>Constants necessary for SHA-512 family of digests.</p>
+
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -186,6 +200,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='fn crypto::sha2::sha256_digest_block'>sha256_digest_block</a></td>
                            <td class='docblock-short'>
                                 <p>Process a block with the SHA-256 algorithm. (See more...)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -193,6 +208,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='fn crypto::sha2::sha256_digest_block_u32'>sha256_digest_block_u32</a></td>
                            <td class='docblock-short'>
                                 <p>Process a block with the SHA-256 algorithm.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -200,6 +216,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='fn crypto::sha2::sha256_digest_round_x2'>sha256_digest_round_x2</a></td>
                            <td class='docblock-short'>
                                 <p>Emulates <code>llvm.x86.sha256rnds2</code> intrinsic.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -207,6 +224,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='fn crypto::sha2::sha256_schedule_x4'>sha256_schedule_x4</a></td>
                            <td class='docblock-short'>
                                 <p>Performs 4 rounds of the SHA-256 message schedule update.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -214,6 +232,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='fn crypto::sha2::sha512_digest_block'>sha512_digest_block</a></td>
                            <td class='docblock-short'>
                                 <p>Process a block with the SHA-512 algorithm. (See more...)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -221,6 +240,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='fn crypto::sha2::sha512_digest_block_u64'>sha512_digest_block_u64</a></td>
                            <td class='docblock-short'>
                                 <p>Process a block with the SHA-512 algorithm.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -228,6 +248,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='fn crypto::sha2::sha512_digest_round'>sha512_digest_round</a></td>
                            <td class='docblock-short'>
                                 <p>Performs one round of the SHA-512 message block digest.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -235,6 +256,7 @@ values, and truncated to different digest bit lengths.</p>
                                   title='fn crypto::sha2::sha512_schedule_x2'>sha512_schedule_x2</a></td>
                            <td class='docblock-short'>
                                 <p>Performs 2 rounds of the SHA-512 message schedule update.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -249,20 +271,22 @@ values, and truncated to different digest bit lengths.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

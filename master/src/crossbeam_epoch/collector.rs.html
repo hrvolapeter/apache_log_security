@@ -10,8 +10,12 @@
     <title>collector.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -595,7 +606,7 @@
         <span class="kw">let</span> <span class="ident">handle</span> <span class="op">=</span> <span class="ident">collector</span>.<span class="ident">handle</span>();
         <span class="ident">drop</span>(<span class="ident">collector</span>);
 
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">100</span> {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">100</span> {
             <span class="kw">let</span> <span class="ident">guard</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">handle</span>.<span class="ident">pin</span>();
             <span class="kw">unsafe</span> {
                 <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">Owned</span>::<span class="ident">new</span>(<span class="number">7</span>).<span class="ident">into_shared</span>(<span class="ident">guard</span>);
@@ -618,7 +629,7 @@
 
         <span class="kw">let</span> <span class="ident">guard</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">handle</span>.<span class="ident">pin</span>();
         <span class="kw">unsafe</span> {
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> {
                 <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">Owned</span>::<span class="ident">new</span>(<span class="number">7</span>).<span class="ident">into_shared</span>(<span class="ident">guard</span>);
                 <span class="ident">guard</span>.<span class="ident">defer</span>(<span class="kw">move</span> <span class="op">||</span> <span class="ident">a</span>.<span class="ident">into_owned</span>());
             }
@@ -631,11 +642,11 @@
         <span class="kw">let</span> <span class="ident">collector</span> <span class="op">=</span> <span class="ident">Collector</span>::<span class="ident">new</span>();
 
         <span class="kw">let</span> <span class="ident">threads</span> <span class="op">=</span> (<span class="number">0</span>..<span class="ident">NUM_THREADS</span>)
-            .<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> {
+            .<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
                 <span class="ident">scoped</span>::<span class="ident">scope</span>(<span class="op">|</span><span class="ident">scope</span><span class="op">|</span> {
                     <span class="ident">scope</span>.<span class="ident">spawn</span>(<span class="op">||</span> {
                         <span class="kw">let</span> <span class="ident">handle</span> <span class="op">=</span> <span class="ident">collector</span>.<span class="ident">handle</span>();
-                        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">500_000</span> {
+                        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">500_000</span> {
                             <span class="kw">let</span> <span class="ident">guard</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">handle</span>.<span class="ident">pin</span>();
 
                             <span class="kw">let</span> <span class="ident">before</span> <span class="op">=</span> <span class="ident">collector</span>.<span class="ident">global</span>.<span class="ident">load_epoch</span>(<span class="ident">Ordering</span>::<span class="ident">Relaxed</span>);
@@ -647,7 +658,7 @@
                     })
                 })
             })
-            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;&gt;</span>();
+            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;&gt;</span>();
         <span class="ident">drop</span>(<span class="ident">collector</span>);
 
         <span class="kw">for</span> <span class="ident">t</span> <span class="kw">in</span> <span class="ident">threads</span> {
@@ -665,7 +676,7 @@
 
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">guard</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">handle</span>.<span class="ident">pin</span>();
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">COUNT</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">COUNT</span> {
                 <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">Owned</span>::<span class="ident">new</span>(<span class="number">7i32</span>).<span class="ident">into_shared</span>(<span class="ident">guard</span>);
                 <span class="ident">guard</span>.<span class="ident">defer</span>(<span class="kw">move</span> <span class="op">||</span> {
                     <span class="ident">drop</span>(<span class="ident">a</span>.<span class="ident">into_owned</span>());
@@ -698,7 +709,7 @@
 
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">guard</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">handle</span>.<span class="ident">pin</span>();
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">COUNT</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">COUNT</span> {
                 <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">Owned</span>::<span class="ident">new</span>(<span class="number">7i32</span>).<span class="ident">into_shared</span>(<span class="ident">guard</span>);
                 <span class="ident">guard</span>.<span class="ident">defer</span>(<span class="kw">move</span> <span class="op">||</span> {
                     <span class="ident">drop</span>(<span class="ident">a</span>.<span class="ident">into_owned</span>());
@@ -707,7 +718,7 @@
             }
         }
 
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">100_000</span> {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">100_000</span> {
             <span class="ident">collector</span>.<span class="ident">global</span>.<span class="ident">collect</span>(<span class="kw-2">&amp;</span><span class="ident">handle</span>.<span class="ident">pin</span>());
         }
         <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">DESTROYS</span>.<span class="ident">load</span>(<span class="ident">Ordering</span>::<span class="ident">Relaxed</span>) <span class="op">&lt;</span> <span class="ident">COUNT</span>);
@@ -740,7 +751,7 @@
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">guard</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">handle</span>.<span class="ident">pin</span>();
 
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">COUNT</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">COUNT</span> {
                 <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">Owned</span>::<span class="ident">new</span>(<span class="ident">Elem</span>(<span class="number">7i32</span>)).<span class="ident">into_shared</span>(<span class="ident">guard</span>);
                 <span class="ident">guard</span>.<span class="ident">defer</span>(<span class="kw">move</span> <span class="op">||</span> <span class="ident">a</span>.<span class="ident">into_owned</span>());
             }
@@ -765,7 +776,7 @@
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">guard</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">handle</span>.<span class="ident">pin</span>();
 
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">COUNT</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">COUNT</span> {
                 <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">Owned</span>::<span class="ident">new</span>(<span class="number">7i32</span>).<span class="ident">into_shared</span>(<span class="ident">guard</span>);
                 <span class="ident">guard</span>.<span class="ident">defer</span>(<span class="kw">move</span> <span class="op">||</span> {
                     <span class="ident">drop</span>(<span class="ident">a</span>.<span class="ident">into_owned</span>());
@@ -869,11 +880,11 @@
         <span class="kw">let</span> <span class="ident">collector</span> <span class="op">=</span> <span class="ident">Collector</span>::<span class="ident">new</span>();
 
         <span class="kw">let</span> <span class="ident">threads</span> <span class="op">=</span> (<span class="number">0</span>..<span class="ident">THREADS</span>)
-            .<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> {
+            .<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
                 <span class="ident">scoped</span>::<span class="ident">scope</span>(<span class="op">|</span><span class="ident">scope</span><span class="op">|</span> {
                     <span class="ident">scope</span>.<span class="ident">spawn</span>(<span class="op">||</span> {
                         <span class="kw">let</span> <span class="ident">handle</span> <span class="op">=</span> <span class="ident">collector</span>.<span class="ident">handle</span>();
-                        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">COUNT</span> {
+                        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">COUNT</span> {
                             <span class="kw">let</span> <span class="ident">guard</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">handle</span>.<span class="ident">pin</span>();
                             <span class="kw">unsafe</span> {
                                 <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="ident">Owned</span>::<span class="ident">new</span>(<span class="ident">Elem</span>(<span class="number">7i32</span>)).<span class="ident">into_shared</span>(<span class="ident">guard</span>);
@@ -883,7 +894,7 @@
                     })
                 })
             })
-            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;&gt;</span>();
+            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;&gt;</span>();
 
         <span class="kw">for</span> <span class="ident">t</span> <span class="kw">in</span> <span class="ident">threads</span> {
             <span class="ident">t</span>.<span class="ident">join</span>();
@@ -911,20 +922,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

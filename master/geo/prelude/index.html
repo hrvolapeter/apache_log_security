@@ -10,8 +10,12 @@
     <title>geo::prelude - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -30,9 +34,16 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Module prelude</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li></ul></div><p class='location'><a href='../index.html'>geo</a></p><script>window.sidebarCurrent = {name: 'prelude', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+        <p class='location'>Module prelude</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li></ul></div><p class='location'><a href='../index.html'>geo</a></p><script>window.sidebarCurrent = {name: 'prelude', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,15 +55,13 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>geo</a>::<wbr><a class="mod" href=''>prelude</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>geo</a>::<wbr><a class="mod" href=''>prelude</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/geo/lib.rs.html#21-40' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>A prelude which re-exports the traits for manipulating objects in this
+               </span><a class='srclink' href='../../src/geo/lib.rs.html#21-40' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>A prelude which re-exports the traits for manipulating objects in this
 crate. Typically imported with <code>use geo::prelude::*</code>.</p>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Re-exports</a></h2>
 <table><tr><td><code>pub use algorithm::area::<a class="trait" href="../../geo/algorithm/area/trait.Area.html" title="trait geo::algorithm::area::Area">Area</a>;</code></td></tr><tr><td><code>pub use algorithm::boundingbox::<a class="trait" href="../../geo/algorithm/boundingbox/trait.BoundingBox.html" title="trait geo::algorithm::boundingbox::BoundingBox">BoundingBox</a>;</code></td></tr><tr><td><code>pub use algorithm::centroid::<a class="trait" href="../../geo/algorithm/centroid/trait.Centroid.html" title="trait geo::algorithm::centroid::Centroid">Centroid</a>;</code></td></tr><tr><td><code>pub use algorithm::contains::<a class="trait" href="../../geo/algorithm/contains/trait.Contains.html" title="trait geo::algorithm::contains::Contains">Contains</a>;</code></td></tr><tr><td><code>pub use algorithm::convexhull::<a class="trait" href="../../geo/algorithm/convexhull/trait.ConvexHull.html" title="trait geo::algorithm::convexhull::ConvexHull">ConvexHull</a>;</code></td></tr><tr><td><code>pub use algorithm::distance::<a class="trait" href="../../geo/algorithm/distance/trait.Distance.html" title="trait geo::algorithm::distance::Distance">Distance</a>;</code></td></tr><tr><td><code>pub use algorithm::extremes::<a class="trait" href="../../geo/algorithm/extremes/trait.ExtremePoints.html" title="trait geo::algorithm::extremes::ExtremePoints">ExtremePoints</a>;</code></td></tr><tr><td><code>pub use algorithm::haversine_destination::<a class="trait" href="../../geo/algorithm/haversine_destination/trait.HaversineDestination.html" title="trait geo::algorithm::haversine_destination::HaversineDestination">HaversineDestination</a>;</code></td></tr><tr><td><code>pub use algorithm::haversine_distance::<a class="trait" href="../../geo/algorithm/haversine_distance/trait.HaversineDistance.html" title="trait geo::algorithm::haversine_distance::HaversineDistance">HaversineDistance</a>;</code></td></tr><tr><td><code>pub use algorithm::intersects::<a class="trait" href="../../geo/algorithm/intersects/trait.Intersects.html" title="trait geo::algorithm::intersects::Intersects">Intersects</a>;</code></td></tr><tr><td><code>pub use algorithm::length::<a class="trait" href="../../geo/algorithm/length/trait.Length.html" title="trait geo::algorithm::length::Length">Length</a>;</code></td></tr><tr><td><code>pub use algorithm::map_coords::<a class="trait" href="../../geo/algorithm/map_coords/trait.MapCoords.html" title="trait geo::algorithm::map_coords::MapCoords">MapCoords</a>;</code></td></tr><tr><td><code>pub use algorithm::orient::<a class="trait" href="../../geo/algorithm/orient/trait.Orient.html" title="trait geo::algorithm::orient::Orient">Orient</a>;</code></td></tr><tr><td><code>pub use algorithm::rotate::<a class="trait" href="../../geo/algorithm/rotate/trait.Rotate.html" title="trait geo::algorithm::rotate::Rotate">Rotate</a>;</code></td></tr><tr><td><code>pub use algorithm::rotate::<a class="trait" href="../../geo/algorithm/rotate/trait.RotatePoint.html" title="trait geo::algorithm::rotate::RotatePoint">RotatePoint</a>;</code></td></tr><tr><td><code>pub use algorithm::simplify::<a class="trait" href="../../geo/algorithm/simplify/trait.Simplify.html" title="trait geo::algorithm::simplify::Simplify">Simplify</a>;</code></td></tr><tr><td><code>pub use algorithm::simplifyvw::<a class="trait" href="../../geo/algorithm/simplifyvw/trait.SimplifyVW.html" title="trait geo::algorithm::simplifyvw::SimplifyVW">SimplifyVW</a>;</code></td></tr><tr><td><code>pub use algorithm::translate::<a class="trait" href="../../geo/algorithm/translate/trait.Translate.html" title="trait geo::algorithm::translate::Translate">Translate</a>;</code></td></tr><tr><td><code>pub use algorithm::closest_point::<a class="trait" href="../../geo/algorithm/closest_point/trait.ClosestPoint.html" title="trait geo::algorithm::closest_point::ClosestPoint">ClosestPoint</a>;</code></td></tr></table></section>
     <section id='search' class="content hidden"></section>
 
@@ -66,20 +75,22 @@ crate. Typically imported with <code>use geo::prelude::*</code>.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

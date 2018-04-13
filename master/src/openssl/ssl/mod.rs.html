@@ -10,8 +10,12 @@
     <title>mod.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -3166,7 +3177,7 @@
                 <span class="ident">get_callback_idx</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(),
                 <span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="ident">callback</span>),
             );
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(_, _, _) <span class="op">-&gt;</span> _ <span class="op">=</span> <span class="ident">raw_sni</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">-&gt;</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">raw_sni</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
             <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>() <span class="op">=</span> <span class="ident">mem</span>::<span class="ident">transmute</span>(<span class="ident">f</span>);
             <span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_tlsext_servername_callback</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="prelude-val">Some</span>(<span class="ident">f</span>));
         }
@@ -3238,7 +3249,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`SSL_CTX_set_tmp_dh`]: https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_tmp_dh.html</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_tmp_dh</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">dh</span>: <span class="kw-2">&amp;</span><span class="ident">DhRef</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_tmp_dh</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">dh</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="ident">c_int</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_tmp_dh</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">dh</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="ident">c_int</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Sets the callback which will generate parameters to be used during ephemeral Diffie-Hellman</span>
@@ -3262,7 +3273,7 @@
                 <span class="ident">get_callback_idx</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(),
                 <span class="ident">Box</span>::<span class="ident">into_raw</span>(<span class="ident">callback</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>,
             );
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(_, _, _) <span class="op">-&gt;</span> _ <span class="op">=</span> <span class="ident">raw_tmp_dh</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">-&gt;</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">raw_tmp_dh</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
             <span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_tmp_dh_callback</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">f</span>);
         }
     }
@@ -3274,7 +3285,7 @@
         <span class="kw">unsafe</span> {
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_tmp_ecdh</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">key</span>.<span class="ident">as_ptr</span>())
                 <span class="kw">as</span> <span class="ident">c_int</span>)
-                .<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+                .<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -3300,7 +3311,7 @@
                 <span class="ident">get_callback_idx</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(),
                 <span class="ident">Box</span>::<span class="ident">into_raw</span>(<span class="ident">callback</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>,
             );
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(_, _, _) <span class="op">-&gt;</span> _ <span class="op">=</span> <span class="ident">raw_tmp_ecdh</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">-&gt;</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">raw_tmp_ecdh</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
             <span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_tmp_ecdh_callback</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">f</span>);
         }
     }
@@ -3314,7 +3325,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`SSL_CTX_set_default_verify_paths`]: https://www.openssl.org/docs/man1.1.0/ssl/SSL_CTX_set_default_verify_paths.html</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_default_verify_paths</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_default_verify_paths</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_default_verify_paths</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Loads trusted root certificates from a file.</span>
@@ -3329,9 +3340,9 @@
         <span class="kw">unsafe</span> {
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_load_verify_locations</span>(
                 <span class="self">self</span>.<span class="ident">as_ptr</span>(),
-                <span class="ident">file</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _,
+                <span class="ident">file</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">ptr</span>::<span class="ident">null</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -3369,7 +3380,7 @@
                 <span class="self">self</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">sid_ctx</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">sid_ctx</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">c_uint</span>,
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -3391,9 +3402,9 @@
         <span class="kw">unsafe</span> {
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_use_certificate_file</span>(
                 <span class="self">self</span>.<span class="ident">as_ptr</span>(),
-                <span class="ident">file</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _,
+                <span class="ident">file</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">file_type</span>.<span class="ident">as_raw</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -3414,8 +3425,8 @@
         <span class="kw">unsafe</span> {
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_use_certificate_chain_file</span>(
                 <span class="self">self</span>.<span class="ident">as_ptr</span>(),
-                <span class="ident">file</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _,
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+                <span class="ident">file</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -3427,7 +3438,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`SSL_CTX_use_certificate`]: https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_use_certificate_file.html</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_certificate</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">cert</span>: <span class="kw-2">&amp;</span><span class="ident">X509Ref</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_use_certificate</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">cert</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_use_certificate</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">cert</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Appends a certificate to the certificate chain.</span>
@@ -3460,9 +3471,9 @@
         <span class="kw">unsafe</span> {
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_use_PrivateKey_file</span>(
                 <span class="self">self</span>.<span class="ident">as_ptr</span>(),
-                <span class="ident">file</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _,
+                <span class="ident">file</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">file_type</span>.<span class="ident">as_raw</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -3472,7 +3483,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`SSL_CTX_use_PrivateKey`]: https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_use_PrivateKey_file.html</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_private_key</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span><span class="ident">PKeyRef</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_use_PrivateKey</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">key</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_use_PrivateKey</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">key</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Sets the list of supported ciphers.</span>
@@ -3487,8 +3498,8 @@
         <span class="kw">unsafe</span> {
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_cipher_list</span>(
                 <span class="self">self</span>.<span class="ident">as_ptr</span>(),
-                <span class="ident">cipher_list</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _,
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+                <span class="ident">cipher_list</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -3506,7 +3517,7 @@
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">ossl102</span>, <span class="ident">libressl</span>))]</span>
     <span class="kw">fn</span> <span class="ident">_set_ecdh_auto</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">onoff</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_ecdh_auto</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">onoff</span> <span class="kw">as</span> <span class="ident">c_int</span>)).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_ecdh_auto</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">onoff</span> <span class="kw">as</span> <span class="ident">c_int</span>)).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Sets the options used by the context, returning the old set.</span>
@@ -3624,7 +3635,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`SSL_CTX_check_private_key`]: https://www.openssl.org/docs/man1.1.0/ssl/SSL_CTX_check_private_key.html</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">check_private_key</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_check_private_key</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_check_private_key</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Returns a shared reference to the context&#39;s certificate store.</span>
@@ -3672,10 +3683,10 @@
                 <span class="ident">get_callback_idx</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(),
                 <span class="ident">Box</span>::<span class="ident">into_raw</span>(<span class="ident">callback</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>,
             );
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(_, _) <span class="op">-&gt;</span> _ <span class="op">=</span> <span class="ident">raw_tlsext_status</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="kw">_</span>, <span class="kw">_</span>) <span class="op">-&gt;</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">raw_tlsext_status</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_CTX_set_tlsext_status_cb</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="prelude-val">Some</span>(<span class="ident">f</span>))
                 <span class="kw">as</span> <span class="ident">c_int</span>)
-                .<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+                .<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -3932,7 +3943,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">str</span> {
         <span class="kw">let</span> <span class="ident">name</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">ffi</span>::<span class="ident">SSL_CIPHER_get_name</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>());
-            <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
+            <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
         };
 
         <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">name</span>.<span class="ident">to_bytes</span>()).<span class="ident">unwrap</span>()
@@ -3946,7 +3957,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">version</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">str</span> {
         <span class="kw">let</span> <span class="ident">version</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">ffi</span>::<span class="ident">SSL_CIPHER_get_version</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>());
-            <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
+            <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
         };
 
         <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">version</span>.<span class="ident">to_bytes</span>()).<span class="ident">unwrap</span>()
@@ -3978,7 +3989,7 @@
             <span class="comment">// SSL_CIPHER_description requires a buffer of at least 128 bytes.</span>
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">buf</span> <span class="op">=</span> [<span class="number">0</span>; <span class="number">128</span>];
             <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">ffi</span>::<span class="ident">SSL_CIPHER_description</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">buf</span>.<span class="ident">as_mut_ptr</span>(), <span class="number">128</span>);
-            <span class="ident">String</span>::<span class="ident">from_utf8</span>(<span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _).<span class="ident">to_bytes</span>().<span class="ident">to_vec</span>()).<span class="ident">unwrap</span>()
+            <span class="ident">String</span>::<span class="ident">from_utf8</span>(<span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>).<span class="ident">to_bytes</span>().<span class="ident">to_vec</span>()).<span class="ident">unwrap</span>()
         }
     }
 }
@@ -4161,7 +4172,7 @@
     <span class="doccomment">/// [`SslContextBuilder::set_tmp_dh`]: struct.SslContextBuilder.html#method.set_tmp_dh</span>
     <span class="doccomment">/// [`SSL_set_tmp_dh`]: https://www.openssl.org/docs/man1.0.2/ssl/SSL_set_tmp_dh.html</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_tmp_dh</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">dh</span>: <span class="kw-2">&amp;</span><span class="ident">DhRef</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_tmp_dh</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">dh</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="ident">c_int</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_tmp_dh</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">dh</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="ident">c_int</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Like [`SslContextBuilder::set_tmp_dh_callback`].</span>
@@ -4181,7 +4192,7 @@
                 <span class="ident">get_ssl_callback_idx</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(),
                 <span class="ident">Box</span>::<span class="ident">into_raw</span>(<span class="ident">callback</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>,
             );
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(_, _, _) <span class="op">-&gt;</span> _ <span class="op">=</span> <span class="ident">raw_tmp_dh_ssl</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">-&gt;</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">raw_tmp_dh_ssl</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
             <span class="ident">ffi</span>::<span class="ident">SSL_set_tmp_dh_callback</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">f</span>);
         }
     }
@@ -4192,7 +4203,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`SslContextBuilder::set_tmp_ecdh`]: struct.SslContextBuilder.html#method.set_tmp_ecdh</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_tmp_ecdh</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span><span class="ident">EcKeyRef</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_tmp_ecdh</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">key</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="ident">c_int</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_tmp_ecdh</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">key</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="ident">c_int</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Like [`SslContextBuilder::set_tmp_ecdh_callback`].</span>
@@ -4214,7 +4225,7 @@
                 <span class="ident">get_ssl_callback_idx</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>(),
                 <span class="ident">Box</span>::<span class="ident">into_raw</span>(<span class="ident">callback</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>,
             );
-            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(_, _, _) <span class="op">-&gt;</span> _ <span class="op">=</span> <span class="ident">raw_tmp_ecdh_ssl</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
+            <span class="kw">let</span> <span class="ident">f</span>: <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">-&gt;</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">raw_tmp_ecdh_ssl</span>::<span class="op">&lt;</span><span class="ident">F</span><span class="op">&gt;</span>;
             <span class="ident">ffi</span>::<span class="ident">SSL_set_tmp_ecdh_callback</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">f</span>);
         }
     }
@@ -4229,7 +4240,7 @@
     <span class="doccomment">/// [`SSL_set_ecdh_auto`]: https://www.openssl.org/docs/man1.0.2/ssl/SSL_set_ecdh_auto.html</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">all</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v102&quot;</span>, <span class="ident">ossl102</span>))]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_ecdh_auto</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">onoff</span>: <span class="ident">bool</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_ecdh_auto</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">onoff</span> <span class="kw">as</span> <span class="ident">c_int</span>)).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_ecdh_auto</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">onoff</span> <span class="kw">as</span> <span class="ident">c_int</span>)).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Returns the current cipher if the session is active.</span>
@@ -4244,7 +4255,7 @@
             <span class="kw">if</span> <span class="ident">ptr</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
-                <span class="prelude-val">Some</span>(<span class="ident">SslCipherRef</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _))
+                <span class="prelude-val">Some</span>(<span class="ident">SslCipherRef</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>))
             }
         }
     }
@@ -4257,7 +4268,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">state_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> {
         <span class="kw">let</span> <span class="ident">state</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">ffi</span>::<span class="ident">SSL_state_string</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>());
-            <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
+            <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
         };
 
         <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">state</span>.<span class="ident">to_bytes</span>()).<span class="ident">unwrap</span>()
@@ -4271,7 +4282,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">state_string_long</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> {
         <span class="kw">let</span> <span class="ident">state</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">ffi</span>::<span class="ident">SSL_state_string_long</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>());
-            <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
+            <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
         };
 
         <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">state</span>.<span class="ident">to_bytes</span>()).<span class="ident">unwrap</span>()
@@ -4287,8 +4298,8 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_hostname</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">hostname</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">cstr</span> <span class="op">=</span> <span class="ident">CString</span>::<span class="ident">new</span>(<span class="ident">hostname</span>).<span class="ident">unwrap</span>();
         <span class="kw">unsafe</span> {
-            <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_tlsext_host_name</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">cstr</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _) <span class="kw">as</span> <span class="ident">c_int</span>)
-                .<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_tlsext_host_name</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">cstr</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>) <span class="kw">as</span> <span class="ident">c_int</span>)
+                .<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -4367,7 +4378,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">version</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> {
         <span class="kw">let</span> <span class="ident">version</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">ffi</span>::<span class="ident">SSL_get_version</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>());
-            <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
+            <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
         };
 
         <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">version</span>.<span class="ident">to_bytes</span>()).<span class="ident">unwrap</span>()
@@ -4452,7 +4463,7 @@
                 <span class="kw">return</span> <span class="prelude-val">None</span>;
             }
             <span class="kw">let</span> <span class="ident">meth</span> <span class="op">=</span> <span class="ident">ffi</span>::<span class="ident">SSL_COMP_get_name</span>(<span class="ident">ptr</span>);
-            <span class="prelude-val">Some</span>(<span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">meth</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _).<span class="ident">to_bytes</span>()).<span class="ident">unwrap</span>())
+            <span class="prelude-val">Some</span>(<span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">meth</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>).<span class="ident">to_bytes</span>()).<span class="ident">unwrap</span>())
         }
     }
 
@@ -4476,7 +4487,7 @@
                 <span class="kw">return</span> <span class="prelude-val">None</span>;
             }
 
-            <span class="prelude-val">Some</span>(<span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">name</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _).<span class="ident">to_bytes</span>()).<span class="ident">unwrap</span>())
+            <span class="prelude-val">Some</span>(<span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">name</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>).<span class="ident">to_bytes</span>()).<span class="ident">unwrap</span>())
         }
     }
 
@@ -4486,7 +4497,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This corresponds to `SSL_set_SSL_CTX`.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_ssl_context</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ctx</span>: <span class="kw-2">&amp;</span><span class="ident">SslContextRef</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> { <span class="ident">cvt_p</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_SSL_CTX</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">ctx</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ()) }
+        <span class="kw">unsafe</span> { <span class="ident">cvt_p</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_SSL_CTX</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">ctx</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ()) }
     }
 
     <span class="doccomment">/// Returns the context corresponding to the current connection.</span>
@@ -4558,7 +4569,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`SSL_set_session`]: https://www.openssl.org/docs/manmaster/man3/SSL_set_session.html</span>
     <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">set_session</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">session</span>: <span class="kw-2">&amp;</span><span class="ident">SslSessionRef</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
-        <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_session</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">session</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+        <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_session</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">session</span>.<span class="ident">as_ptr</span>())).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Determines if the session provided to `set_session` was successfully reused.</span>
@@ -4577,7 +4588,7 @@
     <span class="doccomment">/// [`SSL_set_tlsext_status_type`]: https://www.openssl.org/docs/man1.0.2/ssl/SSL_set_tlsext_status_type.html</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_status_type</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">type_</span>: <span class="ident">StatusType</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
-            <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_tlsext_status_type</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">type_</span>.<span class="ident">as_raw</span>()) <span class="kw">as</span> <span class="ident">c_int</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">SSL_set_tlsext_status_type</span>(<span class="self">self</span>.<span class="ident">as_ptr</span>(), <span class="ident">type_</span>.<span class="ident">as_raw</span>()) <span class="kw">as</span> <span class="ident">c_int</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -4608,8 +4619,8 @@
         <span class="kw">unsafe</span> {
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">len</span>() <span class="op">&lt;=</span> <span class="ident">c_int</span>::<span class="ident">max_value</span>() <span class="kw">as</span> <span class="ident">usize</span>);
             <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">cvt_p</span>(<span class="ident">ffi</span>::<span class="ident">CRYPTO_malloc</span>(
-                <span class="ident">response</span>.<span class="ident">len</span>() <span class="kw">as</span> _,
-                <span class="macro">concat</span><span class="macro">!</span>(<span class="macro">file</span><span class="macro">!</span>(), <span class="string">&quot;\0&quot;</span>).<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _,
+                <span class="ident">response</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="kw">_</span>,
+                <span class="macro">concat</span><span class="macro">!</span>(<span class="macro">file</span><span class="macro">!</span>(), <span class="string">&quot;\0&quot;</span>).<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="macro">line</span><span class="macro">!</span>() <span class="kw">as</span> <span class="ident">c_int</span>,
             ))<span class="question-mark">?</span>;
             <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="ident">response</span>.<span class="ident">as_ptr</span>(), <span class="ident">p</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>, <span class="ident">response</span>.<span class="ident">len</span>());
@@ -4618,7 +4629,7 @@
                 <span class="ident">p</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_uchar</span>,
                 <span class="ident">response</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">c_long</span>,
             ) <span class="kw">as</span> <span class="ident">c_int</span>)
-                .<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+                .<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -4709,7 +4720,7 @@
             <span class="prelude-val">Ok</span>(<span class="ident">stream</span>)
         } <span class="kw">else</span> {
             <span class="kw">match</span> <span class="ident">stream</span>.<span class="ident">make_error</span>(<span class="ident">ret</span>) {
-                <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantWrite</span>(_) <span class="op">|</span> <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantRead</span>(_) <span class="op">=&gt;</span> {
+                <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantWrite</span>(<span class="kw">_</span>) <span class="op">|</span> <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantRead</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
                     <span class="prelude-val">Err</span>(<span class="ident">HandshakeError</span>::<span class="ident">Interrupted</span>(<span class="ident">MidHandshakeSslStream</span> {
                         <span class="ident">stream</span>: <span class="ident">stream</span>,
                         <span class="ident">error</span>: <span class="ident">e</span>,
@@ -4743,7 +4754,7 @@
             <span class="prelude-val">Ok</span>(<span class="ident">stream</span>)
         } <span class="kw">else</span> {
             <span class="kw">match</span> <span class="ident">stream</span>.<span class="ident">make_error</span>(<span class="ident">ret</span>) {
-                <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantWrite</span>(_) <span class="op">|</span> <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantRead</span>(_) <span class="op">=&gt;</span> {
+                <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantWrite</span>(<span class="kw">_</span>) <span class="op">|</span> <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantRead</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
                     <span class="prelude-val">Err</span>(<span class="ident">HandshakeError</span>::<span class="ident">Interrupted</span>(<span class="ident">MidHandshakeSslStream</span> {
                         <span class="ident">stream</span>: <span class="ident">stream</span>,
                         <span class="ident">error</span>: <span class="ident">e</span>,
@@ -4802,7 +4813,7 @@
             <span class="prelude-val">Ok</span>(<span class="self">self</span>.<span class="ident">stream</span>)
         } <span class="kw">else</span> {
             <span class="kw">match</span> <span class="self">self</span>.<span class="ident">stream</span>.<span class="ident">make_error</span>(<span class="ident">ret</span>) {
-                <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantWrite</span>(_) <span class="op">|</span> <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantRead</span>(_) <span class="op">=&gt;</span> {
+                <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantWrite</span>(<span class="kw">_</span>) <span class="op">|</span> <span class="ident">e</span> @ <span class="ident">Error</span>::<span class="ident">WantRead</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
                     <span class="self">self</span>.<span class="ident">error</span> <span class="op">=</span> <span class="ident">e</span>;
                     <span class="prelude-val">Err</span>(<span class="ident">HandshakeError</span>::<span class="ident">Interrupted</span>(<span class="self">self</span>))
                 }
@@ -5101,12 +5112,12 @@
     <span class="kw">use</span> <span class="ident">libc</span>::{<span class="self">self</span>, <span class="ident">c_int</span>, <span class="ident">c_long</span>, <span class="ident">c_uchar</span>, <span class="ident">c_ulong</span>, <span class="ident">size_t</span>};
 
     <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">SSL_CTX_get_options</span>(<span class="ident">ctx</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi</span>::<span class="ident">SSL_CTX</span>) <span class="op">-&gt;</span> <span class="ident">c_ulong</span> {
-        <span class="ident">ffi</span>::<span class="ident">SSL_CTX_ctrl</span>(<span class="ident">ctx</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _, <span class="ident">ffi</span>::<span class="ident">SSL_CTRL_OPTIONS</span>, <span class="number">0</span>, <span class="ident">ptr</span>::<span class="ident">null_mut</span>()) <span class="kw">as</span> <span class="ident">c_ulong</span>
+        <span class="ident">ffi</span>::<span class="ident">SSL_CTX_ctrl</span>(<span class="ident">ctx</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>, <span class="ident">ffi</span>::<span class="ident">SSL_CTRL_OPTIONS</span>, <span class="number">0</span>, <span class="ident">ptr</span>::<span class="ident">null_mut</span>()) <span class="kw">as</span> <span class="ident">c_ulong</span>
     }
 
     <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">SSL_CTX_set_options</span>(<span class="ident">ctx</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi</span>::<span class="ident">SSL_CTX</span>, <span class="ident">op</span>: <span class="ident">c_ulong</span>) <span class="op">-&gt;</span> <span class="ident">c_ulong</span> {
         <span class="ident">ffi</span>::<span class="ident">SSL_CTX_ctrl</span>(
-            <span class="ident">ctx</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _,
+            <span class="ident">ctx</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
             <span class="ident">ffi</span>::<span class="ident">SSL_CTRL_OPTIONS</span>,
             <span class="ident">op</span> <span class="kw">as</span> <span class="ident">c_long</span>,
             <span class="ident">ptr</span>::<span class="ident">null_mut</span>(),
@@ -5115,7 +5126,7 @@
 
     <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">SSL_CTX_clear_options</span>(<span class="ident">ctx</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">ffi</span>::<span class="ident">SSL_CTX</span>, <span class="ident">op</span>: <span class="ident">c_ulong</span>) <span class="op">-&gt;</span> <span class="ident">c_ulong</span> {
         <span class="ident">ffi</span>::<span class="ident">SSL_CTX_ctrl</span>(
-            <span class="ident">ctx</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _,
+            <span class="ident">ctx</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
             <span class="ident">ffi</span>::<span class="ident">SSL_CTRL_CLEAR_OPTIONS</span>,
             <span class="ident">op</span> <span class="kw">as</span> <span class="ident">c_long</span>,
             <span class="ident">ptr</span>::<span class="ident">null_mut</span>(),
@@ -5135,7 +5146,7 @@
             <span class="kw-2">&amp;</span><span class="kw-2">mut</span> (<span class="kw-2">*</span><span class="ident">ssl</span>).<span class="ident">references</span>,
             <span class="number">1</span>,
             <span class="ident">ffi</span>::<span class="ident">CRYPTO_LOCK_SSL_CTX</span>,
-            <span class="string">&quot;mod.rs\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _,
+            <span class="string">&quot;mod.rs\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
             <span class="macro">line</span><span class="macro">!</span>() <span class="kw">as</span> <span class="ident">libc</span>::<span class="ident">c_int</span>,
         );
         <span class="number">0</span>
@@ -5173,7 +5184,7 @@
             <span class="kw-2">&amp;</span><span class="kw-2">mut</span> (<span class="kw-2">*</span><span class="ident">ses</span>).<span class="ident">references</span>,
             <span class="number">1</span>,
             <span class="ident">ffi</span>::<span class="ident">CRYPTO_LOCK_SSL_CTX</span>,
-            <span class="string">&quot;mod.rs\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _,
+            <span class="string">&quot;mod.rs\0&quot;</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
             <span class="macro">line</span><span class="macro">!</span>() <span class="kw">as</span> <span class="ident">libc</span>::<span class="ident">c_int</span>,
         );
         <span class="number">0</span>
@@ -5193,20 +5204,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

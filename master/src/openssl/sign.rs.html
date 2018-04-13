@@ -10,8 +10,12 @@
     <title>sign.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -777,9 +788,9 @@
         <span class="kw">unsafe</span> {
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EVP_DigestUpdate</span>(
                 <span class="self">self</span>.<span class="ident">md_ctx</span>,
-                <span class="ident">buf</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _,
+                <span class="ident">buf</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">buf</span>.<span class="ident">len</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -816,7 +827,7 @@
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">len</span> <span class="op">=</span> <span class="ident">buf</span>.<span class="ident">len</span>();
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EVP_DigestSignFinal</span>(
                 <span class="self">self</span>.<span class="ident">md_ctx</span>,
-                <span class="ident">buf</span>.<span class="ident">as_mut_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _,
+                <span class="ident">buf</span>.<span class="ident">as_mut_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
                 <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">len</span>,
             ))<span class="question-mark">?</span>;
             <span class="prelude-val">Ok</span>(<span class="ident">len</span>)
@@ -920,9 +931,9 @@
         <span class="kw">unsafe</span> {
             <span class="ident">cvt</span>(<span class="ident">ffi</span>::<span class="ident">EVP_DigestUpdate</span>(
                 <span class="self">self</span>.<span class="ident">md_ctx</span>,
-                <span class="ident">buf</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _,
+                <span class="ident">buf</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>,
                 <span class="ident">buf</span>.<span class="ident">len</span>(),
-            )).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+            )).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
         }
     }
 
@@ -934,14 +945,14 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">verify</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">signature</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">bool</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">r</span> <span class="op">=</span>
-                <span class="ident">EVP_DigestVerifyFinal</span>(<span class="self">self</span>.<span class="ident">md_ctx</span>, <span class="ident">signature</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _, <span class="ident">signature</span>.<span class="ident">len</span>());
+                <span class="ident">EVP_DigestVerifyFinal</span>(<span class="self">self</span>.<span class="ident">md_ctx</span>, <span class="ident">signature</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>, <span class="ident">signature</span>.<span class="ident">len</span>());
             <span class="kw">match</span> <span class="ident">r</span> {
                 <span class="number">1</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="bool-val">true</span>),
                 <span class="number">0</span> <span class="op">=&gt;</span> {
                     <span class="ident">ErrorStack</span>::<span class="ident">get</span>(); <span class="comment">// discard error stack</span>
                     <span class="prelude-val">Ok</span>(<span class="bool-val">false</span>)
                 }
-                _ <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">ErrorStack</span>::<span class="ident">get</span>()),
+                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">ErrorStack</span>::<span class="ident">get</span>()),
             }
         }
     }
@@ -973,7 +984,7 @@
     <span class="ident">sigret</span>: <span class="kw-2">*</span><span class="kw">const</span> ::<span class="ident">libc</span>::<span class="ident">c_uchar</span>,
     <span class="ident">siglen</span>: ::<span class="ident">libc</span>::<span class="ident">size_t</span>,
 ) <span class="op">-&gt;</span> ::<span class="ident">libc</span>::<span class="ident">c_int</span> {
-    <span class="ident">ffi</span>::<span class="ident">EVP_DigestVerifyFinal</span>(<span class="ident">ctx</span>, <span class="ident">sigret</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _, <span class="ident">siglen</span>)
+    <span class="ident">ffi</span>::<span class="ident">EVP_DigestVerifyFinal</span>(<span class="ident">ctx</span>, <span class="ident">sigret</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>, <span class="ident">siglen</span>)
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
@@ -1093,7 +1104,7 @@
         <span class="ident">verifier</span>.<span class="ident">update</span>(<span class="kw-2">&amp;</span><span class="ident">input</span>).<span class="ident">unwrap</span>();
         <span class="kw">match</span> <span class="ident">verifier</span>.<span class="ident">verify</span>(<span class="kw-2">&amp;</span><span class="ident">sig</span>) {
             <span class="prelude-val">Ok</span>(<span class="bool-val">true</span>) <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unexpected success&quot;</span>),
-            <span class="prelude-val">Ok</span>(<span class="bool-val">false</span>) <span class="op">|</span> <span class="prelude-val">Err</span>(_) <span class="op">=&gt;</span> {}
+            <span class="prelude-val">Ok</span>(<span class="bool-val">false</span>) <span class="op">|</span> <span class="prelude-val">Err</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {}
         }
     }
 
@@ -1227,20 +1238,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

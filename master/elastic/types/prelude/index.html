@@ -10,8 +10,12 @@
     <title>elastic::types::prelude - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         <p class='location'>Module prelude</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../../index.html'>elastic</a>::<wbr><a href='../index.html'>types</a></p><script>window.sidebarCurrent = {name: 'prelude', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,14 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>elastic</a>::<wbr><a href='../index.html'>types</a>::<wbr><a class="mod" href=''>prelude</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>elastic</a>::<wbr><a href='../index.html'>types</a>::<wbr><a class="mod" href=''>prelude</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/elastic_types/lib.rs.html#544-559' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Includes all data types.</p>
-
+               </span><a class='srclink' href='../../../src/elastic_types/lib.rs.html#544-559' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Includes all data types.</p>
 <p>This is a convenience module to make it easy to build mappings for multiple types without too many <code>use</code> statements.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -60,6 +68,7 @@
                                   title='struct elastic::types::prelude::BasicDateTime'>BasicDateTime</a></td>
                            <td class='docblock-short'>
                                 <p>Format for <code>basic_date_time</code>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -67,6 +76,7 @@
                                   title='struct elastic::types::prelude::BasicDateTimeNoMillis'>BasicDateTimeNoMillis</a></td>
                            <td class='docblock-short'>
                                 <p>Format for <code>basic_date_time_no_millis</code>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -74,6 +84,7 @@
                                   title='struct elastic::types::prelude::Boolean'>Boolean</a></td>
                            <td class='docblock-short'>
                                 <p>An Elasticsearch <code>boolean</code> with a mapping.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -81,6 +92,7 @@
                                   title='struct elastic::types::prelude::Byte'>Byte</a></td>
                            <td class='docblock-short'>
                                 <p>Number type with a given mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -88,6 +100,7 @@
                                   title='struct elastic::types::prelude::ChronoFormat'>ChronoFormat</a></td>
                            <td class='docblock-short'>
                                 <p>Format for default <code>chrono::DateTime</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -95,6 +108,7 @@
                                   title='struct elastic::types::prelude::Date'>Date</a></td>
                            <td class='docblock-short'>
                                 <p>An Elasticsearch <code>date</code> type with a required <code>time</code> component.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -102,6 +116,7 @@
                                   title='struct elastic::types::prelude::DateExpr'>DateExpr</a></td>
                            <td class='docblock-short'>
                                 <p>A <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/common-options.html#date-math">date math</a> expression.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -109,6 +124,7 @@
                                   title='struct elastic::types::prelude::DateValue'>DateValue</a></td>
                            <td class='docblock-short'>
                                 <p>A date value produced and consumed by date formats.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -116,6 +132,7 @@
                                   title='struct elastic::types::prelude::DefaultBooleanMapping'>DefaultBooleanMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for <code>bool</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -123,6 +140,7 @@
                                   title='struct elastic::types::prelude::DefaultByteMapping'>DefaultByteMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for a <code>byte</code> type. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -130,6 +148,7 @@
                                   title='struct elastic::types::prelude::DefaultDateMapping'>DefaultDateMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for <code>date</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -137,6 +156,7 @@
                                   title='struct elastic::types::prelude::DefaultDoubleMapping'>DefaultDoubleMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for a <code>double</code> type. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -144,6 +164,7 @@
                                   title='struct elastic::types::prelude::DefaultFloatMapping'>DefaultFloatMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for a <code>float</code> type. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -151,6 +172,7 @@
                                   title='struct elastic::types::prelude::DefaultGeoPointMapping'>DefaultGeoPointMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for <code>geo_point</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -158,6 +180,7 @@
                                   title='struct elastic::types::prelude::DefaultGeoShapeMapping'>DefaultGeoShapeMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for <code>geo_shape</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -165,6 +188,7 @@
                                   title='struct elastic::types::prelude::DefaultIntegerMapping'>DefaultIntegerMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for an <code>integer</code> type. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -172,6 +196,7 @@
                                   title='struct elastic::types::prelude::DefaultIpMapping'>DefaultIpMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for <code>geo_shape</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -179,6 +204,7 @@
                                   title='struct elastic::types::prelude::DefaultKeywordMapping'>DefaultKeywordMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for <code>bool</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -186,6 +212,7 @@
                                   title='struct elastic::types::prelude::DefaultLongMapping'>DefaultLongMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for a <code>long</code> type. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -193,6 +220,7 @@
                                   title='struct elastic::types::prelude::DefaultShortMapping'>DefaultShortMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for a <code>short</code> type. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -200,6 +228,7 @@
                                   title='struct elastic::types::prelude::DefaultStringMapping'>DefaultStringMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for <code>String</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -207,6 +236,7 @@
                                   title='struct elastic::types::prelude::DefaultTextMapping'>DefaultTextMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Default mapping for <code>text</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -214,6 +244,7 @@
                                   title='struct elastic::types::prelude::Distance'>Distance</a></td>
                            <td class='docblock-short'>
                                 <p>A distance value paired with a unit of measure. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -221,6 +252,7 @@
                                   title='struct elastic::types::prelude::Double'>Double</a></td>
                            <td class='docblock-short'>
                                 <p>Number type with a given mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -228,6 +260,7 @@
                                   title='struct elastic::types::prelude::ElasticCompletionFieldMapping'>ElasticCompletionFieldMapping</a></td>
                            <td class='docblock-short'>
                                 <p>A multi-field string mapping for a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters-completion.html#search-suggesters-completion">completion suggester</a>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -235,6 +268,7 @@
                                   title='struct elastic::types::prelude::ElasticTokenCountFieldMapping'>ElasticTokenCountFieldMapping</a></td>
                            <td class='docblock-short'>
                                 <p>A multi-field string mapping for a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/token-count.html">token count</a>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -242,6 +276,7 @@
                                   title='struct elastic::types::prelude::EpochMillis'>EpochMillis</a></td>
                            <td class='docblock-short'>
                                 <p>Format for <code>epoch_millis</code>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -249,6 +284,7 @@
                                   title='struct elastic::types::prelude::FieldDataFrequencyFilter'>FieldDataFrequencyFilter</a></td>
                            <td class='docblock-short'>
                                 <p>Fielddata for term frequency as a percentage range. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -256,6 +292,7 @@
                                   title='struct elastic::types::prelude::Float'>Float</a></td>
                            <td class='docblock-short'>
                                 <p>Number type with a given mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -263,6 +300,7 @@
                                   title='struct elastic::types::prelude::FormattableDateValue'>FormattableDateValue</a></td>
                            <td class='docblock-short'>
                                 <p>A date value paired with a format.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -270,6 +308,7 @@
                                   title='struct elastic::types::prelude::FormattedDate'>FormattedDate</a></td>
                            <td class='docblock-short'>
                                 <p>A formatted date.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -277,6 +316,7 @@
                                   title='struct elastic::types::prelude::GeoPoint'>GeoPoint</a></td>
                            <td class='docblock-short'>
                                 <p>An Elasticsearch <code>geo_point</code> type with a format.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -284,6 +324,7 @@
                                   title='struct elastic::types::prelude::GeoPointArray'>GeoPointArray</a></td>
                            <td class='docblock-short'>
                                 <p>Geo-point expressed as an array with the format: <code>[lon, lat]</code> </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -291,6 +332,7 @@
                                   title='struct elastic::types::prelude::GeoPointHash'>GeoPointHash</a></td>
                            <td class='docblock-short'>
                                 <p>Geo-point expressed as a geohash. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -298,6 +340,7 @@
                                   title='struct elastic::types::prelude::GeoPointObject'>GeoPointObject</a></td>
                            <td class='docblock-short'>
                                 <p>Geo-point expressed as an object, with <code>lat</code> and <code>lon</code> keys. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -305,6 +348,7 @@
                                   title='struct elastic::types::prelude::GeoPointString'>GeoPointString</a></td>
                            <td class='docblock-short'>
                                 <p>Geo-point expressed as a string with the format: <code>&quot;lat,lon&quot;</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -312,6 +356,7 @@
                                   title='struct elastic::types::prelude::GeoShape'>GeoShape</a></td>
                            <td class='docblock-short'>
                                 <p>Geo shape type with a given mapping.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -319,6 +364,7 @@
                                   title='struct elastic::types::prelude::IndexDocumentMapping'>IndexDocumentMapping</a></td>
                            <td class='docblock-short'>
                                 <p>A wrapper type for serialising user types.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -326,6 +372,7 @@
                                   title='struct elastic::types::prelude::Integer'>Integer</a></td>
                            <td class='docblock-short'>
                                 <p>Number type with a given mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -333,6 +380,7 @@
                                   title='struct elastic::types::prelude::Ip'>Ip</a></td>
                            <td class='docblock-short'>
                                 <p>An Elasticsearch <code>ip</code> with a mapping.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -340,6 +388,7 @@
                                   title='struct elastic::types::prelude::Keyword'>Keyword</a></td>
                            <td class='docblock-short'>
                                 <p>An Elasticsearch <code>keyword</code> with a mapping.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -347,6 +396,7 @@
                                   title='struct elastic::types::prelude::KeywordFieldMapping'>KeywordFieldMapping</a></td>
                            <td class='docblock-short'>
                                 <p>A multi-field string mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -354,6 +404,7 @@
                                   title='struct elastic::types::prelude::Long'>Long</a></td>
                            <td class='docblock-short'>
                                 <p>Number type with a given mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -361,6 +412,7 @@
                                   title='struct elastic::types::prelude::ParseError'>ParseError</a></td>
                            <td class='docblock-short'>
                                 <p>Represents an error encountered during parsing. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -368,6 +420,7 @@
                                   title='struct elastic::types::prelude::Short'>Short</a></td>
                            <td class='docblock-short'>
                                 <p>Number type with a given mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -375,6 +428,7 @@
                                   title='struct elastic::types::prelude::Text'>Text</a></td>
                            <td class='docblock-short'>
                                 <p>An Elasticsearch <code>text</code> field with a mapping.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -382,6 +436,7 @@
                                   title='struct elastic::types::prelude::TextFieldMapping'>TextFieldMapping</a></td>
                            <td class='docblock-short'>
                                 <p>A multi-field string mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -389,6 +444,7 @@
                                   title='struct elastic::types::prelude::ValueDocumentMapping'>ValueDocumentMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Mapping for an anonymous json object. </p>
+
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -397,6 +453,7 @@
                                   title='enum elastic::types::prelude::DistanceUnit'>DistanceUnit</a></td>
                            <td class='docblock-short'>
                                 <p>A unit of measure for distance. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -405,6 +462,7 @@
                            <td class='docblock-short'>
                                 <p>The dynamic setting may be set at the mapping type level, and on each inner object.
 Inner objects inherit the setting from their parent object or from the mapping type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -412,6 +470,7 @@ Inner objects inherit the setting from their parent object or from the mapping t
                                   title='enum elastic::types::prelude::IndexAnalysis'>IndexAnalysis</a></td>
                            <td class='docblock-short'>
                                 <p>Should the field be searchable? Accepts <code>not_analyzed</code> (default) and <code>no</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -419,6 +478,7 @@ Inner objects inherit the setting from their parent object or from the mapping t
                                   title='enum elastic::types::prelude::IndexOptions'>IndexOptions</a></td>
                            <td class='docblock-short'>
                                 <p>The <code>index_options</code> parameter controls what information is added to the inverted index, for search and highlighting purposes. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -426,11 +486,8 @@ Inner objects inherit the setting from their parent object or from the mapping t
                                   title='enum elastic::types::prelude::Orientation'>Orientation</a></td>
                            <td class='docblock-short'>
                                 <p>This parameter defines one of two coordinate system rules (Right-hand or Left-hand)
-each of which can be specified in a few different ways.
-- Right-hand rule: right, ccw, counterclockwise,
-- Left-hand rule: left, cw, clockwise.
-The default orientation (counterclockwise) complies with the OGC standard which defines outer
-ring vertices in counterclockwise order with inner ring(s) vertices (holes) in clockwise order.</p>
+each of which can be specified in a few different ways.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -438,6 +495,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='enum elastic::types::prelude::Strategy'>Strategy</a></td>
                            <td class='docblock-short'>
                                 <p>The strategy defines the approach for how to represent shapes at indexing and search time. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -445,6 +503,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='enum elastic::types::prelude::StringField'>StringField</a></td>
                            <td class='docblock-short'>
                                 <p>A string sub-field type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -452,6 +511,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='enum elastic::types::prelude::TermVector'>TermVector</a></td>
                            <td class='docblock-short'>
                                 <p>Term vectors contain information about the terms produced by the analysis process. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -459,6 +519,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='enum elastic::types::prelude::Tree'>Tree</a></td>
                            <td class='docblock-short'>
                                 <p>Name of the <code>PrefixTree</code> implementation to be used. </p>
+
                            </td>
                        </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
 <table>
@@ -467,6 +528,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='constant elastic::types::prelude::DYNAMIC_DATATYPE'>DYNAMIC_DATATYPE</a></td>
                            <td class='docblock-short'>
                                 <p>Elasticsearch datatype name. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -474,6 +536,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='constant elastic::types::prelude::NESTED_DATATYPE'>NESTED_DATATYPE</a></td>
                            <td class='docblock-short'>
                                 <p>Elasticsearch datatype name. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -481,6 +544,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='constant elastic::types::prelude::OBJECT_DATATYPE'>OBJECT_DATATYPE</a></td>
                            <td class='docblock-short'>
                                 <p>Elasticsearch datatype name. </p>
+
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -489,6 +553,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::BooleanFieldType'>BooleanFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a <code>boolean</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -496,6 +561,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::BooleanMapping'>BooleanMapping</a></td>
                            <td class='docblock-short'>
                                 <p>The base requirements for mapping a <code>boolean</code> type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -503,6 +569,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::ByteFieldType'>ByteFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a number. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -510,6 +577,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::ByteMapping'>ByteMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Base <code>number</code> mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -517,6 +585,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::DateFieldType'>DateFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a <code>date</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -524,6 +593,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::DateFormat'>DateFormat</a></td>
                            <td class='docblock-short'>
                                 <p>A format used for parsing and formatting dates.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -531,6 +601,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::DateMapping'>DateMapping</a></td>
                            <td class='docblock-short'>
                                 <p>The base requirements for mapping a <code>date</code> type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -538,6 +609,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::Datelike'>Datelike</a></td>
                            <td class='docblock-short'>
                                 <p>The common set of methods for date component.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -545,6 +617,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::DocumentFieldType'>DocumentFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a nested document. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -552,6 +625,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::DocumentMapping'>DocumentMapping</a></td>
                            <td class='docblock-short'>
                                 <p>The base requirements for mapping an <code>object</code> type. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -559,6 +633,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::DocumentType'>DocumentType</a></td>
                            <td class='docblock-short'>
                                 <p>The additional fields available to an indexable Elasticsearch type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -566,6 +641,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::DoubleFieldType'>DoubleFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a number. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -573,6 +649,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::DoubleMapping'>DoubleMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Base <code>number</code> mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -580,6 +657,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::FloatFieldType'>FloatFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a number. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -587,6 +665,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::FloatMapping'>FloatMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Base <code>number</code> mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -594,6 +673,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::GeoPointFieldType'>GeoPointFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a <code>geo_point</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -601,6 +681,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::GeoPointFormat'>GeoPointFormat</a></td>
                            <td class='docblock-short'>
                                 <p>A format used for parsing and formatting geo points. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -608,6 +689,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::GeoPointMapping'>GeoPointMapping</a></td>
                            <td class='docblock-short'>
                                 <p>The base requirements for mapping a <code>geo_point</code> type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -615,6 +697,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::GeoShapeFieldType'>GeoShapeFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a <code>geo_shape</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -622,6 +705,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::GeoShapeMapping'>GeoShapeMapping</a></td>
                            <td class='docblock-short'>
                                 <p>The base requirements for mapping a <code>geo_shape</code> type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -629,6 +713,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::IntegerFieldType'>IntegerFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a number. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -636,6 +721,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::IntegerMapping'>IntegerMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Base <code>number</code> mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -643,6 +729,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::IpFieldType'>IpFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as an <code>ip</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -650,6 +737,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::IpMapping'>IpMapping</a></td>
                            <td class='docblock-short'>
                                 <p>The base requirements for mapping a <code>ip</code> type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -657,6 +745,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::KeywordFieldType'>KeywordFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a <code>keyword</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -664,6 +753,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::KeywordMapping'>KeywordMapping</a></td>
                            <td class='docblock-short'>
                                 <p>The base requirements for mapping a <code>string</code> type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -671,6 +761,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::LongFieldType'>LongFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a number. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -678,6 +769,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::LongMapping'>LongMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Base <code>number</code> mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -685,6 +777,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::PropertiesMapping'>PropertiesMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Serialisation for the mapping of object properties.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -692,6 +785,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::ShortFieldType'>ShortFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as a number. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -699,6 +793,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::ShortMapping'>ShortMapping</a></td>
                            <td class='docblock-short'>
                                 <p>Base <code>number</code> mapping. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -706,6 +801,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::TextFieldType'>TextFieldType</a></td>
                            <td class='docblock-short'>
                                 <p>A field that will be mapped as <code>text</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -713,6 +809,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::TextMapping'>TextMapping</a></td>
                            <td class='docblock-short'>
                                 <p>The base requirements for mapping a <code>string</code> type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -720,6 +817,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='trait elastic::types::prelude::Timelike'>Timelike</a></td>
                            <td class='docblock-short'>
                                 <p>The common set of methods for time component.</p>
+
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
@@ -728,6 +826,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='type elastic::types::prelude::ChronoDateTime'>ChronoDateTime</a></td>
                            <td class='docblock-short'>
                                 <p>A re-export of the <code>chrono::DateTime</code> struct with <code>Utc</code> timezone. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -735,6 +834,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='type elastic::types::prelude::DefaultDateFormat'>DefaultDateFormat</a></td>
                            <td class='docblock-short'>
                                 <p>The default <code>date</code> format (<code>BasicDateTime</code>). </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -742,6 +842,7 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                                   title='type elastic::types::prelude::DefaultGeoPointFormat'>DefaultGeoPointFormat</a></td>
                            <td class='docblock-short'>
                                 <p>The default <code>geo_point</code> format (<code>GeoPointArray</code>). </p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -756,20 +857,22 @@ ring vertices in counterclockwise order with inner ring(s) vertices (holes) in c
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
