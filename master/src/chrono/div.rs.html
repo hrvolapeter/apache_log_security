@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/chrono-0.4.0/src/div.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/chrono-0.4.1/src/div.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>div.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -106,7 +107,7 @@
 <span class="comment">// Algorithm from [Daan Leijen. _Division and Modulus for Computer Scientists_,</span>
 <span class="comment">// December 2001](http://research.microsoft.com/pubs/151917/divmodnote-letter.pdf)</span>
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">num</span>::<span class="ident">integer</span>::{<span class="ident">div_rem</span>, <span class="ident">div_floor</span>, <span class="ident">mod_floor</span>, <span class="ident">div_mod_floor</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">num_integer</span>::{<span class="ident">div_rem</span>, <span class="ident">div_floor</span>, <span class="ident">mod_floor</span>, <span class="ident">div_mod_floor</span>};
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {

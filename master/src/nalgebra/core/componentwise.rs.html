@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nalgebra-0.14.0/src/core/componentwise.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nalgebra-0.14.1/src/core/componentwise.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>componentwise.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -339,11 +340,11 @@
 <span class="macro">component_binop_impl</span><span class="macro">!</span>(
     <span class="ident">component_mul</span>, <span class="ident">component_mul_mut</span>, <span class="ident">component_mul_assign</span>, <span class="ident">cmpy</span>, <span class="ident">ClosedMul</span>.<span class="ident">mul</span>.<span class="ident">mul_assign</span>,
     <span class="string">&quot;Componentwise matrix multiplication.&quot;</span>,
-    <span class="string">&quot;Computes componentwise `self[i] = alpha * a[i] * b[i] + beta * self[i]&quot;</span>,
+    <span class="string">&quot;Computes componentwise `self[i] = alpha * a[i] * b[i] + beta * self[i]`.&quot;</span>,
     <span class="string">&quot;Inplace componentwise matrix multiplication.&quot;</span>;
     <span class="ident">component_div</span>, <span class="ident">component_div_mut</span>, <span class="ident">component_div_assign</span>, <span class="ident">cdpy</span>, <span class="ident">ClosedDiv</span>.<span class="ident">div</span>.<span class="ident">div_assign</span>,
     <span class="string">&quot;Componentwise matrix division.&quot;</span>,
-    <span class="string">&quot;Computes componentwise `self[i] = alpha * a[i] / b[i] + beta * self[i]&quot;</span>,    
+    <span class="string">&quot;Computes componentwise `self[i] = alpha * a[i] / b[i] + beta * self[i]`.&quot;</span>,    
     <span class="string">&quot;Inplace componentwise matrix division.&quot;</span>;
     <span class="comment">// FIXME: add other operators like bitshift, etc. ?</span>
 );

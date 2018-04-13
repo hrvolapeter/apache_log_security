@@ -10,10 +10,11 @@
     <title>xss.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -466,8 +467,6 @@
 <span id="410">410</span>
 <span id="411">411</span>
 <span id="412">412</span>
-<span id="413">413</span>
-<span id="414">414</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">analyses</span>::<span class="ident">access_logs</span>::<span class="ident">AccessLog</span>;
 <span class="kw">use</span> <span class="ident">analyses</span>::<span class="ident">Incident</span>;
@@ -475,7 +474,6 @@
 <span class="kw">use</span> <span class="ident">helper</span>::<span class="ident">xml</span>;
 <span class="kw">use</span> <span class="ident">config</span>::<span class="ident">Config</span>;
 <span class="kw">use</span> <span class="ident">config</span>;
-<span class="kw">use</span> <span class="ident">analyses</span>::<span class="ident">Analysable</span>;
 
 <span class="doccomment">/// Analyses access log for object reference</span>
 <span class="doccomment">///</span>
@@ -490,7 +488,7 @@
 <span class="doccomment">///  1. check if element is allowed</span>
 <span class="doccomment">///  2. check if attribute is allowed</span>
 <span class="doccomment">///  3. check if attirbute value does not contain disallowed strings</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">analyse</span>(<span class="ident">log</span>: <span class="kw-2">&amp;</span><span class="ident">AccessLog</span>, <span class="ident">cfg</span>: <span class="kw-2">&amp;</span><span class="ident">Config</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Incident</span><span class="op">&gt;</span> {
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">analyse</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">log</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">AccessLog</span>, <span class="ident">cfg</span>: <span class="kw-2">&amp;</span><span class="ident">Config</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Incident</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;&gt;</span> {
     <span class="kw">let</span> <span class="ident">request</span> <span class="op">=</span> <span class="ident">log</span>.<span class="ident">path</span>.<span class="ident">to_lowercase</span>();
     <span class="kw">let</span> <span class="ident">url</span> <span class="op">=</span> <span class="ident">url</span>::<span class="ident">url_decode</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>);
     <span class="kw">let</span> <span class="ident">xml</span> <span class="op">=</span> <span class="ident">xml</span>::<span class="ident">parse</span>(<span class="kw-2">&amp;</span><span class="ident">url</span>);
@@ -498,7 +496,7 @@
     <span class="kw">if</span> (<span class="ident">cfg</span>.<span class="ident">xss_level</span> <span class="op">==</span> <span class="ident">config</span>::<span class="ident">XssLevel</span>::<span class="ident">Basic</span> <span class="op">&amp;&amp;</span> <span class="ident">xml</span>.<span class="ident">len</span>() <span class="op">!=</span> <span class="number">0</span>) <span class="op">||</span> <span class="ident">intelligent_analyse</span>(<span class="kw-2">&amp;</span><span class="ident">xml</span>) {
         <span class="prelude-val">Some</span>(<span class="ident">Incident</span> {
             <span class="ident">reason</span>: <span class="string">&quot;Xss Reference Attack&quot;</span>,
-            <span class="ident">log_msg</span>: <span class="ident">log</span>.<span class="ident">show</span>(),
+            <span class="ident">log</span>,
         })
     } <span class="kw">else</span> {
         <span class="prelude-val">None</span>
@@ -765,20 +763,19 @@
     <span class="kw">use</span> <span class="ident">chrono</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
     <span class="kw">use</span> <span class="ident">config</span>::<span class="ident">Config</span>;
     <span class="kw">use</span> <span class="ident">config</span>;
-    <span class="kw">use</span> <span class="ident">analyses</span>::<span class="ident">Incident</span>;
 
-    <span class="kw">fn</span> <span class="ident">analyse_log_with_path</span>(<span class="ident">path</span>: <span class="ident">String</span>) <span class="op">-&gt;</span> <span class="ident">Incident</span> {
+    <span class="kw">fn</span> <span class="ident">analyse_log_with_path</span>(<span class="ident">path</span>: <span class="ident">String</span>) {
         <span class="kw">let</span> <span class="ident">date_time</span> <span class="op">=</span> <span class="string">&quot;2015-2-18T23:16:9.15Z&quot;</span>.<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">DateTime</span><span class="op">&lt;</span><span class="ident">Utc</span><span class="op">&gt;&gt;</span>().<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">log</span> <span class="op">=</span> <span class="kw">super</span>::<span class="ident">AccessLog</span>::<span class="ident">new</span>(<span class="number">200</span>, <span class="string">&quot;&quot;</span>.<span class="ident">to_string</span>(), <span class="ident">path</span>, <span class="ident">date_time</span>, <span class="number">0</span>);
-        <span class="kw">super</span>::<span class="ident">analyse</span>(<span class="kw-2">&amp;</span><span class="ident">log</span>, <span class="kw-2">&amp;</span><span class="ident">Config</span>::<span class="ident">new</span>()).<span class="ident">unwrap</span>()
+        <span class="kw">super</span>::<span class="ident">analyse</span>(<span class="kw-2">&amp;</span><span class="ident">log</span>, <span class="kw-2">&amp;</span><span class="ident">Config</span>::<span class="ident">new</span>()).<span class="ident">unwrap</span>();
     }
 
-    <span class="kw">fn</span> <span class="ident">analyse_inteligent_log_with_path</span>(<span class="ident">path</span>: <span class="ident">String</span>) <span class="op">-&gt;</span> <span class="ident">Incident</span> {
+    <span class="kw">fn</span> <span class="ident">analyse_inteligent_log_with_path</span>(<span class="ident">path</span>: <span class="ident">String</span>) {
         <span class="kw">let</span> <span class="ident">date_time</span> <span class="op">=</span> <span class="string">&quot;2015-2-18T23:16:9.15Z&quot;</span>.<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">DateTime</span><span class="op">&lt;</span><span class="ident">Utc</span><span class="op">&gt;&gt;</span>().<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">log</span> <span class="op">=</span> <span class="kw">super</span>::<span class="ident">AccessLog</span>::<span class="ident">new</span>(<span class="number">200</span>, <span class="string">&quot;&quot;</span>.<span class="ident">to_string</span>(), <span class="ident">path</span>, <span class="ident">date_time</span>, <span class="number">0</span>);
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">Config</span>::<span class="ident">new</span>();
         <span class="ident">config</span>.<span class="ident">xss_level</span> <span class="op">=</span> <span class="ident">config</span>::<span class="ident">XssLevel</span>::<span class="ident">Intelligent</span>;
-        <span class="kw">super</span>::<span class="ident">analyse</span>(<span class="kw-2">&amp;</span><span class="ident">log</span>, <span class="kw-2">&amp;</span><span class="ident">config</span>).<span class="ident">unwrap</span>()
+        <span class="kw">super</span>::<span class="ident">analyse</span>(<span class="kw-2">&amp;</span><span class="ident">log</span>, <span class="kw-2">&amp;</span><span class="ident">config</span>).<span class="ident">unwrap</span>();
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>

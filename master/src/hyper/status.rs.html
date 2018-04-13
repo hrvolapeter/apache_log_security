@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-0.11.20/src/status.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-0.11.25/src/status.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>status.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -1145,7 +1146,7 @@
             <span class="number">508</span> <span class="op">=&gt;</span> <span class="ident">StatusCode</span>::<span class="ident">LoopDetected</span>,
             <span class="number">510</span> <span class="op">=&gt;</span> <span class="ident">StatusCode</span>::<span class="ident">NotExtended</span>,
             <span class="number">511</span> <span class="op">=&gt;</span> <span class="ident">StatusCode</span>::<span class="ident">NetworkAuthenticationRequired</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">StatusCode</span>::<span class="ident">Unregistered</span>(<span class="ident">n</span>),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">StatusCode</span>::<span class="ident">Unregistered</span>(<span class="ident">n</span>),
         }
     }
 
@@ -1367,7 +1368,7 @@
             <span class="number">300</span>...<span class="number">399</span> <span class="op">=&gt;</span> <span class="ident">StatusClass</span>::<span class="ident">Redirection</span>,
             <span class="number">400</span>...<span class="number">499</span> <span class="op">=&gt;</span> <span class="ident">StatusClass</span>::<span class="ident">ClientError</span>,
             <span class="number">500</span>...<span class="number">599</span> <span class="op">=&gt;</span> <span class="ident">StatusClass</span>::<span class="ident">ServerError</span>,
-            _ <span class="op">=&gt;</span> <span class="ident">StatusClass</span>::<span class="ident">NoClass</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">StatusClass</span>::<span class="ident">NoClass</span>,
         }
     }
 }

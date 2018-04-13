@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/itoa-0.3.4/src/lib.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/itoa-0.3.4/src/lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -416,7 +417,7 @@
 
                         <span class="comment">// Divide by 10^19 again.</span>
                         <span class="kw">let</span> (<span class="ident">n</span>, <span class="ident">rem</span>) <span class="op">=</span> <span class="ident">udiv128</span>::<span class="ident">udivmod_1e19</span>(<span class="ident">n</span>);
-                        <span class="kw">let</span> <span class="ident">buf2</span> <span class="op">=</span> <span class="ident">buf_ptr</span>.<span class="ident">offset</span>(<span class="ident">curr</span> <span class="op">-</span> <span class="ident">buf</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">isize</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _;
+                        <span class="kw">let</span> <span class="ident">buf2</span> <span class="op">=</span> <span class="ident">buf_ptr</span>.<span class="ident">offset</span>(<span class="ident">curr</span> <span class="op">-</span> <span class="ident">buf</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">isize</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>;
                         <span class="ident">curr</span> <span class="op">-=</span> <span class="ident">rem</span>.<span class="ident">write_to</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="ident">buf2</span>).<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">isize</span>;
 
                         <span class="kw">if</span> <span class="ident">n</span> <span class="op">!=</span> <span class="number">0</span> {

@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/chrono-0.4.0/src/naive/date.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/chrono-0.4.1/src/naive/date.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>date.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -2139,23 +2140,15 @@
 <span id="2083">2083</span>
 <span id="2084">2084</span>
 <span id="2085">2085</span>
-<span id="2086">2086</span>
-<span id="2087">2087</span>
-<span id="2088">2088</span>
-<span id="2089">2089</span>
-<span id="2090">2090</span>
-<span id="2091">2091</span>
-<span id="2092">2092</span>
-<span id="2093">2093</span>
 </pre><pre class="rust ">
 <span class="comment">// This is a part of Chrono.</span>
 <span class="comment">// See README.md and LICENSE.txt for details.</span>
 
 <span class="doccomment">//! ISO 8601 calendar date without timezone.</span>
 
-<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">str</span>, <span class="ident">fmt</span>, <span class="ident">hash</span>};
+<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">str</span>, <span class="ident">fmt</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ops</span>::{<span class="ident">Add</span>, <span class="ident">Sub</span>, <span class="ident">AddAssign</span>, <span class="ident">SubAssign</span>};
-<span class="kw">use</span> <span class="ident">num</span>::<span class="ident">traits</span>::<span class="ident">ToPrimitive</span>;
+<span class="kw">use</span> <span class="ident">num_traits</span>::<span class="ident">ToPrimitive</span>;
 <span class="kw">use</span> <span class="ident">oldtime</span>::<span class="ident">Duration</span> <span class="kw">as</span> <span class="ident">OldDuration</span>;
 
 <span class="kw">use</span> {<span class="ident">Weekday</span>, <span class="ident">Datelike</span>};
@@ -2243,7 +2236,7 @@
 <span class="doccomment">/// The year number is same to that of the [calendar date](#calendar-date).</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// This is currently the internal format of Chrono&#39;s date types.</span>
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Copy</span>, <span class="ident">Clone</span>)]</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">Hash</span>, <span class="ident">PartialOrd</span>, <span class="ident">Ord</span>, <span class="ident">Copy</span>, <span class="ident">Clone</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">NaiveDate</span> {
     <span class="ident">ymdf</span>: <span class="ident">DateImpl</span>, <span class="comment">// (year &lt;&lt; 13) | of</span>
 }
@@ -2550,7 +2543,7 @@
     <span class="doccomment">/// ~~~~</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_num_days_from_ce_opt</span>(<span class="ident">days</span>: <span class="ident">i32</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">NaiveDate</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">days</span> <span class="op">=</span> <span class="ident">days</span> <span class="op">+</span> <span class="number">365</span>; <span class="comment">// make December 31, 1 BCE equal to day 0</span>
-        <span class="kw">let</span> (<span class="ident">year_div_400</span>, <span class="ident">cycle</span>) <span class="op">=</span> <span class="ident">div_mod_floor</span>(<span class="ident">days</span>, <span class="number">146097</span>);
+        <span class="kw">let</span> (<span class="ident">year_div_400</span>, <span class="ident">cycle</span>) <span class="op">=</span> <span class="ident">div_mod_floor</span>(<span class="ident">days</span>, <span class="number">146_097</span>);
         <span class="kw">let</span> (<span class="ident">year_mod_400</span>, <span class="ident">ordinal</span>) <span class="op">=</span> <span class="ident">internals</span>::<span class="ident">cycle_to_yo</span>(<span class="ident">cycle</span> <span class="kw">as</span> <span class="ident">u32</span>);
         <span class="kw">let</span> <span class="ident">flags</span> <span class="op">=</span> <span class="ident">YearFlags</span>::<span class="ident">from_year_mod_400</span>(<span class="ident">year_mod_400</span> <span class="kw">as</span> <span class="ident">i32</span>);
         <span class="ident">NaiveDate</span>::<span class="ident">from_of</span>(<span class="ident">year_div_400</span> <span class="op">*</span> <span class="number">400</span> <span class="op">+</span> <span class="ident">year_mod_400</span> <span class="kw">as</span> <span class="ident">i32</span>,
@@ -2833,7 +2826,7 @@
     <span class="doccomment">/// Returns the packed ordinal-flags.</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">fn</span> <span class="ident">of</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Of</span> {
-        <span class="ident">Of</span>((<span class="self">self</span>.<span class="ident">ymdf</span> <span class="op">&amp;</span> <span class="number">0b1111_11111_1111</span>) <span class="kw">as</span> <span class="ident">u32</span>)
+        <span class="ident">Of</span>((<span class="self">self</span>.<span class="ident">ymdf</span> <span class="op">&amp;</span> <span class="number">0b1_1111_1111_1111</span>) <span class="kw">as</span> <span class="ident">u32</span>)
     }
 
     <span class="doccomment">/// Makes a new `NaiveDate` with the packed month-day-flags changed.</span>
@@ -2851,7 +2844,7 @@
     <span class="kw">fn</span> <span class="ident">with_of</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">of</span>: <span class="ident">Of</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">NaiveDate</span><span class="op">&gt;</span> {
         <span class="kw">if</span> <span class="ident">of</span>.<span class="ident">valid</span>() {
             <span class="kw">let</span> <span class="ident">Of</span>(<span class="ident">of</span>) <span class="op">=</span> <span class="ident">of</span>;
-            <span class="prelude-val">Some</span>(<span class="ident">NaiveDate</span> { <span class="ident">ymdf</span>: (<span class="self">self</span>.<span class="ident">ymdf</span> <span class="op">&amp;</span> <span class="op">!</span><span class="number">0b111111111_1111</span>) <span class="op">|</span> <span class="ident">of</span> <span class="kw">as</span> <span class="ident">DateImpl</span> })
+            <span class="prelude-val">Some</span>(<span class="ident">NaiveDate</span> { <span class="ident">ymdf</span>: (<span class="self">self</span>.<span class="ident">ymdf</span> <span class="op">&amp;</span> <span class="op">!</span><span class="number">0b1_1111_1111_1111</span>) <span class="op">|</span> <span class="ident">of</span> <span class="kw">as</span> <span class="ident">DateImpl</span> })
         } <span class="kw">else</span> {
             <span class="prelude-val">None</span>
         }
@@ -2958,7 +2951,7 @@
         <span class="kw">let</span> (<span class="kw-2">mut</span> <span class="ident">year_div_400</span>, <span class="ident">year_mod_400</span>) <span class="op">=</span> <span class="ident">div_mod_floor</span>(<span class="ident">year</span>, <span class="number">400</span>);
         <span class="kw">let</span> <span class="ident">cycle</span> <span class="op">=</span> <span class="ident">internals</span>::<span class="ident">yo_to_cycle</span>(<span class="ident">year_mod_400</span> <span class="kw">as</span> <span class="ident">u32</span>, <span class="self">self</span>.<span class="ident">of</span>().<span class="ident">ordinal</span>());
         <span class="kw">let</span> <span class="ident">cycle</span> <span class="op">=</span> <span class="macro">try_opt</span><span class="macro">!</span>((<span class="ident">cycle</span> <span class="kw">as</span> <span class="ident">i32</span>).<span class="ident">checked_add</span>(<span class="macro">try_opt</span><span class="macro">!</span>(<span class="ident">rhs</span>.<span class="ident">num_days</span>().<span class="ident">to_i32</span>())));
-        <span class="kw">let</span> (<span class="ident">cycle_div_400y</span>, <span class="ident">cycle</span>) <span class="op">=</span> <span class="ident">div_mod_floor</span>(<span class="ident">cycle</span>, <span class="number">146097</span>);
+        <span class="kw">let</span> (<span class="ident">cycle_div_400y</span>, <span class="ident">cycle</span>) <span class="op">=</span> <span class="ident">div_mod_floor</span>(<span class="ident">cycle</span>, <span class="number">146_097</span>);
         <span class="ident">year_div_400</span> <span class="op">+=</span> <span class="ident">cycle_div_400y</span>;
 
         <span class="kw">let</span> (<span class="ident">year_mod_400</span>, <span class="ident">ordinal</span>) <span class="op">=</span> <span class="ident">internals</span>::<span class="ident">cycle_to_yo</span>(<span class="ident">cycle</span> <span class="kw">as</span> <span class="ident">u32</span>);
@@ -2994,7 +2987,7 @@
         <span class="kw">let</span> (<span class="kw-2">mut</span> <span class="ident">year_div_400</span>, <span class="ident">year_mod_400</span>) <span class="op">=</span> <span class="ident">div_mod_floor</span>(<span class="ident">year</span>, <span class="number">400</span>);
         <span class="kw">let</span> <span class="ident">cycle</span> <span class="op">=</span> <span class="ident">internals</span>::<span class="ident">yo_to_cycle</span>(<span class="ident">year_mod_400</span> <span class="kw">as</span> <span class="ident">u32</span>, <span class="self">self</span>.<span class="ident">of</span>().<span class="ident">ordinal</span>());
         <span class="kw">let</span> <span class="ident">cycle</span> <span class="op">=</span> <span class="macro">try_opt</span><span class="macro">!</span>((<span class="ident">cycle</span> <span class="kw">as</span> <span class="ident">i32</span>).<span class="ident">checked_sub</span>(<span class="macro">try_opt</span><span class="macro">!</span>(<span class="ident">rhs</span>.<span class="ident">num_days</span>().<span class="ident">to_i32</span>())));
-        <span class="kw">let</span> (<span class="ident">cycle_div_400y</span>, <span class="ident">cycle</span>) <span class="op">=</span> <span class="ident">div_mod_floor</span>(<span class="ident">cycle</span>, <span class="number">146097</span>);
+        <span class="kw">let</span> (<span class="ident">cycle_div_400y</span>, <span class="ident">cycle</span>) <span class="op">=</span> <span class="ident">div_mod_floor</span>(<span class="ident">cycle</span>, <span class="number">146_097</span>);
         <span class="ident">year_div_400</span> <span class="op">+=</span> <span class="ident">cycle_div_400y</span>;
 
         <span class="kw">let</span> (<span class="ident">year_mod_400</span>, <span class="ident">ordinal</span>) <span class="op">=</span> <span class="ident">internals</span>::<span class="ident">cycle_to_yo</span>(<span class="ident">cycle</span> <span class="kw">as</span> <span class="ident">u32</span>);
@@ -3033,9 +3026,9 @@
         <span class="kw">let</span> <span class="ident">year2</span> <span class="op">=</span> <span class="ident">rhs</span>.<span class="ident">year</span>();
         <span class="kw">let</span> (<span class="ident">year1_div_400</span>, <span class="ident">year1_mod_400</span>) <span class="op">=</span> <span class="ident">div_mod_floor</span>(<span class="ident">year1</span>, <span class="number">400</span>);
         <span class="kw">let</span> (<span class="ident">year2_div_400</span>, <span class="ident">year2_mod_400</span>) <span class="op">=</span> <span class="ident">div_mod_floor</span>(<span class="ident">year2</span>, <span class="number">400</span>);
-        <span class="kw">let</span> <span class="ident">cycle1</span> <span class="op">=</span> <span class="ident">internals</span>::<span class="ident">yo_to_cycle</span>(<span class="ident">year1_mod_400</span> <span class="kw">as</span> <span class="ident">u32</span>, <span class="self">self</span>.<span class="ident">of</span>().<span class="ident">ordinal</span>()) <span class="kw">as</span> <span class="ident">i64</span>;
-        <span class="kw">let</span> <span class="ident">cycle2</span> <span class="op">=</span> <span class="ident">internals</span>::<span class="ident">yo_to_cycle</span>(<span class="ident">year2_mod_400</span> <span class="kw">as</span> <span class="ident">u32</span>, <span class="ident">rhs</span>.<span class="ident">of</span>().<span class="ident">ordinal</span>()) <span class="kw">as</span> <span class="ident">i64</span>;
-        <span class="ident">OldDuration</span>::<span class="ident">days</span>((<span class="ident">year1_div_400</span> <span class="kw">as</span> <span class="ident">i64</span> <span class="op">-</span> <span class="ident">year2_div_400</span> <span class="kw">as</span> <span class="ident">i64</span>) <span class="op">*</span> <span class="number">146097</span> <span class="op">+</span>
+        <span class="kw">let</span> <span class="ident">cycle1</span> <span class="op">=</span> <span class="ident">i64</span>::<span class="ident">from</span>(<span class="ident">internals</span>::<span class="ident">yo_to_cycle</span>(<span class="ident">year1_mod_400</span> <span class="kw">as</span> <span class="ident">u32</span>, <span class="self">self</span>.<span class="ident">of</span>().<span class="ident">ordinal</span>()));
+        <span class="kw">let</span> <span class="ident">cycle2</span> <span class="op">=</span> <span class="ident">i64</span>::<span class="ident">from</span>(<span class="ident">internals</span>::<span class="ident">yo_to_cycle</span>(<span class="ident">year2_mod_400</span> <span class="kw">as</span> <span class="ident">u32</span>, <span class="ident">rhs</span>.<span class="ident">of</span>().<span class="ident">ordinal</span>()));
+        <span class="ident">OldDuration</span>::<span class="ident">days</span>((<span class="ident">i64</span>::<span class="ident">from</span>(<span class="ident">year1_div_400</span>) <span class="op">-</span> <span class="ident">i64</span>::<span class="ident">from</span>(<span class="ident">year2_div_400</span>)) <span class="op">*</span> <span class="number">146_097</span> <span class="op">+</span>
                           (<span class="ident">cycle1</span> <span class="op">-</span> <span class="ident">cycle2</span>))
     }
 
@@ -3452,14 +3445,6 @@
     }
 }
 
-<span class="doccomment">/// `NaiveDate` can be used as a key to the hash maps.</span>
-<span class="kw">impl</span> <span class="ident">hash</span>::<span class="ident">Hash</span> <span class="kw">for</span> <span class="ident">NaiveDate</span> {
-    <span class="kw">fn</span> <span class="ident">hash</span><span class="op">&lt;</span><span class="ident">H</span>: <span class="ident">hash</span>::<span class="ident">Hasher</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">state</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">H</span>) {
-        <span class="comment">// don&#39;t need to strip flags, as we can safely assume that it is correct</span>
-        <span class="self">self</span>.<span class="ident">ymdf</span>.<span class="ident">hash</span>(<span class="ident">state</span>);
-    }
-}
-
 <span class="doccomment">/// An addition of `Duration` to `NaiveDate` discards the fractional days,</span>
 <span class="doccomment">/// rounding to the closest integral number of days towards `Duration::zero()`.</span>
 <span class="doccomment">///</span>
@@ -3703,7 +3688,7 @@
 
     <span class="kw">impl</span> <span class="ident">Decodable</span> <span class="kw">for</span> <span class="ident">NaiveDate</span> {
         <span class="kw">fn</span> <span class="ident">decode</span><span class="op">&lt;</span><span class="ident">D</span>: <span class="ident">Decoder</span><span class="op">&gt;</span>(<span class="ident">d</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">D</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">NaiveDate</span>, <span class="ident">D</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
-            <span class="ident">d</span>.<span class="ident">read_str</span>()<span class="question-mark">?</span>.<span class="ident">parse</span>().<span class="ident">map_err</span>(<span class="op">|</span>_<span class="op">|</span> <span class="ident">d</span>.<span class="ident">error</span>(<span class="string">&quot;invalid date&quot;</span>))
+            <span class="ident">d</span>.<span class="ident">read_str</span>()<span class="question-mark">?</span>.<span class="ident">parse</span>().<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">d</span>.<span class="ident">error</span>(<span class="string">&quot;invalid date&quot;</span>))
         }
     }
 

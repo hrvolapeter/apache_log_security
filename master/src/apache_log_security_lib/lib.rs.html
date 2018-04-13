@@ -10,10 +10,11 @@
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -138,6 +139,7 @@
 <span id="82">82</span>
 <span id="83">83</span>
 <span id="84">84</span>
+<span id="85">85</span>
 </pre><pre class="rust ">
 <span class="attribute">#![<span class="ident">deny</span>(<span class="ident">warnings</span>)]</span>
 
@@ -202,7 +204,8 @@
 <span class="doccomment">/// run(config);</span>
 <span class="doccomment">/// ```</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run</span>(<span class="ident">conf</span>: <span class="ident">config</span>::<span class="ident">Config</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">LibErr</span><span class="op">&gt;</span> {
-    <span class="kw">let</span> <span class="ident">incidents</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">analyses</span>::<span class="ident">Incident</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">get_logs</span>(<span class="kw-2">&amp;</span><span class="ident">conf</span>)<span class="question-mark">?</span>
+    <span class="kw">let</span> <span class="ident">logs</span> <span class="op">=</span> <span class="ident">get_logs</span>(<span class="kw-2">&amp;</span><span class="ident">conf</span>)<span class="question-mark">?</span>;
+    <span class="kw">let</span> <span class="ident">incidents</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">analyses</span>::<span class="ident">Incident</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">logs</span>
         .<span class="ident">par_iter</span>()
         .<span class="ident">flat_map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>.<span class="ident">run_analysis</span>(<span class="kw-2">&amp;</span><span class="ident">conf</span>))
         .<span class="ident">collect</span>();

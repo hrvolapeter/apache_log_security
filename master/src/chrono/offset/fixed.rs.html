@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/chrono-0.4.0/src/offset/fixed.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/chrono-0.4.1/src/offset/fixed.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>fixed.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -329,7 +330,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// Returns `None` on the out-of-bound `secs`.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">east_opt</span>(<span class="ident">secs</span>: <span class="ident">i32</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">FixedOffset</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="op">-</span><span class="number">86400</span> <span class="op">&lt;</span> <span class="ident">secs</span> <span class="op">&amp;&amp;</span> <span class="ident">secs</span> <span class="op">&lt;</span> <span class="number">86400</span> {
+        <span class="kw">if</span> <span class="op">-</span><span class="number">86_400</span> <span class="op">&lt;</span> <span class="ident">secs</span> <span class="op">&amp;&amp;</span> <span class="ident">secs</span> <span class="op">&lt;</span> <span class="number">86_400</span> {
             <span class="prelude-val">Some</span>(<span class="ident">FixedOffset</span> { <span class="ident">local_minus_utc</span>: <span class="ident">secs</span> })
         } <span class="kw">else</span> {
             <span class="prelude-val">None</span>
@@ -359,7 +360,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// Returns `None` on the out-of-bound `secs`.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">west_opt</span>(<span class="ident">secs</span>: <span class="ident">i32</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">FixedOffset</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="op">-</span><span class="number">86400</span> <span class="op">&lt;</span> <span class="ident">secs</span> <span class="op">&amp;&amp;</span> <span class="ident">secs</span> <span class="op">&lt;</span> <span class="number">86400</span> {
+        <span class="kw">if</span> <span class="op">-</span><span class="number">86_400</span> <span class="op">&lt;</span> <span class="ident">secs</span> <span class="op">&amp;&amp;</span> <span class="ident">secs</span> <span class="op">&lt;</span> <span class="number">86_400</span> {
             <span class="prelude-val">Some</span>(<span class="ident">FixedOffset</span> { <span class="ident">local_minus_utc</span>: <span class="op">-</span><span class="ident">secs</span> })
         } <span class="kw">else</span> {
             <span class="prelude-val">None</span>
@@ -426,7 +427,7 @@
     <span class="comment">// extract and temporarily remove the fractional part and later recover it</span>
     <span class="kw">let</span> <span class="ident">nanos</span> <span class="op">=</span> <span class="ident">lhs</span>.<span class="ident">nanosecond</span>();
     <span class="kw">let</span> <span class="ident">lhs</span> <span class="op">=</span> <span class="ident">lhs</span>.<span class="ident">with_nanosecond</span>(<span class="number">0</span>).<span class="ident">unwrap</span>();
-    (<span class="ident">lhs</span> <span class="op">+</span> <span class="ident">OldDuration</span>::<span class="ident">seconds</span>(<span class="ident">rhs</span> <span class="kw">as</span> <span class="ident">i64</span>)).<span class="ident">with_nanosecond</span>(<span class="ident">nanos</span>).<span class="ident">unwrap</span>()
+    (<span class="ident">lhs</span> <span class="op">+</span> <span class="ident">OldDuration</span>::<span class="ident">seconds</span>(<span class="ident">i64</span>::<span class="ident">from</span>(<span class="ident">rhs</span>))).<span class="ident">with_nanosecond</span>(<span class="ident">nanos</span>).<span class="ident">unwrap</span>()
 }
 
 <span class="kw">impl</span> <span class="ident">Add</span><span class="op">&lt;</span><span class="ident">FixedOffset</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">NaiveTime</span> {

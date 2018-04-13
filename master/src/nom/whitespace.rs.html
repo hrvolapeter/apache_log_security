@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nom-2.2.1/src/whitespace.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nom-3.2.1/src/whitespace.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>whitespace.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -1085,6 +1086,31 @@
 <span id="1029">1029</span>
 <span id="1030">1030</span>
 <span id="1031">1031</span>
+<span id="1032">1032</span>
+<span id="1033">1033</span>
+<span id="1034">1034</span>
+<span id="1035">1035</span>
+<span id="1036">1036</span>
+<span id="1037">1037</span>
+<span id="1038">1038</span>
+<span id="1039">1039</span>
+<span id="1040">1040</span>
+<span id="1041">1041</span>
+<span id="1042">1042</span>
+<span id="1043">1043</span>
+<span id="1044">1044</span>
+<span id="1045">1045</span>
+<span id="1046">1046</span>
+<span id="1047">1047</span>
+<span id="1048">1048</span>
+<span id="1049">1049</span>
+<span id="1050">1050</span>
+<span id="1051">1051</span>
+<span id="1052">1052</span>
+<span id="1053">1053</span>
+<span id="1054">1054</span>
+<span id="1055">1055</span>
+<span id="1056">1056</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Support for whitespace delimited formats</span>
 <span class="doccomment">//!</span>
@@ -1178,7 +1204,7 @@
     <span class="kw">match</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>)(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>) {
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>),
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>),
-      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i1</span>,_)    <span class="op">=&gt;</span> {
+      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i1</span>,<span class="kw">_</span>)    <span class="op">=&gt;</span> {
         <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>(<span class="ident">i1</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>) {
           <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>),
           <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>),
@@ -1188,7 +1214,7 @@
               <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>)      <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">e</span>),
               <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>),
               <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span> <span class="op">+</span> (<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">InputLength</span>::<span class="ident">input_len</span>(<span class="kw-2">&amp;</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>)) <span class="op">-</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">InputLength</span>::<span class="ident">input_len</span>(<span class="kw-2">&amp;</span><span class="ident">i2</span>)))),
-              <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i3</span>,_)    <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i3</span>, <span class="ident">o</span>)
+              <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i3</span>,<span class="kw">_</span>)    <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i3</span>, <span class="ident">o</span>)
             }
           }
         }
@@ -1228,7 +1254,7 @@
     <span class="kw">match</span> <span class="macro">tuple_sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="number">0usize</span>, (), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac1</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args1</span>)<span class="kw-2">*</span>), $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>) {
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">a</span>)                   <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">a</span>),
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>)              <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>),
-      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, (_,<span class="ident">o</span>,_)) <span class="op">=&gt;</span> {
+      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, (<span class="kw">_</span>,<span class="ident">o</span>,<span class="kw">_</span>)) <span class="op">=&gt;</span> {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, <span class="ident">o</span>)
       }
     }
@@ -1245,7 +1271,7 @@
     <span class="kw">match</span> <span class="macro">tuple_sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="number">0usize</span>, (), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac1</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args1</span>)<span class="kw-2">*</span>), $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>) {
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">a</span>)                   <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">a</span>),
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>)              <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>),
-      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, (<span class="ident">o1</span>,_,<span class="ident">o2</span>)) <span class="op">=&gt;</span> {
+      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, (<span class="ident">o1</span>,<span class="kw">_</span>,<span class="ident">o2</span>)) <span class="op">=&gt;</span> {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, (<span class="ident">o1</span>,<span class="ident">o2</span>))
       }
     }
@@ -1262,7 +1288,7 @@
     <span class="kw">match</span> <span class="macro">pair_sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac2</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>)<span class="kw-2">*</span>)) {
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">a</span>)               <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">a</span>),
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>)          <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>),
-      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, (_,<span class="ident">o</span>)) <span class="op">=&gt;</span> {
+      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, (<span class="kw">_</span>,<span class="ident">o</span>)) <span class="op">=&gt;</span> {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, <span class="ident">o</span>)
       }
     }
@@ -1285,7 +1311,7 @@
     <span class="kw">match</span> <span class="macro">pair_sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">submac2</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args2</span>)<span class="kw-2">*</span>)) {
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">a</span>)               <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="ident">a</span>),
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>)          <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>),
-      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, (<span class="ident">o</span>,_)) <span class="op">=&gt;</span> {
+      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, (<span class="ident">o</span>,<span class="kw">_</span>)) <span class="op">=&gt;</span> {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">remaining</span>, <span class="ident">o</span>)
       }
     }
@@ -1384,7 +1410,7 @@
           <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)) <span class="op">=&gt;</span>
           <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">consumed</span> <span class="op">+</span> <span class="ident">i</span>)),
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,_)     <span class="op">=&gt;</span> {
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="kw">_</span>)     <span class="op">=&gt;</span> {
           <span class="macro">do_parse_sep</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="ident">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>,
             <span class="macro-nonterminal">$</span><span class="macro-nonterminal">consumed</span> <span class="op">+</span> (<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">InputLength</span>::<span class="ident">input_len</span>(<span class="kw-2">&amp;</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>)) <span class="op">-</span>
                          <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">InputLength</span>::<span class="ident">input_len</span>(<span class="kw-2">&amp;</span><span class="ident">i</span>)), $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>)
@@ -1427,7 +1453,7 @@
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Unknown</span>),
       <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">i</span>)) <span class="op">=&gt;</span>
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">consumed</span> <span class="op">+</span> <span class="ident">i</span>)),
-      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,_)     <span class="op">=&gt;</span> {
+      <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="kw">_</span>)     <span class="op">=&gt;</span> {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>, ( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="op">*</span> ))
       },
     }
@@ -1516,7 +1542,7 @@
           <span class="macro">acc</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">it</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">res</span>) <span class="op">=</span> ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">Some</span>(<span class="ident">o</span>);
           <span class="kw">continue</span>;
         },
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_) <span class="op">=&gt;</span> {
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
           <span class="macro-nonterminal">$</span><span class="macro-nonterminal">all_done</span> <span class="op">=</span> <span class="bool-val">false</span>;
         },
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> {
@@ -1538,7 +1564,7 @@
           <span class="macro">acc</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">it</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">res</span>) <span class="op">=</span> ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">Some</span>(<span class="ident">o</span>);
           <span class="kw">continue</span>;
         },
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_) <span class="op">=&gt;</span> {
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
           <span class="macro-nonterminal">$</span><span class="macro-nonterminal">all_done</span> <span class="op">=</span> <span class="bool-val">false</span>;
         },
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">i</span>) <span class="op">=&gt;</span> {
@@ -1554,16 +1580,16 @@
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">alt_sep</span> (
   (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">ident</span> <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> (
-    <span class="macro">alt_sep</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>) <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
+    <span class="macro">alt_sep</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>) <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>);
   );
 
   (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">|</span> $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=&gt;</span> (
     {
       <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="macro">sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>));
       <span class="kw">match</span> <span class="ident">res</span> {
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(_,_)     <span class="op">=&gt;</span> <span class="ident">res</span>,
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span> <span class="ident">res</span>,
-        _                              <span class="op">=&gt;</span> <span class="macro">alt_sep</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>)
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="kw">_</span>,<span class="kw">_</span>)     <span class="op">=&gt;</span> <span class="ident">res</span>,
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">res</span>,
+        <span class="kw">_</span>                              <span class="op">=&gt;</span> <span class="macro">alt_sep</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>)
       }
     }
   );
@@ -1573,7 +1599,7 @@
       <span class="kw">match</span> <span class="macro">sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="op">*</span> )) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>)     <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>(<span class="ident">o</span>)),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>),
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_)      <span class="op">=&gt;</span> {
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>)      <span class="op">=&gt;</span> {
           <span class="macro">alt_sep</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>)
         }
       }
@@ -1593,15 +1619,15 @@
       <span class="kw">match</span> <span class="macro">sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="op">*</span> )) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>)     <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>(<span class="ident">o</span>)),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>),
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_)      <span class="op">=&gt;</span> {
-          <span class="macro">alt_sep</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>)
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>)      <span class="op">=&gt;</span> {
+          <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">ErrorKind</span>::<span class="ident">Alt</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>))
         }
       }
     }
   );
 
-  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">ident</span>) <span class="op">=&gt;</span> (
-    <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>));
+  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>:<span class="ident">ident</span>) <span class="op">=&gt;</span> (
+    <span class="macro">alt_sep</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="macro">call</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">e</span>));
   );
 
   (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span>:<span class="macro">ident</span><span class="macro">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>)) <span class="op">=&gt;</span> (
@@ -1609,14 +1635,18 @@
       <span class="kw">match</span> <span class="macro">sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>( $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="op">*</span> )) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>)     <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>),
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="ident">x</span>),
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(_)      <span class="op">=&gt;</span> {
-          <span class="macro">alt</span><span class="macro">!</span>(<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>)
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>)      <span class="op">=&gt;</span> {
+          <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">ErrorKind</span>::<span class="ident">Alt</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>))
         }
       }
     }
   );
 
   (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> (
+    <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">ErrorKind</span>::<span class="ident">Alt</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>))
+  );
+
+  (<span class="ident">__impl</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>:<span class="ident">ident</span>) <span class="op">=&gt;</span> (
     <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">ErrorKind</span>::<span class="ident">Alt</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>))
   );
 
@@ -1638,8 +1668,8 @@
     {
       <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="macro">complete</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>)));
       <span class="kw">match</span> <span class="ident">res</span> {
-        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(_,_) <span class="op">=&gt;</span> <span class="ident">res</span>,
-        _ <span class="op">=&gt;</span> <span class="macro">alt_complete_sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>),
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="kw">_</span>,<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">res</span>,
+        <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">alt_complete_sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>),
       }
     }
   );
@@ -1648,7 +1678,7 @@
     {
       <span class="kw">match</span> <span class="macro">complete</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro">sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">subrule</span><span class="op">!</span>($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">args</span>)<span class="kw-2">*</span>))) {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="ident">o</span>) <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>(<span class="ident">i</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">gen</span>(<span class="ident">o</span>)),
-        _ <span class="op">=&gt;</span> <span class="macro">alt_complete_sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>),
+        <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">alt_complete_sep</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">separator</span>, $(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rest</span>)<span class="kw-2">*</span>),
       }
     }
   );
@@ -1694,7 +1724,7 @@
               )),
               <span class="ident">a</span> <span class="op">=&gt;</span> <span class="ident">a</span>,
             }),<span class="kw-2">*</span>,
-            _    <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">ErrorKind</span>::<span class="ident">Switch</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>))
+            <span class="kw">_</span>    <span class="op">=&gt;</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">ErrorKind</span>::<span class="ident">Switch</span>,<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>))
           }
         }
       }
@@ -1749,9 +1779,9 @@
       <span class="kw">if</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">input_len</span>() <span class="op">==</span> <span class="number">0</span> {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Done</span>((<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">slice</span>(<span class="number">0</span>..), (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">slice</span>(<span class="number">0</span>..<span class="number">0</span>))
       } <span class="kw">else</span> {
-        <span class="kw">match</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">iter_indices</span>().<span class="ident">position</span>(<span class="op">|</span>(_, <span class="ident">item</span>)<span class="op">|</span> {
+        <span class="kw">match</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">iter_indices</span>().<span class="ident">position</span>(<span class="op">|</span>(<span class="kw">_</span>, <span class="ident">item</span>)<span class="op">|</span> {
           <span class="kw">let</span> <span class="ident">i</span> <span class="op">=</span> <span class="ident">item</span>.<span class="ident">as_char</span>();
-          <span class="kw">for</span> (_,<span class="ident">c</span>) <span class="kw">in</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">arr</span>).<span class="ident">iter_indices</span>() {
+          <span class="kw">for</span> (<span class="kw">_</span>,<span class="ident">c</span>) <span class="kw">in</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">arr</span>).<span class="ident">iter_indices</span>() {
             <span class="kw">if</span> <span class="ident">c</span>.<span class="ident">as_char</span>() <span class="op">==</span> <span class="ident">i</span> { <span class="kw">return</span> <span class="bool-val">false</span>; }
           }
           <span class="bool-val">true</span>
@@ -1877,7 +1907,8 @@
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sp</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>,<span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">input</span>:<span class="ident">T</span>) <span class="op">-&gt;</span> <span class="ident">IResult</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">T</span><span class="op">&gt;</span> <span class="kw">where</span>
   <span class="ident">T</span>: ::<span class="ident">traits</span>::<span class="ident">Slice</span><span class="op">&lt;</span><span class="ident">Range</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;&gt;</span><span class="op">+</span>::<span class="ident">traits</span>::<span class="ident">Slice</span><span class="op">&lt;</span><span class="ident">RangeFrom</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;&gt;</span><span class="op">+</span>::<span class="ident">traits</span>::<span class="ident">Slice</span><span class="op">&lt;</span><span class="ident">RangeTo</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;&gt;</span>,
-  <span class="ident">T</span>: ::<span class="ident">traits</span>::<span class="ident">InputIter</span><span class="op">+</span>::<span class="ident">traits</span>::<span class="ident">InputLength</span> {
+    <span class="ident">T</span>: ::<span class="ident">traits</span>::<span class="ident">InputIter</span><span class="op">+</span>::<span class="ident">traits</span>::<span class="ident">InputLength</span>,
+    <span class="op">&lt;</span><span class="ident">T</span> <span class="kw">as</span> ::<span class="ident">traits</span>::<span class="ident">InputIter</span><span class="op">&gt;</span>::<span class="ident">Item</span>: ::<span class="ident">traits</span>::<span class="ident">AsChar</span> {
     <span class="macro">eat_separator</span><span class="macro">!</span>(<span class="ident">input</span>, <span class="kw-2">&amp;</span><span class="string">b&quot; \t\r\n&quot;</span>[..])
 }
 
@@ -1919,6 +1950,7 @@
 );
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">dead_code</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {
   <span class="kw">use</span> <span class="ident">internal</span>::<span class="ident">IResult</span>::<span class="kw-2">*</span>;
   <span class="kw">use</span> <span class="ident">internal</span>::{<span class="ident">IResult</span>,<span class="ident">Needed</span>};
@@ -2072,7 +2104,7 @@
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">alt4</span>(<span class="ident">b</span>), <span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="kw-2">&amp;</span><span class="string">b&quot;efgh&quot;</span>[..]));
 
     <span class="comment">// test the alternative syntax</span>
-    <span class="macro">named</span><span class="macro">!</span>(<span class="ident">alt5</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span>, <span class="macro">ws</span><span class="macro">!</span>(<span class="macro">alt</span><span class="macro">!</span>(<span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;abcd&quot;</span>) <span class="op">=&gt;</span> { <span class="op">|</span>_<span class="op">|</span> <span class="bool-val">false</span> } <span class="op">|</span> <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;efgh&quot;</span>) <span class="op">=&gt;</span> { <span class="op">|</span>_<span class="op">|</span> <span class="bool-val">true</span> })));
+    <span class="macro">named</span><span class="macro">!</span>(<span class="ident">alt5</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span>, <span class="macro">ws</span><span class="macro">!</span>(<span class="macro">alt</span><span class="macro">!</span>(<span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;abcd&quot;</span>) <span class="op">=&gt;</span> { <span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="bool-val">false</span> } <span class="op">|</span> <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;efgh&quot;</span>) <span class="op">=&gt;</span> { <span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="bool-val">true</span> })));
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">alt5</span>(<span class="ident">a</span>), <span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="bool-val">false</span>));
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">alt5</span>(<span class="ident">b</span>), <span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="bool-val">true</span>));
   }
@@ -2088,7 +2120,7 @@
     <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="string">b&quot; \tef &quot;</span>[..];
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">ac</span>(<span class="ident">a</span>), <span class="ident">Done</span>(<span class="kw-2">&amp;</span><span class="string">b&quot;&quot;</span>[..], <span class="kw-2">&amp;</span><span class="string">b&quot;ef&quot;</span>[..]));
     <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="string">b&quot; cde&quot;</span>[..];
-    <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">ac</span>(<span class="ident">a</span>), <span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="ident">ErrorKind</span>::<span class="ident">Alt</span>, <span class="ident">a</span>)));
+    <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">ac</span>(<span class="ident">a</span>), <span class="ident">Error</span>(<span class="macro">error_position</span><span class="macro">!</span>(<span class="ident">ErrorKind</span>::<span class="ident">Alt</span>, <span class="kw-2">&amp;</span><span class="ident">a</span>[<span class="number">1</span>..])));
   }
 
   <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_variables</span>)]</span>
@@ -2116,6 +2148,25 @@
   <span class="kw">fn</span> <span class="ident">str_test</span>() {
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">str_parse</span>(<span class="string">&quot; \n   test\t a\nb&quot;</span>), <span class="ident">Done</span>(<span class="string">&quot;a\nb&quot;</span>, <span class="string">&quot;test&quot;</span>));
   }
+
+  <span class="comment">// test whitespace parser generation for alt</span>
+  <span class="macro">named</span><span class="macro">!</span>(<span class="ident">space</span>, <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot; &quot;</span>));
+  <span class="macro">named</span><span class="macro">!</span>(<span class="ident">pipeline_statement</span><span class="op">&lt;</span><span class="kw-2">&amp;</span>[<span class="ident">u8</span>], ()<span class="op">&gt;</span>,
+    <span class="macro">ws</span><span class="macro">!</span>(
+      <span class="macro">do_parse</span><span class="macro">!</span>(
+      <span class="macro">tag</span><span class="macro">!</span>(<span class="string">&quot;pipeline&quot;</span>) <span class="op">&gt;&gt;</span>
+      <span class="ident">attributes</span>: <span class="macro">delimited</span><span class="macro">!</span>(<span class="macro">char</span><span class="macro">!</span>(<span class="string">&#39;{&#39;</span>),
+                             <span class="macro">separated_list</span><span class="macro">!</span>(<span class="macro">char</span><span class="macro">!</span>(<span class="string">&#39;,&#39;</span>), <span class="macro">alt</span><span class="macro">!</span>(
+                               <span class="ident">space</span> <span class="op">|</span>
+                               <span class="ident">space</span>
+                             )),
+                             <span class="macro">char</span><span class="macro">!</span>(<span class="string">&#39;}&#39;</span>)) <span class="op">&gt;&gt;</span>
+
+      ( () )
+    )
+  )
+  );
+
 }
 </pre>
 </section>

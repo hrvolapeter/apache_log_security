@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nalgebra-0.14.0/src/core/blas.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nalgebra-0.14.1/src/core/blas.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>blas.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -791,8 +792,6 @@
 <span id="735">735</span>
 <span id="736">736</span>
 <span id="737">737</span>
-<span id="738">738</span>
-<span id="739">739</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">mem</span>;
 <span class="kw">use</span> <span class="ident">num</span>::{<span class="ident">One</span>, <span class="ident">Signed</span>, <span class="ident">Zero</span>};
@@ -1258,8 +1257,7 @@
         <span class="kw">let</span> (<span class="ident">nrows3</span>, <span class="ident">ncols3</span>) <span class="op">=</span> <span class="ident">b</span>.<span class="ident">shape</span>();
 
         <span class="macro">assert_eq</span><span class="macro">!</span>(
-            <span class="ident">ncols2</span>,
-            <span class="ident">nrows3</span>,
+            <span class="ident">ncols2</span>, <span class="ident">nrows3</span>,
             <span class="string">&quot;gemm: dimensions mismatch for multiplication.&quot;</span>
         );
         <span class="macro">assert_eq</span><span class="macro">!</span>(
@@ -1360,8 +1358,7 @@
         <span class="kw">let</span> (<span class="ident">nrows3</span>, <span class="ident">ncols3</span>) <span class="op">=</span> <span class="ident">b</span>.<span class="ident">shape</span>();
 
         <span class="macro">assert_eq</span><span class="macro">!</span>(
-            <span class="ident">nrows2</span>,
-            <span class="ident">nrows3</span>,
+            <span class="ident">nrows2</span>, <span class="ident">nrows3</span>,
             <span class="string">&quot;gemm: dimensions mismatch for multiplication.&quot;</span>
         );
         <span class="macro">assert_eq</span><span class="macro">!</span>(

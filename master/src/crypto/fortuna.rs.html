@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/rust-crypto-0.2.36/src/fortuna.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/rust-crypto-0.2.36/src/fortuna.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>fortuna.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -849,14 +850,14 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_create_unseeded</span>() {
-        <span class="kw">let</span> _: <span class="ident">Fortuna</span> <span class="op">=</span> <span class="ident">Fortuna</span>::<span class="ident">new_unseeded</span>();
+        <span class="kw">let</span> <span class="kw">_</span>: <span class="ident">Fortuna</span> <span class="op">=</span> <span class="ident">Fortuna</span>::<span class="ident">new_unseeded</span>();
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="attribute">#[<span class="ident">should_panic</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_use_unseeded</span>() {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">f</span>: <span class="ident">Fortuna</span> <span class="op">=</span> <span class="ident">Fortuna</span>::<span class="ident">new_unseeded</span>();
-        <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">f</span>.<span class="ident">next_u32</span>();
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">f</span>.<span class="ident">next_u32</span>();
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
@@ -864,7 +865,7 @@
     <span class="kw">fn</span> <span class="ident">test_badly_seeded</span>() {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">f</span>: <span class="ident">Fortuna</span> <span class="op">=</span> <span class="ident">Fortuna</span>::<span class="ident">new_unseeded</span>();
         <span class="ident">f</span>.<span class="ident">add_random_event</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="kw-2">&amp;</span>[<span class="number">10</span>; <span class="number">32</span>]);
-        <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">f</span>.<span class="ident">next_u32</span>();
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">f</span>.<span class="ident">next_u32</span>();
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>

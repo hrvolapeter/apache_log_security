@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/xml-rs-0.7.0/src/reader/parser/inside_comment.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/xml-rs-0.7.0/src/reader/parser/inside_comment.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>inside_comment.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -109,9 +110,9 @@
                 <span class="self">self</span>.<span class="ident">into_state_emit</span>(<span class="ident">State</span>::<span class="ident">OutsideTag</span>, <span class="prelude-val">Ok</span>(<span class="ident">XmlEvent</span>::<span class="ident">Comment</span>(<span class="ident">data</span>)))
             }
 
-            _ <span class="kw">if</span> <span class="self">self</span>.<span class="ident">config</span>.<span class="ident">ignore_comments</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,  <span class="comment">// Do not modify buffer if ignoring the comment</span>
+            <span class="kw">_</span> <span class="kw">if</span> <span class="self">self</span>.<span class="ident">config</span>.<span class="ident">ignore_comments</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,  <span class="comment">// Do not modify buffer if ignoring the comment</span>
 
-            _ <span class="op">=&gt;</span> {
+            <span class="kw">_</span> <span class="op">=&gt;</span> {
                 <span class="ident">t</span>.<span class="ident">push_to_string</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">buf</span>);
                 <span class="prelude-val">None</span>
             }

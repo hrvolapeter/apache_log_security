@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nalgebra-0.14.0/src/geometry/unit_complex.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nalgebra-0.14.1/src/geometry/unit_complex.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>unit_complex.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -204,6 +205,22 @@
 <span id="148">148</span>
 <span id="149">149</span>
 <span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
+<span id="160">160</span>
+<span id="161">161</span>
+<span id="162">162</span>
+<span id="163">163</span>
+<span id="164">164</span>
+<span id="165">165</span>
+<span id="166">166</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>;
 <span class="kw">use</span> <span class="ident">approx</span>::<span class="ident">ApproxEq</span>;
@@ -239,6 +256,22 @@
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">scaled_axis</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Vector1</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span> {
         <span class="ident">Vector1</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">angle</span>())
+    }
+
+    <span class="doccomment">/// The rotation axis and angle in ]0, pi] of this complex number.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Returns `None` if the angle is zero.</span>
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">axis_angle</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Unit</span><span class="op">&lt;</span><span class="ident">Vector1</span><span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;&gt;</span>, <span class="ident">N</span>)<span class="op">&gt;</span> {
+        <span class="kw">let</span> <span class="ident">ang</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">angle</span>();
+
+        <span class="kw">if</span> <span class="ident">ang</span>.<span class="ident">is_zero</span>() {
+            <span class="prelude-val">None</span>
+        } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">ang</span>.<span class="ident">is_sign_negative</span>() {
+            <span class="prelude-val">Some</span>((<span class="ident">Unit</span>::<span class="ident">new_unchecked</span>(<span class="ident">Vector1</span>::<span class="ident">x</span>()), <span class="op">-</span><span class="ident">ang</span>))
+        } <span class="kw">else</span> {
+            <span class="prelude-val">Some</span>((<span class="ident">Unit</span>::<span class="ident">new_unchecked</span>(<span class="op">-</span><span class="ident">Vector1</span>::<span class="op">&lt;</span><span class="ident">N</span><span class="op">&gt;</span>::<span class="ident">x</span>()), <span class="ident">ang</span>))
+        }
     }
 
     <span class="doccomment">/// The underlying complex number.</span>

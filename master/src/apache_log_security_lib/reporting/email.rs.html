@@ -10,10 +10,11 @@
     <title>email.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -106,7 +107,7 @@
     <span class="kw">fn</span> <span class="ident">report_incidents</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">incidents</span>: <span class="kw-2">&amp;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Incident</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">ReportingErr</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">message</span> <span class="op">=</span> <span class="string">&quot;Incidents detected: \n\n&quot;</span>.<span class="ident">to_string</span>();
         <span class="kw">for</span> <span class="ident">incident</span> <span class="kw">in</span> <span class="ident">incidents</span> {
-            <span class="ident">message</span> <span class="op">=</span> <span class="ident">message</span>.<span class="ident">add</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}: {}\n&quot;</span>, <span class="ident">incident</span>.<span class="ident">reason</span>, <span class="ident">incident</span>.<span class="ident">log_msg</span>)[..]);
+            <span class="ident">message</span> <span class="op">=</span> <span class="ident">message</span>.<span class="ident">add</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}: {}\n&quot;</span>, <span class="ident">incident</span>.<span class="ident">reason</span>, <span class="ident">incident</span>.<span class="ident">log</span>.<span class="ident">show</span>())[..]);
         }
 
         <span class="kw">let</span> <span class="ident">email</span> <span class="op">=</span> <span class="ident">SimpleSendableEmail</span>::<span class="ident">new</span>(

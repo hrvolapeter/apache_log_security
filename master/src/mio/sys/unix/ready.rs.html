@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-0.6.13/src/sys/unix/ready.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/mio-0.6.14/src/sys/unix/ready.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>ready.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -470,6 +471,18 @@
 <span id="414">414</span>
 <span id="415">415</span>
 <span id="416">416</span>
+<span id="417">417</span>
+<span id="418">418</span>
+<span id="419">419</span>
+<span id="420">420</span>
+<span id="421">421</span>
+<span id="422">422</span>
+<span id="423">423</span>
+<span id="424">424</span>
+<span id="425">425</span>
+<span id="426">426</span>
+<span id="427">427</span>
+<span id="428">428</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">event_imp</span>::{<span class="ident">Ready</span>, <span class="ident">ready_as_usize</span>, <span class="ident">ready_from_usize</span>};
 
@@ -567,11 +580,23 @@
 
 <span class="kw">const</span> <span class="ident">ERROR</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">0b000100</span>;
 <span class="kw">const</span> <span class="ident">HUP</span>: <span class="ident">usize</span>   <span class="op">=</span> <span class="number">0b001000</span>;
+
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;dragonfly&quot;</span>,
     <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;freebsd&quot;</span>, <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;ios&quot;</span>, <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;macos&quot;</span>))]</span>
 <span class="kw">const</span> <span class="ident">AIO</span>: <span class="ident">usize</span>   <span class="op">=</span> <span class="number">0b010000</span>;
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">any</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;dragonfly&quot;</span>,
+    <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;freebsd&quot;</span>, <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;ios&quot;</span>, <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;macos&quot;</span>)))]</span>
+<span class="kw">const</span> <span class="ident">AIO</span>: <span class="ident">usize</span>   <span class="op">=</span> <span class="number">0b000000</span>;
+
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;freebsd&quot;</span>))]</span>
 <span class="kw">const</span> <span class="ident">LIO</span>: <span class="ident">usize</span>   <span class="op">=</span> <span class="number">0b100000</span>;
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">any</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;freebsd&quot;</span>)))]</span>
+<span class="kw">const</span> <span class="ident">LIO</span>: <span class="ident">usize</span>   <span class="op">=</span> <span class="number">0b000000</span>;
+
+<span class="comment">// Export to support `Ready::all`</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">READY_ALL</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="ident">ERROR</span> <span class="op">|</span> <span class="ident">HUP</span> <span class="op">|</span> <span class="ident">AIO</span> <span class="op">|</span> <span class="ident">LIO</span>;
 
 <span class="kw">impl</span> <span class="ident">UnixReady</span> {
     <span class="doccomment">/// Returns a `Ready` representing AIO completion readiness</span>

@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-io-0.1.5/src/allow_std.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/tokio-io-0.1.6/src/allow_std.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>allow_std.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -140,9 +141,9 @@
 <span class="kw">use</span> <span class="ident">futures</span>::{<span class="ident">Async</span>, <span class="ident">Poll</span>};
 <span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">fmt</span>, <span class="ident">io</span>};
 
-<span class="doccomment">/// A simple wrapper type which allows types which implement only</span>
-<span class="doccomment">/// implement `std::io::Read` or `std::io::Write`</span>
-<span class="doccomment">/// to be used in contexts which expect an `AsyncRead` or `AsyncWrite`.</span>
+<span class="doccomment">/// A simple wrapper type which allows types that only implement</span>
+<span class="doccomment">/// `std::io::Read` or `std::io::Write` to be used in contexts which expect</span>
+<span class="doccomment">/// an `AsyncRead` or `AsyncWrite`.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// If these types issue an error with the kind `io::ErrorKind::WouldBlock`,</span>
 <span class="doccomment">/// it is expected that they will notify the current task on readiness.</span>
