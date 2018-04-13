@@ -10,8 +10,12 @@
     <title>implicit.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -323,7 +334,7 @@
             <span class="ident">NSM</span> <span class="op">=&gt;</span> {
                 <span class="ident">processing_classes</span>[<span class="ident">i</span>] <span class="op">=</span> <span class="kw">match</span> <span class="ident">prev_class</span> {
                     <span class="ident">RLI</span> <span class="op">|</span> <span class="ident">LRI</span> <span class="op">|</span> <span class="ident">FSI</span> <span class="op">|</span> <span class="ident">PDI</span> <span class="op">=&gt;</span> <span class="ident">ON</span>,
-                    _ <span class="op">=&gt;</span> <span class="ident">prev_class</span>,
+                    <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">prev_class</span>,
                 };
             }
             <span class="ident">EN</span> <span class="op">=&gt;</span> {
@@ -351,14 +362,14 @@
                 <span class="ident">processing_classes</span>[<span class="ident">i</span>] <span class="op">=</span> <span class="kw">match</span> (<span class="ident">prev_class</span>, <span class="ident">processing_classes</span>[<span class="ident">i</span>], <span class="ident">next_class</span>) {
                     (<span class="ident">EN</span>, <span class="ident">ES</span>, <span class="ident">EN</span>) <span class="op">|</span> (<span class="ident">EN</span>, <span class="ident">CS</span>, <span class="ident">EN</span>) <span class="op">=&gt;</span> <span class="ident">EN</span>,
                     (<span class="ident">AN</span>, <span class="ident">CS</span>, <span class="ident">AN</span>) <span class="op">=&gt;</span> <span class="ident">AN</span>,
-                    (_, _, _) <span class="op">=&gt;</span> <span class="ident">ON</span>,
+                    (<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">ON</span>,
                 }
             }
             <span class="comment">// &lt;http://www.unicode.org/reports/tr9/#W5&gt;</span>
             <span class="ident">ET</span> <span class="op">=&gt;</span> {
                 <span class="kw">match</span> <span class="ident">prev_class</span> {
                     <span class="ident">EN</span> <span class="op">=&gt;</span> <span class="ident">processing_classes</span>[<span class="ident">i</span>] <span class="op">=</span> <span class="ident">EN</span>,
-                    _ <span class="op">=&gt;</span> <span class="ident">et_run_indices</span>.<span class="ident">push</span>(<span class="ident">i</span>), <span class="comment">// In case this is followed by an EN.</span>
+                    <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">et_run_indices</span>.<span class="ident">push</span>(<span class="ident">i</span>), <span class="comment">// In case this is followed by an EN.</span>
                 }
             }
             <span class="ident">class</span> <span class="op">=&gt;</span> {
@@ -376,7 +387,7 @@
             <span class="ident">AL</span> <span class="op">=&gt;</span> {
                 <span class="ident">last_strong_is_al</span> <span class="op">=</span> <span class="bool-val">true</span>;
             }
-            _ <span class="op">=&gt;</span> {}
+            <span class="kw">_</span> <span class="op">=&gt;</span> {}
         }
         <span class="kw">if</span> <span class="ident">prev_class</span> <span class="op">!=</span> <span class="ident">ET</span> {
             <span class="comment">// W6. If we didn&#39;t find an adjacent EN, turn any ETs into ON instead.</span>
@@ -401,7 +412,7 @@
                 <span class="ident">R</span> <span class="op">|</span> <span class="ident">AL</span> <span class="op">=&gt;</span> {
                     <span class="ident">last_strong_is_l</span> <span class="op">=</span> <span class="bool-val">false</span>;
                 }
-                _ <span class="op">=&gt;</span> {}
+                <span class="kw">_</span> <span class="op">=&gt;</span> {}
             }
         }
     }
@@ -459,7 +470,7 @@
                 (<span class="ident">L</span>, <span class="ident">L</span>) <span class="op">=&gt;</span> <span class="ident">L</span>,
                 (<span class="ident">R</span>, <span class="ident">R</span>) <span class="op">|</span> (<span class="ident">R</span>, <span class="ident">AN</span>) <span class="op">|</span> (<span class="ident">R</span>, <span class="ident">EN</span>) <span class="op">|</span> (<span class="ident">AN</span>, <span class="ident">R</span>) <span class="op">|</span> (<span class="ident">AN</span>, <span class="ident">AN</span>) <span class="op">|</span> (<span class="ident">AN</span>, <span class="ident">EN</span>) <span class="op">|</span> (<span class="ident">EN</span>, <span class="ident">R</span>) <span class="op">|</span>
                 (<span class="ident">EN</span>, <span class="ident">AN</span>) <span class="op">|</span> (<span class="ident">EN</span>, <span class="ident">EN</span>) <span class="op">=&gt;</span> <span class="ident">R</span>,
-                (_, _) <span class="op">=&gt;</span> <span class="ident">e</span>,
+                (<span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">e</span>,
             };
             <span class="kw">for</span> <span class="ident">j</span> <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">ni_run</span> {
                 <span class="ident">processing_classes</span>[<span class="kw-2">*</span><span class="ident">j</span>] <span class="op">=</span> <span class="ident">new_class</span>;
@@ -486,7 +497,7 @@
             (<span class="bool-val">false</span>, <span class="ident">R</span>) <span class="op">|</span> (<span class="bool-val">true</span>, <span class="ident">L</span>) <span class="op">|</span> (<span class="bool-val">true</span>, <span class="ident">EN</span>) <span class="op">|</span> (<span class="bool-val">true</span>, <span class="ident">AN</span>) <span class="op">=&gt;</span> {
                 <span class="ident">levels</span>[<span class="ident">i</span>].<span class="ident">raise</span>(<span class="number">1</span>).<span class="ident">expect</span>(<span class="string">&quot;Level number error&quot;</span>)
             }
-            (_, _) <span class="op">=&gt;</span> {}
+            (<span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> {}
         }
         <span class="ident">max_level</span> <span class="op">=</span> <span class="ident">max</span>(<span class="ident">max_level</span>, <span class="ident">levels</span>[<span class="ident">i</span>]);
     }
@@ -515,20 +526,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

@@ -10,8 +10,12 @@
     <title>geometry.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -455,7 +466,7 @@
 
         <span class="ident">map</span>.<span class="ident">insert</span>(<span class="ident">String</span>::<span class="ident">from</span>(<span class="kw">match</span> <span class="ident">geometry</span>.<span class="ident">value</span> {
                        <span class="ident">Value</span>::<span class="ident">GeometryCollection</span>(..) <span class="op">=&gt;</span> <span class="string">&quot;geometries&quot;</span>,
-                       _ <span class="op">=&gt;</span> <span class="string">&quot;coordinates&quot;</span>,
+                       <span class="kw">_</span> <span class="op">=&gt;</span> <span class="string">&quot;coordinates&quot;</span>,
                    }),
                    ::<span class="ident">serde_json</span>::<span class="ident">to_value</span>(<span class="kw-2">&amp;</span><span class="ident">geometry</span>.<span class="ident">value</span>).<span class="ident">unwrap</span>());
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">foreign_members</span>) <span class="op">=</span> <span class="ident">geometry</span>.<span class="ident">foreign_members</span> {
@@ -477,7 +488,7 @@
             <span class="string">&quot;Polygon&quot;</span> <span class="op">=&gt;</span> <span class="ident">Value</span>::<span class="ident">Polygon</span>(<span class="macro">try</span><span class="macro">!</span>(<span class="ident">util</span>::<span class="ident">get_coords_2d_pos</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">object</span>))),
             <span class="string">&quot;MultiPolygon&quot;</span> <span class="op">=&gt;</span> <span class="ident">Value</span>::<span class="ident">MultiPolygon</span>(<span class="macro">try</span><span class="macro">!</span>(<span class="ident">util</span>::<span class="ident">get_coords_3d_pos</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">object</span>))),
             <span class="string">&quot;GeometryCollection&quot;</span> <span class="op">=&gt;</span> <span class="ident">Value</span>::<span class="ident">GeometryCollection</span>(<span class="macro">try</span><span class="macro">!</span>(<span class="ident">util</span>::<span class="ident">get_geometries</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">object</span>))),
-            _ <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">Error</span>::<span class="ident">GeometryUnknownType</span>),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">Error</span>::<span class="ident">GeometryUnknownType</span>),
         };
         <span class="kw">let</span> <span class="ident">bbox</span> <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">util</span>::<span class="ident">get_bbox</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">object</span>));
         <span class="kw">let</span> <span class="ident">foreign_members</span> <span class="op">=</span> <span class="macro">try</span><span class="macro">!</span>(<span class="ident">util</span>::<span class="ident">get_foreign_members</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">object</span>));
@@ -542,7 +553,7 @@
         <span class="comment">// Test decode</span>
         <span class="kw">let</span> <span class="ident">decoded_geometry</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">decode</span>(<span class="ident">json_string</span>) {
             <span class="ident">GeoJson</span>::<span class="ident">Geometry</span>(<span class="ident">g</span>) <span class="op">=&gt;</span> <span class="ident">g</span>,
-            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
         };
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">decoded_geometry</span>, <span class="ident">geometry</span>);
     }
@@ -565,7 +576,7 @@
         <span class="comment">// Test decode</span>
         <span class="kw">let</span> <span class="ident">decoded_geometry</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">decode</span>(<span class="ident">geometry_json_str</span>.<span class="ident">into</span>()) {
             <span class="ident">GeoJson</span>::<span class="ident">Geometry</span>(<span class="ident">g</span>) <span class="op">=&gt;</span> <span class="ident">g</span>,
-            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
         };
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">decoded_geometry</span>, <span class="ident">geometry</span>);
     }
@@ -588,7 +599,7 @@
         <span class="comment">// Test decode</span>
         <span class="kw">let</span> <span class="ident">decoded_geometry</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">decode</span>(<span class="ident">geometry_collection_string</span>.<span class="ident">into</span>()) {
             <span class="ident">GeoJson</span>::<span class="ident">Geometry</span>(<span class="ident">g</span>) <span class="op">=&gt;</span> <span class="ident">g</span>,
-            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
         };
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">decoded_geometry</span>, <span class="ident">geometry_collection</span>);
     }
@@ -607,20 +618,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

@@ -10,8 +10,12 @@
     <title>str.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -975,7 +986,7 @@
         <span class="kw">const</span> <span class="ident">TAG</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Hello World!&quot;</span>;
 
         <span class="kw">match</span> <span class="macro">tag_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">TAG</span>) {
-            <span class="ident">IResult</span>::<span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span> (),
+            <span class="ident">IResult</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> (),
             <span class="ident">other</span> <span class="op">=&gt;</span> {
                 <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Parser `tag_s` didn&#39;t require more input when it should have. \
                         Got `{:?}`.&quot;</span>, <span class="ident">other</span>);
@@ -989,7 +1000,7 @@
         <span class="kw">const</span> <span class="ident">TAG</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Random&quot;</span>; <span class="comment">// TAG must be closer than INPUT.</span>
 
         <span class="kw">match</span> <span class="macro">tag_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">TAG</span>) {
-            <span class="ident">IResult</span>::<span class="ident">Error</span>(_) <span class="op">=&gt;</span> (),
+            <span class="ident">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> (),
             <span class="ident">other</span> <span class="op">=&gt;</span> {
                 <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Parser `tag_s` didn&#39;t fail when it should have. Got `{:?}`.`&quot;</span>, <span class="ident">other</span>);
             },
@@ -1039,7 +1050,7 @@
         <span class="kw">const</span> <span class="ident">INPUT</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;βèƒôřèÂßÇá&quot;</span>;
 
         <span class="kw">match</span> <span class="macro">take_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="number">13</span>) {
-            <span class="ident">IResult</span>::<span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span> (),
+            <span class="ident">IResult</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> (),
             <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Parser `take_s` didn&#39;t require more input when it should have. \
                              Got `{:?}`.&quot;</span>, <span class="ident">other</span>),
         }
@@ -1199,7 +1210,7 @@
             <span class="macro">is_not_s</span><span class="macro">!</span>(<span class="ident">input</span>, <span class="ident">AVOID</span>)
         }
         <span class="kw">match</span> <span class="ident">test</span>(<span class="ident">INPUT</span>) {
-            <span class="ident">IResult</span>::<span class="ident">Error</span>(_) <span class="op">=&gt;</span> (),
+            <span class="ident">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> (),
             <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Parser `is_not_s` didn&#39;t fail when it should have. Got `{:?}`.&quot;</span>, <span class="ident">other</span>),
         };
     }
@@ -1234,7 +1245,7 @@
         <span class="kw">const</span> <span class="ident">FIND</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;βèƒôřèÂßÇ&quot;</span>;
 
         <span class="kw">match</span> <span class="macro">take_until_and_consume_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">FIND</span>) {
-            <span class="ident">IResult</span>::<span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span> (),
+            <span class="ident">IResult</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> (),
             <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Parser `take_until_and_consume_s` didn&#39;t require more input when it should have. \
                              Got `{:?}`.&quot;</span>, <span class="ident">other</span>),
         };
@@ -1246,7 +1257,7 @@
         <span class="kw">const</span> <span class="ident">FIND</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;βèƒôřèÂßÇ&quot;</span>;
 
         <span class="kw">match</span> <span class="macro">take_until_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">FIND</span>) {
-            <span class="ident">IResult</span>::<span class="ident">Incomplete</span>(_) <span class="op">=&gt;</span> (),
+            <span class="ident">IResult</span>::<span class="ident">Incomplete</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> (),
             <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Parser `take_until_s` didn&#39;t require more input when it should have. \
                              Got `{:?}`.&quot;</span>, <span class="ident">other</span>),
         };
@@ -1283,7 +1294,7 @@
           <span class="macro">take_while1_s</span><span class="macro">!</span>(<span class="ident">input</span>, <span class="ident">while1_s</span>)
         }
         <span class="kw">match</span> <span class="ident">test</span>(<span class="ident">INPUT</span>) {
-            <span class="ident">IResult</span>::<span class="ident">Error</span>(_) <span class="op">=&gt;</span> (),
+            <span class="ident">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> (),
             <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Parser `take_while1_s` didn&#39;t fail when it should have. \
                              Got `{:?}`.&quot;</span>, <span class="ident">other</span>),
         };
@@ -1297,7 +1308,7 @@
             <span class="macro">is_a_s</span><span class="macro">!</span>(<span class="ident">input</span>, <span class="ident">MATCH</span>)
         }
         <span class="kw">match</span> <span class="ident">test</span>(<span class="ident">INPUT</span>) {
-            <span class="ident">IResult</span>::<span class="ident">Error</span>(_) <span class="op">=&gt;</span> (),
+            <span class="ident">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> (),
             <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Parser `is_a_s` didn&#39;t fail when it should have. Got `{:?}`.&quot;</span>, <span class="ident">other</span>),
         };
     }
@@ -1308,7 +1319,7 @@
         <span class="kw">const</span> <span class="ident">FIND</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Ráñδô₥&quot;</span>;
 
         <span class="kw">match</span> <span class="macro">take_until_and_consume_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">FIND</span>) {
-            <span class="ident">IResult</span>::<span class="ident">Error</span>(_) <span class="op">=&gt;</span> (),
+            <span class="ident">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> (),
             <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Parser `take_until_and_consume_s` didn&#39;t fail when it should have. \
                              Got `{:?}`.&quot;</span>, <span class="ident">other</span>),
         };
@@ -1320,7 +1331,7 @@
         <span class="kw">const</span> <span class="ident">FIND</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;Ráñδô₥&quot;</span>;
 
         <span class="kw">match</span> <span class="macro">take_until_s</span><span class="macro">!</span>(<span class="ident">INPUT</span>, <span class="ident">FIND</span>) {
-            <span class="ident">IResult</span>::<span class="ident">Error</span>(_) <span class="op">=&gt;</span> (),
+            <span class="ident">IResult</span>::<span class="ident">Error</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> (),
             <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Parser `take_until_and_consume_s` didn&#39;t fail when it should have. \
                              Got `{:?}`.&quot;</span>, <span class="ident">other</span>),
         };
@@ -1375,20 +1386,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

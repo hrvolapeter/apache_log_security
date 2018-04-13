@@ -10,8 +10,12 @@
     <title>impls.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <script src="../../../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -442,7 +453,7 @@ println!(&quot;({},{})&quot;,
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">can_change_point_mapping</span>() {
-        <span class="kw">fn</span> <span class="ident">takes_custom_mapping</span>(_: <span class="ident">GeoPoint</span><span class="op">&lt;</span><span class="ident">DefaultGeoPointMapping</span><span class="op">&lt;</span><span class="ident">GeoPointObject</span><span class="op">&gt;&gt;</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="kw">fn</span> <span class="ident">takes_custom_mapping</span>(<span class="kw">_</span>: <span class="ident">GeoPoint</span><span class="op">&lt;</span><span class="ident">DefaultGeoPointMapping</span><span class="op">&lt;</span><span class="ident">GeoPointObject</span><span class="op">&gt;&gt;</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
             <span class="bool-val">true</span>
         }
 
@@ -467,7 +478,7 @@ println!(&quot;({},{})&quot;,
 
         <span class="kw">match</span> <span class="ident">geo</span> {
             <span class="ident">Geometry</span>::<span class="ident">Point</span>(<span class="ident">point</span>) <span class="op">=&gt;</span> <span class="macro">assert_eq</span><span class="macro">!</span>((<span class="number">1.0</span>, <span class="number">1.0</span>), (<span class="ident">point</span>.<span class="ident">x</span>(), <span class="ident">point</span>.<span class="ident">y</span>())),
-            _ <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;expected point&quot;</span>),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;expected point&quot;</span>),
         }
     }
 }
@@ -485,20 +496,22 @@ println!(&quot;({},{})&quot;,
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

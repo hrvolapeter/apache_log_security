@@ -10,8 +10,12 @@
     <title>conn.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <script src="../../../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -1538,18 +1549,18 @@ where I: AsyncRead + AsyncWrite,
                 } <span class="kw">else</span> {
                     <span class="kw">match</span> <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">writing</span> {
                         <span class="ident">Writing</span>::<span class="ident">Init</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>,
-                        _ <span class="op">=&gt;</span> <span class="bool-val">true</span>,
+                        <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">true</span>,
                     }
                 }
             },
-            _ <span class="op">=&gt;</span> <span class="bool-val">false</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>,
         }
     }
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">can_read_body</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">reading</span> {
             <span class="ident">Reading</span>::<span class="ident">Body</span>(..) <span class="op">=&gt;</span> <span class="bool-val">true</span>,
-            _ <span class="op">=&gt;</span> <span class="bool-val">false</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>,
         }
     }
 
@@ -1588,7 +1599,7 @@ where I: AsyncRead + AsyncWrite,
             <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">version</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">version</span> {
                 <span class="ident">HttpVersion</span>::<span class="ident">Http10</span> <span class="op">=&gt;</span> <span class="ident">Version</span>::<span class="ident">Http10</span>,
                 <span class="ident">HttpVersion</span>::<span class="ident">Http11</span> <span class="op">=&gt;</span> <span class="ident">Version</span>::<span class="ident">Http11</span>,
-                _ <span class="op">=&gt;</span> {
+                <span class="kw">_</span> <span class="op">=&gt;</span> {
                     <span class="macro">error</span><span class="macro">!</span>(<span class="string">&quot;unimplemented HTTP Version = {:?}&quot;</span>, <span class="ident">version</span>);
                     <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">close_read</span>();
                     <span class="kw">return</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Version</span>);
@@ -1673,7 +1684,7 @@ where I: AsyncRead + AsyncWrite,
                     },
                 }
             },
-            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;read_body invalid state: {:?}&quot;</span>, <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">reading</span>),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;read_body invalid state: {:?}&quot;</span>, <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">reading</span>),
         };
 
         <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">reading</span> <span class="op">=</span> <span class="ident">reading</span>;
@@ -1697,7 +1708,7 @@ where I: AsyncRead + AsyncWrite,
     <span class="kw">fn</span> <span class="ident">is_mid_message</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
         <span class="kw">match</span> (<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">state</span>.<span class="ident">reading</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">state</span>.<span class="ident">writing</span>) {
             (<span class="kw-2">&amp;</span><span class="ident">Reading</span>::<span class="ident">Init</span>, <span class="kw-2">&amp;</span><span class="ident">Writing</span>::<span class="ident">Init</span>) <span class="op">=&gt;</span> <span class="bool-val">false</span>,
-            _ <span class="op">=&gt;</span> <span class="bool-val">true</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">true</span>,
         }
     }
 
@@ -1811,7 +1822,7 @@ where I: AsyncRead + AsyncWrite,
         <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">io</span>.<span class="ident">is_read_blocked</span>() {
             <span class="kw">if</span> <span class="ident">wants_read</span> <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">io</span>.<span class="ident">read_buf</span>().<span class="ident">is_empty</span>() {
                 <span class="kw">match</span> <span class="self">self</span>.<span class="ident">io</span>.<span class="ident">read_from_io</span>() {
-                    <span class="prelude-val">Ok</span>(<span class="ident">Async</span>::<span class="ident">Ready</span>(_)) <span class="op">=&gt;</span> (),
+                    <span class="prelude-val">Ok</span>(<span class="ident">Async</span>::<span class="ident">Ready</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> (),
                     <span class="prelude-val">Ok</span>(<span class="ident">Async</span>::<span class="ident">NotReady</span>) <span class="op">=&gt;</span> {
                         <span class="macro">trace</span><span class="macro">!</span>(<span class="string">&quot;maybe_notify; read_from_io blocked&quot;</span>);
                         <span class="kw">return</span>
@@ -1840,12 +1851,12 @@ where I: AsyncRead + AsyncWrite,
         <span class="kw">if</span> <span class="op">!</span><span class="ident">T</span>::<span class="ident">should_read_first</span>() {
             <span class="kw">match</span> <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">reading</span> {
                 <span class="ident">Reading</span>::<span class="ident">Closed</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="bool-val">false</span>,
-                _ <span class="op">=&gt;</span> {},
+                <span class="kw">_</span> <span class="op">=&gt;</span> {},
             }
         }
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">writing</span> {
             <span class="ident">Writing</span>::<span class="ident">Init</span> <span class="op">=&gt;</span> <span class="bool-val">true</span>,
-            _ <span class="op">=&gt;</span> <span class="bool-val">false</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>
         }
     }
 
@@ -1969,7 +1980,7 @@ where I: AsyncRead + AsyncWrite,
                     }
                 }
             },
-            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;write_body invalid state: {:?}&quot;</span>, <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">writing</span>),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;write_body invalid state: {:?}&quot;</span>, <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">writing</span>),
         };
 
         <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">writing</span> <span class="op">=</span> <span class="ident">state</span>;
@@ -1990,7 +2001,7 @@ where I: AsyncRead + AsyncWrite,
                     <span class="kw">return</span> <span class="prelude-val">Ok</span>(());
                 }
             }
-            _ <span class="op">=&gt;</span> (),
+            <span class="kw">_</span> <span class="op">=&gt;</span> (),
         }
 
         <span class="comment">// fallback is pass the error back up</span>
@@ -2279,7 +2290,7 @@ where I: AsyncRead + AsyncWrite,
             (<span class="kw-2">&amp;</span><span class="ident">Reading</span>::<span class="ident">KeepAlive</span>, <span class="kw-2">&amp;</span><span class="ident">Writing</span>::<span class="ident">Closed</span>) <span class="op">=&gt;</span> {
                 <span class="self">self</span>.<span class="ident">close</span>()
             }
-            _ <span class="op">=&gt;</span> ()
+            <span class="kw">_</span> <span class="op">=&gt;</span> ()
         }
     }
 
@@ -2316,14 +2327,14 @@ where I: AsyncRead + AsyncWrite,
     <span class="kw">fn</span> <span class="ident">is_read_closed</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">reading</span> {
             <span class="ident">Reading</span>::<span class="ident">Closed</span> <span class="op">=&gt;</span> <span class="bool-val">true</span>,
-            _ <span class="op">=&gt;</span> <span class="bool-val">false</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>
         }
     }
 
     <span class="kw">fn</span> <span class="ident">is_write_closed</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">writing</span> {
             <span class="ident">Writing</span>::<span class="ident">Closed</span> <span class="op">=&gt;</span> <span class="bool-val">true</span>,
-            _ <span class="op">=&gt;</span> <span class="bool-val">false</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>
         }
     }
 }
@@ -2389,7 +2400,7 @@ where I: AsyncRead + AsyncWrite,
         <span class="kw">let</span> <span class="ident">good_message</span> <span class="op">=</span> <span class="string">b&quot;GET / HTTP/1.1\r\n\r\n&quot;</span>.<span class="ident">to_vec</span>();
         <span class="kw">let</span> <span class="ident">len</span> <span class="op">=</span> <span class="ident">good_message</span>.<span class="ident">len</span>();
         <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="ident">good_message</span>, <span class="ident">len</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
 
         <span class="kw">match</span> <span class="ident">conn</span>.<span class="ident">poll</span>().<span class="ident">unwrap</span>() {
             <span class="ident">Async</span>::<span class="ident">Ready</span>(<span class="prelude-val">Some</span>(<span class="ident">Frame</span>::<span class="ident">Message</span> { <span class="ident">message</span>, <span class="ident">body</span>: <span class="bool-val">false</span> })) <span class="op">=&gt;</span> {
@@ -2404,10 +2415,10 @@ where I: AsyncRead + AsyncWrite,
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_parse_partial</span>() {
-        <span class="kw">let</span> _: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
+        <span class="kw">let</span> <span class="kw">_</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="kw">let</span> <span class="ident">good_message</span> <span class="op">=</span> <span class="string">b&quot;GET / HTTP/1.1\r\nHost: foo.bar\r\n\r\n&quot;</span>.<span class="ident">to_vec</span>();
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="ident">good_message</span>, <span class="number">10</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">conn</span>.<span class="ident">poll</span>().<span class="ident">unwrap</span>().<span class="ident">is_not_ready</span>());
             <span class="ident">conn</span>.<span class="ident">io</span>.<span class="ident">io_mut</span>().<span class="ident">block_in</span>(<span class="number">50</span>);
             <span class="kw">let</span> <span class="ident">async</span> <span class="op">=</span> <span class="ident">conn</span>.<span class="ident">poll</span>().<span class="ident">unwrap</span>();
@@ -2423,7 +2434,7 @@ where I: AsyncRead + AsyncWrite,
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_init_read_eof_idle</span>() {
         <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="macro">vec</span><span class="macro">!</span>[], <span class="number">1</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
         <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">idle</span>();
 
         <span class="kw">match</span> <span class="ident">conn</span>.<span class="ident">poll</span>().<span class="ident">unwrap</span>() {
@@ -2435,7 +2446,7 @@ where I: AsyncRead + AsyncWrite,
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_init_read_eof_idle_partial_parse</span>() {
         <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="string">b&quot;GET / HTTP/1.1&quot;</span>.<span class="ident">to_vec</span>(), <span class="number">100</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
         <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">idle</span>();
 
         <span class="kw">match</span> <span class="ident">conn</span>.<span class="ident">poll</span>() {
@@ -2446,10 +2457,10 @@ where I: AsyncRead + AsyncWrite,
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_init_read_eof_busy</span>() {
-        <span class="kw">let</span> _: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
+        <span class="kw">let</span> <span class="kw">_</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="comment">// server ignores</span>
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_eof</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">busy</span>();
 
             <span class="kw">match</span> <span class="ident">conn</span>.<span class="ident">poll</span>().<span class="ident">unwrap</span>() {
@@ -2459,7 +2470,7 @@ where I: AsyncRead + AsyncWrite,
 
             <span class="comment">// client</span>
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_eof</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ClientTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ClientTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">busy</span>();
 
             <span class="kw">match</span> <span class="ident">conn</span>.<span class="ident">poll</span>() {
@@ -2472,9 +2483,9 @@ where I: AsyncRead + AsyncWrite,
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_body_finish_read_eof</span>() {
-        <span class="kw">let</span> _: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
+        <span class="kw">let</span> <span class="kw">_</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_eof</span>();
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ClientTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ClientTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">busy</span>();
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">writing</span> <span class="op">=</span> <span class="ident">Writing</span>::<span class="ident">KeepAlive</span>;
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">reading</span> <span class="op">=</span> <span class="ident">Reading</span>::<span class="ident">Body</span>(<span class="ident">Decoder</span>::<span class="ident">length</span>(<span class="number">0</span>));
@@ -2497,9 +2508,9 @@ where I: AsyncRead + AsyncWrite,
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_message_empty_body_read_eof</span>() {
-        <span class="kw">let</span> _: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
+        <span class="kw">let</span> <span class="kw">_</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="string">b&quot;HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n&quot;</span>.<span class="ident">to_vec</span>(), <span class="number">1024</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ClientTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ClientTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">busy</span>();
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">writing</span> <span class="op">=</span> <span class="ident">Writing</span>::<span class="ident">KeepAlive</span>;
 
@@ -2521,9 +2532,9 @@ where I: AsyncRead + AsyncWrite,
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_read_body_end</span>() {
-        <span class="kw">let</span> _: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
+        <span class="kw">let</span> <span class="kw">_</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="string">b&quot;POST / HTTP/1.1\r\nContent-Length: 5\r\n\r\n12345&quot;</span>.<span class="ident">to_vec</span>(), <span class="number">1024</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">busy</span>();
 
             <span class="kw">match</span> <span class="ident">conn</span>.<span class="ident">poll</span>() {
@@ -2532,7 +2543,7 @@ where I: AsyncRead + AsyncWrite,
             }
 
             <span class="kw">match</span> <span class="ident">conn</span>.<span class="ident">poll</span>() {
-                <span class="prelude-val">Ok</span>(<span class="ident">Async</span>::<span class="ident">Ready</span>(<span class="prelude-val">Some</span>(<span class="ident">Frame</span>::<span class="ident">Body</span> { <span class="ident">chunk</span>: <span class="prelude-val">Some</span>(_) }))) <span class="op">=&gt;</span> (),
+                <span class="prelude-val">Ok</span>(<span class="ident">Async</span>::<span class="ident">Ready</span>(<span class="prelude-val">Some</span>(<span class="ident">Frame</span>::<span class="ident">Body</span> { <span class="ident">chunk</span>: <span class="prelude-val">Some</span>(<span class="kw">_</span>) }))) <span class="op">=&gt;</span> (),
                 <span class="ident">other</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;unexpected frame: {:?}&quot;</span>, <span class="ident">other</span>)
             }
 
@@ -2553,7 +2564,7 @@ where I: AsyncRead + AsyncWrite,
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_closed_read</span>() {
         <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="macro">vec</span><span class="macro">!</span>[], <span class="number">0</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
         <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">close</span>();
 
         <span class="kw">match</span> <span class="ident">conn</span>.<span class="ident">poll</span>().<span class="ident">unwrap</span>() {
@@ -2565,10 +2576,10 @@ where I: AsyncRead + AsyncWrite,
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_body_write_length</span>() {
         <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">pretty_env_logger</span>;
-        <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">pretty_env_logger</span>::<span class="ident">try_init</span>();
-        <span class="kw">let</span> _: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
+        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">pretty_env_logger</span>::<span class="ident">try_init</span>();
+        <span class="kw">let</span> <span class="kw">_</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="macro">vec</span><span class="macro">!</span>[], <span class="number">0</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="kw">let</span> <span class="ident">max</span> <span class="op">=</span> <span class="kw">super</span>::<span class="kw">super</span>::<span class="ident">io</span>::<span class="ident">DEFAULT_MAX_BUFFER_SIZE</span> <span class="op">+</span> <span class="number">4096</span>;
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">writing</span> <span class="op">=</span> <span class="ident">Writing</span>::<span class="ident">Body</span>(<span class="ident">Encoder</span>::<span class="ident">length</span>((<span class="ident">max</span> <span class="op">*</span> <span class="number">2</span>) <span class="kw">as</span> <span class="ident">u64</span>));
 
@@ -2591,9 +2602,9 @@ where I: AsyncRead + AsyncWrite,
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_body_write_chunked</span>() {
-        <span class="kw">let</span> _: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
+        <span class="kw">let</span> <span class="kw">_</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="macro">vec</span><span class="macro">!</span>[], <span class="number">4096</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">writing</span> <span class="op">=</span> <span class="ident">Writing</span>::<span class="ident">Body</span>(<span class="ident">Encoder</span>::<span class="ident">chunked</span>());
 
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">conn</span>.<span class="ident">start_send</span>(<span class="ident">Frame</span>::<span class="ident">Body</span> { <span class="ident">chunk</span>: <span class="prelude-val">Some</span>(<span class="string">&quot;headers&quot;</span>.<span class="ident">into</span>()) }).<span class="ident">unwrap</span>().<span class="ident">is_ready</span>());
@@ -2604,9 +2615,9 @@ where I: AsyncRead + AsyncWrite,
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_body_flush</span>() {
-        <span class="kw">let</span> _: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
+        <span class="kw">let</span> <span class="kw">_</span>: <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="macro">vec</span><span class="macro">!</span>[], <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">5</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">writing</span> <span class="op">=</span> <span class="ident">Writing</span>::<span class="ident">Body</span>(<span class="ident">Encoder</span>::<span class="ident">length</span>(<span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span>));
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">conn</span>.<span class="ident">start_send</span>(<span class="ident">Frame</span>::<span class="ident">Body</span> { <span class="ident">chunk</span>: <span class="prelude-val">Some</span>(<span class="macro">vec</span><span class="macro">!</span>[<span class="string">b&#39;a&#39;</span>; <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span>].<span class="ident">into</span>()) }).<span class="ident">unwrap</span>().<span class="ident">is_ready</span>());
             <span class="macro">assert</span><span class="macro">!</span>(<span class="op">!</span><span class="ident">conn</span>.<span class="ident">can_buffer_body</span>());
@@ -2643,7 +2654,7 @@ where I: AsyncRead + AsyncWrite,
         <span class="comment">// test that once writing is done, unparks</span>
         <span class="kw">let</span> <span class="ident">f</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="macro">vec</span><span class="macro">!</span>[], <span class="number">4096</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">reading</span> <span class="op">=</span> <span class="ident">Reading</span>::<span class="ident">KeepAlive</span>;
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">conn</span>.<span class="ident">poll</span>().<span class="ident">unwrap</span>().<span class="ident">is_not_ready</span>());
 
@@ -2657,7 +2668,7 @@ where I: AsyncRead + AsyncWrite,
         <span class="comment">// test that flushing when not waiting on read doesn&#39;t unpark</span>
         <span class="kw">let</span> <span class="ident">f</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="macro">vec</span><span class="macro">!</span>[], <span class="number">4096</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">writing</span> <span class="op">=</span> <span class="ident">Writing</span>::<span class="ident">KeepAlive</span>;
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">conn</span>.<span class="ident">poll_complete</span>().<span class="ident">unwrap</span>().<span class="ident">is_ready</span>());
             <span class="prelude-val">Ok</span>::<span class="op">&lt;</span>(), ()<span class="op">&gt;</span>(())
@@ -2668,7 +2679,7 @@ where I: AsyncRead + AsyncWrite,
         <span class="comment">// test that flushing and writing isn&#39;t done doesn&#39;t unpark</span>
         <span class="kw">let</span> <span class="ident">f</span> <span class="op">=</span> <span class="ident">future</span>::<span class="ident">lazy</span>(<span class="op">||</span> {
             <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="macro">vec</span><span class="macro">!</span>[], <span class="number">4096</span>);
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">reading</span> <span class="op">=</span> <span class="ident">Reading</span>::<span class="ident">KeepAlive</span>;
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">conn</span>.<span class="ident">poll</span>().<span class="ident">unwrap</span>().<span class="ident">is_not_ready</span>());
             <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">writing</span> <span class="op">=</span> <span class="ident">Writing</span>::<span class="ident">Body</span>(<span class="ident">Encoder</span>::<span class="ident">length</span>(<span class="number">5_000</span>));
@@ -2681,7 +2692,7 @@ where I: AsyncRead + AsyncWrite,
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_closed_write</span>() {
         <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="macro">vec</span><span class="macro">!</span>[], <span class="number">0</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
         <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">close</span>();
 
         <span class="kw">match</span> <span class="ident">conn</span>.<span class="ident">start_send</span>(<span class="ident">Frame</span>::<span class="ident">Body</span> { <span class="ident">chunk</span>: <span class="prelude-val">Some</span>(<span class="string">b&quot;foobar&quot;</span>.<span class="ident">to_vec</span>().<span class="ident">into</span>()) }) {
@@ -2695,7 +2706,7 @@ where I: AsyncRead + AsyncWrite,
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_conn_write_empty_chunk</span>() {
         <span class="kw">let</span> <span class="ident">io</span> <span class="op">=</span> <span class="ident">AsyncIo</span>::<span class="ident">new_buf</span>(<span class="macro">vec</span><span class="macro">!</span>[], <span class="number">0</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span>_, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">conn</span> <span class="op">=</span> <span class="ident">Conn</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">proto</span>::<span class="ident">Chunk</span>, <span class="ident">ServerTransaction</span><span class="op">&gt;</span>::<span class="ident">new</span>(<span class="ident">io</span>);
         <span class="ident">conn</span>.<span class="ident">state</span>.<span class="ident">writing</span> <span class="op">=</span> <span class="ident">Writing</span>::<span class="ident">KeepAlive</span>;
 
         <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">conn</span>.<span class="ident">start_send</span>(<span class="ident">Frame</span>::<span class="ident">Body</span> { <span class="ident">chunk</span>: <span class="prelude-val">None</span> }).<span class="ident">unwrap</span>().<span class="ident">is_ready</span>());
@@ -2717,20 +2728,22 @@ where I: AsyncRead + AsyncWrite,
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

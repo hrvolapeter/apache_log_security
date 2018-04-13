@@ -10,8 +10,12 @@
     <title>methods.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -835,7 +846,7 @@
   <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">tag_s</span> (
     (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>: <span class="ident">expr</span>) <span class="op">=&gt;</span> (
       {
-        <span class="kw">let</span> <span class="ident">res</span>: <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span>_,_<span class="op">&gt;</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">len</span>() {
+        <span class="kw">let</span> <span class="ident">res</span>: <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span><span class="kw">_</span>,<span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">len</span>() {
           <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>.<span class="ident">len</span>()))
         <span class="comment">//} else if &amp;$i[0..$tag.len()] == $tag {</span>
         } <span class="kw">else</span> <span class="kw">if</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>).<span class="ident">starts_with</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">tag</span>) {
@@ -852,12 +863,12 @@
     (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">count</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> (
       {
         <span class="kw">let</span> <span class="ident">cnt</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">count</span> <span class="kw">as</span> <span class="ident">usize</span>;
-        <span class="kw">let</span> <span class="ident">res</span>: <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span>_,_<span class="op">&gt;</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">chars</span>().<span class="ident">count</span>() <span class="op">&lt;</span> <span class="ident">cnt</span> {
+        <span class="kw">let</span> <span class="ident">res</span>: <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span><span class="op">&lt;</span><span class="kw">_</span>,<span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw">if</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">chars</span>().<span class="ident">count</span>() <span class="op">&lt;</span> <span class="ident">cnt</span> {
           <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">IResult</span>::<span class="ident">Incomplete</span>(<span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Needed</span>::<span class="ident">Size</span>(<span class="ident">cnt</span>))
         } <span class="kw">else</span> {
           <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">offset</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">len</span>();
           <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">count</span> <span class="op">=</span> <span class="number">0</span>;
-          <span class="kw">for</span> (<span class="ident">o</span>, _) <span class="kw">in</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">char_indices</span>() {
+          <span class="kw">for</span> (<span class="ident">o</span>, <span class="kw">_</span>) <span class="kw">in</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">i</span>.<span class="ident">char_indices</span>() {
             <span class="kw">if</span> <span class="ident">count</span> <span class="op">==</span> <span class="ident">cnt</span> {
               <span class="ident">offset</span> <span class="op">=</span> <span class="ident">o</span>;
               <span class="kw">break</span>;
@@ -913,7 +924,7 @@
     <span class="kw">let</span> <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;áβçδèƒϱλïJƙ&quot;</span>;
     <span class="kw">let</span> <span class="ident">consumed</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;áβç&quot;</span>;
     <span class="kw">let</span> <span class="ident">leftover</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;δèƒϱλïJƙ&quot;</span>;
-    <span class="kw">let</span>(_, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">tag_abc</span>(<span class="ident">input</span>);
+    <span class="kw">let</span>(<span class="kw">_</span>, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">tag_abc</span>(<span class="ident">input</span>);
     <span class="kw">match</span> <span class="ident">res</span> {
       <span class="ident">Done</span>(<span class="ident">extra</span>, <span class="ident">output</span>) <span class="op">=&gt;</span> { <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">extra</span> <span class="op">==</span> <span class="ident">leftover</span>, <span class="string">&quot;`Parser.tag_abc` consumed leftover input. leftover: {}&quot;</span>, <span class="ident">extra</span>);
                                <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">output</span> <span class="op">==</span> <span class="ident">consumed</span>, <span class="string">&quot;`Parser.tag_abc` doesnt return the string it consumed \
@@ -930,7 +941,7 @@
     <span class="kw">let</span> <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;βçδèƒϱλïJƙ&quot;</span>;
     <span class="kw">let</span> <span class="ident">consumed</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;βçδ&quot;</span>;
     <span class="kw">let</span> <span class="ident">leftover</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;èƒϱλïJƙ&quot;</span>;
-    <span class="kw">let</span>(_, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">tag_bcd</span>(<span class="ident">input</span>);
+    <span class="kw">let</span>(<span class="kw">_</span>, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">tag_bcd</span>(<span class="ident">input</span>);
     <span class="kw">match</span> <span class="ident">res</span> {
       <span class="ident">Done</span>(<span class="ident">extra</span>, <span class="ident">output</span>) <span class="op">=&gt;</span> { <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">extra</span> <span class="op">==</span> <span class="ident">leftover</span>, <span class="string">&quot;`Parser.tag_bcd` consumed leftover input. leftover: {}&quot;</span>, <span class="ident">extra</span>);
                                <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">output</span> <span class="op">==</span> <span class="ident">consumed</span>, <span class="string">&quot;`Parser.tag_bcd` doesn&#39;t return the string it consumed \
@@ -947,7 +958,7 @@
     <span class="kw">let</span> <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;λïJƙℓ₥ñôƥ9řƨ&quot;</span>;
     <span class="kw">let</span> <span class="ident">consumed</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;λïJ&quot;</span>;
     <span class="kw">let</span> <span class="ident">leftover</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;ƙℓ₥ñôƥ9řƨ&quot;</span>;
-    <span class="kw">let</span>(_, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">tag_hij</span>(<span class="ident">input</span>);
+    <span class="kw">let</span>(<span class="kw">_</span>, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">tag_hij</span>(<span class="ident">input</span>);
     <span class="kw">match</span> <span class="ident">res</span> {
       <span class="ident">Done</span>(<span class="ident">extra</span>, <span class="ident">output</span>) <span class="op">=&gt;</span> { <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">extra</span> <span class="op">==</span> <span class="ident">leftover</span>, <span class="string">&quot;`Parser.tag_hij` consumed leftover input. leftover: {}&quot;</span>, <span class="ident">extra</span>);
                                <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">output</span> <span class="op">==</span> <span class="ident">consumed</span>, <span class="string">&quot;`Parser.tag_hij` doesn&#39;t return the string it consumed \
@@ -964,7 +975,7 @@
     <span class="kw">let</span> <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;ïJƙℓ₥ñôƥ9řƨ&quot;</span>;
     <span class="kw">let</span> <span class="ident">consumed</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;ïJƙ&quot;</span>;
     <span class="kw">let</span> <span class="ident">leftover</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;ℓ₥ñôƥ9řƨ&quot;</span>;
-    <span class="kw">let</span>(_, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">tag_ijk</span>(<span class="ident">input</span>);
+    <span class="kw">let</span>(<span class="kw">_</span>, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">tag_ijk</span>(<span class="ident">input</span>);
     <span class="kw">match</span> <span class="ident">res</span> {
       <span class="ident">Done</span>(<span class="ident">extra</span>, <span class="ident">output</span>) <span class="op">=&gt;</span> { <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">extra</span> <span class="op">==</span> <span class="ident">leftover</span>, <span class="string">&quot;`Parser.tag_ijk` consumed leftover input. leftover: {}&quot;</span>, <span class="ident">extra</span>);
                                <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">output</span> <span class="op">==</span> <span class="ident">consumed</span>, <span class="string">&quot;`Parser.tag_ijk` doesn&#39;t return the string it consumed \
@@ -980,7 +991,7 @@
     <span class="kw">let</span> <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;áβçδèƒϱλïJƙ&quot;</span>;
     <span class="kw">let</span> <span class="ident">consumed</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;áβç&quot;</span>;
     <span class="kw">let</span> <span class="ident">leftover</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;δèƒϱλïJƙ&quot;</span>;
-    <span class="kw">let</span>(_, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">simple_call</span>(<span class="ident">input</span>);
+    <span class="kw">let</span>(<span class="kw">_</span>, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">simple_call</span>(<span class="ident">input</span>);
     <span class="kw">match</span> <span class="ident">res</span> {
       <span class="ident">Done</span>(<span class="ident">extra</span>, <span class="ident">output</span>) <span class="op">=&gt;</span> { <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">extra</span> <span class="op">==</span> <span class="ident">leftover</span>, <span class="string">&quot;`Parser.simple_call` consumed leftover input. leftover: {}&quot;</span>, <span class="ident">extra</span>);
                                <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">output</span> <span class="op">==</span> <span class="ident">consumed</span>, <span class="string">&quot;`Parser.simple_call` doesn&#39;t return the string it consumed \
@@ -1015,7 +1026,7 @@
     <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">Parser</span>::<span class="ident">new</span>();
     <span class="kw">let</span> <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;ж¥ƺáβçδèƒϱλïJƙ&quot;</span>;
     <span class="kw">let</span> <span class="ident">consumed</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="string">&quot;ж¥ƺ&quot;</span>;
-    <span class="kw">let</span>(_, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">simple_peek</span>(<span class="ident">input</span>);
+    <span class="kw">let</span>(<span class="kw">_</span>, <span class="ident">res</span>) <span class="op">=</span> <span class="ident">p</span>.<span class="ident">simple_peek</span>(<span class="ident">input</span>);
     <span class="kw">match</span> <span class="ident">res</span> {
       <span class="ident">Done</span>(<span class="ident">extra</span>, <span class="ident">output</span>) <span class="op">=&gt;</span> { <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">extra</span> <span class="op">==</span> <span class="ident">input</span>, <span class="string">&quot;`Parser.simple_peek` consumed leftover input. leftover: {}&quot;</span>, <span class="ident">extra</span>);
                                <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">output</span> <span class="op">==</span> <span class="ident">consumed</span>, <span class="string">&quot;`Parser.simple_peek` doesn&#39;t return the string it consumed \
@@ -1059,20 +1070,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

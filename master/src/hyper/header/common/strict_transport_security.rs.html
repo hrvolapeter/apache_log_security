@@ -10,8 +10,12 @@
     <title>strict_transport_security.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <script src="../../../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -349,23 +360,23 @@
                             .<span class="ident">parse</span>()
                             .<span class="ident">map</span>(<span class="ident">Directive</span>::<span class="ident">MaxAge</span>)
                     },
-                    _ <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">Directive</span>::<span class="ident">Unknown</span>)
+                    <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">Directive</span>::<span class="ident">Unknown</span>)
                 }
             })
             .<span class="ident">fold</span>(<span class="prelude-val">Ok</span>((<span class="prelude-val">None</span>, <span class="prelude-val">None</span>)), <span class="op">|</span><span class="ident">res</span>, <span class="ident">dir</span><span class="op">|</span> <span class="kw">match</span> (<span class="ident">res</span>, <span class="ident">dir</span>) {
                 (<span class="prelude-val">Ok</span>((<span class="prelude-val">None</span>, <span class="ident">sub</span>)), <span class="prelude-val">Ok</span>(<span class="ident">Directive</span>::<span class="ident">MaxAge</span>(<span class="ident">age</span>))) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="prelude-val">Some</span>(<span class="ident">age</span>), <span class="ident">sub</span>)),
                 (<span class="prelude-val">Ok</span>((<span class="ident">age</span>, <span class="prelude-val">None</span>)), <span class="prelude-val">Ok</span>(<span class="ident">Directive</span>::<span class="ident">IncludeSubdomains</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>((<span class="ident">age</span>, <span class="prelude-val">Some</span>(()))),
-                (<span class="prelude-val">Ok</span>((<span class="prelude-val">Some</span>(_), _)), <span class="prelude-val">Ok</span>(<span class="ident">Directive</span>::<span class="ident">MaxAge</span>(_))) <span class="op">|</span>
-                (<span class="prelude-val">Ok</span>((_, <span class="prelude-val">Some</span>(_))), <span class="prelude-val">Ok</span>(<span class="ident">Directive</span>::<span class="ident">IncludeSubdomains</span>)) <span class="op">|</span>
-                (_, <span class="prelude-val">Err</span>(_)) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Header</span>),
-                (<span class="ident">res</span>, _) <span class="op">=&gt;</span> <span class="ident">res</span>
+                (<span class="prelude-val">Ok</span>((<span class="prelude-val">Some</span>(<span class="kw">_</span>), <span class="kw">_</span>)), <span class="prelude-val">Ok</span>(<span class="ident">Directive</span>::<span class="ident">MaxAge</span>(<span class="kw">_</span>))) <span class="op">|</span>
+                (<span class="prelude-val">Ok</span>((<span class="kw">_</span>, <span class="prelude-val">Some</span>(<span class="kw">_</span>))), <span class="prelude-val">Ok</span>(<span class="ident">Directive</span>::<span class="ident">IncludeSubdomains</span>)) <span class="op">|</span>
+                (<span class="kw">_</span>, <span class="prelude-val">Err</span>(<span class="kw">_</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Header</span>),
+                (<span class="ident">res</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">res</span>
             })
             .<span class="ident">and_then</span>(<span class="op">|</span><span class="ident">res</span><span class="op">|</span> <span class="kw">match</span> <span class="ident">res</span> {
                 (<span class="prelude-val">Some</span>(<span class="ident">age</span>), <span class="ident">sub</span>) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">StrictTransportSecurity</span> {
                     <span class="ident">max_age</span>: <span class="ident">age</span>,
                     <span class="ident">include_subdomains</span>: <span class="ident">sub</span>.<span class="ident">is_some</span>()
                 }),
-                _ <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Header</span>)
+                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Header</span>)
             })
     }
 }
@@ -463,20 +474,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
