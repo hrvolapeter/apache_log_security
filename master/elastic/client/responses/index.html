@@ -10,11 +10,8 @@
     <title>elastic::client::responses - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
-    <script src="../../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
     
 
     
@@ -36,13 +33,6 @@
         <p class='location'>Module responses</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../../index.html'>elastic</a>::<wbr><a href='../index.html'>client</a></p><script>window.sidebarCurrent = {name: 'responses', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -61,6 +51,7 @@
                    </a>
                </span><a class='srclink' href='../../../src/elastic/client/responses/mod.rs.html#1-31' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Response types for the Elasticsearch REST API.</p>
+
 <p>All <a href="../index.html#request-builders">high-level builders</a> return one of these response types for you.
 This module also contains helpers that can be used to parse responses from a raw <a href="struct.HttpResponse.html"><code>HttpResponse</code></a>.</p>
 </div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
@@ -70,7 +61,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='mod elastic::client::responses::bulk'>bulk</a></td>
                            <td class='docblock-short'>
                                 <p>Response types for a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">bulk request</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -78,7 +68,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='mod elastic::client::responses::parse'>parse</a></td>
                            <td class='docblock-short'>
                                 <p>Utility types for response parsing.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -86,7 +75,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='mod elastic::client::responses::prelude'>prelude</a></td>
                            <td class='docblock-short'>
                                 <p>A glob import for convenience. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -94,7 +82,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='mod elastic::client::responses::search'>search</a></td>
                            <td class='docblock-short'>
                                 <p>Response types for a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">search request</a>.</p>
-
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -103,7 +90,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::AsyncHttpResponse'>AsyncHttpResponse</a></td>
                            <td class='docblock-short'>
                                 <p>A raw HTTP response that can be buffered using <code>Read</code>. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -111,7 +97,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::AsyncResponseBuilder'>AsyncResponseBuilder</a></td>
                            <td class='docblock-short'>
                                 <p>A builder for a response.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -119,7 +104,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::BulkErrorsResponse'>BulkErrorsResponse</a></td>
                            <td class='docblock-short'>
                                 <p>Response for a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">bulk request</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -127,7 +111,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::BulkResponse'>BulkResponse</a></td>
                            <td class='docblock-short'>
                                 <p>Response for a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">bulk request</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -135,7 +118,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::CommandResponse'>CommandResponse</a></td>
                            <td class='docblock-short'>
                                 <p>A standard command acknowledgement response. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -143,7 +125,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::DeleteResponse'>DeleteResponse</a></td>
                            <td class='docblock-short'>
                                 <p>Response for a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html">delete document request</a>. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -151,7 +132,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::GetResponse'>GetResponse</a></td>
                            <td class='docblock-short'>
                                 <p>Response for a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html">get document request</a>. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -159,7 +139,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::IndexResponse'>IndexResponse</a></td>
                            <td class='docblock-short'>
                                 <p>Response for an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html">index document request</a>. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -167,7 +146,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::IndicesExistsResponse'>IndicesExistsResponse</a></td>
                            <td class='docblock-short'>
                                 <p>Response for an <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/indices-exists.html">index exists request</a>. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -175,7 +153,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::IntoResponse'>IntoResponse</a></td>
                            <td class='docblock-short'>
                                 <p>A future returned by calling <code>into_response</code>. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -183,7 +160,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::PingResponse'>PingResponse</a></td>
                            <td class='docblock-short'>
                                 <p>Response for a cluster ping request. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -191,7 +167,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::SearchResponse'>SearchResponse</a></td>
                            <td class='docblock-short'>
                                 <p>Response for a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">search request</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -199,7 +174,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::Shards'>Shards</a></td>
                            <td class='docblock-short'>
                                 <p>Returned hits metadata. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -207,7 +181,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::SyncHttpResponse'>SyncHttpResponse</a></td>
                            <td class='docblock-short'>
                                 <p>A raw HTTP response that can be buffered using <code>Read</code>. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -215,7 +188,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::SyncResponseBuilder'>SyncResponseBuilder</a></td>
                            <td class='docblock-short'>
                                 <p>A builder for a response.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -223,7 +195,6 @@ This module also contains helpers that can be used to parse responses from a raw
                                   title='struct elastic::client::responses::UpdateResponse'>UpdateResponse</a></td>
                            <td class='docblock-short'>
                                 <p>Response for a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html">update document request</a>. </p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -238,22 +209,20 @@ This module also contains helpers that can be used to parse responses from a raw
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
