@@ -10,11 +10,8 @@
     <title>elastic::types::geo::shape::prelude::GeoShapeMapping - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../../main.css" id="themeStyle">
-    <script src="../../../../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../main.css">
     
 
     
@@ -36,13 +33,6 @@
         <p class='location'>Trait GeoShapeMapping</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#provided-methods">Provided Methods</a><div class="sidebar-links"><a href="#method.tree">tree</a><a href="#method.precision">precision</a><a href="#method.tree_levels">tree_levels</a><a href="#method.strategy">strategy</a><a href="#method.distance_error_pct">distance_error_pct</a><a href="#method.orientation">orientation</a><a href="#method.points_only">points_only</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../../../index.html'>elastic</a>::<wbr><a href='../../../index.html'>types</a>::<wbr><a href='../../index.html'>geo</a>::<wbr><a href='../index.html'>shape</a>::<wbr><a href='index.html'>prelude</a></p><script>window.sidebarCurrent = {name: 'GeoShapeMapping', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../../../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -69,8 +59,10 @@
 <div class='item-spacer'></div>    fn <a href='#method.orientation' class='fnname'>orientation</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../../../../elastic/types/prelude/enum.Orientation.html" title="enum elastic::types::prelude::Orientation">Orientation</a>&gt; { ... }
 <div class='item-spacer'></div>    fn <a href='#method.points_only' class='fnname'>points_only</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt; { ... }
 }</pre><div class='docblock'><p>The base requirements for mapping a <code>geo_shape</code> type.</p>
+
 <p>Custom mappings can be defined by implementing <code>GeoShapeMapping</code>.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <p>Define a custom <code>GeoShapeMapping</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -82,6 +74,7 @@
         <span class="prelude-val">Some</span>(<span class="number">2</span>)
     }
 }</pre>
+
 <p>This will produce the following mapping:</p>
 
 <pre class="rust rust-example-rendered">
@@ -118,6 +111,7 @@ Term strategy supports point types only (the <code>points_only</code> parameter 
 while <code>Recursive</code> strategy supports all shape types.</p>
 </div><h3 id='method.distance_error_pct' class='method'><span id='distance_error_pct.v' class='invisible'><code>fn <a href='#method.distance_error_pct' class='fnname'>distance_error_pct</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>&gt;</code></span></h3><div class='docblock'><p>Used as a hint to the <code>PrefixTree</code> about how precise it should be.
 Defaults to <code>0.025</code> (2.5%) with <code>0.5</code> as the maximum supported value.</p>
+
 <blockquote>
 <p>PERFORMANCE NOTE: This value will default to <code>0</code> if a <code>precision</code> or <code>tree_level</code> definition is explicitly defined.
 This guarantees spatial precision at the level defined in the mapping.
@@ -158,22 +152,20 @@ so that geo_shape queries are optimal on a point only field.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

@@ -10,11 +10,8 @@
     <title>geo::Bbox - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../dark.css">
-    <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
-    <script src="../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
     
 
     
@@ -36,13 +33,6 @@
         <p class='location'>Struct Bbox</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.xmin">xmin</a><a href="#structfield.xmax">xmax</a><a href="#structfield.ymin">ymin</a><a href="#structfield.ymax">ymax</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-PartialEq">PartialEq</a><a href="#impl-Clone">Clone</a><a href="#impl-Copy">Copy</a><a href="#impl-Debug">Debug</a><a href="#impl-Add">Add</a><a href="#impl-AddAssign">AddAssign</a><a href="#impl-Centroid%3CT%3E">Centroid&lt;T&gt;</a><a href="#impl-Contains%3CPoint%3CT%3E%3E">Contains&lt;Point&lt;T&gt;&gt;</a><a href="#impl-Contains%3CBbox%3CT%3E%3E">Contains&lt;Bbox&lt;T&gt;&gt;</a><a href="#impl-Intersects%3CBbox%3CT%3E%3E">Intersects&lt;Bbox&lt;T&gt;&gt;</a><a href="#impl-Intersects%3CPolygon%3CT%3E%3E">Intersects&lt;Polygon&lt;T&gt;&gt;</a><a href="#impl-Area%3CT%3E">Area&lt;T&gt;</a></div></div><p class='location'><a href='index.html'>geo</a></p><script>window.sidebarCurrent = {name: 'Bbox', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -135,7 +125,7 @@
 </div></div><h3 id='impl-Centroid%3CT%3E' class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class="trait" href="../geo/algorithm/centroid/trait.Centroid.html" title="trait geo::algorithm::centroid::Centroid">Centroid</a>&lt;T&gt; for <a class="struct" href="../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code><a href='#impl-Centroid%3CT%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/algorithm/centroid.rs.html#173-182' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='associatedtype.Output-1' class="type"><span id='Output.t-1' class='invisible'><code>type <a href='../geo/algorithm/centroid/trait.Centroid.html#associatedtype.Output' class="type">Output</a> = <a class="struct" href="../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt;</code></span></h4>
 <h4 id='method.centroid' class="method"><span id='centroid.v' class='invisible'><code>fn <a href='../geo/algorithm/centroid/trait.Centroid.html#tymethod.centroid' class='fnname'>centroid</a>(&amp;self) -&gt; Self::<a class="type" href="../geo/algorithm/centroid/trait.Centroid.html#associatedtype.Output" title="type geo::algorithm::centroid::Centroid::Output">Output</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/algorithm/centroid.rs.html#178-181' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>See: https://en.wikipedia.org/wiki/Centroid <a href="../geo/algorithm/centroid/trait.Centroid.html#tymethod.centroid">Read more</a></p>
+<div class='docblock'><p>See: <a href="https://en.wikipedia.org/wiki/Centroid">https://en.wikipedia.org/wiki/Centroid</a> <a href="../geo/algorithm/centroid/trait.Centroid.html#tymethod.centroid">Read more</a></p>
 </div></div><h3 id='impl-Contains%3CPoint%3CT%3E%3E' class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class="trait" href="../geo/algorithm/contains/trait.Contains.html" title="trait geo::algorithm::contains::Contains">Contains</a>&lt;<a class="struct" href="../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt;&gt; for <a class="struct" href="../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code><a href='#impl-Contains%3CPoint%3CT%3E%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/algorithm/contains.rs.html#236-242' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.contains' class="method"><span id='contains.v' class='invisible'><code>fn <a href='../geo/algorithm/contains/trait.Contains.html#tymethod.contains' class='fnname'>contains</a>(&amp;self, p: &amp;<a class="struct" href="../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt;) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/algorithm/contains.rs.html#239-241' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Checks if the geometry A is completely inside the B geometry. <a href="../geo/algorithm/contains/trait.Contains.html#tymethod.contains">Read more</a></p>
@@ -153,7 +143,7 @@
 <div class='docblock'><p>Checks if the geometry A intersects the geometry B. <a href="../geo/algorithm/intersects/trait.Intersects.html#tymethod.intersects">Read more</a></p>
 </div></div><h3 id='impl-Area%3CT%3E' class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class="trait" href="../geo/algorithm/area/trait.Area.html" title="trait geo::algorithm::area::Area">Area</a>&lt;T&gt; for <a class="struct" href="../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code><a href='#impl-Area%3CT%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/algorithm/area.rs.html#59-65' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.area' class="method"><span id='area.v' class='invisible'><code>fn <a href='../geo/algorithm/area/trait.Area.html#tymethod.area' class='fnname'>area</a>(&amp;self) -&gt; T</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/algorithm/area.rs.html#62-64' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Area of polygon. See: https://en.wikipedia.org/wiki/Polygon <a href="../geo/algorithm/area/trait.Area.html#tymethod.area">Read more</a></p>
+<div class='docblock'><p>Area of polygon. See: <a href="https://en.wikipedia.org/wiki/Polygon">https://en.wikipedia.org/wiki/Polygon</a> <a href="../geo/algorithm/area/trait.Area.html#tymethod.area">Read more</a></p>
 </div></div></section>
     <section id='search' class="content hidden"></section>
 
@@ -167,22 +157,20 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
