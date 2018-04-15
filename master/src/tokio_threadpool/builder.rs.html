@@ -10,10 +10,11 @@
     <title>builder.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -524,7 +525,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-&gt;</span> <span class="ident">Builder</span> {
         <span class="kw">let</span> <span class="ident">num_cpus</span> <span class="op">=</span> <span class="ident">num_cpus</span>::<span class="ident">get</span>();
 
-        <span class="kw">let</span> <span class="ident">new_park</span> <span class="op">=</span> <span class="ident">Box</span>::<span class="ident">new</span>(<span class="op">|</span>_: <span class="kw-2">&amp;</span><span class="ident">WorkerId</span><span class="op">|</span> {
+        <span class="kw">let</span> <span class="ident">new_park</span> <span class="op">=</span> <span class="ident">Box</span>::<span class="ident">new</span>(<span class="op">|</span><span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="ident">WorkerId</span><span class="op">|</span> {
             <span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">BoxedPark</span>::<span class="ident">new</span>(<span class="ident">DefaultPark</span>::<span class="ident">new</span>()))
                 <span class="kw">as</span> <span class="ident">BoxPark</span>
         });

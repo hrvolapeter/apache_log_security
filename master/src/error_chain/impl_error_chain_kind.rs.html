@@ -10,10 +10,11 @@
     <title>impl_error_chain_kind.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -881,7 +882,7 @@
                         }
                     )<span class="op">*</span>
 
-                    _ <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(())
+                    <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(())
                 }
             }
         }
@@ -930,7 +931,7 @@
                         }
                     )<span class="op">*</span>
 
-                    _ <span class="op">=&gt;</span> <span class="string">&quot;&quot;</span>,
+                    <span class="kw">_</span> <span class="op">=&gt;</span> <span class="string">&quot;&quot;</span>,
                 }
             }
         }
@@ -950,12 +951,12 @@
     (<span class="ident">FIND_DISPLAY_IMPL</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">item</span>:<span class="ident">ident</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">imode</span>:<span class="ident">tt</span>
         { <span class="ident">display</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">pattern</span>:<span class="ident">expr</span>) $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tail</span>:<span class="ident">tt</span> )<span class="kw-2">*</span>}
     ) <span class="op">=&gt;</span> {
-        <span class="op">|</span>_, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> ::<span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Formatter</span><span class="op">|</span> { <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">pattern</span>) }
+        <span class="op">|</span><span class="kw">_</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> ::<span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Formatter</span><span class="op">|</span> { <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">pattern</span>) }
     };
     (<span class="ident">FIND_DISPLAY_IMPL</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">item</span>:<span class="ident">ident</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">imode</span>:<span class="ident">tt</span>
         { <span class="ident">display</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">pattern</span>:<span class="ident">expr</span>, $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">exprs</span>:<span class="ident">tt</span> )<span class="kw-2">*</span>) $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tail</span>:<span class="ident">tt</span> )<span class="kw-2">*</span>}
     ) <span class="op">=&gt;</span> {
-        <span class="op">|</span>_, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> ::<span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Formatter</span><span class="op">|</span> { <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">pattern</span>, $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">exprs</span> )<span class="kw-2">*</span>) }
+        <span class="op">|</span><span class="kw">_</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> ::<span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Formatter</span><span class="op">|</span> { <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">pattern</span>, $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">exprs</span> )<span class="kw-2">*</span>) }
     };
     (<span class="ident">FIND_DISPLAY_IMPL</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">item</span>:<span class="ident">ident</span>: <span class="macro-nonterminal">$</span><span class="macro-nonterminal">imode</span>:<span class="ident">tt</span>
         { <span class="macro-nonterminal">$</span><span class="macro-nonterminal">t</span>:<span class="ident">tt</span> $( <span class="macro-nonterminal">$</span><span class="macro-nonterminal">tail</span>:<span class="ident">tt</span> )<span class="kw-2">*</span>}

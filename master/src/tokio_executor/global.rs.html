@@ -10,10 +10,11 @@
     <title>global.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -409,7 +410,7 @@
         <span class="comment">// Because we are always clearing the TLS value at the end of the</span>
         <span class="comment">// function, we can cast the reference to &#39;static which thread-local</span>
         <span class="comment">// cells require.</span>
-        <span class="kw">let</span> <span class="ident">executor</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">hide_lt</span>(<span class="ident">executor</span> <span class="kw">as</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> _ <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _) };
+        <span class="kw">let</span> <span class="ident">executor</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">hide_lt</span>(<span class="ident">executor</span> <span class="kw">as</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw">_</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>) };
 
         <span class="ident">cell</span>.<span class="ident">set</span>(<span class="prelude-val">Some</span>(<span class="ident">executor</span>));
 
