@@ -10,8 +10,11 @@
     <title>geo::algorithm::closest_point::ClosestPoint - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait ClosestPoint</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.closest_point">closest_point</a></div><a class="sidebar-title" href="#foreign-impls">Implementations on Foreign Types</a><div class="sidebar-links"><a href="#impl-ClosestPoint%3CF%3E">&amp;&#39;a C</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../index.html'>geo</a>::<wbr><a href='../index.html'>algorithm</a>::<wbr><a href='index.html'>closest_point</a></p><script>window.sidebarCurrent = {name: 'ClosestPoint', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -54,9 +64,8 @@
     fn <a href='#tymethod.closest_point' class='fnname'>closest_point</a>(&amp;self, p: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Rhs) -&gt; <a class="enum" href="../../../geo/enum.Closest.html" title="enum geo::Closest">Closest</a>&lt;F&gt;;
 }</pre><div class='docblock'><p>Find the closest point between two objects, where the other object is
 assumed to be a <code>Point</code> by default.</p>
-
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
-<p>Here&#39;s a simple example where we&#39;ve got a horizontal line which goes
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+<p>Here's a simple example where we've got a horizontal line which goes
 through <code>(-50, 0) -&gt; (50, 0)</code> and want to find the closest point to
 <code>(0, 100)</code>. If you draw it out on paper the point on the line which is
 closest to <code>(0, 100)</code> will be the origin.</p>
@@ -106,20 +115,22 @@ closest to <code>(0, 100)</code> will be the origin.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
