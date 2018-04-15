@@ -10,12 +10,8 @@
     <title>tokio::prelude::stream - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
-    <script src="../../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
     
 
     
@@ -37,13 +33,6 @@
         <p class='location'>Module stream</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../../index.html'>tokio</a>::<wbr><a href='../index.html'>prelude</a></p><script>window.sidebarCurrent = {name: 'stream', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -55,15 +44,24 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>tokio</a>::<wbr><a href='../index.html'>prelude</a>::<wbr><a class="mod" href=''>stream</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../src/futures/lib.rs.html#180' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Asynchronous streams</p>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>tokio</a>::<wbr><a href='../index.html'>prelude</a>::<wbr><a class="mod" href=''>stream</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/futures/lib.rs.html#180' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Asynchronous streams</p>
+
 <p>This module contains the <code>Stream</code> trait and a number of adaptors for this
 trait. This trait is very similar to the <code>Iterator</code> trait in the standard
 library except that it expresses the concept of blocking as well. A stream
 here is a sequential sequence of values which may take some amount of time
 in between to produce.</p>
+
 <p>A stream may request that it is blocked between values while the next value
 is calculated, and provides a way to get notified once the next value is
 ready as well.</p>
+
 <p>You can find more information/tutorials about streams <a href="https://tokio.rs/docs/getting-started/streams-and-sinks/">online at
 https://tokio.rs</a></p>
 </div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
@@ -73,7 +71,6 @@ https://tokio.rs</a></p>
                                   title='mod tokio::prelude::stream::futures_unordered'>futures_unordered</a></td>
                            <td class='docblock-short'>
                                 <p>An unbounded set of futures.</p>
-
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -83,7 +80,6 @@ https://tokio.rs</a></p>
                            <td class='docblock-short'>
                                 <p>A stream combinator which chains a computation onto values produced by a
 stream.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -92,7 +88,6 @@ stream.</p>
                            <td class='docblock-short'>
                                 <p>An adaptor for a stream of futures to execute the futures concurrently, if
 possible, delivering results as they become available.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -101,7 +96,6 @@ possible, delivering results as they become available.</p>
                            <td class='docblock-short'>
                                 <p>An adaptor for a stream of futures to execute the futures concurrently, if
 possible.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -109,7 +103,6 @@ possible.</p>
                                   title='struct tokio::prelude::stream::CatchUnwind'>CatchUnwind</a></td>
                            <td class='docblock-short'>
                                 <p>Stream for the <code>catch_unwind</code> combinator.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -117,7 +110,6 @@ possible.</p>
                                   title='struct tokio::prelude::stream::Chain'>Chain</a></td>
                            <td class='docblock-short'>
                                 <p>An adapter for chaining the output of two streams.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -125,7 +117,6 @@ possible.</p>
                                   title='struct tokio::prelude::stream::Chunks'>Chunks</a></td>
                            <td class='docblock-short'>
                                 <p>An adaptor that chunks up elements in a vector.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -133,7 +124,6 @@ possible.</p>
                                   title='struct tokio::prelude::stream::Collect'>Collect</a></td>
                            <td class='docblock-short'>
                                 <p>A future which collects all of the values of a stream into a vector.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -142,7 +132,6 @@ possible.</p>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>A stream combinator to concatenate the results of a stream into the first
 yielded item.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -151,7 +140,6 @@ yielded item.</p>
                            <td class='docblock-short'>
                                 <p>A stream combinator to concatenate the results of a stream into the first
 yielded item.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -159,7 +147,6 @@ yielded item.</p>
                                   title='struct tokio::prelude::stream::Empty'>Empty</a></td>
                            <td class='docblock-short'>
                                 <p>A stream which contains no elements.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -168,7 +155,6 @@ yielded item.</p>
                            <td class='docblock-short'>
                                 <p>A stream combinator used to filter the results of a stream and only yield
 some values.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -177,7 +163,6 @@ some values.</p>
                            <td class='docblock-short'>
                                 <p>A combinator used to filter the results of a stream and simultaneously map
 them to a different type.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -186,7 +171,6 @@ them to a different type.</p>
                            <td class='docblock-short'>
                                 <p>A combinator used to flatten a stream-of-streams into one long stream of
 elements.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -194,7 +178,6 @@ elements.</p>
                                   title='struct tokio::prelude::stream::Fold'>Fold</a></td>
                            <td class='docblock-short'>
                                 <p>A future used to collect all the results of a stream into one generic type.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -203,7 +186,6 @@ elements.</p>
                            <td class='docblock-short'>
                                 <p>A stream combinator which executes a unit closure over each item on a
 stream.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -212,7 +194,6 @@ stream.</p>
                            <td class='docblock-short'>
                                 <p>Future for the <code>Stream::forward</code> combinator, which sends a stream of values
 to a sink and then waits until the sink has fully flushed those values.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -220,15 +201,13 @@ to a sink and then waits until the sink has fully flushed those values.</p>
                                   title='struct tokio::prelude::stream::FromErr'>FromErr</a></td>
                            <td class='docblock-short'>
                                 <p>A stream combinator to change the error type of a stream.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="struct" href="struct.Fuse.html"
                                   title='struct tokio::prelude::stream::Fuse'>Fuse</a></td>
                            <td class='docblock-short'>
-                                <p>A stream which &quot;fuse&quot;s a stream once it's terminated.</p>
-
+                                <p>A stream which &quot;fuse&quot;s a stream once it&#39;s terminated.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -236,7 +215,6 @@ to a sink and then waits until the sink has fully flushed those values.</p>
                                   title='struct tokio::prelude::stream::FutureSender'>FutureSender</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>Future returned by <code>Sender::send</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -244,7 +222,6 @@ to a sink and then waits until the sink has fully flushed those values.</p>
                                   title='struct tokio::prelude::stream::FuturesOrdered'>FuturesOrdered</a></td>
                            <td class='docblock-short'>
                                 <p>An unbounded queue of futures.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -252,7 +229,6 @@ to a sink and then waits until the sink has fully flushed those values.</p>
                                   title='struct tokio::prelude::stream::FuturesUnordered'>FuturesUnordered</a></td>
                            <td class='docblock-short'>
                                 <p>An unbounded set of futures.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -260,7 +236,6 @@ to a sink and then waits until the sink has fully flushed those values.</p>
                                   title='struct tokio::prelude::stream::Inspect'>Inspect</a></td>
                            <td class='docblock-short'>
                                 <p>Do something with the items of a stream, passing it on.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -268,7 +243,6 @@ to a sink and then waits until the sink has fully flushed those values.</p>
                                   title='struct tokio::prelude::stream::InspectErr'>InspectErr</a></td>
                            <td class='docblock-short'>
                                 <p>Do something with the error of a stream, passing it on.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -276,7 +250,6 @@ to a sink and then waits until the sink has fully flushed those values.</p>
                                   title='struct tokio::prelude::stream::IterOk'>IterOk</a></td>
                            <td class='docblock-short'>
                                 <p>A stream which is just a shim over an underlying instance of <code>Iterator</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -284,7 +257,6 @@ to a sink and then waits until the sink has fully flushed those values.</p>
                                   title='struct tokio::prelude::stream::IterResult'>IterResult</a></td>
                            <td class='docblock-short'>
                                 <p>A stream which is just a shim over an underlying instance of <code>Iterator</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -292,7 +264,6 @@ to a sink and then waits until the sink has fully flushed those values.</p>
                                   title='struct tokio::prelude::stream::IterStream'>IterStream</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>A stream which is just a shim over an underlying instance of <code>Iterator</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -301,7 +272,6 @@ to a sink and then waits until the sink has fully flushed those values.</p>
                            <td class='docblock-short'>
                                 <p>A stream combinator which will change the type of a stream from one
 type to another.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -310,7 +280,6 @@ type to another.</p>
                            <td class='docblock-short'>
                                 <p>A stream combinator which will change the error type of a stream from one
 type to another.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -318,7 +287,6 @@ type to another.</p>
                                   title='struct tokio::prelude::stream::Merge'>Merge</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>An adapter for merging the output of two streams.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -326,7 +294,6 @@ type to another.</p>
                                   title='struct tokio::prelude::stream::Once'>Once</a></td>
                            <td class='docblock-short'>
                                 <p>A stream which emits single element and then EOF.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -335,7 +302,6 @@ type to another.</p>
                            <td class='docblock-short'>
                                 <p>A stream combinator which chains a computation onto errors produced by a
 stream.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -343,7 +309,6 @@ stream.</p>
                                   title='struct tokio::prelude::stream::Peekable'>Peekable</a></td>
                            <td class='docblock-short'>
                                 <p>A <code>Stream</code> that implements a <code>peek</code> method.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -351,7 +316,6 @@ stream.</p>
                                   title='struct tokio::prelude::stream::PollFn'>PollFn</a></td>
                            <td class='docblock-short'>
                                 <p>A stream which adapts a function returning <code>Poll</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -359,7 +323,6 @@ stream.</p>
                                   title='struct tokio::prelude::stream::Receiver'>Receiver</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>The receiving end of a channel which implements the <code>Stream</code> trait.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -367,7 +330,6 @@ stream.</p>
                                   title='struct tokio::prelude::stream::Repeat'>Repeat</a></td>
                            <td class='docblock-short'>
                                 <p>Stream that produces the same element repeatedly.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -376,7 +338,6 @@ stream.</p>
                            <td class='docblock-short'>
                                 <p>Error indicating a <code>SplitSink&lt;S&gt;</code> and <code>SplitStream&lt;S&gt;</code> were not two halves
 of a <code>Stream + Split</code>, and thus could not be <code>reunite</code>d.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -384,7 +345,6 @@ of a <code>Stream + Split</code>, and thus could not be <code>reunite</code>d.</
                                   title='struct tokio::prelude::stream::Select'>Select</a></td>
                            <td class='docblock-short'>
                                 <p>An adapter for merging the output of two streams.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -392,7 +352,6 @@ of a <code>Stream + Split</code>, and thus could not be <code>reunite</code>d.</
                                   title='struct tokio::prelude::stream::SendError'>SendError</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>Error type for sending, used when the receiving end of the channel is dropped</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -400,7 +359,6 @@ of a <code>Stream + Split</code>, and thus could not be <code>reunite</code>d.</
                                   title='struct tokio::prelude::stream::Sender'>Sender</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>The transmission end of a channel which is used to send values.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -408,7 +366,6 @@ of a <code>Stream + Split</code>, and thus could not be <code>reunite</code>d.</
                                   title='struct tokio::prelude::stream::Skip'>Skip</a></td>
                            <td class='docblock-short'>
                                 <p>A stream combinator which skips a number of elements before continuing.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -417,7 +374,6 @@ of a <code>Stream + Split</code>, and thus could not be <code>reunite</code>d.</
                            <td class='docblock-short'>
                                 <p>A stream combinator which skips elements of a stream while a predicate
 holds.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -425,7 +381,6 @@ holds.</p>
                                   title='struct tokio::prelude::stream::SplitSink'>SplitSink</a></td>
                            <td class='docblock-short'>
                                 <p>A <code>Sink</code> part of the split pair</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -433,7 +388,6 @@ holds.</p>
                                   title='struct tokio::prelude::stream::SplitStream'>SplitStream</a></td>
                            <td class='docblock-short'>
                                 <p>A <code>Stream</code> part of the split pair</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -441,7 +395,6 @@ holds.</p>
                                   title='struct tokio::prelude::stream::StreamFuture'>StreamFuture</a></td>
                            <td class='docblock-short'>
                                 <p>A combinator used to temporarily convert a stream into a future.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -449,7 +402,6 @@ holds.</p>
                                   title='struct tokio::prelude::stream::Take'>Take</a></td>
                            <td class='docblock-short'>
                                 <p>A stream combinator which returns a maximum number of elements.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -458,7 +410,6 @@ holds.</p>
                            <td class='docblock-short'>
                                 <p>A stream combinator which takes elements from a stream while a predicate
 holds.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -467,7 +418,6 @@ holds.</p>
                            <td class='docblock-short'>
                                 <p>A stream combinator which chains a computation onto each item produced by a
 stream.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -475,7 +425,6 @@ stream.</p>
                                   title='struct tokio::prelude::stream::Unfold'>Unfold</a></td>
                            <td class='docblock-short'>
                                 <p>A stream which creates futures, polls them and return their result</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -484,7 +433,6 @@ stream.</p>
                            <td class='docblock-short'>
                                 <p>A stream combinator which converts an asynchronous stream to a <strong>blocking
 iterator</strong>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -492,7 +440,6 @@ iterator</strong>.</p>
                                   title='struct tokio::prelude::stream::Zip'>Zip</a></td>
                            <td class='docblock-short'>
                                 <p>An adapter for merging the output of two streams.</p>
-
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -502,7 +449,6 @@ iterator</strong>.</p>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>An item returned from a merge stream, which represents an item from one or
 both of the underlying streams.</p>
-
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -511,7 +457,6 @@ both of the underlying streams.</p>
                                   title='trait tokio::prelude::stream::Stream'>Stream</a></td>
                            <td class='docblock-short'>
                                 <p>A stream of values, not all of which may have been produced yet.</p>
-
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -520,7 +465,6 @@ both of the underlying streams.</p>
                                   title='fn tokio::prelude::stream::channel'>channel</a></td>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>Creates an in-memory channel implementation of the <code>Stream</code> trait.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -528,7 +472,6 @@ both of the underlying streams.</p>
                                   title='fn tokio::prelude::stream::empty'>empty</a></td>
                            <td class='docblock-short'>
                                 <p>Creates a stream which contains no elements.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -536,7 +479,6 @@ both of the underlying streams.</p>
                                   title='fn tokio::prelude::stream::futures_ordered'>futures_ordered</a></td>
                            <td class='docblock-short'>
                                 <p>Converts a list of futures into a <code>Stream</code> of results from the futures.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -544,7 +486,6 @@ both of the underlying streams.</p>
                                   title='fn tokio::prelude::stream::futures_unordered'>futures_unordered</a></td>
                            <td class='docblock-short'>
                                 <p>Converts a list of futures into a <code>Stream</code> of results from the futures.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -553,7 +494,6 @@ both of the underlying streams.</p>
                            <td class='docblock-short'>
                                [<div class='stab deprecated'>Deprecated</div>] <p>Converts an <code>Iterator</code> over <code>Result</code>s into a <code>Stream</code> which is always ready
 to yield the next value.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -562,7 +502,6 @@ to yield the next value.</p>
                            <td class='docblock-short'>
                                 <p>Converts an <code>Iterator</code> into a <code>Stream</code> which is always ready
 to yield the next value.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -571,7 +510,6 @@ to yield the next value.</p>
                            <td class='docblock-short'>
                                 <p>Converts an <code>Iterator</code> over <code>Result</code>s into a <code>Stream</code> which is always ready
 to yield the next value.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -579,7 +517,6 @@ to yield the next value.</p>
                                   title='fn tokio::prelude::stream::once'>once</a></td>
                            <td class='docblock-short'>
                                 <p>Creates a stream of single element</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -587,7 +524,6 @@ to yield the next value.</p>
                                   title='fn tokio::prelude::stream::poll_fn'>poll_fn</a></td>
                            <td class='docblock-short'>
                                 <p>Creates a new stream wrapping around a function returning <code>Poll</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -595,7 +531,6 @@ to yield the next value.</p>
                                   title='fn tokio::prelude::stream::repeat'>repeat</a></td>
                            <td class='docblock-short'>
                                 <p>Create a stream which produces the same item repeatedly.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -603,7 +538,6 @@ to yield the next value.</p>
                                   title='fn tokio::prelude::stream::unfold'>unfold</a></td>
                            <td class='docblock-short'>
                                 <p>Creates a <code>Stream</code> from a seed and a closure returning a <code>Future</code>.</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -618,22 +552,20 @@ to yield the next value.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

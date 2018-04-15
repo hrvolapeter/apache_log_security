@@ -10,12 +10,8 @@
     <title>apache_log_security_lib::reporting::elasticsearch::IncidentLog - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
-    <script src="../../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
     
 
     
@@ -34,16 +30,9 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct IncidentLog</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.reason">reason</a><a href="#structfield.log_msg">log_msg</a><a href="#structfield.timestamp">timestamp</a></div><a class="sidebar-title" href="#synthetic-implementations">Auto Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a></div></div><p class='location'><a href='../../index.html'>apache_log_security_lib</a>::<wbr><a href='../index.html'>reporting</a>::<wbr><a href='index.html'>elasticsearch</a></p><script>window.sidebarCurrent = {name: 'IncidentLog', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct IncidentLog</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.reason">reason</a><a href="#structfield.log_msg">log_msg</a><a href="#structfield.timestamp">timestamp</a></div></div><p class='location'><a href='../../index.html'>apache_log_security_lib</a>::<wbr><a href='../index.html'>reporting</a>::<wbr><a href='index.html'>elasticsearch</a></p><script>window.sidebarCurrent = {name: 'IncidentLog', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -55,11 +44,17 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>apache_log_security_lib</a>::<wbr><a href='../index.html'>reporting</a>::<wbr><a href='index.html'>elasticsearch</a>::<wbr><a class="struct" href=''>IncidentLog</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../src/apache_log_security_lib/reporting/elasticsearch.rs.html#19-26' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct IncidentLog {
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>apache_log_security_lib</a>::<wbr><a href='../index.html'>reporting</a>::<wbr><a href='index.html'>elasticsearch</a>::<wbr><a class="struct" href=''>IncidentLog</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/apache_log_security_lib/reporting/elasticsearch.rs.html#19-26' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct IncidentLog {
     pub reason: &amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>,
     pub log_msg: <a class="struct" href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html" title="struct alloc::string::String">String</a>,
     pub timestamp: <a class="struct" href="../../../elastic_types/date/impls/struct.Date.html" title="struct elastic_types::date::impls::Date">Date</a>&lt;<a class="struct" href="../../../elastic_types/date/mapping/struct.DefaultDateMapping.html" title="struct elastic_types::date::mapping::DefaultDateMapping">DefaultDateMapping</a>&lt;<a class="struct" href="../../../elastic_types/date/formats/struct.ChronoFormat.html" title="struct elastic_types::date::formats::ChronoFormat">ChronoFormat</a>&gt;&gt;,
-}</pre></div><h2 id='fields' class='fields small-section-header'>
+}</pre><h2 id='fields' class='fields small-section-header'>
                        Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.reason" class="structfield small-section-header">
                            <a href="#structfield.reason" class="anchor field"></a>
                            <span id="reason.v" class='invisible'>
@@ -75,12 +70,7 @@
                            <span id="timestamp.v" class='invisible'>
                            <code>timestamp: <a class="struct" href="../../../elastic_types/date/impls/struct.Date.html" title="struct elastic_types::date::impls::Date">Date</a>&lt;<a class="struct" href="../../../elastic_types/date/mapping/struct.DefaultDateMapping.html" title="struct elastic_types::date::mapping::DefaultDateMapping">DefaultDateMapping</a>&lt;<a class="struct" href="../../../elastic_types/date/formats/struct.ChronoFormat.html" title="struct elastic_types::date::formats::ChronoFormat">ChronoFormat</a>&gt;&gt;</code>
                            </span></span><div class='docblock'><p>Time when incident was reported</p>
-</div>
-                <h2 id='synthetic-implementations' class='small-section-header'>
-                  Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
-                </h2>
-                <div id='synthetic-implementations-list'>
-            <h3 id='impl-Send' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="../../../apache_log_security_lib/reporting/elasticsearch/struct.IncidentLog.html" title="struct apache_log_security_lib::reporting::elasticsearch::IncidentLog">IncidentLog</a></code><a href='#impl-Send' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../../../apache_log_security_lib/reporting/elasticsearch/struct.IncidentLog.html" title="struct apache_log_security_lib::reporting::elasticsearch::IncidentLog">IncidentLog</a></code><a href='#impl-Sync' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div></div></section>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -93,22 +83,20 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
