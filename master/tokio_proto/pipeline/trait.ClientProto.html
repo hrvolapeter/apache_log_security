@@ -55,11 +55,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>tokio_proto</a>::<wbr><a href='index.html'>pipeline</a>::<wbr><a class="trait" href=''>ClientProto</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../src/tokio_proto/simple/pipeline/client.rs.html#23-51' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait ClientProto&lt;T:&nbsp;'static&gt;: 'static {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>tokio_proto</a>::<wbr><a href='index.html'>pipeline</a>::<wbr><a class="trait" href=''>ClientProto</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/tokio_proto/simple/pipeline/client.rs.html#23-51' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait ClientProto&lt;T:&nbsp;'static&gt;: 'static {
     type <a href='#associatedtype.Request' class="type">Request</a>: 'static;
     type <a href='#associatedtype.Response' class="type">Response</a>: 'static;
     type <a href='#associatedtype.Transport' class="type">Transport</a>: 'static + <a class="trait" href="../../futures/stream/trait.Stream.html" title="trait futures::stream::Stream">Stream</a>&lt;Item = Self::<a class="type" href="../../tokio_proto/pipeline/trait.ClientProto.html#associatedtype.Response" title="type tokio_proto::pipeline::ClientProto::Response">Response</a>, Error = <a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">Error</a>&gt; + <a class="trait" href="../../futures/sink/trait.Sink.html" title="trait futures::sink::Sink">Sink</a>&lt;SinkItem = Self::<a class="type" href="../../tokio_proto/pipeline/trait.ClientProto.html#associatedtype.Request" title="type tokio_proto::pipeline::ClientProto::Request">Request</a>, SinkError = <a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">Error</a>&gt;;

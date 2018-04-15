@@ -55,11 +55,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>nom</a>::<wbr><a class="trait" href=''>Producer</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../src/nom/stream.rs.html#66-91' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait Producer&lt;'b, I, M:&nbsp;'b&gt; {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>nom</a>::<wbr><a class="trait" href=''>Producer</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/nom/stream.rs.html#66-91' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait Producer&lt;'b, I, M:&nbsp;'b&gt; {
     fn <a href='#tymethod.apply' class='fnname'>apply</a>&lt;'a, O, E&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;'b mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;consumer: &amp;'a mut <a class="trait" href="../nom/trait.Consumer.html" title="trait nom::Consumer">Consumer</a>&lt;I, O, E, M&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;) -&gt; &amp;'a <a class="enum" href="../nom/enum.ConsumerState.html" title="enum nom::ConsumerState">ConsumerState</a>&lt;O, E, M&gt;;
 
     fn <a href='#method.run' class='fnname'>run</a>&lt;'a: 'b, O, E:&nbsp;'b&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;'b mut self, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;consumer: &amp;'a mut <a class="trait" href="../nom/trait.Consumer.html" title="trait nom::Consumer">Consumer</a>&lt;I, O, E, M&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>O&gt; { ... }

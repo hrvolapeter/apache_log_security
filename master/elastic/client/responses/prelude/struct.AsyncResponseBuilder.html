@@ -55,11 +55,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>responses</a>::<wbr><a href='index.html'>prelude</a>::<wbr><a class="struct" href=''>AsyncResponseBuilder</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#17-20' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct AsyncResponseBuilder { /* fields omitted */ }</pre></div><div class='docblock'><p>A builder for a response.</p>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>responses</a>::<wbr><a href='index.html'>prelude</a>::<wbr><a class="struct" href=''>AsyncResponseBuilder</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#17-20' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct AsyncResponseBuilder { /* fields omitted */ }</pre></div><div class='docblock'><p>A builder for a response.</p>
 <p>This structure wraps the completed HTTP response but gives you options for converting it into a concrete type.
 You can also <code>Read</code> directly from the response body.</p>
 </div>
@@ -97,11 +93,6 @@ if the HTTP status code is <code>Ok</code> or <code>Err(ApiError)</code> otherwi
                    .<span class="ident">send</span>()
                    .<span class="ident">and_then</span>(<span class="op">|</span><span class="ident">response</span><span class="op">|</span> <span class="ident">response</span>.<span class="ident">into_response</span>::<span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>());</pre>
 </div></div>
-            <h2 id='implementations' class='small-section-header'>
-              Trait Implementations<a href='#implementations' class='anchor'></a>
-            </h2>
-            <div id='implementations-list'>
-        </div>
                 <h2 id='synthetic-implementations' class='small-section-header'>
                   Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
                 </h2>

@@ -55,11 +55,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>elastic_reqwest</a>::<wbr><a href='index.html'>sync</a>::<wbr><a class="trait" href=''>SyncFromResponse</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../src/elastic_reqwest/sync.rs.html#141-144' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait SyncFromResponse&lt;TResponse&gt; {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>elastic_reqwest</a>::<wbr><a href='index.html'>sync</a>::<wbr><a class="trait" href=''>SyncFromResponse</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/elastic_reqwest/sync.rs.html#141-144' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait SyncFromResponse&lt;TResponse&gt; {
     fn <a href='#tymethod.from_response' class='fnname'>from_response</a>(self, response: <a class="struct" href="../../reqwest/response/struct.Response.html" title="struct reqwest::response::Response">Response</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;TResponse, <a class="enum" href="../../elastic_reqwest/enum.Error.html" title="enum elastic_reqwest::Error">Error</a>&gt;;
 }</pre></div><div class='docblock'><p>Represents a response that can be parsed into a concrete Elasticsearch response. </p>
 </div>

@@ -55,11 +55,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>tokio</a>::<wbr><a href='../index.html'>prelude</a>::<wbr><a href='index.html'>stream</a>::<wbr><a class="struct" href=''>SplitSink</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../../src/futures/stream/split.rs.html#35' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct SplitSink&lt;S&gt;(_);</pre></div><div class='docblock'><p>A <code>Sink</code> part of the split pair</p>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='../../index.html'>tokio</a>::<wbr><a href='../index.html'>prelude</a>::<wbr><a href='index.html'>stream</a>::<wbr><a class="struct" href=''>SplitSink</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../src/futures/stream/split.rs.html#35' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct SplitSink&lt;S&gt;(_);</pre></div><div class='docblock'><p>A <code>Sink</code> part of the split pair</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
@@ -68,11 +64,10 @@
 together. Succeeds only if the <code>SplitStream&lt;S&gt;</code> and <code>SplitSink&lt;S&gt;</code> are
 a matching pair originating from the same call to <code>Stream::split</code>.</p>
 </div></div>
-            <h2 id='implementations' class='small-section-header'>
-              Trait Implementations<a href='#implementations' class='anchor'></a>
-            </h2>
-            <div id='implementations-list'>
-        <h3 id='impl-Sink' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;S&gt; <a class="trait" href="../../../tokio/prelude/trait.Sink.html" title="trait tokio::prelude::Sink">Sink</a> for <a class="struct" href="../../../tokio/prelude/stream/struct.SplitSink.html" title="struct tokio::prelude::stream::SplitSink">SplitSink</a>&lt;S&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="../../../tokio/prelude/trait.Sink.html" title="trait tokio::prelude::Sink">Sink</a>,&nbsp;</span></code><a href='#impl-Sink' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/futures/stream/split.rs.html#48-74' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='associatedtype.SinkItem' class="type"><span id='SinkItem.t' class='invisible'><code>type <a href='../../../tokio/prelude/trait.Sink.html#associatedtype.SinkItem' class="type">SinkItem</a> = &lt;S as <a class="trait" href="../../../tokio/prelude/trait.Sink.html" title="trait tokio::prelude::Sink">Sink</a>&gt;::<a class="type" href="../../../tokio/prelude/trait.Sink.html#associatedtype.SinkItem" title="type tokio::prelude::Sink::SinkItem">SinkItem</a></code></span></h4>
+                <h2 id='implementations' class='small-section-header'>
+                  Trait Implementations<a href='#implementations' class='anchor'></a>
+                </h2>
+                <div id='implementations-list'><h3 id='impl-Sink' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;S&gt; <a class="trait" href="../../../tokio/prelude/trait.Sink.html" title="trait tokio::prelude::Sink">Sink</a> for <a class="struct" href="../../../tokio/prelude/stream/struct.SplitSink.html" title="struct tokio::prelude::stream::SplitSink">SplitSink</a>&lt;S&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="../../../tokio/prelude/trait.Sink.html" title="trait tokio::prelude::Sink">Sink</a>,&nbsp;</span></code><a href='#impl-Sink' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/futures/stream/split.rs.html#48-74' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='associatedtype.SinkItem' class="type"><span id='SinkItem.t' class='invisible'><code>type <a href='../../../tokio/prelude/trait.Sink.html#associatedtype.SinkItem' class="type">SinkItem</a> = &lt;S as <a class="trait" href="../../../tokio/prelude/trait.Sink.html" title="trait tokio::prelude::Sink">Sink</a>&gt;::<a class="type" href="../../../tokio/prelude/trait.Sink.html#associatedtype.SinkItem" title="type tokio::prelude::Sink::SinkItem">SinkItem</a></code></span></h4>
 <div class='docblock'><p>The type of value that the sink accepts.</p>
 </div><h4 id='associatedtype.SinkError' class="type"><span id='SinkError.t' class='invisible'><code>type <a href='../../../tokio/prelude/trait.Sink.html#associatedtype.SinkError' class="type">SinkError</a> = &lt;S as <a class="trait" href="../../../tokio/prelude/trait.Sink.html" title="trait tokio::prelude::Sink">Sink</a>&gt;::<a class="type" href="../../../tokio/prelude/trait.Sink.html#associatedtype.SinkError" title="type tokio::prelude::Sink::SinkError">SinkError</a></code></span></h4>
 <div class='docblock'><p>The type of value produced by the sink when an error occurs.</p>

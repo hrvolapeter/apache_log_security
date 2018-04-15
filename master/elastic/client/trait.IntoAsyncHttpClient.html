@@ -55,11 +55,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>elastic</a>::<wbr><a href='index.html'>client</a>::<wbr><a class="trait" href=''>IntoAsyncHttpClient</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../src/elastic/client/async.rs.html#154-160' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait IntoAsyncHttpClient {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>elastic</a>::<wbr><a href='index.html'>client</a>::<wbr><a class="trait" href=''>IntoAsyncHttpClient</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/elastic/client/async.rs.html#154-160' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait IntoAsyncHttpClient {
     type <a href='#associatedtype.Error' class="type">Error</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html" title="trait std::error::Error">StdError</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static;
     fn <a href='#tymethod.into_async_http_client' class='fnname'>into_async_http_client</a>(self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../../reqwest/async_impl/client/struct.Client.html" title="struct reqwest::async_impl::client::Client">AsyncHttpClient</a>, Self::<a class="type" href="../../elastic/client/trait.IntoAsyncHttpClient.html#associatedtype.Error" title="type elastic::client::IntoAsyncHttpClient::Error">Error</a>&gt;;
 }</pre></div><div class='docblock'><p>A type that can be used to construct an async http client.</p>
