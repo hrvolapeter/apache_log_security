@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.6.3/src/algorithm/contains.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.6.3/src/algorithm/contains.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>contains.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -740,7 +739,7 @@
         <span class="kw">match</span> <span class="ident">get_position</span>(<span class="ident">p</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">exterior</span>) {
             <span class="ident">PositionPoint</span>::<span class="ident">OnBoundary</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>,
             <span class="ident">PositionPoint</span>::<span class="ident">Outside</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>,
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="self">self</span>.<span class="ident">interiors</span>.<span class="ident">iter</span>().<span class="ident">all</span>(<span class="op">|</span><span class="ident">ls</span><span class="op">|</span> <span class="ident">get_position</span>(<span class="ident">p</span>, <span class="ident">ls</span>) <span class="op">==</span> <span class="ident">PositionPoint</span>::<span class="ident">Outside</span>),
+            _ <span class="op">=&gt;</span> <span class="self">self</span>.<span class="ident">interiors</span>.<span class="ident">iter</span>().<span class="ident">all</span>(<span class="op">|</span><span class="ident">ls</span><span class="op">|</span> <span class="ident">get_position</span>(<span class="ident">p</span>, <span class="ident">ls</span>) <span class="op">==</span> <span class="ident">PositionPoint</span>::<span class="ident">Outside</span>),
         }
     }
 }

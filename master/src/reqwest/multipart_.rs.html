@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/reqwest-0.8.5/src/multipart_.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/reqwest-0.8.5/src/multipart_.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>multipart_.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -599,7 +598,7 @@
                     <span class="comment">// obvious dependency in the code.</span>
                     <span class="ident">length</span> <span class="op">+=</span> <span class="number">2</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">boundary</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u64</span> <span class="op">+</span> <span class="number">2</span> <span class="op">+</span> <span class="ident">header_length</span> <span class="kw">as</span> <span class="ident">u64</span> <span class="op">+</span> <span class="number">4</span> <span class="op">+</span> <span class="ident">value_length</span> <span class="op">+</span> <span class="number">2</span>
                 }
-                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">None</span>,
+                _ <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">None</span>,
             }
         }
         <span class="comment">// If there is a at least one field there is a special boundary for the very last field.</span>

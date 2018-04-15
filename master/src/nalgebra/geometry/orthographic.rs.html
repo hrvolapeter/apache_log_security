@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nalgebra-0.14.1/src/geometry/orthographic.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/nalgebra-0.14.1/src/geometry/orthographic.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>orthographic.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -682,7 +681,7 @@
             <span class="ident">left</span> <span class="op">&lt;</span> <span class="ident">right</span>,
             <span class="string">&quot;The left corner must be farther than the right corner.&quot;</span>
         );
-        <span class="self">self</span>.<span class="ident">matrix</span>[(<span class="number">0</span>, <span class="number">0</span>)] <span class="op">=</span> ::<span class="ident">convert</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">N</span><span class="op">&gt;</span>(<span class="number">2.0</span>) <span class="op">/</span> (<span class="ident">right</span> <span class="op">-</span> <span class="ident">left</span>);
+        <span class="self">self</span>.<span class="ident">matrix</span>[(<span class="number">0</span>, <span class="number">0</span>)] <span class="op">=</span> ::<span class="ident">convert</span>::<span class="op">&lt;</span>_, <span class="ident">N</span><span class="op">&gt;</span>(<span class="number">2.0</span>) <span class="op">/</span> (<span class="ident">right</span> <span class="op">-</span> <span class="ident">left</span>);
         <span class="self">self</span>.<span class="ident">matrix</span>[(<span class="number">0</span>, <span class="number">3</span>)] <span class="op">=</span> <span class="op">-</span>(<span class="ident">right</span> <span class="op">+</span> <span class="ident">left</span>) <span class="op">/</span> (<span class="ident">right</span> <span class="op">-</span> <span class="ident">left</span>);
     }
 
@@ -693,7 +692,7 @@
             <span class="ident">bottom</span> <span class="op">&lt;</span> <span class="ident">top</span>,
             <span class="string">&quot;The top corner must be higher than the bottom corner.&quot;</span>
         );
-        <span class="self">self</span>.<span class="ident">matrix</span>[(<span class="number">1</span>, <span class="number">1</span>)] <span class="op">=</span> ::<span class="ident">convert</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">N</span><span class="op">&gt;</span>(<span class="number">2.0</span>) <span class="op">/</span> (<span class="ident">top</span> <span class="op">-</span> <span class="ident">bottom</span>);
+        <span class="self">self</span>.<span class="ident">matrix</span>[(<span class="number">1</span>, <span class="number">1</span>)] <span class="op">=</span> ::<span class="ident">convert</span>::<span class="op">&lt;</span>_, <span class="ident">N</span><span class="op">&gt;</span>(<span class="number">2.0</span>) <span class="op">/</span> (<span class="ident">top</span> <span class="op">-</span> <span class="ident">bottom</span>);
         <span class="self">self</span>.<span class="ident">matrix</span>[(<span class="number">1</span>, <span class="number">3</span>)] <span class="op">=</span> <span class="op">-</span>(<span class="ident">top</span> <span class="op">+</span> <span class="ident">bottom</span>) <span class="op">/</span> (<span class="ident">top</span> <span class="op">-</span> <span class="ident">bottom</span>);
     }
 
@@ -704,7 +703,7 @@
             <span class="op">!</span><span class="macro">relative_eq</span><span class="macro">!</span>(<span class="ident">zfar</span> <span class="op">-</span> <span class="ident">znear</span>, <span class="ident">N</span>::<span class="ident">zero</span>()),
             <span class="string">&quot;The near-plane and far-plane must not be superimposed.&quot;</span>
         );
-        <span class="self">self</span>.<span class="ident">matrix</span>[(<span class="number">2</span>, <span class="number">2</span>)] <span class="op">=</span> <span class="op">-</span>::<span class="ident">convert</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">N</span><span class="op">&gt;</span>(<span class="number">2.0</span>) <span class="op">/</span> (<span class="ident">zfar</span> <span class="op">-</span> <span class="ident">znear</span>);
+        <span class="self">self</span>.<span class="ident">matrix</span>[(<span class="number">2</span>, <span class="number">2</span>)] <span class="op">=</span> <span class="op">-</span>::<span class="ident">convert</span>::<span class="op">&lt;</span>_, <span class="ident">N</span><span class="op">&gt;</span>(<span class="number">2.0</span>) <span class="op">/</span> (<span class="ident">zfar</span> <span class="op">-</span> <span class="ident">znear</span>);
         <span class="self">self</span>.<span class="ident">matrix</span>[(<span class="number">2</span>, <span class="number">3</span>)] <span class="op">=</span> <span class="op">-</span>(<span class="ident">zfar</span> <span class="op">+</span> <span class="ident">znear</span>) <span class="op">/</span> (<span class="ident">zfar</span> <span class="op">-</span> <span class="ident">znear</span>);
     }
 }

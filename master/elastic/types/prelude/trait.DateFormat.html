@@ -10,11 +10,10 @@
     <title>elastic::types::prelude::DateFormat - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -55,15 +54,17 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>elastic</a>::<wbr><a href='../index.html'>types</a>::<wbr><a href='index.html'>prelude</a>::<wbr><a class="trait" href=''>DateFormat</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>elastic</a>::<wbr><a href='../index.html'>types</a>::<wbr><a href='index.html'>prelude</a>::<wbr><a class="trait" href=''>DateFormat</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/elastic_types/date/format.rs.html#189-205' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait DateFormat: <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> {
+               </span><a class='srclink' href='../../../src/elastic_types/date/format.rs.html#189-205' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait DateFormat: <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> {
     fn <a href='#tymethod.parse' class='fnname'>parse</a>(date: &amp;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../../../elastic/types/prelude/struct.DateValue.html" title="struct elastic::types::prelude::DateValue">DateValue</a>, <a class="struct" href="../../../elastic/types/prelude/struct.ParseError.html" title="struct elastic::types::prelude::ParseError">ParseError</a>&gt;;
 <div class='item-spacer'></div>    fn <a href='#tymethod.format' class='fnname'>format</a>(date: &amp;'a <a class="struct" href="../../../elastic/types/prelude/struct.DateValue.html" title="struct elastic::types::prelude::DateValue">DateValue</a>) -&gt; <a class="struct" href="../../../elastic/types/prelude/struct.FormattedDate.html" title="struct elastic::types::prelude::FormattedDate">FormattedDate</a>&lt;'a&gt;;
 <div class='item-spacer'></div>    fn <a href='#tymethod.name' class='fnname'>name</a>() -&gt; &amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>;
-}</pre></div><div class='docblock'><p>A format used for parsing and formatting dates.</p>
+}</pre><div class='docblock'><p>A format used for parsing and formatting dates.</p>
 <p>The format is specified as two functions: <code>parse</code> and <code>format</code>.
 A general <code>DateValue</code> is used as an intermediate value passed as input and produced as output for formatting.</p>
 <h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
@@ -99,11 +100,11 @@ and must contain a valid <a href="http://www.joda.org/joda-time/apidocs/org/joda
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><table class='table-display'><tbody><tr><td><code>impl DateFormat for <a class="struct" href="../../../elastic/types/prelude/struct.BasicDateTimeNoMillis.html" title="struct elastic::types::prelude::BasicDateTimeNoMillis">BasicDateTimeNoMillis</a></code><td><div class='out-of-band'><a class='srclink' href='../../../src/elastic_types/date/formats.rs.html#19' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
-<li><table class='table-display'><tbody><tr><td><code>impl DateFormat for <a class="struct" href="../../../elastic/types/prelude/struct.ChronoFormat.html" title="struct elastic::types::prelude::ChronoFormat">ChronoFormat</a></code><td><div class='out-of-band'><a class='srclink' href='../../../src/elastic_types/date/formats.rs.html#9' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
-<li><table class='table-display'><tbody><tr><td><code>impl DateFormat for <a class="struct" href="../../../elastic/types/prelude/struct.EpochMillis.html" title="struct elastic::types::prelude::EpochMillis">EpochMillis</a></code><td><div class='out-of-band'><a class='srclink' href='../../../src/elastic_types/date/formats.rs.html#45-76' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
-<li><table class='table-display'><tbody><tr><td><code>impl DateFormat for <a class="struct" href="../../../elastic/types/prelude/struct.BasicDateTime.html" title="struct elastic::types::prelude::BasicDateTime">BasicDateTime</a></code><td><div class='out-of-band'><a class='srclink' href='../../../src/elastic_types/date/formats.rs.html#29' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
-</ul><script type="text/javascript">window.inlined_types=new Set([]);</script><script type="text/javascript" async
+    <li><div class='out-of-band'><a class='srclink' href='../../../src/elastic_types/date/formats.rs.html#19' title='goto source code'>[src]</a></div><code>impl DateFormat for <a class="struct" href="../../../elastic/types/prelude/struct.BasicDateTimeNoMillis.html" title="struct elastic::types::prelude::BasicDateTimeNoMillis">BasicDateTimeNoMillis</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/elastic_types/date/formats.rs.html#9' title='goto source code'>[src]</a></div><code>impl DateFormat for <a class="struct" href="../../../elastic/types/prelude/struct.ChronoFormat.html" title="struct elastic::types::prelude::ChronoFormat">ChronoFormat</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/elastic_types/date/formats.rs.html#29' title='goto source code'>[src]</a></div><code>impl DateFormat for <a class="struct" href="../../../elastic/types/prelude/struct.BasicDateTime.html" title="struct elastic::types::prelude::BasicDateTime">BasicDateTime</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/elastic_types/date/formats.rs.html#45-76' title='goto source code'>[src]</a></div><code>impl DateFormat for <a class="struct" href="../../../elastic/types/prelude/struct.EpochMillis.html" title="struct elastic::types::prelude::EpochMillis">EpochMillis</a></code></li>
+</ul><script type="text/javascript" async
                          src="../../../implementors/elastic_types/date/format/trait.DateFormat.js">
                  </script></section>
     <section id='search' class="content hidden"></section>

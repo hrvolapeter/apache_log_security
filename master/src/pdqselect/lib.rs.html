@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/pdqselect-0.1.0/src/lib.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/pdqselect-0.1.0/src/lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -1383,7 +1382,7 @@
     <span class="kw">let</span> <span class="ident">len</span> <span class="op">=</span> <span class="ident">v</span>.<span class="ident">len</span>();
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">i</span> <span class="op">=</span> <span class="number">1</span>;
 
-    <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">MAX_STEPS</span> {
+    <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">MAX_STEPS</span> {
         <span class="kw">unsafe</span> {
             <span class="comment">// Find the next pair of adjacent out-of-order elements.</span>
             <span class="kw">while</span> <span class="ident">i</span> <span class="op">&lt;</span> <span class="ident">len</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="ident">is_less</span>(<span class="ident">v</span>.<span class="ident">get_unchecked</span>(<span class="ident">i</span>), <span class="ident">v</span>.<span class="ident">get_unchecked</span>(<span class="ident">i</span> <span class="op">-</span> <span class="number">1</span>)) {
@@ -1608,7 +1607,7 @@
                 <span class="kw">let</span> <span class="ident">tmp</span> <span class="op">=</span> <span class="ident">ptr</span>::<span class="ident">read</span>(<span class="macro">left</span><span class="macro">!</span>());
                 <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="macro">right</span><span class="macro">!</span>(), <span class="macro">left</span><span class="macro">!</span>(), <span class="number">1</span>);
 
-                <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">1</span>..<span class="ident">count</span> {
+                <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">1</span>..<span class="ident">count</span> {
                     <span class="ident">start_l</span> <span class="op">=</span> <span class="ident">start_l</span>.<span class="ident">offset</span>(<span class="number">1</span>);
                     <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="macro">left</span><span class="macro">!</span>(), <span class="macro">right</span><span class="macro">!</span>(), <span class="number">1</span>);
                     <span class="ident">start_r</span> <span class="op">=</span> <span class="ident">start_r</span>.<span class="ident">offset</span>(<span class="number">1</span>);
