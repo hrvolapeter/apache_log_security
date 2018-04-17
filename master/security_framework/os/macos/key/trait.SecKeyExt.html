@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../../index.html'>security_framework</a>::<wbr><a href='../../index.html'>os</a>::<wbr><a href='../index.html'>macos</a>::<wbr><a href='index.html'>key</a>::<wbr><a class="trait" href=''>SecKeyExt</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../../src/security_framework/os/macos/key.rs.html#16-19' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait SecKeyExt {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../../index.html'>security_framework</a>::<wbr><a href='../../index.html'>os</a>::<wbr><a href='../index.html'>macos</a>::<wbr><a href='index.html'>key</a>::<wbr><a class="trait" href=''>SecKeyExt</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../../src/security_framework/os/macos/key.rs.html#16-19' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait SecKeyExt {
     fn <a href='#tymethod.from_data' class='fnname'>from_data</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key_type: <a class="enum" href="../../../../security_framework/os/macos/item/enum.KeyType.html" title="enum security_framework::os::macos::item::KeyType">KeyType</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key_data: &amp;<a class="struct" href="../../../../core_foundation/data/struct.CFData.html" title="struct core_foundation::data::CFData">CFData</a><br>&nbsp;&nbsp;&nbsp;&nbsp;) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../../../../security_framework/key/struct.SecKey.html" title="struct security_framework::key::SecKey">SecKey</a>, <a class="struct" href="../../../../core_foundation/error/struct.CFError.html" title="struct core_foundation::error::CFError">CFError</a>&gt;;
 }</pre></div><div class='docblock'><p>An extension trait adding OSX specific functionality to <code>SecKey</code>.</p>
 </div>

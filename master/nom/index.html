@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>nom</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/nom/lib.rs.html#1-491' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>nom, eating data byte by byte</p>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>nom</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/nom/lib.rs.html#1-491' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>nom, eating data byte by byte</p>
 <p>nom is a parser combinator library with a focus on safe parsing,
 streaming patterns, and as much as possible zero copy.</p>
 <p>The code is available on <a href="https://github.com/Geal/nom">Github</a></p>
@@ -528,7 +532,7 @@ middle of a byte throws away the bits until the end of the byte.</p>
                            <td><a class="macro" href="macro.char.html"
                                   title='macro nom::char'>char</a></td>
                            <td class='docblock-short'>
-                                <p>matches one character: `char!(char) =&gt; &amp;<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html" title="u8">u8</a> -&gt; IResult&lt;&amp;<a href="https://doc.rust-lang.org/nightly/std/primitive.u8.html" title="u8">u8</a>, char&gt;</p>
+                                <p>matches one character: `char!(char) =&gt; &amp;[u8] -&gt; IResult&lt;&amp;[u8], char&gt;</p>
 
                            </td>
                        </tr>

@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>tokio_executor</a>::<wbr><a href='index.html'>park</a>::<wbr><a class="trait" href=''>Park</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/tokio_executor/park.rs.html#58-104' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait Park {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>tokio_executor</a>::<wbr><a href='index.html'>park</a>::<wbr><a class="trait" href=''>Park</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/tokio_executor/park.rs.html#58-104' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait Park {
     type <a href='#associatedtype.Unpark' class="type">Unpark</a>: <a class="trait" href="../../tokio_executor/park/trait.Unpark.html" title="trait tokio_executor::park::Unpark">Unpark</a>;
     type <a href='#associatedtype.Error' class="type">Error</a>;
     fn <a href='#tymethod.unpark' class='fnname'>unpark</a>(&amp;self) -&gt; Self::<a class="type" href="../../tokio_executor/park/trait.Park.html#associatedtype.Unpark" title="type tokio_executor::park::Park::Unpark">Unpark</a>;

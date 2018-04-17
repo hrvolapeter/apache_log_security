@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>reqwest</a>::<wbr><a class="trait" href=''>IntoUrl</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/reqwest/into_url.rs.html#8' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait IntoUrl: PolyfillTryInto { }</pre></div><div class='docblock'><p>A trait to try to convert some type into a <code>Url</code>.</p>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>reqwest</a>::<wbr><a class="trait" href=''>IntoUrl</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/reqwest/into_url.rs.html#8' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait IntoUrl: PolyfillTryInto { }</pre></div><div class='docblock'><p>A trait to try to convert some type into a <code>Url</code>.</p>
 <p>This trait is &quot;sealed&quot;, such that only types within reqwest can
 implement it. The reason is that it will eventually be deprecated
 and removed, when <code>std::convert::TryFrom</code> is stabilized.</p>

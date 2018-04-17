@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>spade</a>::<wbr><a class="trait" href=''>SpatialObject</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/spade/traits.rs.html#48-68' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait SpatialObject {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>spade</a>::<wbr><a class="trait" href=''>SpatialObject</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/spade/traits.rs.html#48-68' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait SpatialObject {
     type <a href='#associatedtype.Point' class="type">Point</a>: <a class="trait" href="../spade/trait.PointN.html" title="trait spade::PointN">PointN</a>;
     fn <a href='#tymethod.mbr' class='fnname'>mbr</a>(&amp;self) -&gt; <a class="struct" href="../spade/struct.BoundingRect.html" title="struct spade::BoundingRect">BoundingRect</a>&lt;Self::<a class="type" href="../spade/trait.SpatialObject.html#associatedtype.Point" title="type spade::SpatialObject::Point">Point</a>&gt;;
 <div class='item-spacer'></div>    fn <a href='#tymethod.distance2' class='fnname'>distance2</a>(&amp;self, point: &amp;Self::<a class="type" href="../spade/trait.SpatialObject.html#associatedtype.Point" title="type spade::SpatialObject::Point">Point</a>) -&gt; &lt;Self::<a class="type" href="../spade/trait.SpatialObject.html#associatedtype.Point" title="type spade::SpatialObject::Point">Point</a> as <a class="trait" href="../spade/trait.PointN.html" title="trait spade::PointN">PointN</a>&gt;::<a class="type" href="../spade/trait.PointN.html#associatedtype.Scalar" title="type spade::PointN::Scalar">Scalar</a>;

@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>rayon</a>::<wbr><a href='../index.html'>iter</a>::<wbr><a href='index.html'>plumbing</a>::<wbr><a class="trait" href=''>Reducer</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../src/rayon/iter/plumbing/mod.rs.html#199-203' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait Reducer&lt;Result&gt; {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>rayon</a>::<wbr><a href='../index.html'>iter</a>::<wbr><a href='index.html'>plumbing</a>::<wbr><a class="trait" href=''>Reducer</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/rayon/iter/plumbing/mod.rs.html#199-203' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait Reducer&lt;Result&gt; {
     fn <a href='#tymethod.reduce' class='fnname'>reduce</a>(self, left: Result, right: Result) -&gt; Result;
 }</pre></div><div class='docblock'><p>The reducer is the final step of a <code>Consumer</code> -- after a consumer
 has been split into two parts, and each of those parts has been

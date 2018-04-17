@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>rayon</a>::<wbr><a href='index.html'>iter</a>::<wbr><a class="trait" href=''>ParallelExtend</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/rayon/iter/mod.rs.html#2096-2113' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait ParallelExtend&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,&nbsp;</span>{
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>rayon</a>::<wbr><a href='index.html'>iter</a>::<wbr><a class="trait" href=''>ParallelExtend</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/rayon/iter/mod.rs.html#2096-2113' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait ParallelExtend&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,&nbsp;</span>{
     fn <a href='#tymethod.par_extend' class='fnname'>par_extend</a>&lt;I&gt;(&amp;mut self, par_iter: I)<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I: <a class="trait" href="../../rayon/iter/trait.IntoParallelIterator.html" title="trait rayon::iter::IntoParallelIterator">IntoParallelIterator</a>&lt;Item = T&gt;</span>;
 }</pre></div><div class='docblock'><p><code>ParallelExtend</code> extends an existing collection with items from a <a href="trait.ParallelIterator.html"><code>ParallelIterator</code></a>.</p>
 <h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
