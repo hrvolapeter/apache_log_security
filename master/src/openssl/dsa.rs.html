@@ -10,10 +10,11 @@
     <title>dsa.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -404,7 +405,7 @@
             <span class="kw">if</span> <span class="ident">p</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
-                <span class="prelude-val">Some</span>(<span class="ident">BigNumRef</span>::<span class="ident">from_ptr</span>(<span class="ident">p</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _))
+                <span class="prelude-val">Some</span>(<span class="ident">BigNumRef</span>::<span class="ident">from_ptr</span>(<span class="ident">p</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>))
             }
         }
     }
@@ -416,7 +417,7 @@
             <span class="kw">if</span> <span class="ident">q</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
-                <span class="prelude-val">Some</span>(<span class="ident">BigNumRef</span>::<span class="ident">from_ptr</span>(<span class="ident">q</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _))
+                <span class="prelude-val">Some</span>(<span class="ident">BigNumRef</span>::<span class="ident">from_ptr</span>(<span class="ident">q</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>))
             }
         }
     }
@@ -428,7 +429,7 @@
             <span class="kw">if</span> <span class="ident">g</span>.<span class="ident">is_null</span>() {
                 <span class="prelude-val">None</span>
             } <span class="kw">else</span> {
-                <span class="prelude-val">Some</span>(<span class="ident">BigNumRef</span>::<span class="ident">from_ptr</span>(<span class="ident">g</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _))
+                <span class="prelude-val">Some</span>(<span class="ident">BigNumRef</span>::<span class="ident">from_ptr</span>(<span class="ident">g</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>))
             }
         }
     }
@@ -489,7 +490,7 @@
         <span class="kw">let</span> <span class="ident">mem_bio</span> <span class="op">=</span> <span class="ident">MemBioSlice</span>::<span class="ident">new</span>(<span class="ident">buf</span>)<span class="question-mark">?</span>;
 
         <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">cb_ptr</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">cb</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _ <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>;
+            <span class="kw">let</span> <span class="ident">cb_ptr</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">cb</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>;
             <span class="kw">let</span> <span class="ident">dsa</span> <span class="op">=</span> <span class="ident">cvt_p</span>(<span class="ident">ffi</span>::<span class="ident">PEM_read_bio_DSAPrivateKey</span>(
                 <span class="ident">mem_bio</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">ptr</span>::<span class="ident">null_mut</span>(),

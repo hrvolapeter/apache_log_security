@@ -10,10 +10,11 @@
     <title>field.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -195,7 +196,7 @@ Individual implementations of `Serialize` for `DocumentField` are spread through
     <span class="ident">TMapping</span>: <span class="ident">FieldMapping</span><span class="op">&lt;</span><span class="ident">TPivot</span><span class="op">&gt;</span>,
     <span class="ident">TPivot</span>: <span class="ident">Default</span>,
 {
-    <span class="kw">fn</span> <span class="ident">from</span>(_: <span class="ident">TMapping</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="kw">_</span>: <span class="ident">TMapping</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="ident">DocumentField</span>::<span class="op">&lt;</span><span class="ident">TMapping</span>, <span class="ident">TPivot</span><span class="op">&gt;</span>::<span class="ident">default</span>()
     }
 }
