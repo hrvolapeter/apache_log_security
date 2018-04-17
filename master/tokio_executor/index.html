@@ -55,16 +55,12 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>tokio_executor</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../src/tokio_executor/lib.rs.html#1-219' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Task execution related traits and utilities.</p>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>tokio_executor</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/tokio_executor/lib.rs.html#1-219' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Task execution related traits and utilities.</p>
 <p>In the Tokio execution model, futures are lazy. When a future is created, no
 work is performed. In order for the work defined by the future to happen,
 the future must be submitted to an executor. A future that is submitted to
 an executor is called a &quot;task&quot;.</p>
-<p>The executor is responsible for ensuring that [<code>Future::poll</code>] is called
+<p>The executor is responsible for ensuring that <a href="../futures/future/trait.Future.html#tymethod.poll" title="`Future::poll`"><code>Future::poll</code></a> is called
 whenever the task is [notified]. Notification happens when the internal
 state of a task transitions from &quot;not ready&quot; to ready. For example, a socket
 might have received data and a call to <code>read</code> will now be able to succeed.</p>

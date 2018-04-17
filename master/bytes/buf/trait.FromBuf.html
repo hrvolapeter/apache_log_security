@@ -55,11 +55,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>bytes</a>::<wbr><a href='index.html'>buf</a>::<wbr><a class="trait" href=''>FromBuf</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../src/bytes/buf/from_buf.rs.html#68-87' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait FromBuf {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>bytes</a>::<wbr><a href='index.html'>buf</a>::<wbr><a class="trait" href=''>FromBuf</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/bytes/buf/from_buf.rs.html#68-87' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait FromBuf {
     fn <a href='#tymethod.from_buf' class='fnname'>from_buf</a>&lt;T&gt;(buf: T) -&gt; Self<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../bytes/buf/trait.IntoBuf.html" title="trait bytes::buf::IntoBuf">IntoBuf</a></span>;
 }</pre></div><div class='docblock'><p>Conversion from a <a href="trait.Buf.html"><code>Buf</code></a></p>
 <p>Implementing <code>FromBuf</code> for a type defines how it is created from a buffer.

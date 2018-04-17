@@ -55,11 +55,7 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>alga</a>::<wbr><a href='index.html'>general</a>::<wbr><a class="trait" href=''>AbstractLoop</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../src/alga/general/one_operator.rs.html#149' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait AbstractLoop&lt;O:&nbsp;<a class="trait" href="../../alga/general/trait.Operator.html" title="trait alga::general::Operator">Operator</a>&gt;: <a class="trait" href="../../alga/general/trait.AbstractQuasigroup.html" title="trait alga::general::AbstractQuasigroup">AbstractQuasigroup</a>&lt;O&gt; + <a class="trait" href="../../alga/general/trait.Identity.html" title="trait alga::general::Identity">Identity</a>&lt;O&gt; { }</pre></div><div class='docblock'><p>A quasigroup with an unique identity element.</p>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>alga</a>::<wbr><a href='index.html'>general</a>::<wbr><a class="trait" href=''>AbstractLoop</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/alga/general/one_operator.rs.html#149' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait AbstractLoop&lt;O:&nbsp;<a class="trait" href="../../alga/general/trait.Operator.html" title="trait alga::general::Operator">Operator</a>&gt;: <a class="trait" href="../../alga/general/trait.AbstractQuasigroup.html" title="trait alga::general::AbstractQuasigroup">AbstractQuasigroup</a>&lt;O&gt; + <a class="trait" href="../../alga/general/trait.Identity.html" title="trait alga::general::Identity">Identity</a>&lt;O&gt; { }</pre></div><div class='docblock'><p>A quasigroup with an unique identity element.</p>
 <p>The left inverse <code>r</code> and right inverse <code>l</code> are not required to be equal.
 The following property is added to the quasigroup structure:</p>
 <pre><code class="language-notrust">∃ e ∈ Self, ∀ a ∈ Self, ∃ r, l ∈ Self such that l ∘ a = a ∘ r = e
