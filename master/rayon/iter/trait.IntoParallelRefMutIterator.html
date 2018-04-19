@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>rayon</a>::<wbr><a href='index.html'>iter</a>::<wbr><a class="trait" href=''>IntoParallelRefMutIterator</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/rayon/iter/mod.rs.html#264-284' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait IntoParallelRefMutIterator&lt;'data&gt; {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>rayon</a>::<wbr><a href='index.html'>iter</a>::<wbr><a class="trait" href=''>IntoParallelRefMutIterator</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/rayon/iter/mod.rs.html#264-284' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait IntoParallelRefMutIterator&lt;'data&gt; {
     type <a href='#associatedtype.Iter' class="type">Iter</a>: <a class="trait" href="../../rayon/iter/trait.ParallelIterator.html" title="trait rayon::iter::ParallelIterator">ParallelIterator</a>&lt;Item = Self::<a class="type" href="../../rayon/iter/trait.IntoParallelRefMutIterator.html#associatedtype.Item" title="type rayon::iter::IntoParallelRefMutIterator::Item">Item</a>&gt;;
     type <a href='#associatedtype.Item' class="type">Item</a>: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'data;
     fn <a href='#tymethod.par_iter_mut' class='fnname'>par_iter_mut</a>(&amp;'data mut self) -&gt; Self::<a class="type" href="../../rayon/iter/trait.IntoParallelRefMutIterator.html#associatedtype.Iter" title="type rayon::iter::IntoParallelRefMutIterator::Iter">Iter</a>;

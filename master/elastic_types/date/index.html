@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>elastic_types</a>::<wbr><a class="mod" href=''>date</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/elastic_types/date/mod.rs.html#1-142' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Implementation of the Elasticsearch <code>date</code> type.</p>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>elastic_types</a>::<wbr><a class="mod" href=''>date</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/elastic_types/date/mod.rs.html#1-142' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Implementation of the Elasticsearch <code>date</code> type.</p>
 <p>Dates in Elasticsearch are exposed as a formatted <code>string</code> which can contain a <code>date</code> and/or a <code>time</code> component.</p>
 <p>All dates used by <code>elastic_types</code> are expected to be given in <code>Utc</code>, and if no time is supplied, then 12:00am will be used instead.
 Where performance is paramount, the <code>EpochMillis</code> date format will parse and format dates the fastest.</p>

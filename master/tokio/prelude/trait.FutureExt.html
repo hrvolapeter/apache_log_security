@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>tokio</a>::<wbr><a href='index.html'>prelude</a>::<wbr><a class="trait" href=''>FutureExt</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/tokio/util/future.rs.html#21-59' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait FutureExt: <a class="trait" href="../../tokio/prelude/future/trait.Future.html" title="trait tokio::prelude::future::Future">Future</a> {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>tokio</a>::<wbr><a href='index.html'>prelude</a>::<wbr><a class="trait" href=''>FutureExt</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/tokio/util/future.rs.html#21-59' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait FutureExt: <a class="trait" href="../../tokio/prelude/future/trait.Future.html" title="trait tokio::prelude::future::Future">Future</a> {
     fn <a href='#method.deadline' class='fnname'>deadline</a>(self, deadline: <a class="struct" href="https://doc.rust-lang.org/nightly/std/time/struct.Instant.html" title="struct std::time::Instant">Instant</a>) -&gt; <a class="struct" href="../../tokio/timer/struct.Deadline.html" title="struct tokio::timer::Deadline">Deadline</a>&lt;Self&gt;<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Self: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a></span>,
     { ... }
 }</pre></div><div class='docblock'><p>An extension trait for <code>Future</code> that provides a variety of convenient

@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>mio</a>::<wbr><a class="struct" href=''>Events</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/mio/poll.rs.html#1265-1267' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct Events { /* fields omitted */ }</pre></div><div class='docblock'><p>A collection of readiness events.</p>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>mio</a>::<wbr><a class="struct" href=''>Events</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/mio/poll.rs.html#1265-1267' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct Events { /* fields omitted */ }</pre></div><div class='docblock'><p>A collection of readiness events.</p>
 <p><code>Events</code> is passed as an argument to <a href="struct.Poll.html#method.poll"><code>Poll::poll</code></a> and will be used to
 receive any new readiness events received since the last poll. Usually, a
 single <code>Events</code> instance is created at the same time as a <a href="struct.Poll.html"><code>Poll</code></a> and
@@ -141,10 +145,11 @@ reused on each call to <a href="struct.Poll.html#method.poll"><code>Poll::poll</
     }
 }</pre>
 </div></div>
-                <h2 id='implementations' class='small-section-header'>
-                  Trait Implementations<a href='#implementations' class='anchor'></a>
-                </h2>
-                <div id='implementations-list'><h3 id='impl-IntoIterator' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.IntoIterator.html" title="trait core::iter::traits::IntoIterator">IntoIterator</a> for &amp;'a <a class="struct" href="../mio/struct.Events.html" title="struct mio::Events">Events</a></code><a href='#impl-IntoIterator' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/mio/poll.rs.html#1469-1476' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='associatedtype.Item' class="type"><span id='Item.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/iter/traits/trait.IntoIterator.html#associatedtype.Item' class="type">Item</a> = <a class="struct" href="../mio/event/struct.Event.html" title="struct mio::event::Event">Event</a></code></span></h4>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+            <div id='implementations-list'>
+        <h3 id='impl-IntoIterator' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/iter/traits/trait.IntoIterator.html" title="trait core::iter::traits::IntoIterator">IntoIterator</a> for &amp;'a <a class="struct" href="../mio/struct.Events.html" title="struct mio::Events">Events</a></code><a href='#impl-IntoIterator' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/mio/poll.rs.html#1469-1476' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='associatedtype.Item' class="type"><span id='Item.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/iter/traits/trait.IntoIterator.html#associatedtype.Item' class="type">Item</a> = <a class="struct" href="../mio/event/struct.Event.html" title="struct mio::event::Event">Event</a></code></span></h4>
 <div class='docblock'><p>The type of the elements being iterated over.</p>
 </div><h4 id='associatedtype.IntoIter' class="type"><span id='IntoIter.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/iter/traits/trait.IntoIterator.html#associatedtype.IntoIter' class="type">IntoIter</a> = <a class="struct" href="../mio/event/struct.Iter.html" title="struct mio::event::Iter">Iter</a>&lt;'a&gt;</code></span></h4>
 <div class='docblock'><p>Which kind of iterator are we turning this into?</p>

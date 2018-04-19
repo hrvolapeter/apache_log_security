@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>lettre</a>::<wbr><a class="trait" href=''>EmailTransport</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/lettre/lib.rs.html#77-80' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait EmailTransport&lt;'a, U:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html" title="trait std::io::Read">Read</a> + 'a, V&gt; {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>lettre</a>::<wbr><a class="trait" href=''>EmailTransport</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/lettre/lib.rs.html#77-80' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait EmailTransport&lt;'a, U:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/std/io/trait.Read.html" title="trait std::io::Read">Read</a> + 'a, V&gt; {
     fn <a href='#tymethod.send' class='fnname'>send</a>&lt;T:&nbsp;<a class="trait" href="../lettre/trait.SendableEmail.html" title="trait lettre::SendableEmail">SendableEmail</a>&lt;'a, U&gt; + 'a&gt;(&amp;mut self, email: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;'a </a>T) -&gt; V;
 }</pre></div><div class='docblock'><p>Transport method for emails</p>
 </div>

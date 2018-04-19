@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>alga</a>::<wbr><a href='index.html'>linear</a>::<wbr><a class="trait" href=''>InnerSpace</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/alga/linear/vector.rs.html#42-70' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait InnerSpace: <a class="trait" href="../../alga/linear/trait.NormedSpace.html" title="trait alga::linear::NormedSpace">NormedSpace</a>&lt;Field = Self::<a class="type" href="../../alga/linear/trait.InnerSpace.html#associatedtype.Real" title="type alga::linear::InnerSpace::Real">Real</a>&gt; {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>alga</a>::<wbr><a href='index.html'>linear</a>::<wbr><a class="trait" href=''>InnerSpace</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/alga/linear/vector.rs.html#42-70' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait InnerSpace: <a class="trait" href="../../alga/linear/trait.NormedSpace.html" title="trait alga::linear::NormedSpace">NormedSpace</a>&lt;Field = Self::<a class="type" href="../../alga/linear/trait.InnerSpace.html#associatedtype.Real" title="type alga::linear::InnerSpace::Real">Real</a>&gt; {
     type <a href='#associatedtype.Real' class="type">Real</a>: <a class="trait" href="../../alga/general/trait.Real.html" title="trait alga::general::Real">Real</a>;
     fn <a href='#tymethod.inner_product' class='fnname'>inner_product</a>(&amp;self, other: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self) -&gt; Self::<a class="type" href="../../alga/linear/trait.InnerSpace.html#associatedtype.Real" title="type alga::linear::InnerSpace::Real">Real</a>;
 

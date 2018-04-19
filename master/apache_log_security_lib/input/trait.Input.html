@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>apache_log_security_lib</a>::<wbr><a href='index.html'>input</a>::<wbr><a class="trait" href=''>Input</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/apache_log_security_lib/input/mod.rs.html#11-13' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait Input: <a class="trait" href="../../serde/de/trait.DeserializeOwned.html" title="trait serde::de::DeserializeOwned">DeserializeOwned</a> {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>apache_log_security_lib</a>::<wbr><a href='index.html'>input</a>::<wbr><a class="trait" href=''>Input</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/apache_log_security_lib/input/mod.rs.html#11-13' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait Input: <a class="trait" href="../../serde/de/trait.DeserializeOwned.html" title="trait serde::de::DeserializeOwned">DeserializeOwned</a> {
     fn <a href='#tymethod.get_logs' class='fnname'>get_logs</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="trait" href="../../apache_log_security_lib/analyses/trait.Analysable.html" title="trait apache_log_security_lib::analyses::Analysable">Analysable</a>&gt;&gt;, <a class="enum" href="../../apache_log_security_lib/error/enum.InputErr.html" title="enum apache_log_security_lib::error::InputErr">InputErr</a>&gt;;
 }</pre></div><div class='docblock'><p>All new log sources must implement this trait. It allows to use the new source to get logs.</p>
 </div>

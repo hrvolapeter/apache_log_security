@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>cgmath</a>::<wbr><a class="trait" href=''>MetricSpace</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/cgmath/structure.rs.html#184-199' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait MetricSpace: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>cgmath</a>::<wbr><a class="trait" href=''>MetricSpace</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/cgmath/structure.rs.html#184-199' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait MetricSpace: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html" title="trait core::marker::Sized">Sized</a> {
     type <a href='#associatedtype.Metric' class="type">Metric</a>: <a class="trait" href="../cgmath/trait.BaseFloat.html" title="trait cgmath::BaseFloat">BaseFloat</a>;
     fn <a href='#tymethod.distance2' class='fnname'>distance2</a>(self, other: Self) -&gt; Self::<a class="type" href="../cgmath/prelude/trait.MetricSpace.html#associatedtype.Metric" title="type cgmath::prelude::MetricSpace::Metric">Metric</a>;
 

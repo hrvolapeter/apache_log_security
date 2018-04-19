@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>geo</a>::<wbr><a href='../index.html'>algorithm</a>::<wbr><a href='index.html'>simplifyvw</a>::<wbr><a class="trait" href=''>SimplifyVW</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../src/geo/algorithm/simplifyvw.rs.html#409-436' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait SimplifyVW&lt;T, Epsilon&nbsp;=&nbsp;T&gt; {
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>geo</a>::<wbr><a href='../index.html'>algorithm</a>::<wbr><a href='index.html'>simplifyvw</a>::<wbr><a class="trait" href=''>SimplifyVW</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/geo/algorithm/simplifyvw.rs.html#409-436' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait SimplifyVW&lt;T, Epsilon&nbsp;=&nbsp;T&gt; {
     fn <a href='#tymethod.simplifyvw' class='fnname'>simplifyvw</a>(&amp;self, epsilon: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; Self<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a></span>;
 }</pre></div><div class='docblock'><p>Simplifies a geometry.</p>
 <p>Polygons are simplified by running the algorithm on all their constituent rings.  This may

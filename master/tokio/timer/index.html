@@ -55,21 +55,25 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>tokio</a>::<wbr><a class="mod" href=''>timer</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/tokio/timer.rs.html#1-85' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Utilities for tracking time.</p>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>tokio</a>::<wbr><a class="mod" href=''>timer</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/tokio/timer.rs.html#1-85' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Utilities for tracking time.</p>
 <p>This module provides a number of types for executing code after a set period
 of time.</p>
 <ul>
 <li>
-<p><a href="../../tokio/timer/struct.Delay.html" title="Delay"><code>Delay</code></a> is a future that does no work and completes at a specific <code>Instant</code>
+<p>[<code>Delay</code>][Delay] is a future that does no work and completes at a specific <code>Instant</code>
 in time.</p>
 </li>
 <li>
-<p><a href="../../tokio/timer/struct.Interval.html" title="Interval"><code>Interval</code></a> is a stream yielding a value at a fixed period. It
+<p>[<code>Interval</code>][Interval] is a stream yielding a value at a fixed period. It
 is initialized with a <code>Duration</code> and repeatedly yields each time the
 duration elapses.</p>
 </li>
 <li>
-<p><a href="../../tokio/timer/struct.Deadline.html" title="Deadline"><code>Deadline</code></a> wraps a future, requiring that it completes before
+<p>[<code>Deadline</code>][Deadline] wraps a future, requiring that it completes before
 a specified <code>Instant</code> in time. If the future does not complete in time,
 then it is canceled and an error is returned.</p>
 </li>

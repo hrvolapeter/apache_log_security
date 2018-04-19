@@ -55,7 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>serde_json</a>::<wbr><a href='index.html'>error</a>::<wbr><a class="struct" href=''>Error</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/serde_json/error.rs.html#21-26' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct Error { /* fields omitted */ }</pre></div><div class='docblock'><p>This type represents all possible errors that can occur when serializing or
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>serde_json</a>::<wbr><a href='index.html'>error</a>::<wbr><a class="struct" href=''>Error</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/serde_json/error.rs.html#21-26' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct Error { /* fields omitted */ }</pre></div><div class='docblock'><p>This type represents all possible errors that can occur when serializing or
 deserializing JSON data.</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
@@ -89,10 +93,11 @@ the input data.</p>
 <p>Callers that process streaming input may be interested in retrying the
 deserialization once more data is available.</p>
 </div></div>
-                <h2 id='implementations' class='small-section-header'>
-                  Trait Implementations<a href='#implementations' class='anchor'></a>
-                </h2>
-                <div id='implementations-list'><h3 id='impl-From%3CError%3E' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="../../serde_json/error/struct.Error.html" title="struct serde_json::error::Error">Error</a>&gt; for <a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">Error</a></code><a href='#impl-From%3CError%3E' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serde_json/error.rs.html#141-180' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.from' class="method"><span id='from.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(j: <a class="struct" href="../../serde_json/error/struct.Error.html" title="struct serde_json::error::Error">Error</a>) -&gt; Self</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serde_json/error.rs.html#169-179' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Convert a <code>serde_json::Error</code> into an <code>io::Error</code>.</p>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+            <div id='implementations-list'>
+        <h3 id='impl-From%3CError%3E' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="struct" href="../../serde_json/error/struct.Error.html" title="struct serde_json::error::Error">Error</a>&gt; for <a class="struct" href="https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html" title="struct std::io::error::Error">Error</a></code><a href='#impl-From%3CError%3E' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serde_json/error.rs.html#141-180' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.from' class="method"><span id='from.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(j: <a class="struct" href="../../serde_json/error/struct.Error.html" title="struct serde_json::error::Error">Error</a>) -&gt; Self</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/serde_json/error.rs.html#169-179' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Convert a <code>serde_json::Error</code> into an <code>io::Error</code>.</p>
 <p>JSON syntax and data errors are turned into <code>InvalidData</code> IO errors.
 EOF errors are turned into <code>UnexpectedEof</code> IO errors.</p>
 
