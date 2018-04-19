@@ -10,11 +10,10 @@
     <title>euc_jp.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -500,17 +499,17 @@
     <span class="kw">fn</span> <span class="ident">is_none</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
         <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
             <span class="ident">EucJpPending</span>::<span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="bool-val">true</span>,
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>,
+            _ <span class="op">=&gt;</span> <span class="bool-val">false</span>,
         }
     }
 
     <span class="kw">fn</span> <span class="ident">count</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">usize</span> {
         <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
             <span class="ident">EucJpPending</span>::<span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="number">0</span>,
-            <span class="ident">EucJpPending</span>::<span class="ident">Jis0208Lead</span>(<span class="kw">_</span>) <span class="op">|</span>
+            <span class="ident">EucJpPending</span>::<span class="ident">Jis0208Lead</span>(_) <span class="op">|</span>
             <span class="ident">EucJpPending</span>::<span class="ident">Jis0212Shift</span> <span class="op">|</span>
             <span class="ident">EucJpPending</span>::<span class="ident">HalfWidthKatakana</span> <span class="op">=&gt;</span> <span class="number">1</span>,
-            <span class="ident">EucJpPending</span>::<span class="ident">Jis0212Lead</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="number">2</span>,
+            <span class="ident">EucJpPending</span>::<span class="ident">Jis0212Lead</span>(_) <span class="op">=&gt;</span> <span class="number">2</span>,
         }
     }
 }

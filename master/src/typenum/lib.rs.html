@@ -10,11 +10,10 @@
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -315,7 +314,7 @@
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">assert_type_eq</span> {
     (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">a</span>:<span class="ident">ty</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span>:<span class="ident">ty</span>) <span class="op">=&gt;</span> (
-        <span class="kw">let</span> <span class="kw">_</span>: <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">a</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Same</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span><span class="op">&gt;&gt;</span>::<span class="ident">Output</span>;
+        <span class="kw">let</span> _: <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">a</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Same</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">b</span><span class="op">&gt;&gt;</span>::<span class="ident">Output</span>;
     );
 }
 
@@ -323,7 +322,7 @@
 <span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">assert_type</span> {
     (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">a</span>:<span class="ident">ty</span>) <span class="op">=&gt;</span> (
-        <span class="kw">let</span> <span class="kw">_</span>: <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">a</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Same</span><span class="op">&lt;</span><span class="ident">True</span><span class="op">&gt;&gt;</span>::<span class="ident">Output</span>;
+        <span class="kw">let</span> _: <span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">a</span> <span class="kw">as</span> <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">Same</span><span class="op">&lt;</span><span class="ident">True</span><span class="op">&gt;&gt;</span>::<span class="ident">Output</span>;
     );
 }
 </pre>

@@ -10,11 +10,10 @@
     <title>bulk.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -1331,7 +1330,7 @@ fn takes_default_response(res: BulkErrorsResponse) {
     <span class="kw">fn</span> <span class="ident">is_ok</span><span class="op">&lt;</span><span class="ident">B</span>: <span class="ident">ResponseBody</span><span class="op">&gt;</span>(<span class="ident">head</span>: <span class="ident">HttpResponseHead</span>, <span class="ident">body</span>: <span class="ident">Unbuffered</span><span class="op">&lt;</span><span class="ident">B</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">MaybeOkResponse</span><span class="op">&lt;</span><span class="ident">B</span><span class="op">&gt;</span>, <span class="ident">ParseResponseError</span><span class="op">&gt;</span> {
         <span class="kw">match</span> <span class="ident">head</span>.<span class="ident">status</span>() {
             <span class="number">200</span>...<span class="number">299</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">MaybeOkResponse</span>::<span class="ident">ok</span>(<span class="ident">body</span>)),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">MaybeOkResponse</span>::<span class="ident">err</span>(<span class="ident">body</span>)),
+            _ <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">MaybeOkResponse</span>::<span class="ident">err</span>(<span class="ident">body</span>)),
         }
     }
 }
@@ -1340,7 +1339,7 @@ fn takes_default_response(res: BulkErrorsResponse) {
     <span class="kw">fn</span> <span class="ident">is_ok</span><span class="op">&lt;</span><span class="ident">B</span>: <span class="ident">ResponseBody</span><span class="op">&gt;</span>(<span class="ident">head</span>: <span class="ident">HttpResponseHead</span>, <span class="ident">body</span>: <span class="ident">Unbuffered</span><span class="op">&lt;</span><span class="ident">B</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">MaybeOkResponse</span><span class="op">&lt;</span><span class="ident">B</span><span class="op">&gt;</span>, <span class="ident">ParseResponseError</span><span class="op">&gt;</span> {
         <span class="kw">match</span> <span class="ident">head</span>.<span class="ident">status</span>() {
             <span class="number">200</span>...<span class="number">299</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">MaybeOkResponse</span>::<span class="ident">ok</span>(<span class="ident">body</span>)),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">MaybeOkResponse</span>::<span class="ident">err</span>(<span class="ident">body</span>)),
+            _ <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">MaybeOkResponse</span>::<span class="ident">err</span>(<span class="ident">body</span>)),
         }
     }
 }
@@ -1489,7 +1488,7 @@ fn takes_default_response(res: BulkErrorsResponse) {
         {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">values</span> <span class="op">=</span> <span class="ident">Vec</span>::<span class="ident">with_capacity</span>(<span class="ident">cmp</span>::<span class="ident">min</span>(<span class="ident">visitor</span>.<span class="ident">size_hint</span>().<span class="ident">unwrap_or</span>(<span class="number">0</span>), <span class="number">4096</span>));
 
-            <span class="kw">while</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">value</span>) <span class="op">=</span> <span class="ident">visitor</span>.<span class="ident">next_element</span>::<span class="op">&lt;</span><span class="ident">ItemDe</span><span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span><span class="op">&gt;&gt;</span>()<span class="question-mark">?</span> {
+            <span class="kw">while</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">value</span>) <span class="op">=</span> <span class="ident">visitor</span>.<span class="ident">next_element</span>::<span class="op">&lt;</span><span class="ident">ItemDe</span><span class="op">&lt;</span>_, _, _<span class="op">&gt;&gt;</span>()<span class="question-mark">?</span> {
                 <span class="ident">values</span>.<span class="ident">push</span>(<span class="ident">value</span>.<span class="ident">into_result</span>());
             }
 
@@ -1540,7 +1539,7 @@ fn takes_default_response(res: BulkErrorsResponse) {
         {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">values</span> <span class="op">=</span> <span class="ident">Vec</span>::<span class="ident">with_capacity</span>(<span class="ident">cmp</span>::<span class="ident">min</span>(<span class="ident">visitor</span>.<span class="ident">size_hint</span>().<span class="ident">unwrap_or</span>(<span class="number">0</span>), <span class="number">4096</span>));
 
-            <span class="kw">while</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">value</span>) <span class="op">=</span> <span class="ident">visitor</span>.<span class="ident">next_element</span>::<span class="op">&lt;</span><span class="ident">ItemDe</span><span class="op">&lt;</span><span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span><span class="op">&gt;&gt;</span>()<span class="question-mark">?</span> {
+            <span class="kw">while</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">value</span>) <span class="op">=</span> <span class="ident">visitor</span>.<span class="ident">next_element</span>::<span class="op">&lt;</span><span class="ident">ItemDe</span><span class="op">&lt;</span>_, _, _<span class="op">&gt;&gt;</span>()<span class="question-mark">?</span> {
                 <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">value</span>) <span class="op">=</span> <span class="ident">value</span>.<span class="ident">into_err</span>() {
                     <span class="ident">values</span>.<span class="ident">push</span>(<span class="ident">value</span>);
                 }

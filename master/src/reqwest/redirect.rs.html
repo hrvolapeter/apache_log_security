@@ -10,11 +10,10 @@
     <title>redirect.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -573,7 +572,7 @@ where F: Fn(&amp;Url, &amp;[Url]) -&gt; ::Result&lt;bool&gt; {
     <span class="kw">let</span> <span class="ident">next</span> <span class="op">=</span> <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="string">&quot;http://x.y/z&quot;</span>).<span class="ident">unwrap</span>();
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">previous</span> <span class="op">=</span> (<span class="number">0</span>..<span class="number">9</span>)
         .<span class="ident">map</span>(<span class="op">|</span><span class="ident">i</span><span class="op">|</span> <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="kw-2">&amp;</span><span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;http://a.b/c/{}&quot;</span>, <span class="ident">i</span>)).<span class="ident">unwrap</span>())
-        .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;&gt;</span>();
+        .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;&gt;</span>();
 
 
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">check_redirect</span>(<span class="kw-2">&amp;</span><span class="ident">policy</span>, <span class="kw-2">&amp;</span><span class="ident">next</span>, <span class="kw-2">&amp;</span><span class="ident">previous</span>), <span class="ident">Action</span>::<span class="ident">Follow</span>);

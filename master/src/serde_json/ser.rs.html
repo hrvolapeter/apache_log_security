@@ -10,11 +10,10 @@
     <title>ser.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -2321,7 +2320,7 @@
                         .<span class="ident">map_err</span>(<span class="ident">Error</span>::<span class="ident">io</span>)
                 );
             }
-            <span class="kw">_</span> <span class="op">=&gt;</span> {
+            _ <span class="op">=&gt;</span> {
                 <span class="macro">try</span><span class="macro">!</span>(
                     <span class="self">self</span>.<span class="ident">formatter</span>
                         .<span class="ident">write_f32</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">writer</span>, <span class="ident">value</span>)
@@ -2342,7 +2341,7 @@
                         .<span class="ident">map_err</span>(<span class="ident">Error</span>::<span class="ident">io</span>)
                 );
             }
-            <span class="kw">_</span> <span class="op">=&gt;</span> {
+            _ <span class="op">=&gt;</span> {
                 <span class="macro">try</span><span class="macro">!</span>(
                     <span class="self">self</span>.<span class="ident">formatter</span>
                         .<span class="ident">write_f64</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">writer</span>, <span class="ident">value</span>)
@@ -2749,7 +2748,7 @@
             <span class="ident">Compound</span>::<span class="ident">Map</span> { <span class="ident">ser</span>, <span class="ident">state</span> } <span class="op">=&gt;</span> {
                 <span class="kw">match</span> <span class="ident">state</span> {
                     <span class="ident">State</span>::<span class="ident">Empty</span> <span class="op">=&gt;</span> {}
-                    <span class="kw">_</span> <span class="op">=&gt;</span> {
+                    _ <span class="op">=&gt;</span> {
                         <span class="macro">try</span><span class="macro">!</span>(
                             <span class="ident">ser</span>.<span class="ident">formatter</span>
                                .<span class="ident">end_array</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ser</span>.<span class="ident">writer</span>)
@@ -2831,7 +2830,7 @@
             <span class="ident">Compound</span>::<span class="ident">Map</span> { <span class="ident">ser</span>, <span class="ident">state</span> } <span class="op">=&gt;</span> {
                 <span class="kw">match</span> <span class="ident">state</span> {
                     <span class="ident">State</span>::<span class="ident">Empty</span> <span class="op">=&gt;</span> {}
-                    <span class="kw">_</span> <span class="op">=&gt;</span> {
+                    _ <span class="op">=&gt;</span> {
                         <span class="macro">try</span><span class="macro">!</span>(
                             <span class="ident">ser</span>.<span class="ident">formatter</span>
                                .<span class="ident">end_array</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ser</span>.<span class="ident">writer</span>)
@@ -2924,7 +2923,7 @@
             <span class="ident">Compound</span>::<span class="ident">Map</span> { <span class="ident">ser</span>, <span class="ident">state</span> } <span class="op">=&gt;</span> {
                 <span class="kw">match</span> <span class="ident">state</span> {
                     <span class="ident">State</span>::<span class="ident">Empty</span> <span class="op">=&gt;</span> {}
-                    <span class="kw">_</span> <span class="op">=&gt;</span> {
+                    _ <span class="op">=&gt;</span> {
                         <span class="macro">try</span><span class="macro">!</span>(
                             <span class="ident">ser</span>.<span class="ident">formatter</span>
                                .<span class="ident">end_object</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ser</span>.<span class="ident">writer</span>)
@@ -3006,7 +3005,7 @@
             <span class="ident">Compound</span>::<span class="ident">Map</span> { <span class="ident">ser</span>, <span class="ident">state</span> } <span class="op">=&gt;</span> {
                 <span class="kw">match</span> <span class="ident">state</span> {
                     <span class="ident">State</span>::<span class="ident">Empty</span> <span class="op">=&gt;</span> {}
-                    <span class="kw">_</span> <span class="op">=&gt;</span> {
+                    _ <span class="op">=&gt;</span> {
                         <span class="macro">try</span><span class="macro">!</span>(
                             <span class="ident">ser</span>.<span class="ident">formatter</span>
                                .<span class="ident">end_object</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ser</span>.<span class="ident">writer</span>)
@@ -3556,7 +3555,7 @@
             <span class="self">self</span>::<span class="ident">QU</span> <span class="op">=&gt;</span> <span class="ident">CharEscape</span>::<span class="ident">Quote</span>,
             <span class="self">self</span>::<span class="ident">BS</span> <span class="op">=&gt;</span> <span class="ident">CharEscape</span>::<span class="ident">ReverseSolidus</span>,
             <span class="self">self</span>::<span class="ident">U</span> <span class="op">=&gt;</span> <span class="ident">CharEscape</span>::<span class="ident">AsciiControl</span>(<span class="ident">byte</span>),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
         }
     }
 }
@@ -3593,7 +3592,7 @@
     <span class="kw">where</span>
         <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
     {
-        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
+        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Writes an integer value like `-123` to the specified writer.</span>
@@ -3602,7 +3601,7 @@
     <span class="kw">where</span>
         <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
     {
-        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
+        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Writes an integer value like `-123` to the specified writer.</span>
@@ -3611,7 +3610,7 @@
     <span class="kw">where</span>
         <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
     {
-        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
+        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Writes an integer value like `-123` to the specified writer.</span>
@@ -3620,7 +3619,7 @@
     <span class="kw">where</span>
         <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
     {
-        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
+        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Writes an integer value like `123` to the specified writer.</span>
@@ -3629,7 +3628,7 @@
     <span class="kw">where</span>
         <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
     {
-        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
+        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Writes an integer value like `123` to the specified writer.</span>
@@ -3638,7 +3637,7 @@
     <span class="kw">where</span>
         <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
     {
-        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
+        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Writes an integer value like `123` to the specified writer.</span>
@@ -3647,7 +3646,7 @@
     <span class="kw">where</span>
         <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
     {
-        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
+        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Writes an integer value like `123` to the specified writer.</span>
@@ -3656,7 +3655,7 @@
     <span class="kw">where</span>
         <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
     {
-        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
+        <span class="ident">itoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Writes a floating point value like `-31.26e+12` to the specified writer.</span>
@@ -3665,7 +3664,7 @@
     <span class="kw">where</span>
         <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
     {
-        <span class="ident">dtoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
+        <span class="ident">dtoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Writes a floating point value like `-31.26e+12` to the specified writer.</span>
@@ -3674,7 +3673,7 @@
     <span class="kw">where</span>
         <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
     {
-        <span class="ident">dtoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
+        <span class="ident">dtoa</span>::<span class="ident">write</span>(<span class="ident">writer</span>, <span class="ident">value</span>).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
     }
 
     <span class="doccomment">/// Writes a number that has already been rendered to a string.</span>
@@ -4194,7 +4193,7 @@
 <span class="kw">where</span>
     <span class="ident">W</span>: <span class="ident">io</span>::<span class="ident">Write</span>,
 {
-    <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">n</span> {
+    <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">n</span> {
         <span class="macro">try</span><span class="macro">!</span>(<span class="ident">wr</span>.<span class="ident">write_all</span>(<span class="ident">s</span>));
     }
 

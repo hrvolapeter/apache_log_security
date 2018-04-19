@@ -10,11 +10,10 @@
     <title>import_export.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -449,32 +448,32 @@
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">items</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[];
 
             <span class="kw">for</span> <span class="ident">raw_item</span> <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">raw_items</span> {
-                <span class="kw">let</span> <span class="ident">raw_item</span> <span class="op">=</span> <span class="ident">CFDictionary</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">raw_item</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
+                <span class="kw">let</span> <span class="ident">raw_item</span> <span class="op">=</span> <span class="ident">CFDictionary</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">raw_item</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _);
                 <span class="kw">let</span> <span class="ident">label</span> <span class="op">=</span>
                     <span class="ident">raw_item</span>
-                        .<span class="ident">find</span>(<span class="ident">kSecImportItemLabel</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
-                        .<span class="ident">map</span>(<span class="op">|</span><span class="ident">label</span><span class="op">|</span> <span class="ident">CFString</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">label</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>).<span class="ident">to_string</span>());
+                        .<span class="ident">find</span>(<span class="ident">kSecImportItemLabel</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
+                        .<span class="ident">map</span>(<span class="op">|</span><span class="ident">label</span><span class="op">|</span> <span class="ident">CFString</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">label</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _).<span class="ident">to_string</span>());
                 <span class="kw">let</span> <span class="ident">key_id</span> <span class="op">=</span>
                     <span class="ident">raw_item</span>
-                        .<span class="ident">find</span>(<span class="ident">kSecImportItemKeyID</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
-                        .<span class="ident">map</span>(<span class="op">|</span><span class="ident">key_id</span><span class="op">|</span> <span class="ident">CFData</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">key_id</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>).<span class="ident">to_owned</span>());
+                        .<span class="ident">find</span>(<span class="ident">kSecImportItemKeyID</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
+                        .<span class="ident">map</span>(<span class="op">|</span><span class="ident">key_id</span><span class="op">|</span> <span class="ident">CFData</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">key_id</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _).<span class="ident">to_owned</span>());
                 <span class="kw">let</span> <span class="ident">trust</span> <span class="op">=</span>
                     <span class="ident">raw_item</span>
-                        .<span class="ident">find</span>(<span class="ident">kSecImportItemTrust</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
-                        .<span class="ident">map</span>(<span class="op">|</span><span class="ident">trust</span><span class="op">|</span> <span class="ident">SecTrust</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">trust</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>));
+                        .<span class="ident">find</span>(<span class="ident">kSecImportItemTrust</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
+                        .<span class="ident">map</span>(<span class="op">|</span><span class="ident">trust</span><span class="op">|</span> <span class="ident">SecTrust</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">trust</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _));
                 <span class="kw">let</span> <span class="ident">cert_chain</span> <span class="op">=</span> <span class="ident">raw_item</span>
-                    .<span class="ident">find</span>(<span class="ident">kSecImportItemCertChain</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
+                    .<span class="ident">find</span>(<span class="ident">kSecImportItemCertChain</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
                     .<span class="ident">map</span>(<span class="op">|</span><span class="ident">cert_chain</span><span class="op">|</span> {
-                             <span class="ident">CFArray</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">cert_chain</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
+                             <span class="ident">CFArray</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">cert_chain</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
                                  .<span class="ident">iter</span>()
-                                 .<span class="ident">map</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">SecCertificate</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">c</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>))
+                                 .<span class="ident">map</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">SecCertificate</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">c</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _))
                                  .<span class="ident">collect</span>()
                          });
                 <span class="kw">let</span> <span class="ident">identity</span> <span class="op">=</span>
                     <span class="ident">raw_item</span>
-                        .<span class="ident">find</span>(<span class="ident">kSecImportItemIdentity</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span>)
+                        .<span class="ident">find</span>(<span class="ident">kSecImportItemIdentity</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _)
                         .<span class="ident">map</span>(<span class="op">|</span><span class="ident">identity</span><span class="op">|</span> {
-                                 <span class="ident">SecIdentity</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">identity</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>)
+                                 <span class="ident">SecIdentity</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">identity</span> <span class="kw">as</span> <span class="ident">usize</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _)
                              });
 
                 <span class="ident">items</span>.<span class="ident">push</span>(<span class="ident">ImportedIdentityOptions</span> {
@@ -507,7 +506,7 @@
     }
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;macos&quot;</span>))]</span>
-    <span class="kw">fn</span> <span class="ident">import_setup</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">CFString</span>, <span class="ident">CFType</span>)<span class="op">&gt;</span>) {}
+    <span class="kw">fn</span> <span class="ident">import_setup</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, _: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">CFString</span>, <span class="ident">CFType</span>)<span class="op">&gt;</span>) {}
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
