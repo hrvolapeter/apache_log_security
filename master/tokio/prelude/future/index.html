@@ -21,15 +21,6 @@ another future which completes successfully.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Collect.html"
-                                  title='struct tokio::prelude::future::Collect'>Collect</a></td>
-                           <td class='docblock-short'>
-                                <p>A future which takes a list of futures and resolves with a vector of the
-completed values.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
                            <td><a class="struct" href="struct.Empty.html"
                                   title='struct tokio::prelude::future::Empty'>Empty</a></td>
                            <td class='docblock-short'>
@@ -42,14 +33,6 @@ completed values.</p>
                                   title='struct tokio::prelude::future::ExecuteError'>ExecuteError</a></td>
                            <td class='docblock-short'>
                                 <p>Errors returned from the <code>Spawn::spawn</code> function.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="struct" href="struct.Failed.html"
-                                  title='struct tokio::prelude::future::Failed'>Failed</a></td>
-                           <td class='docblock-short'>
-                                <p>A future representing a value that is immediately ready.</p>
 
                            </td>
                        </tr>
@@ -141,6 +124,15 @@ complete.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
+                           <td><a class="struct" href="struct.JoinAll.html"
+                                  title='struct tokio::prelude::future::JoinAll'>JoinAll</a></td>
+                           <td class='docblock-short'>
+                                <p>A future which takes a list of futures and resolves with a vector of the
+completed values.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class="struct" href="struct.Lazy.html"
                                   title='struct tokio::prelude::future::Lazy'>Lazy</a></td>
                            <td class='docblock-short'>
@@ -170,6 +162,14 @@ scheduled.</p>
                                   title='struct tokio::prelude::future::MapErr'>MapErr</a></td>
                            <td class='docblock-short'>
                                 <p>Future for the <code>map_err</code> combinator, changing the error type of a future.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Ok.html"
+                                  title='struct tokio::prelude::future::Ok'>Ok</a></td>
+                           <td class='docblock-short'>
+                                <p>A future representing a value that is immediately ready.</p>
 
                            </td>
                        </tr>
@@ -333,6 +333,14 @@ available at some later point in time.</p>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
                        <tr class=' module-item'>
+                           <td><a class="fn" href="fn.done.html"
+                                  title='fn tokio::prelude::future::done'>done</a></td>
+                           <td class='docblock-short'>
+                                <p>Creates a new &quot;leaf future&quot; which will resolve with the given result.</p>
+
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
                            <td><a class="fn" href="fn.empty.html"
                                   title='fn tokio::prelude::future::empty'>empty</a></td>
                            <td class='docblock-short'>
@@ -389,14 +397,6 @@ by the closure provided.</p>
                                   title='fn tokio::prelude::future::poll_fn'>poll_fn</a></td>
                            <td class='docblock-short'>
                                 <p>Creates a new future wrapping around a function returning <code>Poll</code>.</p>
-
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class="fn" href="fn.result.html"
-                                  title='fn tokio::prelude::future::result'>result</a></td>
-                           <td class='docblock-short'>
-                                <p>Creates a new &quot;leaf future&quot; which will resolve with the given result.</p>
 
                            </td>
                        </tr>
