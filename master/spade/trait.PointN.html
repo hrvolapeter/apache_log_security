@@ -10,11 +10,8 @@
     <title>spade::PointN - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../dark.css">
-    <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
-    <script src="../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
     
 
     
@@ -36,13 +33,6 @@
         <p class='location'>Trait PointN</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#associated-types">Associated Types</a><div class="sidebar-links"><a href="#associatedtype.Scalar">Scalar</a></div><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.dimensions">dimensions</a><a href="#tymethod.from_value">from_value</a><a href="#tymethod.nth">nth</a><a href="#tymethod.nth_mut">nth_mut</a></div><a class="sidebar-title" href="#foreign-impls">Implementations on Foreign Types</a><div class="sidebar-links"><a href="#impl-PointN">[S; 2]</a><a href="#impl-PointN">[S; 3]</a><a href="#impl-PointN">[S; 4]</a><a href="#impl-PointN">Point2&lt;S&gt;</a><a href="#impl-PointN">Point3&lt;S&gt;</a><a href="#impl-PointN">Point2&lt;S&gt;</a><a href="#impl-PointN">Point3&lt;S&gt;</a><a href="#impl-PointN">Point4&lt;S&gt;</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='index.html'>spade</a></p><script>window.sidebarCurrent = {name: 'PointN', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -67,12 +57,14 @@
 <div class='item-spacer'></div>    fn <a href='#tymethod.nth' class='fnname'>nth</a>(&amp;self, index: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; &amp;Self::<a class="type" href="../spade/trait.PointN.html#associatedtype.Scalar" title="type spade::PointN::Scalar">Scalar</a>;
 <div class='item-spacer'></div>    fn <a href='#tymethod.nth_mut' class='fnname'>nth_mut</a>(&amp;mut self, index: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>) -&gt; &amp;mut Self::<a class="type" href="../spade/trait.PointN.html#associatedtype.Scalar" title="type spade::PointN::Scalar">Scalar</a>;
 }</pre><div class='docblock'><p>Abstraction over a point with a fixed number of dimensions.</p>
+
 <p>Spade will work with any point type implementing this trait, at the
 moment points of the <code>cgmath</code> and <code>nalgebra</code> crates are supported.
 Also, the trait is implemented for fixed arrays of length 2, 3 and 4, allowing
-to use spade's datastructures with fixed size arrays as point coordinates.
-That means that the trait's methods are also implemented for
+to use spade&#39;s datastructures with fixed size arrays as point coordinates.
+That means that the trait&#39;s methods are also implemented for
 these array types, thus be careful when importing <code>PointN</code>.</p>
+
 <p>Implement this if you want spade to support your own point types.
 Also, an empty implementation <code>TwoDimensional</code> or <code>ThreeDimensional</code>
 should be given if appropriate.</p>
@@ -81,7 +73,7 @@ should be given if appropriate.</p>
               Associated Types<a href='#associated-types' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='associatedtype.Scalar' class='method'><span id='Scalar.t' class='invisible'><code>type <a href='#associatedtype.Scalar' class="type">Scalar</a>: <a class="trait" href="../spade/trait.SpadeNum.html" title="trait spade::SpadeNum">SpadeNum</a></code></span></h3><div class='docblock'><p>The points's internal scalar type.</p>
+        <h3 id='associatedtype.Scalar' class='method'><span id='Scalar.t' class='invisible'><code>type <a href='#associatedtype.Scalar' class="type">Scalar</a>: <a class="trait" href="../spade/trait.SpadeNum.html" title="trait spade::SpadeNum">SpadeNum</a></code></span></h3><div class='docblock'><p>The points&#39;s internal scalar type.</p>
 </div></div>
             <h2 id='required-methods' class='small-section-header'>
               Required Methods<a href='#required-methods' class='anchor'></a>
@@ -163,22 +155,20 @@ should be given if appropriate.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

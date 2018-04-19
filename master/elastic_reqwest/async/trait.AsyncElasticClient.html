@@ -10,11 +10,8 @@
     <title>elastic_reqwest::async::AsyncElasticClient - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
-    <script src="../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
     
 
     
@@ -36,13 +33,6 @@
         <p class='location'>Trait AsyncElasticClient</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.elastic_req">elastic_req</a></div><a class="sidebar-title" href="#foreign-impls">Implementations on Foreign Types</a><div class="sidebar-links"><a href="#impl-AsyncElasticClient">Client</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../index.html'>elastic_reqwest</a>::<wbr><a href='index.html'>async</a></p><script>window.sidebarCurrent = {name: 'AsyncElasticClient', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -69,7 +59,8 @@
             </h2>
             <div class='methods'>
         <h3 id='tymethod.elastic_req' class='method'><span id='elastic_req.v' class='invisible'><code>fn <a href='#tymethod.elastic_req' class='fnname'>elastic_req</a>&lt;I, B&gt;(&amp;self, params: &amp;<a class="struct" href="../../elastic_reqwest/struct.RequestParams.html" title="struct elastic_reqwest::RequestParams">RequestParams</a>, req: I) -&gt; <a class="struct" href="../../elastic_reqwest/async/struct.Pending.html" title="struct elastic_reqwest::async::Pending">Pending</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;I: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../elastic_requests/genned/http/struct.HttpRequest.html" title="struct elastic_requests::genned::http::HttpRequest">HttpRequest</a>&lt;'static, B&gt;&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;B: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../elastic_reqwest/async/struct.AsyncBody.html" title="struct elastic_reqwest::async::AsyncBody">AsyncBody</a>&gt;,&nbsp;</span></code></span></h3><div class='docblock'><p>Send a request and get a response.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <p>Bring the <code>AsyncElasticClient</code> trait into scope and call <code>elastic_req</code> with any type that can be converted into a <code>req::HttpRequest</code>.
 This method returns a raw <code>reqwest::Response</code>.</p>
 
@@ -107,22 +98,20 @@ This method returns a raw <code>reqwest::Response</code>.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
