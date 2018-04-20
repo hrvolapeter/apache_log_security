@@ -10,10 +10,11 @@
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -5039,7 +5040,7 @@ This crate can also be used without the standard library.
         <span class="macro">assert</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">size</span> <span class="op">&lt;=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">dst</span>.<span class="ident">len</span>());
         <span class="kw">unsafe</span> {
             <span class="comment">// N.B. https://github.com/rust-lang/rust/issues/22776</span>
-            <span class="kw">let</span> <span class="ident">bytes</span> <span class="op">=</span> <span class="kw-2">*</span>(<span class="kw-2">&amp;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">n</span>.<span class="macro-nonterminal">$</span><span class="macro-nonterminal">which</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> _ <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> [<span class="ident">u8</span>; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">size</span>]);
+            <span class="kw">let</span> <span class="ident">bytes</span> <span class="op">=</span> <span class="kw-2">*</span>(<span class="kw-2">&amp;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">n</span>.<span class="macro-nonterminal">$</span><span class="macro-nonterminal">which</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="kw">_</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> [<span class="ident">u8</span>; <span class="macro-nonterminal">$</span><span class="macro-nonterminal">size</span>]);
             <span class="ident">copy_nonoverlapping</span>((<span class="kw-2">&amp;</span><span class="ident">bytes</span>).<span class="ident">as_ptr</span>(), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">dst</span>.<span class="ident">as_mut_ptr</span>(), <span class="macro-nonterminal">$</span><span class="macro-nonterminal">size</span>);
         }
     });
@@ -6371,7 +6372,7 @@ This crate can also be used without the standard library.
                 <span class="kw">fn</span> <span class="ident">big_endian</span>() {
                     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_unsafe</span>)]</span>
                     <span class="kw">fn</span> <span class="ident">prop</span>(<span class="ident">numbers</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty_int</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
-                        <span class="kw">let</span> <span class="ident">numbers</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">numbers</span>
+                        <span class="kw">let</span> <span class="ident">numbers</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">numbers</span>
                             .<span class="ident">into_iter</span>()
                             .<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>.<span class="ident">clone</span>())
                             .<span class="ident">collect</span>();
@@ -6385,14 +6386,14 @@ This crate can also be used without the standard library.
 
                         <span class="ident">numbers</span> <span class="op">==</span> <span class="ident">got</span>
                     }
-                    <span class="ident">qc_unsized</span>(<span class="ident">prop</span> <span class="kw">as</span> <span class="kw">fn</span>(_) <span class="op">-&gt;</span> <span class="ident">bool</span>);
+                    <span class="ident">qc_unsized</span>(<span class="ident">prop</span> <span class="kw">as</span> <span class="kw">fn</span>(<span class="kw">_</span>) <span class="op">-&gt;</span> <span class="ident">bool</span>);
                 }
 
                 <span class="attribute">#[<span class="ident">test</span>]</span>
                 <span class="kw">fn</span> <span class="ident">little_endian</span>() {
                     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_unsafe</span>)]</span>
                     <span class="kw">fn</span> <span class="ident">prop</span>(<span class="ident">numbers</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty_int</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
-                        <span class="kw">let</span> <span class="ident">numbers</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">numbers</span>
+                        <span class="kw">let</span> <span class="ident">numbers</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">numbers</span>
                             .<span class="ident">into_iter</span>()
                             .<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>.<span class="ident">clone</span>())
                             .<span class="ident">collect</span>();
@@ -6406,14 +6407,14 @@ This crate can also be used without the standard library.
 
                         <span class="ident">numbers</span> <span class="op">==</span> <span class="ident">got</span>
                     }
-                    <span class="ident">qc_unsized</span>(<span class="ident">prop</span> <span class="kw">as</span> <span class="kw">fn</span>(_) <span class="op">-&gt;</span> <span class="ident">bool</span>);
+                    <span class="ident">qc_unsized</span>(<span class="ident">prop</span> <span class="kw">as</span> <span class="kw">fn</span>(<span class="kw">_</span>) <span class="op">-&gt;</span> <span class="ident">bool</span>);
                 }
 
                 <span class="attribute">#[<span class="ident">test</span>]</span>
                 <span class="kw">fn</span> <span class="ident">native_endian</span>() {
                     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_unsafe</span>)]</span>
                     <span class="kw">fn</span> <span class="ident">prop</span>(<span class="ident">numbers</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty_int</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
-                        <span class="kw">let</span> <span class="ident">numbers</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">numbers</span>
+                        <span class="kw">let</span> <span class="ident">numbers</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">numbers</span>
                             .<span class="ident">into_iter</span>()
                             .<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>.<span class="ident">clone</span>())
                             .<span class="ident">collect</span>();
@@ -6427,7 +6428,7 @@ This crate can also be used without the standard library.
 
                         <span class="ident">numbers</span> <span class="op">==</span> <span class="ident">got</span>
                     }
-                    <span class="ident">qc_unsized</span>(<span class="ident">prop</span> <span class="kw">as</span> <span class="kw">fn</span>(_) <span class="op">-&gt;</span> <span class="ident">bool</span>);
+                    <span class="ident">qc_unsized</span>(<span class="ident">prop</span> <span class="kw">as</span> <span class="kw">fn</span>(<span class="kw">_</span>) <span class="op">-&gt;</span> <span class="ident">bool</span>);
                 }
             }
         }

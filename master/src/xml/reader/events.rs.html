@@ -10,10 +10,11 @@
     <title>events.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -489,7 +490,7 @@
             <span class="ident">XmlEvent</span>::<span class="ident">CData</span>(<span class="kw-2">ref</span> <span class="ident">data</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(::<span class="ident">writer</span>::<span class="ident">events</span>::<span class="ident">XmlEvent</span>::<span class="ident">CData</span>(<span class="ident">data</span>)),
             <span class="ident">XmlEvent</span>::<span class="ident">Characters</span>(<span class="kw-2">ref</span> <span class="ident">data</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(::<span class="ident">writer</span>::<span class="ident">events</span>::<span class="ident">XmlEvent</span>::<span class="ident">Characters</span>(<span class="ident">data</span>)),
             <span class="ident">XmlEvent</span>::<span class="ident">Whitespace</span>(<span class="kw-2">ref</span> <span class="ident">data</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(::<span class="ident">writer</span>::<span class="ident">events</span>::<span class="ident">XmlEvent</span>::<span class="ident">Characters</span>(<span class="ident">data</span>)),
-            _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>
         }
     }
 }
