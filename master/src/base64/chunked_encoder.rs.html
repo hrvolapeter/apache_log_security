@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.7.0/src/chunked_encoder.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.9.0/src/chunked_encoder.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>chunked_encoder.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -532,9 +533,44 @@
 <span id="476">476</span>
 <span id="477">477</span>
 <span id="478">478</span>
+<span id="479">479</span>
+<span id="480">480</span>
+<span id="481">481</span>
+<span id="482">482</span>
+<span id="483">483</span>
+<span id="484">484</span>
+<span id="485">485</span>
+<span id="486">486</span>
+<span id="487">487</span>
+<span id="488">488</span>
+<span id="489">489</span>
+<span id="490">490</span>
+<span id="491">491</span>
+<span id="492">492</span>
+<span id="493">493</span>
+<span id="494">494</span>
+<span id="495">495</span>
+<span id="496">496</span>
+<span id="497">497</span>
+<span id="498">498</span>
+<span id="499">499</span>
+<span id="500">500</span>
+<span id="501">501</span>
+<span id="502">502</span>
+<span id="503">503</span>
+<span id="504">504</span>
+<span id="505">505</span>
+<span id="506">506</span>
+<span id="507">507</span>
+<span id="508">508</span>
+<span id="509">509</span>
+<span id="510">510</span>
+<span id="511">511</span>
+<span id="512">512</span>
 </pre><pre class="rust ">
-<span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">Config</span>, <span class="ident">LineWrap</span>, <span class="ident">LineEnding</span>, <span class="ident">encode_to_slice</span>, <span class="ident">add_padding</span>};
-<span class="kw">use</span> <span class="kw">super</span>::<span class="ident">line_wrap</span>::<span class="ident">line_wrap</span>;
+<span class="kw">use</span> {<span class="ident">Config</span>, <span class="ident">LineEnding</span>, <span class="ident">LineWrap</span>};
+<span class="kw">use</span> <span class="ident">encode</span>::{<span class="ident">add_padding</span>, <span class="ident">encode_to_slice</span>};
+<span class="kw">use</span> <span class="ident">line_wrap</span>::<span class="ident">line_wrap</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">cmp</span>;
 
 <span class="doccomment">/// The output mechanism for ChunkedEncoder&#39;s encoded bytes.</span>
@@ -576,8 +612,7 @@
 
         <span class="kw">while</span> <span class="ident">input_index</span> <span class="op">&lt;</span> <span class="ident">bytes</span>.<span class="ident">len</span>() {
             <span class="comment">// either the full input chunk size, or it&#39;s the last iteration</span>
-            <span class="kw">let</span> <span class="ident">input_chunk_len</span> <span class="op">=</span> <span class="ident">cmp</span>::<span class="ident">min</span>(<span class="self">self</span>.<span class="ident">max_input_chunk_len</span>,
-                                           <span class="ident">bytes</span>.<span class="ident">len</span>() <span class="op">-</span> <span class="ident">input_index</span>);
+            <span class="kw">let</span> <span class="ident">input_chunk_len</span> <span class="op">=</span> <span class="ident">cmp</span>::<span class="ident">min</span>(<span class="self">self</span>.<span class="ident">max_input_chunk_len</span>, <span class="ident">bytes</span>.<span class="ident">len</span>() <span class="op">-</span> <span class="ident">input_index</span>);
 
             <span class="kw">let</span> <span class="ident">chunk</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">bytes</span>[<span class="ident">input_index</span>..(<span class="ident">input_index</span> <span class="op">+</span> <span class="ident">input_chunk_len</span>)];
 
@@ -613,7 +648,8 @@
                             }
                             <span class="ident">LineEnding</span>::<span class="ident">CRLF</span> <span class="op">=&gt;</span> {
                                 <span class="ident">encode_buf</span>[<span class="ident">b64_bytes_written</span> <span class="op">+</span> <span class="ident">initial_line_ending_bytes</span>] <span class="op">=</span> <span class="string">b&#39;\r&#39;</span>;
-                                <span class="ident">encode_buf</span>[<span class="ident">b64_bytes_written</span> <span class="op">+</span> <span class="ident">initial_line_ending_bytes</span> <span class="op">+</span> <span class="number">1</span>] <span class="op">=</span> <span class="string">b&#39;\n&#39;</span>;
+                                <span class="ident">encode_buf</span>[<span class="ident">b64_bytes_written</span> <span class="op">+</span> <span class="ident">initial_line_ending_bytes</span> <span class="op">+</span> <span class="number">1</span>] <span class="op">=</span>
+                                    <span class="string">b&#39;\n&#39;</span>;
                                 <span class="ident">initial_line_ending_bytes</span> <span class="op">+</span> <span class="number">2</span>
                             }
                         }
@@ -651,10 +687,11 @@
 <span class="doccomment">/// conservatively calculate space as if it should because encoding is done in chunks, and all the</span>
 <span class="doccomment">/// chunks before the last one will need a line ending after the last encoded line in that chunk.</span>
 <span class="kw">fn</span> <span class="ident">max_input_length</span>(<span class="ident">encoded_buf_len</span>: <span class="ident">usize</span>, <span class="ident">config</span>: <span class="kw-2">&amp;</span><span class="ident">Config</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">usize</span>, <span class="ident">ChunkedEncoderError</span><span class="op">&gt;</span> {
-
     <span class="kw">let</span> <span class="ident">effective_buf_len</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">config</span>.<span class="ident">pad</span> {
         <span class="comment">// make room for padding</span>
-        <span class="ident">encoded_buf_len</span>.<span class="ident">checked_sub</span>(<span class="number">2</span>).<span class="ident">expect</span>(<span class="string">&quot;Don&#39;t use a tiny buffer&quot;</span>)
+        <span class="ident">encoded_buf_len</span>
+            .<span class="ident">checked_sub</span>(<span class="number">2</span>)
+            .<span class="ident">expect</span>(<span class="string">&quot;Don&#39;t use a tiny buffer&quot;</span>)
     } <span class="kw">else</span> {
         <span class="ident">encoded_buf_len</span>
     };
@@ -670,7 +707,8 @@
                 <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ChunkedEncoderError</span>::<span class="ident">InvalidLineLength</span>);
             }
 
-            <span class="kw">let</span> <span class="ident">single_encoded_full_line_with_ending_len</span> <span class="op">=</span> <span class="ident">line_len</span>.<span class="ident">checked_add</span>(<span class="ident">line_ending</span>.<span class="ident">len</span>())
+            <span class="kw">let</span> <span class="ident">single_encoded_full_line_with_ending_len</span> <span class="op">=</span> <span class="ident">line_len</span>
+                .<span class="ident">checked_add</span>(<span class="ident">line_ending</span>.<span class="ident">len</span>())
                 .<span class="ident">expect</span>(<span class="string">&quot;Encoded line length with ending exceeds usize&quot;</span>);
 
             <span class="comment">// max number of complete lines with endings that will fit in buffer</span>
@@ -699,9 +737,11 @@
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rand</span>;
 
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw">super</span>::<span class="ident">tests</span>::<span class="ident">random_config</span>;
+    <span class="kw">use</span> ::<span class="kw-2">*</span>;
+    <span class="kw">use</span> <span class="ident">tests</span>::<span class="ident">random_config</span>;
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+
+    <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">str</span>;
 
     <span class="kw">use</span> <span class="self">self</span>::<span class="ident">rand</span>::<span class="ident">Rng</span>;
     <span class="kw">use</span> <span class="self">self</span>::<span class="ident">rand</span>::<span class="ident">distributions</span>::{<span class="ident">IndependentSample</span>, <span class="ident">Range</span>};
@@ -714,14 +754,19 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">chunked_encode_intermediate_fast_loop</span>() {
         <span class="comment">// &gt; 8 bytes input, will enter the pretty fast loop</span>
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="string">&quot;Zm9vYmFyYmF6cXV4&quot;</span>, <span class="ident">chunked_encode_str</span>(<span class="string">b&quot;foobarbazqux&quot;</span>, <span class="ident">STANDARD</span>));
+        <span class="macro">assert_eq</span><span class="macro">!</span>(
+            <span class="string">&quot;Zm9vYmFyYmF6cXV4&quot;</span>,
+            <span class="ident">chunked_encode_str</span>(<span class="string">b&quot;foobarbazqux&quot;</span>, <span class="ident">STANDARD</span>)
+        );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">chunked_encode_fast_loop</span>() {
         <span class="comment">// &gt; 32 bytes input, will enter the uber fast loop</span>
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="string">&quot;Zm9vYmFyYmF6cXV4cXV1eGNvcmdlZ3JhdWx0Z2FycGx5eg==&quot;</span>,
-            <span class="ident">chunked_encode_str</span>(<span class="string">b&quot;foobarbazquxquuxcorgegraultgarplyz&quot;</span>, <span class="ident">STANDARD</span>));
+        <span class="macro">assert_eq</span><span class="macro">!</span>(
+            <span class="string">&quot;Zm9vYmFyYmF6cXV4cXV1eGNvcmdlZ3JhdWx0Z2FycGx5eg==&quot;</span>,
+            <span class="ident">chunked_encode_str</span>(<span class="string">b&quot;foobarbazquxquuxcorgegraultgarplyz&quot;</span>, <span class="ident">STANDARD</span>)
+        );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
@@ -734,7 +779,10 @@
     <span class="kw">fn</span> <span class="ident">chunked_encode_line_wrap_padding</span>() {
         <span class="comment">// &lt; 8 bytes input, slow loop only</span>
         <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">config_wrap</span>(<span class="bool-val">true</span>, <span class="number">4</span>, <span class="ident">LineEnding</span>::<span class="ident">LF</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="string">&quot;Zm9v\nYmFy\nZm9v\nYmFy\nZg==&quot;</span>, <span class="ident">chunked_encode_str</span>(<span class="string">b&quot;foobarfoobarf&quot;</span>, <span class="ident">config</span>));
+        <span class="macro">assert_eq</span><span class="macro">!</span>(
+            <span class="string">&quot;Zm9v\nYmFy\nZm9v\nYmFy\nZg==&quot;</span>,
+            <span class="ident">chunked_encode_str</span>(<span class="string">b&quot;foobarfoobarf&quot;</span>, <span class="ident">config</span>)
+        );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
@@ -860,15 +908,21 @@
     <span class="kw">fn</span> <span class="ident">max_input_length_wrap_line_len_wont_fit_one_line_lf</span>() {
         <span class="comment">// 300 bytes is 400 encoded, + 1 for LF</span>
         <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">config_wrap</span>(<span class="bool-val">false</span>, <span class="number">400</span>, <span class="ident">LineEnding</span>::<span class="ident">LF</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">ChunkedEncoderError</span>::<span class="ident">InvalidLineLength</span>,
-            <span class="ident">max_input_length</span>(<span class="number">400</span>, <span class="kw-2">&amp;</span><span class="ident">config</span>).<span class="ident">unwrap_err</span>());
+        <span class="macro">assert_eq</span><span class="macro">!</span>(
+            <span class="ident">ChunkedEncoderError</span>::<span class="ident">InvalidLineLength</span>,
+            <span class="ident">max_input_length</span>(<span class="number">400</span>, <span class="kw-2">&amp;</span><span class="ident">config</span>).<span class="ident">unwrap_err</span>()
+        );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">max_input_length_wrap_line_len_just_fits_one_line_lf</span>() {
         <span class="comment">// 300 bytes is 400 encoded, + 1 for LF</span>
-        <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">Config</span>::<span class="ident">new</span>(<span class="ident">CharacterSet</span>::<span class="ident">Standard</span>, <span class="bool-val">false</span>, <span class="bool-val">false</span>,
-                                 <span class="ident">LineWrap</span>::<span class="ident">Wrap</span>(<span class="number">400</span>, <span class="ident">LineEnding</span>::<span class="ident">LF</span>));
+        <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">Config</span>::<span class="ident">new</span>(
+            <span class="ident">CharacterSet</span>::<span class="ident">Standard</span>,
+            <span class="bool-val">false</span>,
+            <span class="bool-val">false</span>,
+            <span class="ident">LineWrap</span>::<span class="ident">Wrap</span>(<span class="number">400</span>, <span class="ident">LineEnding</span>::<span class="ident">LF</span>),
+        );
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="number">300</span>, <span class="ident">max_input_length</span>(<span class="number">401</span>, <span class="kw-2">&amp;</span><span class="ident">config</span>).<span class="ident">unwrap</span>());
     }
 
@@ -905,7 +959,10 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">max_input_length_wrap_line_len_not_multiple_of_4_rejected</span>() {
         <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">config_wrap</span>(<span class="bool-val">false</span>, <span class="number">41</span>, <span class="ident">LineEnding</span>::<span class="ident">LF</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">ChunkedEncoderError</span>::<span class="ident">InvalidLineLength</span>, <span class="ident">max_input_length</span>(<span class="number">400</span>, <span class="kw-2">&amp;</span><span class="ident">config</span>).<span class="ident">unwrap_err</span>());
+        <span class="macro">assert_eq</span><span class="macro">!</span>(
+            <span class="ident">ChunkedEncoderError</span>::<span class="ident">InvalidLineLength</span>,
+            <span class="ident">max_input_length</span>(<span class="number">400</span>, <span class="kw-2">&amp;</span><span class="ident">config</span>).<span class="ident">unwrap_err</span>()
+        );
     }
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">chunked_encode_matches_normal_encode_random</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">SinkTestHelper</span><span class="op">&gt;</span>(<span class="ident">sink_test_helper</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>) {
@@ -915,12 +972,12 @@
         <span class="kw">let</span> <span class="ident">line_len_range</span> <span class="op">=</span> <span class="ident">Range</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">1020</span>);
         <span class="kw">let</span> <span class="ident">input_len_range</span> <span class="op">=</span> <span class="ident">Range</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">10_000</span>);
 
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">5_000</span> {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">5_000</span> {
             <span class="ident">input_buf</span>.<span class="ident">clear</span>();
             <span class="ident">output_buf</span>.<span class="ident">clear</span>();
 
             <span class="kw">let</span> <span class="ident">buf_len</span> <span class="op">=</span> <span class="ident">input_len_range</span>.<span class="ident">ind_sample</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">buf_len</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">buf_len</span> {
                 <span class="ident">input_buf</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
@@ -929,8 +986,14 @@
             <span class="kw">let</span> <span class="ident">chunk_encoded_string</span> <span class="op">=</span> <span class="ident">sink_test_helper</span>.<span class="ident">encode_to_string</span>(<span class="ident">config</span>, <span class="kw-2">&amp;</span><span class="ident">input_buf</span>);
             <span class="ident">encode_config_buf</span>(<span class="kw-2">&amp;</span><span class="ident">input_buf</span>, <span class="ident">config</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">output_buf</span>);
 
-            <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">output_buf</span>, <span class="ident">chunk_encoded_string</span>, <span class="string">&quot;input len={}, config: pad={}, wrap={:?}&quot;</span>,
-                <span class="ident">buf_len</span>, <span class="ident">config</span>.<span class="ident">pad</span>, <span class="ident">config</span>.<span class="ident">line_wrap</span>);
+            <span class="macro">assert_eq</span><span class="macro">!</span>(
+                <span class="ident">output_buf</span>,
+                <span class="ident">chunk_encoded_string</span>,
+                <span class="string">&quot;input len={}, config: pad={}, wrap={:?}&quot;</span>,
+                <span class="ident">buf_len</span>,
+                <span class="ident">config</span>.<span class="ident">pad</span>,
+                <span class="ident">config</span>.<span class="ident">line_wrap</span>
+            );
         }
     }
 
@@ -945,18 +1008,19 @@
         <span class="kw">return</span> <span class="ident">sink</span>.<span class="ident">string</span>;
     }
 
-    <span class="kw">fn</span> <span class="ident">random_config_for_chunked_encoder</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">Rng</span><span class="op">&gt;</span>(<span class="ident">rng</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">R</span>, <span class="ident">line_len_range</span>: <span class="kw-2">&amp;</span><span class="ident">Range</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">Config</span>{
+    <span class="kw">fn</span> <span class="ident">random_config_for_chunked_encoder</span><span class="op">&lt;</span><span class="ident">R</span>: <span class="ident">Rng</span><span class="op">&gt;</span>(
+        <span class="ident">rng</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">R</span>,
+        <span class="ident">line_len_range</span>: <span class="kw-2">&amp;</span><span class="ident">Range</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">Config</span> {
         <span class="kw">loop</span> {
             <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">random_config</span>(<span class="ident">rng</span>, <span class="ident">line_len_range</span>);
 
             <span class="comment">// only use a config with line_len that is divisible by 4</span>
             <span class="kw">match</span> <span class="ident">config</span>.<span class="ident">line_wrap</span> {
                 <span class="ident">LineWrap</span>::<span class="ident">NoWrap</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="ident">config</span>,
-                <span class="ident">LineWrap</span>::<span class="ident">Wrap</span>(<span class="ident">line_len</span>, _) <span class="op">=&gt;</span> {
-                    <span class="kw">if</span> <span class="ident">line_len</span> <span class="op">%</span> <span class="number">4</span> <span class="op">==</span> <span class="number">0</span> {
-                        <span class="kw">return</span> <span class="ident">config</span>;
-                    }
-                }
+                <span class="ident">LineWrap</span>::<span class="ident">Wrap</span>(<span class="ident">line_len</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="kw">if</span> <span class="ident">line_len</span> <span class="op">%</span> <span class="number">4</span> <span class="op">==</span> <span class="number">0</span> {
+                    <span class="kw">return</span> <span class="ident">config</span>;
+                },
             }
         }
     }
@@ -966,7 +1030,12 @@
     }
 
     <span class="kw">fn</span> <span class="ident">config_wrap</span>(<span class="ident">pad</span>: <span class="ident">bool</span>, <span class="ident">line_len</span>: <span class="ident">usize</span>, <span class="ident">line_ending</span>: <span class="ident">LineEnding</span>) <span class="op">-&gt;</span> <span class="ident">Config</span> {
-        <span class="ident">Config</span>::<span class="ident">new</span>(<span class="ident">CharacterSet</span>::<span class="ident">Standard</span>, <span class="ident">pad</span>, <span class="bool-val">false</span>, <span class="ident">LineWrap</span>::<span class="ident">Wrap</span>(<span class="ident">line_len</span>, <span class="ident">line_ending</span>))
+        <span class="ident">Config</span>::<span class="ident">new</span>(
+            <span class="ident">CharacterSet</span>::<span class="ident">Standard</span>,
+            <span class="ident">pad</span>,
+            <span class="bool-val">false</span>,
+            <span class="ident">LineWrap</span>::<span class="ident">Wrap</span>(<span class="ident">line_len</span>, <span class="ident">line_ending</span>),
+        )
     }
 
     <span class="comment">// An abstraction around sinks so that we can have tests that easily to any sink implementation</span>
@@ -976,13 +1045,13 @@
 
     <span class="comment">// A really simple sink that just appends to a string for testing</span>
     <span class="kw">struct</span> <span class="ident">StringSink</span> {
-        <span class="ident">string</span>: <span class="ident">String</span>
+        <span class="ident">string</span>: <span class="ident">String</span>,
     }
 
     <span class="kw">impl</span> <span class="ident">StringSink</span> {
         <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-&gt;</span> <span class="ident">StringSink</span> {
             <span class="ident">StringSink</span> {
-                <span class="ident">string</span>: <span class="ident">String</span>::<span class="ident">new</span>()
+                <span class="ident">string</span>: <span class="ident">String</span>::<span class="ident">new</span>(),
             }
         }
     }

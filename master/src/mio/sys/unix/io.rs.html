@@ -10,10 +10,11 @@
     <title>io.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -176,14 +177,14 @@
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_nonblock</span>(<span class="ident">fd</span>: <span class="ident">libc</span>::<span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">io</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
     <span class="kw">unsafe</span> {
         <span class="kw">let</span> <span class="ident">flags</span> <span class="op">=</span> <span class="ident">libc</span>::<span class="ident">fcntl</span>(<span class="ident">fd</span>, <span class="ident">libc</span>::<span class="ident">F_GETFL</span>);
-        <span class="ident">cvt</span>(<span class="ident">libc</span>::<span class="ident">fcntl</span>(<span class="ident">fd</span>, <span class="ident">libc</span>::<span class="ident">F_SETFL</span>, <span class="ident">flags</span> <span class="op">|</span> <span class="ident">libc</span>::<span class="ident">O_NONBLOCK</span>)).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span>())
+        <span class="ident">cvt</span>(<span class="ident">libc</span>::<span class="ident">fcntl</span>(<span class="ident">fd</span>, <span class="ident">libc</span>::<span class="ident">F_SETFL</span>, <span class="ident">flags</span> <span class="op">|</span> <span class="ident">libc</span>::<span class="ident">O_NONBLOCK</span>)).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span>())
     }
 }
 
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_cloexec</span>(<span class="ident">fd</span>: <span class="ident">libc</span>::<span class="ident">c_int</span>) <span class="op">-&gt;</span> <span class="ident">io</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
     <span class="kw">unsafe</span> {
         <span class="kw">let</span> <span class="ident">flags</span> <span class="op">=</span> <span class="ident">libc</span>::<span class="ident">fcntl</span>(<span class="ident">fd</span>, <span class="ident">libc</span>::<span class="ident">F_GETFD</span>);
-        <span class="ident">cvt</span>(<span class="ident">libc</span>::<span class="ident">fcntl</span>(<span class="ident">fd</span>, <span class="ident">libc</span>::<span class="ident">F_SETFD</span>, <span class="ident">flags</span> <span class="op">|</span> <span class="ident">libc</span>::<span class="ident">FD_CLOEXEC</span>)).<span class="ident">map</span>(<span class="op">|</span>_<span class="op">|</span> ())
+        <span class="ident">cvt</span>(<span class="ident">libc</span>::<span class="ident">fcntl</span>(<span class="ident">fd</span>, <span class="ident">libc</span>::<span class="ident">F_SETFD</span>, <span class="ident">flags</span> <span class="op">|</span> <span class="ident">libc</span>::<span class="ident">FD_CLOEXEC</span>)).<span class="ident">map</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> ())
     }
 }
 
