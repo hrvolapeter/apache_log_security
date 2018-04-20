@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geojson-0.9.1/src/macros.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geojson-0.9.1/src/macros.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>macros.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -207,7 +206,7 @@
     (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">value</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> (<span class="macro">try</span><span class="macro">!</span>(
         <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">value</span> {
             <span class="ident">JsonValue</span>::<span class="ident">Array</span>(<span class="ident">v</span>) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">v</span>),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Err</span>({<span class="kw">use</span> <span class="ident">Error</span>; <span class="ident">Error</span>::<span class="ident">ExpectedArrayValue</span>})
+            _ <span class="op">=&gt;</span> <span class="prelude-val">Err</span>({<span class="kw">use</span> <span class="ident">Error</span>; <span class="ident">Error</span>::<span class="ident">ExpectedArrayValue</span>})
         }
     ))
 }
@@ -216,7 +215,7 @@
     (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">value</span>:<span class="ident">expr</span>) <span class="op">=&gt;</span> (<span class="macro">try</span><span class="macro">!</span>(
         <span class="kw">match</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">value</span> {
             <span class="ident">JsonValue</span>::<span class="ident">Object</span>(<span class="ident">o</span>) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">o</span>),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Err</span>({<span class="kw">use</span> <span class="ident">Error</span>; <span class="ident">Error</span>::<span class="ident">ExpectedObjectValue</span>})
+            _ <span class="op">=&gt;</span> <span class="prelude-val">Err</span>({<span class="kw">use</span> <span class="ident">Error</span>; <span class="ident">Error</span>::<span class="ident">ExpectedObjectValue</span>})
         }
     ))
 }
