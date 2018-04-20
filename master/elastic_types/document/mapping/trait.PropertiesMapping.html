@@ -10,8 +10,11 @@
     <title>elastic_types::document::mapping::PropertiesMapping - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait PropertiesMapping</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.props_len">props_len</a><a href="#tymethod.serialize_props">serialize_props</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../index.html'>elastic_types</a>::<wbr><a href='../index.html'>document</a>::<wbr><a href='index.html'>mapping</a></p><script>window.sidebarCurrent = {name: 'PropertiesMapping', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -54,18 +64,15 @@
     fn <a href='#tymethod.props_len' class='fnname'>props_len</a>() -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
 <div class='item-spacer'></div>    fn <a href='#tymethod.serialize_props' class='fnname'>serialize_props</a>&lt;S&gt;(state: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>S) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>, S::<a class="type" href="../../../serde/ser/trait.SerializeStruct.html#associatedtype.Error" title="type serde::ser::SerializeStruct::Error">Error</a>&gt;<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="../../../serde/ser/trait.SerializeStruct.html" title="trait serde::ser::SerializeStruct">SerializeStruct</a></span>;
 }</pre><div class='docblock'><p>Serialisation for the mapping of object properties.</p>
-
-<p>This trait is designed to be auto-derived and can&#39;t be usefully implemented manually.</p>
+<p>This trait is designed to be auto-derived and can't be usefully implemented manually.</p>
 </div>
             <h2 id='required-methods' class='small-section-header'>
               Required Methods<a href='#required-methods' class='anchor'></a>
             </h2>
             <div class='methods'>
         <h3 id='tymethod.props_len' class='method'><span id='props_len.v' class='invisible'><code>fn <a href='#tymethod.props_len' class='fnname'>props_len</a>() -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h3><div class='docblock'><p>The number of mapped property fields for this type.</p>
-
 <p>This number should be the same as the number of fields being serialised by <code>serialize_props</code>.</p>
 </div><h3 id='tymethod.serialize_props' class='method'><span id='serialize_props.v' class='invisible'><code>fn <a href='#tymethod.serialize_props' class='fnname'>serialize_props</a>&lt;S&gt;(state: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>S) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>, S::<a class="type" href="../../../serde/ser/trait.SerializeStruct.html#associatedtype.Error" title="type serde::ser::SerializeStruct::Error">Error</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="../../../serde/ser/trait.SerializeStruct.html" title="trait serde::ser::SerializeStruct">SerializeStruct</a>,&nbsp;</span></code></span></h3><div class='docblock'><p>Serialisation for the mapped property fields on this type.</p>
-
 <p>You can use the <code>field_ser</code> function to simplify <code>serde</code> calls.</p>
 </div></div>
         <h2 id='implementors' class='small-section-header'>
@@ -88,20 +95,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
