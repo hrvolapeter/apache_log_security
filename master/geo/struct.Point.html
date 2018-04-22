@@ -10,8 +10,11 @@
     <title>geo::Point - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../main.css" id="themeStyle">
+    <script src="../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Struct Point</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.x">x</a><a href="#method.set_x">set_x</a><a href="#method.y">y</a><a href="#method.set_y">set_y</a><a href="#method.lng">lng</a><a href="#method.set_lng">set_lng</a><a href="#method.lat">lat</a><a href="#method.set_lat">set_lat</a><a href="#method.dot">dot</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-PartialEq">PartialEq</a><a href="#impl-Clone">Clone</a><a href="#impl-Copy">Copy</a><a href="#impl-Debug">Debug</a><a href="#impl-From%3CCoordinate%3CT%3E%3E">From&lt;Coordinate&lt;T&gt;&gt;</a><a href="#impl-From%3C(T%2C%20T)%3E">From&lt;(T, T)&gt;</a><a href="#impl-Neg">Neg</a><a href="#impl-Add">Add</a><a href="#impl-Sub">Sub</a><a href="#impl-PointN">PointN</a><a href="#impl-From%3CPoint%3CT%3E%3E">From&lt;Point&lt;T&gt;&gt;</a><a href="#impl-Centroid%3CT%3E">Centroid&lt;T&gt;</a><a href="#impl-Contains%3CPoint%3CT%3E%3E">Contains&lt;Point&lt;T&gt;&gt;</a><a href="#impl-Intersects%3CPoint%3CT%3E%3E">Intersects&lt;Point&lt;T&gt;&gt;</a><a href="#impl-Intersects%3CLine%3CT%3E%3E">Intersects&lt;Line&lt;T&gt;&gt;</a><a href="#impl-Distance%3CT%2C%20Point%3CT%3E%3E">Distance&lt;T, Point&lt;T&gt;&gt;</a><a href="#impl-Distance%3CT%2C%20MultiPoint%3CT%3E%3E">Distance&lt;T, MultiPoint&lt;T&gt;&gt;</a><a href="#impl-Distance%3CT%2C%20Polygon%3CT%3E%3E">Distance&lt;T, Polygon&lt;T&gt;&gt;</a><a href="#impl-Distance%3CT%2C%20MultiPolygon%3CT%3E%3E">Distance&lt;T, MultiPolygon&lt;T&gt;&gt;</a><a href="#impl-Distance%3CT%2C%20MultiLineString%3CT%3E%3E">Distance&lt;T, MultiLineString&lt;T&gt;&gt;</a><a href="#impl-Distance%3CT%2C%20LineString%3CT%3E%3E">Distance&lt;T, LineString&lt;T&gt;&gt;</a><a href="#impl-Distance%3CT%2C%20Line%3CT%3E%3E">Distance&lt;T, Line&lt;T&gt;&gt;</a><a href="#impl-HaversineDestination%3CT%3E">HaversineDestination&lt;T&gt;</a><a href="#impl-HaversineDistance%3CT%2C%20Point%3CT%3E%3E">HaversineDistance&lt;T, Point&lt;T&gt;&gt;</a><a href="#impl-Rotate%3CT%3E">Rotate&lt;T&gt;</a><a href="#impl-MapCoords%3CT%2C%20NT%3E">MapCoords&lt;T, NT&gt;</a><a href="#impl-ClosestPoint%3CF%3E">ClosestPoint&lt;F&gt;</a></div></div><p class='location'><a href='index.html'>geo</a></p><script>window.sidebarCurrent = {name: 'Point', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -51,7 +61,6 @@
                    </a>
                </span><a class='srclink' href='../src/geo/types.rs.html#81' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Point&lt;T&gt;(pub <a class="struct" href="../geo/struct.Coordinate.html" title="struct geo::Coordinate">Coordinate</a>&lt;T&gt;)<br> <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a></span>;</pre><div class='docblock'><p>A single Point in 2D space.</p>
-
 <p>Points can be created using the <code>new(x, y)</code> constructor, or from a <code>Coordinate</code> or pair of points.</p>
 
 <pre class="rust rust-example-rendered">
@@ -226,7 +235,7 @@
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">p</span>.<span class="ident">y</span>(), <span class="number">0.5</span>);</pre>
 </div></div><h3 id='impl-PointN' class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class="trait" href="../spade/point_traits/trait.PointN.html" title="trait spade::point_traits::PointN">PointN</a> for <a class="struct" href="../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a> + <a class="trait" href="../spade/traits/trait.SpadeNum.html" title="trait spade::traits::SpadeNum">SpadeNum</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a>,&nbsp;</span></code><a href='#impl-PointN' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/types.rs.html#304-329' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='associatedtype.Scalar' class="type"><span id='Scalar.t' class='invisible'><code>type <a href='../spade/point_traits/trait.PointN.html#associatedtype.Scalar' class="type">Scalar</a> = T</code></span></h4>
-<div class='docblock'><p>The points&#39;s internal scalar type.</p>
+<div class='docblock'><p>The points's internal scalar type.</p>
 </div><h4 id='method.dimensions' class="method"><span id='dimensions.v' class='invisible'><code>fn <a href='../spade/point_traits/trait.PointN.html#tymethod.dimensions' class='fnname'>dimensions</a>() -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/types.rs.html#309-311' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>The (fixed) number of dimensions of this point type.</p>
 </div><h4 id='method.from_value' class="method"><span id='from_value.v' class='invisible'><code>fn <a href='../spade/point_traits/trait.PointN.html#tymethod.from_value' class='fnname'>from_value</a>(value: Self::<a class="type" href="../spade/point_traits/trait.PointN.html#associatedtype.Scalar" title="type spade::point_traits::PointN::Scalar">Scalar</a>) -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/types.rs.html#312-314' title='goto source code'>[src]</a></span></h4>
@@ -241,7 +250,7 @@
 </div></div><h3 id='impl-Centroid%3CT%3E' class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class="trait" href="../geo/algorithm/centroid/trait.Centroid.html" title="trait geo::algorithm::centroid::Centroid">Centroid</a>&lt;T&gt; for <a class="struct" href="../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code><a href='#impl-Centroid%3CT%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/algorithm/centroid.rs.html#184-192' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='associatedtype.Output-3' class="type"><span id='Output.t-3' class='invisible'><code>type <a href='../geo/algorithm/centroid/trait.Centroid.html#associatedtype.Output' class="type">Output</a> = <a class="struct" href="../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt;</code></span></h4>
 <h4 id='method.centroid' class="method"><span id='centroid.v' class='invisible'><code>fn <a href='../geo/algorithm/centroid/trait.Centroid.html#tymethod.centroid' class='fnname'>centroid</a>(&amp;self) -&gt; Self::<a class="type" href="../geo/algorithm/centroid/trait.Centroid.html#associatedtype.Output" title="type geo::algorithm::centroid::Centroid::Output">Output</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/algorithm/centroid.rs.html#189-191' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>See: <a href="https://en.wikipedia.org/wiki/Centroid">https://en.wikipedia.org/wiki/Centroid</a> <a href="../geo/algorithm/centroid/trait.Centroid.html#tymethod.centroid">Read more</a></p>
+<div class='docblock'><p>See: https://en.wikipedia.org/wiki/Centroid <a href="../geo/algorithm/centroid/trait.Centroid.html#tymethod.centroid">Read more</a></p>
 </div></div><h3 id='impl-Contains%3CPoint%3CT%3E%3E' class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class="trait" href="../geo/algorithm/contains/trait.Contains.html" title="trait geo::algorithm::contains::Contains">Contains</a>&lt;<a class="struct" href="../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt;&gt; for <a class="struct" href="../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a> + <a class="trait" href="../num_traits/cast/trait.ToPrimitive.html" title="trait num_traits::cast::ToPrimitive">ToPrimitive</a>,&nbsp;</span></code><a href='#impl-Contains%3CPoint%3CT%3E%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/algorithm/contains.rs.html#35-41' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.contains' class="method"><span id='contains.v' class='invisible'><code>fn <a href='../geo/algorithm/contains/trait.Contains.html#tymethod.contains' class='fnname'>contains</a>(&amp;self, p: &amp;<a class="struct" href="../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt;) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/geo/algorithm/contains.rs.html#38-40' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Checks if the geometry A is completely inside the B geometry. <a href="../geo/algorithm/contains/trait.Contains.html#tymethod.contains">Read more</a></p>
@@ -335,20 +344,22 @@ This operation leaves the point coordinates unchanged</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
