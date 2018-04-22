@@ -10,8 +10,12 @@
     <title>spade - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle">
+    <script src="../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         <p class='location'>Crate spade</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'spade', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,39 +55,34 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>spade</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>spade</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/spade/lib.rs.html#9-72' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'>
-<h1 id='spade' class='section-header'><a href='#spade'>Spade</a></h1>
+               </span><a class='srclink' href='../src/spade/lib.rs.html#9-72' title='goto source code'>[src]</a></span></h1><div class='docblock'><h1 id="spade" class="section-header"><a href="#spade">Spade</a></h1>
 <p>Spade (SPAtial Data structurEs, obviously!) implements a few nifty data structures optimized for spatial access operations.</p>
-
-<h1 id='features' class='section-header'><a href='#features'>Features</a></h1>
+<h1 id="features" class="section-header"><a href="#features">Features</a></h1>
 <ul>
 <li>An n-dimensional r*-tree: <code>spade::rtree::RTree</code></li>
 <li>A 2D Delaunay triangulation: <code>spade::delaunay::DelaunayTriangulation</code>
-
 <ul>
 <li>Supports integral and floating point coordinates as input</li>
 <li>Uses exact predicates to avoid floating point rounding issues, see <code>spade::kernels::FloatKernel</code></li>
 <li>Natural neighbor interpolation</li>
 <li>Can be backed up by an r*-tree to improve performance when inserting randomly distributed points</li>
 <li>Supports vertex removal</li>
-</ul></li>
+</ul>
+</li>
 <li>A 2D constrained Delaunay triangulation: <code>spade::delaunay::ConstrainedDelaunayTriangulation</code></li>
 <li>Supports serde. Activate the <code>serde_serialize</code> feature to enable (de)serialization of r*-trees,
 (constrained) Delaunay triangulations and primitives.</li>
 </ul>
-
-<h1 id='supported-point-types' class='section-header'><a href='#supported-point-types'>Supported point types</a></h1>
+<h1 id="supported-point-types" class="section-header"><a href="#supported-point-types">Supported point types</a></h1>
 <p>Spade works well with points from the <code>nalgebra</code> and <code>cgmath</code> packages. Also, fixed size arrays of size 2, 3 and 4 are
 supported. Also own vector types can be defined.
-Please note that, due to the way cargo resolves dependencies, there might be issues when using spade combined with cgmath 
+Please note that, due to the way cargo resolves dependencies, there might be issues when using spade combined with cgmath
 or nalgebra: every time spade updates these libraries, the using code must be update too, even if spade would still work
- with the older version. To avoid this, consider switching to fixed size arrays as points until 
+with the older version. To avoid this, consider switching to fixed size arrays as points until
 <a href="https://github.com/rust-lang/rust/issues/44663">public / private dependencies make their way into cargo</a>.</p>
 </div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
@@ -85,6 +91,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='mod spade::delaunay'>delaunay</a></td>
                            <td class='docblock-short'>
                                 <p>A two dimensional Delaunay triangulation.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -92,6 +99,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='mod spade::kernels'>kernels</a></td>
                            <td class='docblock-short'>
                                 <p>Calculation kernels.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -99,6 +107,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='mod spade::primitives'>primitives</a></td>
                            <td class='docblock-short'>
                                 <p>Contains some useful primitives that can be inserted into r-trees.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -106,6 +115,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='mod spade::rtree'>rtree</a></td>
                            <td class='docblock-short'>
                                 <p>Implementation of an n-dimensional r*-tree.</p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -114,6 +124,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='struct spade::BoundingRect'>BoundingRect</a></td>
                            <td class='docblock-short'>
                                 <p>An axis aligned minimal bounding rectangle.</p>
+
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -122,6 +133,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='trait spade::HasPosition'>HasPosition</a></td>
                            <td class='docblock-short'>
                                 <p>An object that has a position.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -129,6 +141,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='trait spade::HasPosition2D'>HasPosition2D</a></td>
                            <td class='docblock-short'>
                                 <p>An object with a two dimensional position.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -136,6 +149,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='trait spade::PointN'>PointN</a></td>
                            <td class='docblock-short'>
                                 <p>Abstraction over a point with a fixed number of dimensions.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -143,6 +157,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='trait spade::SpadeFloat'>SpadeFloat</a></td>
                            <td class='docblock-short'>
                                 <p>Floating point types that can be used with spade.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -150,6 +165,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='trait spade::SpadeNum'>SpadeNum</a></td>
                            <td class='docblock-short'>
                                 <p>Number types that can be used with spade.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -157,6 +173,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='trait spade::SpatialObject'>SpatialObject</a></td>
                            <td class='docblock-short'>
                                 <p>Describes objects that can be located by r-trees.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -164,6 +181,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='trait spade::ThreeDimensional'>ThreeDimensional</a></td>
                            <td class='docblock-short'>
                                 <p>A three dimensional Point.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -171,6 +189,7 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                                   title='trait spade::TwoDimensional'>TwoDimensional</a></td>
                            <td class='docblock-short'>
                                 <p>A two dimensional Point.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -185,20 +204,22 @@ or nalgebra: every time spade updates these libraries, the using code must be up
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

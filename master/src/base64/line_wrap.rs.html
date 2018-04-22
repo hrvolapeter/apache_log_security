@@ -4,14 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.7.0/src/line_wrap.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.7.0/src/line_wrap.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>line_wrap.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -663,7 +674,7 @@
         <span class="kw">let</span> <span class="ident">line_range</span> <span class="op">=</span> <span class="ident">Range</span>::<span class="ident">new</span>(<span class="number">10</span>, <span class="number">100</span>);
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">rand</span>::<span class="ident">weak_rng</span>();
 
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
             <span class="ident">buf</span>.<span class="ident">clear</span>();
 
             <span class="kw">let</span> <span class="ident">buf_len</span> <span class="op">=</span> <span class="ident">buf_range</span>.<span class="ident">ind_sample</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
@@ -675,7 +686,7 @@
             };
             <span class="kw">let</span> <span class="ident">line_ending_len</span> <span class="op">=</span> <span class="ident">line_ending</span>.<span class="ident">len</span>();
 
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">buf_len</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">buf_len</span> {
                 <span class="ident">buf</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
@@ -683,13 +694,13 @@
 
             <span class="kw">let</span> <span class="ident">not_wrapped_buf</span> <span class="op">=</span> <span class="ident">buf</span>.<span class="ident">to_vec</span>();
 
-            <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">do_line_wrap</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">buf</span>, <span class="ident">line_len</span>, <span class="ident">line_ending</span>);
+            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">do_line_wrap</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">buf</span>, <span class="ident">line_len</span>, <span class="ident">line_ending</span>);
 
             <span class="comment">// remove the endings</span>
             <span class="kw">for</span> <span class="ident">line_ending_num</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">line_wrap_params</span>.<span class="ident">lines_with_endings</span> {
                 <span class="kw">let</span> <span class="ident">line_ending_offset</span> <span class="op">=</span> (<span class="ident">line_ending_num</span> <span class="op">+</span> <span class="number">1</span>) <span class="op">*</span> <span class="ident">line_len</span>;
 
-                <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">line_ending_len</span> {
+                <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">line_ending_len</span> {
                     <span class="ident">buf</span>.<span class="ident">remove</span>(<span class="ident">line_ending_offset</span>);
                 }
             }
@@ -706,7 +717,7 @@
         <span class="comment">// A 3x inflation is enough for the worst case: line length 1, crlf ending.</span>
         <span class="comment">// We add on extra bytes so we&#39;ll have un-wrapped bytes at the end that shouldn&#39;t get</span>
         <span class="comment">// modified..</span>
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..(<span class="number">1000</span> <span class="op">+</span> <span class="number">2</span> <span class="op">*</span> <span class="ident">orig_len</span>) {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..(<span class="number">1000</span> <span class="op">+</span> <span class="number">2</span> <span class="op">*</span> <span class="ident">orig_len</span>) {
             <span class="ident">buf</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
         }
 
@@ -753,20 +764,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

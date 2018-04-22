@@ -10,8 +10,12 @@
     <title>geo::algorithm - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         <p class='location'>Module algorithm</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li></ul></div><p class='location'><a href='../index.html'>geo</a></p><script>window.sidebarCurrent = {name: 'algorithm', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>geo</a>::<wbr><a class="mod" href=''>algorithm</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>geo</a>::<wbr><a class="mod" href=''>algorithm</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/geo/algorithm/mod.rs.html#1-36' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>This module includes all the functions of geometric calculations</p>
+               </span><a class='srclink' href='../../src/geo/algorithm/mod.rs.html#1-36' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>This module includes all the functions of geometric calculations</p>
 </div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -58,6 +67,7 @@
                                   title='mod geo::algorithm::area'>area</a></td>
                            <td class='docblock-short'>
                                 <p>Returns the area of the surface of a geometry.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -65,6 +75,7 @@
                                   title='mod geo::algorithm::boundingbox'>boundingbox</a></td>
                            <td class='docblock-short'>
                                 <p>Returns the Bbox of a geometry.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -72,6 +83,7 @@
                                   title='mod geo::algorithm::centroid'>centroid</a></td>
                            <td class='docblock-short'>
                                 <p>Calculation of the centroid.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -79,6 +91,7 @@
                                   title='mod geo::algorithm::closest_point'>closest_point</a></td>
                            <td class='docblock-short'>
                                 <p>Determine the closest point between two objects.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -86,6 +99,7 @@
                                   title='mod geo::algorithm::contains'>contains</a></td>
                            <td class='docblock-short'>
                                 <p>Checks if the geometry A is completely inside the B geometry.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -93,6 +107,7 @@
                                   title='mod geo::algorithm::convexhull'>convexhull</a></td>
                            <td class='docblock-short'>
                                 <p>Calculates the convex hull of a geometry.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -100,6 +115,7 @@
                                   title='mod geo::algorithm::distance'>distance</a></td>
                            <td class='docblock-short'>
                                 <p>Returns the Euclidean distance between two geometries.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -107,6 +123,7 @@
                                   title='mod geo::algorithm::extremes'>extremes</a></td>
                            <td class='docblock-short'>
                                 <p>Returns the extreme indices of a <code>Polygon</code>, <code>MultiPolygon</code>, or <code>MultiPoint</code>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -114,6 +131,7 @@
                                   title='mod geo::algorithm::haversine_destination'>haversine_destination</a></td>
                            <td class='docblock-short'>
                                 <p>Returns a new Point using distance and bearing.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -121,6 +139,7 @@
                                   title='mod geo::algorithm::haversine_distance'>haversine_distance</a></td>
                            <td class='docblock-short'>
                                 <p>Returns the Haversine distance between two geometries.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -128,6 +147,7 @@
                                   title='mod geo::algorithm::intersects'>intersects</a></td>
                            <td class='docblock-short'>
                                 <p>Checks if the geometry A intersects the geometry B.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -135,6 +155,7 @@
                                   title='mod geo::algorithm::length'>length</a></td>
                            <td class='docblock-short'>
                                 <p>Returns the length of a line.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -142,13 +163,15 @@
                                   title='mod geo::algorithm::map_coords'>map_coords</a></td>
                            <td class='docblock-short'>
                                 <p>Apply a function to all coordinates</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
                            <td><a class="mod" href="orient/index.html"
                                   title='mod geo::algorithm::orient'>orient</a></td>
                            <td class='docblock-short'>
-                                <p>Orients a Polygon&#39;s exterior and interior rings.</p>
+                                <p>Orients a Polygon's exterior and interior rings.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -156,6 +179,7 @@
                                   title='mod geo::algorithm::rotate'>rotate</a></td>
                            <td class='docblock-short'>
                                 <p>Rotates a geometry around either its centroid or a point by an angle, given in degrees.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -163,6 +187,7 @@
                                   title='mod geo::algorithm::simplify'>simplify</a></td>
                            <td class='docblock-short'>
                                 <p>Simplifies geometries using the Ramer-Douglas-Peucker algorithm.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -170,6 +195,7 @@
                                   title='mod geo::algorithm::simplifyvw'>simplifyvw</a></td>
                            <td class='docblock-short'>
                                 <p>Simplifies geometries using the Visvalingam-Whyatt algorithm. Includes a topology-preserving variant.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -177,6 +203,7 @@
                                   title='mod geo::algorithm::translate'>translate</a></td>
                            <td class='docblock-short'>
                                 <p>Translates a geometry along the given offsets.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -191,20 +218,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

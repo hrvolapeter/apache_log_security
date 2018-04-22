@@ -4,14 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/elastic_types_derive_internals-0.20.9/src/lib.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/elastic_types_derive_internals-0.20.9/src/lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -140,7 +151,7 @@ This crate contains the internals for `elastic_types`-related codegen.
     <span class="kw">match</span> <span class="ident">attr</span>.<span class="ident">value</span> {
         <span class="comment">// Get elastic meta items</span>
         <span class="ident">syn</span>::<span class="ident">MetaItem</span>::<span class="ident">List</span>(<span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw-2">ref</span> <span class="ident">items</span>) <span class="kw">if</span> <span class="ident">name</span> <span class="op">==</span> <span class="kw-2">&amp;</span><span class="string">&quot;elastic&quot;</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">items</span>),
-        _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
+        <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
     }
 }
 
@@ -153,7 +164,7 @@ This crate contains the internals for `elastic_types`-related codegen.
                 <span class="ident">syn</span>::<span class="ident">NestedMetaItem</span>::<span class="ident">MetaItem</span>(<span class="ident">syn</span>::<span class="ident">MetaItem</span>::<span class="ident">NameValue</span>(<span class="kw-2">ref</span> <span class="ident">key</span>, <span class="kw-2">ref</span> <span class="ident">lit</span>)) <span class="kw">if</span> <span class="ident">key</span> <span class="op">==</span> <span class="ident">name</span> <span class="op">=&gt;</span> {
                     <span class="kw">return</span> <span class="prelude-val">Some</span>(<span class="ident">lit</span>);
                 }
-                _ <span class="op">=&gt;</span> (),
+                <span class="kw">_</span> <span class="op">=&gt;</span> (),
             }
         }
     }
@@ -167,8 +178,8 @@ This crate contains the internals for `elastic_types`-related codegen.
 
 <span class="kw">fn</span> <span class="ident">get_str_from_lit</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">lit</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">syn</span>::<span class="ident">Lit</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span><span class="op">&gt;</span> {
     <span class="kw">match</span> <span class="kw-2">*</span><span class="ident">lit</span> {
-        <span class="ident">syn</span>::<span class="ident">Lit</span>::<span class="ident">Str</span>(<span class="kw-2">ref</span> <span class="ident">s</span>, _) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">s</span>.<span class="ident">as_str</span>()),
-        _ <span class="op">=&gt;</span> {
+        <span class="ident">syn</span>::<span class="ident">Lit</span>::<span class="ident">Str</span>(<span class="kw-2">ref</span> <span class="ident">s</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">s</span>.<span class="ident">as_str</span>()),
+        <span class="kw">_</span> <span class="op">=&gt;</span> {
             <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="string">&quot;Unable to get str from lit&quot;</span>);
         }
     }
@@ -187,20 +198,22 @@ This crate contains the internals for `elastic_types`-related codegen.
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
