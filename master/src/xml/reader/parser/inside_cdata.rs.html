@@ -10,10 +10,11 @@
     <title>inside_cdata.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -106,12 +107,12 @@
                 <span class="self">self</span>.<span class="ident">into_state</span>(<span class="ident">State</span>::<span class="ident">OutsideTag</span>, <span class="ident">event</span>)
             }
 
-            <span class="ident">Token</span>::<span class="ident">Whitespace</span>(_) <span class="op">=&gt;</span> {
+            <span class="ident">Token</span>::<span class="ident">Whitespace</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
                 <span class="ident">t</span>.<span class="ident">push_to_string</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">buf</span>);
                 <span class="prelude-val">None</span>
             }
 
-            _ <span class="op">=&gt;</span> {
+            <span class="kw">_</span> <span class="op">=&gt;</span> {
                 <span class="self">self</span>.<span class="ident">inside_whitespace</span> <span class="op">=</span> <span class="bool-val">false</span>;
                 <span class="ident">t</span>.<span class="ident">push_to_string</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">buf</span>);
                 <span class="prelude-val">None</span>

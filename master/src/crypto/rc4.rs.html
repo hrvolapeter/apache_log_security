@@ -10,10 +10,11 @@
     <title>rc4.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -267,14 +268,14 @@
 }
 
 <span class="kw">impl</span> <span class="ident">Encryptor</span> <span class="kw">for</span> <span class="ident">Rc4</span> {
-    <span class="kw">fn</span> <span class="ident">encrypt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefReadBuffer</span>, <span class="ident">output</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefWriteBuffer</span>, _: <span class="ident">bool</span>)
+    <span class="kw">fn</span> <span class="ident">encrypt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefReadBuffer</span>, <span class="ident">output</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefWriteBuffer</span>, <span class="kw">_</span>: <span class="ident">bool</span>)
             <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">BufferResult</span>, <span class="ident">SymmetricCipherError</span><span class="op">&gt;</span> {
         <span class="ident">symm_enc_or_dec</span>(<span class="self">self</span>, <span class="ident">input</span>, <span class="ident">output</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">Decryptor</span> <span class="kw">for</span> <span class="ident">Rc4</span> {
-    <span class="kw">fn</span> <span class="ident">decrypt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefReadBuffer</span>, <span class="ident">output</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefWriteBuffer</span>, _: <span class="ident">bool</span>)
+    <span class="kw">fn</span> <span class="ident">decrypt</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefReadBuffer</span>, <span class="ident">output</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">RefWriteBuffer</span>, <span class="kw">_</span>: <span class="ident">bool</span>)
             <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">BufferResult</span>, <span class="ident">SymmetricCipherError</span><span class="op">&gt;</span> {
         <span class="ident">symm_enc_or_dec</span>(<span class="self">self</span>, <span class="ident">input</span>, <span class="ident">output</span>)
     }
