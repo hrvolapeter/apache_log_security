@@ -4,14 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/libflate-0.1.14/src/deflate/symbol.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/libflate-0.1.14/src/deflate/symbol.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>symbol.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -641,7 +652,7 @@
                 <span class="number">67</span>...<span class="number">130</span> <span class="op">=&gt;</span> <span class="number">277</span> <span class="op">+</span> (<span class="ident">length</span> <span class="op">-</span> <span class="number">67</span>) <span class="op">/</span> <span class="number">16</span>,
                 <span class="number">131</span>...<span class="number">257</span> <span class="op">=&gt;</span> <span class="number">281</span> <span class="op">+</span> (<span class="ident">length</span> <span class="op">-</span> <span class="number">131</span>) <span class="op">/</span> <span class="number">32</span>,
                 <span class="number">258</span> <span class="op">=&gt;</span> <span class="number">285</span>,
-                _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
             },
         }
     }
@@ -654,7 +665,7 @@
                 <span class="number">35</span>...<span class="number">66</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>((<span class="number">3</span>, (<span class="ident">length</span> <span class="op">-</span> <span class="number">35</span>) <span class="op">%</span> <span class="number">8</span>)),
                 <span class="number">67</span>...<span class="number">130</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>((<span class="number">4</span>, (<span class="ident">length</span> <span class="op">-</span> <span class="number">67</span>) <span class="op">%</span> <span class="number">16</span>)),
                 <span class="number">131</span>...<span class="number">257</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>((<span class="number">5</span>, (<span class="ident">length</span> <span class="op">-</span> <span class="number">131</span>) <span class="op">%</span> <span class="number">32</span>)),
-                _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
             }
         } <span class="kw">else</span> {
             <span class="prelude-val">None</span>
@@ -842,7 +853,7 @@
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">distance_counts</span> <span class="op">=</span> [<span class="number">0</span>; <span class="number">30</span>];
         <span class="kw">for</span> <span class="ident">s</span> <span class="kw">in</span> <span class="ident">symbols</span> {
             <span class="ident">literal_counts</span>[<span class="ident">s</span>.<span class="ident">code</span>() <span class="kw">as</span> <span class="ident">usize</span>] <span class="op">+=</span> <span class="number">1</span>;
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">d</span>, _, _)) <span class="op">=</span> <span class="ident">s</span>.<span class="ident">distance</span>() {
+            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">d</span>, <span class="kw">_</span>, <span class="kw">_</span>)) <span class="op">=</span> <span class="ident">s</span>.<span class="ident">distance</span>() {
                 <span class="ident">distance_counts</span>[<span class="ident">d</span> <span class="kw">as</span> <span class="ident">usize</span>] <span class="op">+=</span> <span class="number">1</span>;
             }
         }
@@ -922,7 +933,7 @@
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">distance_code_bitwidthes</span> <span class="op">=</span> <span class="ident">literal_code_bitwidthes</span>
             .<span class="ident">drain</span>(<span class="ident">literal_code_count</span> <span class="kw">as</span> <span class="ident">usize</span>..)
-            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;&gt;</span>();
+            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;&gt;</span>();
         <span class="kw">while</span> <span class="ident">distance_code_bitwidthes</span>.<span class="ident">len</span>() <span class="op">&lt;</span> <span class="ident">distance_code_count</span> <span class="kw">as</span> <span class="ident">usize</span> {
             <span class="kw">let</span> <span class="ident">c</span> <span class="op">=</span> <span class="ident">bitwidth_decoder</span>.<span class="ident">decode</span>(<span class="ident">reader</span>)<span class="question-mark">?</span>;
             <span class="kw">let</span> <span class="ident">last</span> <span class="op">=</span> <span class="ident">distance_code_bitwidthes</span>
@@ -966,7 +977,7 @@
             <span class="kw">let</span> <span class="ident">zeros</span> <span class="op">=</span> <span class="ident">reader</span>.<span class="ident">read_bits</span>(<span class="number">7</span>)<span class="question-mark">?</span> <span class="op">+</span> <span class="number">11</span>;
             <span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">iter</span>::<span class="ident">repeat</span>(<span class="number">0</span>).<span class="ident">take</span>(<span class="ident">zeros</span> <span class="kw">as</span> <span class="ident">usize</span>))
         }
-        _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+        <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
     })
 }
 
@@ -1007,7 +1018,7 @@
                 <span class="ident">codes</span>.<span class="ident">push</span>((<span class="number">17</span>, <span class="number">3</span>, <span class="ident">c</span> <span class="kw">as</span> <span class="ident">u8</span> <span class="op">-</span> <span class="number">3</span>));
                 <span class="ident">c</span> <span class="op">=</span> <span class="number">0</span>;
             }
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">c</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">c</span> {
                 <span class="ident">codes</span>.<span class="ident">push</span>((<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));
             }
         } <span class="kw">else</span> {
@@ -1018,7 +1029,7 @@
                 <span class="ident">codes</span>.<span class="ident">push</span>((<span class="number">16</span>, <span class="number">2</span>, <span class="ident">n</span> <span class="op">-</span> <span class="number">3</span>));
                 <span class="ident">c</span> <span class="op">-=</span> <span class="ident">n</span> <span class="kw">as</span> <span class="ident">usize</span>;
             }
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">c</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">c</span> {
                 <span class="ident">codes</span>.<span class="ident">push</span>((<span class="ident">r</span>.<span class="ident">value</span>, <span class="number">0</span>, <span class="number">0</span>));
             }
         }
@@ -1039,20 +1050,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

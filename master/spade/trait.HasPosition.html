@@ -10,8 +10,12 @@
     <title>spade::HasPosition - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../dark.css">
+    <link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle">
+    <script src="../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         <p class='location'>Trait HasPosition</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#associated-types">Associated Types</a><div class="sidebar-links"><a href="#associatedtype.Point">Point</a></div><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.position">position</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='index.html'>spade</a></p><script>window.sidebarCurrent = {name: 'HasPosition', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,17 +55,14 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>spade</a>::<wbr><a class="trait" href=''>HasPosition</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>spade</a>::<wbr><a class="trait" href=''>HasPosition</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/spade/traits.rs.html#101-106' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait HasPosition {
+               </span><a class='srclink' href='../src/spade/traits.rs.html#101-106' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait HasPosition {
     type <a href='#associatedtype.Point' class="type">Point</a>: <a class="trait" href="../spade/trait.PointN.html" title="trait spade::PointN">PointN</a>;
     fn <a href='#tymethod.position' class='fnname'>position</a>(&amp;self) -&gt; Self::<a class="type" href="../spade/trait.HasPosition.html#associatedtype.Point" title="type spade::HasPosition::Point">Point</a>;
-}</pre><div class='docblock'><p>An object that has a position.</p>
-
+}</pre></div><div class='docblock'><p>An object that has a position.</p>
 <p>Describes a point like object that has a well defined position.
 Since this trait also implements <code>SpatialObject</code>, <code>HasPosition</code> can serve as a quick and
 easy implementation of your own pointlike objects that can be inserted into r-trees
@@ -88,20 +96,20 @@ or delaunay triangulations:</p>
               Associated Types<a href='#associated-types' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='associatedtype.Point' class='method'><span id='Point.t' class='invisible'><code>type <a href='#associatedtype.Point' class="type">Point</a>: <a class="trait" href="../spade/trait.PointN.html" title="trait spade::PointN">PointN</a></code></span></h3><div class='docblock'><p>The object&#39;s point type</p>
+        <h3 id='associatedtype.Point' class='method'><span id='Point.t' class='invisible'><code>type <a href='#associatedtype.Point' class="type">Point</a>: <a class="trait" href="../spade/trait.PointN.html" title="trait spade::PointN">PointN</a></code></span></h3><div class='docblock'><p>The object's point type</p>
 </div></div>
             <h2 id='required-methods' class='small-section-header'>
               Required Methods<a href='#required-methods' class='anchor'></a>
             </h2>
             <div class='methods'>
-        <h3 id='tymethod.position' class='method'><span id='position.v' class='invisible'><code>fn <a href='#tymethod.position' class='fnname'>position</a>(&amp;self) -&gt; Self::<a class="type" href="../spade/trait.HasPosition.html#associatedtype.Point" title="type spade::HasPosition::Point">Point</a></code></span></h3><div class='docblock'><p>Return&#39;s the object&#39;s position.</p>
+        <h3 id='tymethod.position' class='method'><span id='position.v' class='invisible'><code>fn <a href='#tymethod.position' class='fnname'>position</a>(&amp;self) -&gt; Self::<a class="type" href="../spade/trait.HasPosition.html#associatedtype.Point" title="type spade::HasPosition::Point">Point</a></code></span></h3><div class='docblock'><p>Return's the object's position.</p>
 </div></div>
         <h2 id='implementors' class='small-section-header'>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><code>impl&lt;V&gt; HasPosition for V <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;V: <a class="trait" href="../spade/trait.PointN.html" title="trait spade::PointN">PointN</a>,&nbsp;</span><span class="where fmt-newline">  type <a href='#associatedtype.Point' class="type">Point</a> = V;</span></code></li>
-</ul><script type="text/javascript" async
+    <li><table class='table-display'><tbody><tr><td><code>impl&lt;V&gt; HasPosition for V <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;V: <a class="trait" href="../spade/trait.PointN.html" title="trait spade::PointN">PointN</a>,&nbsp;</span><span class="where fmt-newline">  type <a href='#associatedtype.Point' class="type">Point</a> = V;</span></code><td><div class='out-of-band'><a class='srclink' href='../src/spade/traits.rs.html#115-120' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+</ul><script type="text/javascript">window.inlined_types=new Set([]);</script><script type="text/javascript" async
                          src="../implementors/spade/trait.HasPosition.js">
                  </script></section>
     <section id='search' class="content hidden"></section>
@@ -116,20 +124,22 @@ or delaunay triangulations:</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

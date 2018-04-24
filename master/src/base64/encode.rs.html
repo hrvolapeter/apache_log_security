@@ -4,14 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.9.0/src/encode.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.9.0/src/encode.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>encode.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -1127,7 +1138,7 @@
             <span class="kw">let</span> <span class="ident">encoded_rem</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">rem</span> {
                 <span class="number">1</span> <span class="op">=&gt;</span> <span class="number">2</span>,
                 <span class="number">2</span> <span class="op">=&gt;</span> <span class="number">3</span>,
-                _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;Impossible remainder&quot;</span>),
+                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(<span class="string">&quot;Impossible remainder&quot;</span>),
             };
             <span class="ident">complete_chunk_output</span>.<span class="ident">and_then</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">c</span>.<span class="ident">checked_add</span>(<span class="ident">encoded_rem</span>))
         }
@@ -1151,7 +1162,7 @@
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">add_padding</span>(<span class="ident">input_len</span>: <span class="ident">usize</span>, <span class="ident">output</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">usize</span> {
     <span class="kw">let</span> <span class="ident">rem</span> <span class="op">=</span> <span class="ident">input_len</span> <span class="op">%</span> <span class="number">3</span>;
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">bytes_written</span> <span class="op">=</span> <span class="number">0</span>;
-    <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..((<span class="number">3</span> <span class="op">-</span> <span class="ident">rem</span>) <span class="op">%</span> <span class="number">3</span>) {
+    <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..((<span class="number">3</span> <span class="op">-</span> <span class="ident">rem</span>) <span class="op">%</span> <span class="number">3</span>) {
         <span class="ident">output</span>[<span class="ident">bytes_written</span>] <span class="op">=</span> <span class="string">b&#39;=&#39;</span>;
         <span class="ident">bytes_written</span> <span class="op">+=</span> <span class="number">1</span>;
     }
@@ -1304,7 +1315,7 @@
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">rand</span>::<span class="ident">weak_rng</span>();
 
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
             <span class="ident">orig_data</span>.<span class="ident">clear</span>();
             <span class="ident">prefix</span>.<span class="ident">clear</span>();
             <span class="ident">encoded_data_no_prefix</span>.<span class="ident">clear</span>();
@@ -1313,12 +1324,12 @@
 
             <span class="kw">let</span> <span class="ident">input_len</span> <span class="op">=</span> <span class="ident">input_len_range</span>.<span class="ident">ind_sample</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
 
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
                 <span class="ident">orig_data</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
             <span class="kw">let</span> <span class="ident">prefix_len</span> <span class="op">=</span> <span class="ident">prefix_len_range</span>.<span class="ident">ind_sample</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">prefix_len</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">prefix_len</span> {
                 <span class="comment">// getting convenient random single-byte printable chars that aren&#39;t base64 is</span>
                 <span class="comment">// annoying</span>
                 <span class="ident">prefix</span>.<span class="ident">push</span>(<span class="string">&#39;#&#39;</span>);
@@ -1358,7 +1369,7 @@
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">rand</span>::<span class="ident">weak_rng</span>();
 
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
             <span class="ident">orig_data</span>.<span class="ident">clear</span>();
             <span class="ident">encoded_data</span>.<span class="ident">clear</span>();
             <span class="ident">encoded_data_original_state</span>.<span class="ident">clear</span>();
@@ -1366,12 +1377,12 @@
 
             <span class="kw">let</span> <span class="ident">input_len</span> <span class="op">=</span> <span class="ident">input_len_range</span>.<span class="ident">ind_sample</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
 
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
                 <span class="ident">orig_data</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
             <span class="comment">// plenty of existing garbage in the encoded buffer</span>
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> <span class="op">*</span> <span class="ident">input_len</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> <span class="op">*</span> <span class="ident">input_len</span> {
                 <span class="ident">encoded_data</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
@@ -1413,14 +1424,14 @@
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">rand</span>::<span class="ident">weak_rng</span>();
 
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
             <span class="ident">orig_data</span>.<span class="ident">clear</span>();
             <span class="ident">encoded_data</span>.<span class="ident">clear</span>();
             <span class="ident">decoded</span>.<span class="ident">clear</span>();
 
             <span class="kw">let</span> <span class="ident">input_len</span> <span class="op">=</span> <span class="ident">input_len_range</span>.<span class="ident">ind_sample</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
 
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
                 <span class="ident">orig_data</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
@@ -1456,13 +1467,13 @@
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">rand</span>::<span class="ident">weak_rng</span>();
 
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
             <span class="ident">input</span>.<span class="ident">clear</span>();
             <span class="ident">output</span>.<span class="ident">clear</span>();
 
             <span class="kw">let</span> <span class="ident">input_len</span> <span class="op">=</span> <span class="ident">input_len_range</span>.<span class="ident">ind_sample</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
 
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
                 <span class="ident">input</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
@@ -1471,7 +1482,7 @@
 
             <span class="comment">// fill up the output buffer with garbage</span>
             <span class="kw">let</span> <span class="ident">encoded_size</span> <span class="op">=</span> <span class="ident">encoded_size</span>(<span class="ident">input_len</span>, <span class="kw-2">&amp;</span><span class="ident">config</span>).<span class="ident">unwrap</span>();
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">encoded_size</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">encoded_size</span> {
                 <span class="ident">output</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
@@ -1484,7 +1495,7 @@
             <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">orig_output_buf</span>[<span class="ident">bytes_written</span>..], <span class="ident">output</span>[<span class="ident">bytes_written</span>..]);
 
             <span class="comment">// make sure the encoded bytes are UTF-8</span>
-            <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="kw-2">&amp;</span><span class="ident">output</span>[<span class="number">0</span>..<span class="ident">bytes_written</span>]).<span class="ident">unwrap</span>();
+            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="kw-2">&amp;</span><span class="ident">output</span>[<span class="number">0</span>..<span class="ident">bytes_written</span>]).<span class="ident">unwrap</span>();
         }
     }
 
@@ -1498,13 +1509,13 @@
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">rand</span>::<span class="ident">weak_rng</span>();
 
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10_000</span> {
             <span class="ident">input</span>.<span class="ident">clear</span>();
             <span class="ident">output</span>.<span class="ident">clear</span>();
 
             <span class="kw">let</span> <span class="ident">input_len</span> <span class="op">=</span> <span class="ident">input_len_range</span>.<span class="ident">ind_sample</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
 
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
                 <span class="ident">input</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
@@ -1512,7 +1523,7 @@
 
             <span class="comment">// fill up the output buffer with garbage</span>
             <span class="kw">let</span> <span class="ident">encoded_size</span> <span class="op">=</span> <span class="ident">encoded_size</span>(<span class="ident">input_len</span>, <span class="kw-2">&amp;</span><span class="ident">config</span>).<span class="ident">unwrap</span>();
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">encoded_size</span> <span class="op">+</span> <span class="number">1000</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">encoded_size</span> <span class="op">+</span> <span class="number">1000</span> {
                 <span class="ident">output</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
@@ -1529,7 +1540,7 @@
             <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">orig_output_buf</span>[<span class="ident">encoded_size</span>..], <span class="ident">output</span>[<span class="ident">encoded_size</span>..]);
 
             <span class="comment">// make sure the encoded bytes are UTF-8</span>
-            <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="kw-2">&amp;</span><span class="ident">output</span>[<span class="number">0</span>..<span class="ident">encoded_size</span>]).<span class="ident">unwrap</span>();
+            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="kw-2">&amp;</span><span class="ident">output</span>[<span class="number">0</span>..<span class="ident">encoded_size</span>]).<span class="ident">unwrap</span>();
         }
     }
 
@@ -1544,7 +1555,7 @@
             <span class="ident">output</span>.<span class="ident">clear</span>();
 
             <span class="comment">// fill output with random</span>
-            <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> {
+            <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> {
                 <span class="ident">output</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
             }
 
@@ -1556,7 +1567,7 @@
             <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">orig_output_buf</span>[<span class="ident">bytes_written</span>..], <span class="ident">output</span>[<span class="ident">bytes_written</span>..]);
 
             <span class="comment">// make sure the encoded bytes are UTF-8</span>
-            <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="kw-2">&amp;</span><span class="ident">output</span>[<span class="number">0</span>..<span class="ident">bytes_written</span>]).<span class="ident">unwrap</span>();
+            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="kw-2">&amp;</span><span class="ident">output</span>[<span class="number">0</span>..<span class="ident">bytes_written</span>]).<span class="ident">unwrap</span>();
         }
     }
 
@@ -1566,7 +1577,7 @@
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">bytes</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec</span>::<span class="ident">new</span>();
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">rand</span>::<span class="ident">weak_rng</span>();
 
-        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
+        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span>..<span class="ident">input_len</span> {
             <span class="ident">bytes</span>.<span class="ident">push</span>(<span class="ident">rng</span>.<span class="ident">gen</span>());
         }
 
@@ -1591,20 +1602,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
