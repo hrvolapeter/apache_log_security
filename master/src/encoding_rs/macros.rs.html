@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/encoding_rs-0.7.2/src/macros.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/encoding_rs-0.7.2/src/macros.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>macros.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -1989,7 +1988,7 @@
         {
             <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">ascii</span>) <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">slf</span>.<span class="ident">pending_ascii</span> {
                 <span class="kw">match</span> <span class="ident">dest</span>.<span class="ident">check_space_bmp</span>() {
-                    <span class="ident">Space</span>::<span class="ident">Full</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
+                    <span class="ident">Space</span>::<span class="ident">Full</span>(_) <span class="op">=&gt;</span> {
                         <span class="kw">return</span> (<span class="ident">DecoderResult</span>::<span class="ident">OutputFull</span>, <span class="number">0</span>, <span class="number">0</span>);
                     }
                     <span class="ident">Space</span>::<span class="ident">Available</span>(<span class="ident">pending_ascii_handle</span>) <span class="op">=&gt;</span> {
@@ -2187,7 +2186,7 @@
                                                 <span class="ident">dst_written</span>);
                                     }
                                     <span class="ident">Space</span>::<span class="ident">Available</span>(<span class="ident">destination_handle</span>) <span class="op">=&gt;</span> {
-                                        <span class="kw">let</span> (<span class="ident">b</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">source_handle</span>.<span class="ident">read</span>();
+                                        <span class="kw">let</span> (<span class="ident">b</span>, _) <span class="op">=</span> <span class="ident">source_handle</span>.<span class="ident">read</span>();
                                         <span class="lifetime">&#39;innermost</span>: <span class="kw">loop</span> {
                                             <span class="kw">if</span> <span class="ident">b</span> <span class="op">&gt;</span> <span class="number">127</span> {
                                                 <span class="macro-nonterminal">$</span><span class="macro-nonterminal">non_ascii</span> <span class="op">=</span> <span class="ident">b</span>;
@@ -2484,7 +2483,7 @@
                                                 <span class="ident">dst_written</span>);
                                     }
                                     <span class="ident">Space</span>::<span class="ident">Available</span>(<span class="ident">destination_handle</span>) <span class="op">=&gt;</span> {
-                                        <span class="kw">let</span> (<span class="ident">b</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">source_handle</span>.<span class="ident">read</span>();
+                                        <span class="kw">let</span> (<span class="ident">b</span>, _) <span class="op">=</span> <span class="ident">source_handle</span>.<span class="ident">read</span>();
                                         <span class="lifetime">&#39;innermost</span>: <span class="kw">loop</span> {
                                             <span class="kw">if</span> <span class="ident">b</span> <span class="op">&gt;</span> <span class="number">127</span> {
                                                 <span class="macro-nonterminal">$</span><span class="macro-nonterminal">non_ascii</span> <span class="op">=</span> <span class="ident">b</span>;
@@ -2904,7 +2903,7 @@
                             <span class="ident">offset</span> <span class="op">+=</span> <span class="number">1</span>;
                             <span class="kw">continue</span>;
                         }
-                        <span class="kw">_</span> <span class="op">=&gt;</span> {
+                        _ <span class="op">=&gt;</span> {
                             <span class="self">self</span>.<span class="ident">life_cycle</span> <span class="op">=</span> <span class="ident">DecoderLifeCycle</span>::<span class="ident">Converting</span>;
                             <span class="kw">continue</span>;
                         }
@@ -2921,7 +2920,7 @@
                             <span class="ident">offset</span> <span class="op">+=</span> <span class="number">1</span>;
                             <span class="kw">continue</span>;
                         }
-                        <span class="kw">_</span> <span class="op">=&gt;</span> {
+                        _ <span class="op">=&gt;</span> {
                             <span class="self">self</span>.<span class="ident">life_cycle</span> <span class="op">=</span> <span class="ident">DecoderLifeCycle</span>::<span class="ident">Converting</span>;
                             <span class="kw">continue</span>;
                         }
@@ -2938,7 +2937,7 @@
                             <span class="ident">offset</span> <span class="op">+=</span> <span class="number">1</span>;
                             <span class="kw">continue</span>;
                         }
-                        <span class="kw">_</span> <span class="op">=&gt;</span> {
+                        _ <span class="op">=&gt;</span> {
                             <span class="self">self</span>.<span class="ident">life_cycle</span> <span class="op">=</span> <span class="ident">DecoderLifeCycle</span>::<span class="ident">Converting</span>;
                             <span class="kw">continue</span>;
                         }
@@ -2955,7 +2954,7 @@
                             <span class="ident">offset</span> <span class="op">+=</span> <span class="number">1</span>;
                             <span class="kw">continue</span>;
                         }
-                        <span class="kw">_</span> <span class="op">=&gt;</span> {
+                        _ <span class="op">=&gt;</span> {
                             <span class="self">self</span>.<span class="ident">life_cycle</span> <span class="op">=</span> <span class="ident">DecoderLifeCycle</span>::<span class="ident">Converting</span>;
                             <span class="kw">continue</span>;
                         }
@@ -3093,7 +3092,7 @@
             <span class="comment">// First byte was seen previously.</span>
             <span class="kw">let</span> <span class="ident">first</span> <span class="op">=</span> [<span class="ident">first_byte</span>];
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">out_read</span> <span class="op">=</span> <span class="number">0usize</span>;
-            <span class="kw">let</span> (<span class="kw-2">mut</span> <span class="ident">first_result</span>, <span class="kw">_</span>, <span class="kw-2">mut</span> <span class="ident">first_written</span>) <span class="op">=</span>
+            <span class="kw">let</span> (<span class="kw-2">mut</span> <span class="ident">first_result</span>, _, <span class="kw-2">mut</span> <span class="ident">first_written</span>) <span class="op">=</span>
                 <span class="self">self</span>.<span class="ident">variant</span>
                     .<span class="macro-nonterminal">$</span><span class="macro-nonterminal">decode_to_utf_raw</span>(<span class="kw-2">&amp;</span><span class="ident">first</span>[..], <span class="ident">dst</span>, <span class="bool-val">false</span>);
             <span class="kw">match</span> <span class="ident">first_result</span> {
@@ -3104,7 +3103,7 @@
                     <span class="ident">out_read</span> <span class="op">=</span> <span class="ident">read</span>; <span class="comment">// Overwrite, don&#39;t add!</span>
                     <span class="ident">first_written</span> <span class="op">+=</span> <span class="ident">written</span>;
                 }
-                <span class="ident">DecoderResult</span>::<span class="ident">Malformed</span>(<span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> {
+                <span class="ident">DecoderResult</span>::<span class="ident">Malformed</span>(_, _) <span class="op">=&gt;</span> {
                     <span class="comment">// Wasn&#39;t read from `src`!, leave out_read to 0</span>
                 }
                 <span class="ident">DecoderResult</span>::<span class="ident">OutputFull</span> <span class="op">=&gt;</span> {
@@ -3139,7 +3138,7 @@
                     <span class="ident">first_read</span> <span class="op">=</span> <span class="ident">read</span>; <span class="comment">// Overwrite, don&#39;t add!</span>
                     <span class="ident">first_written</span> <span class="op">+=</span> <span class="ident">written</span>;
                 }
-                <span class="ident">DecoderResult</span>::<span class="ident">Malformed</span>(<span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> {
+                <span class="ident">DecoderResult</span>::<span class="ident">Malformed</span>(_, _) <span class="op">=&gt;</span> {
                     <span class="kw">if</span> <span class="ident">first_read</span> <span class="op">==</span> <span class="number">1usize</span> {
                         <span class="comment">// The first byte was malformed. We need to handle</span>
                         <span class="comment">// the second one, which isn&#39;t in `src`, later.</span>

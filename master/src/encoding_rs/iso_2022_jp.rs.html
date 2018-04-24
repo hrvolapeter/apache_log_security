@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/encoding_rs-0.7.2/src/iso_2022_jp.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/encoding_rs-0.7.2/src/iso_2022_jp.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>iso_2022_jp.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -1094,7 +1093,7 @@
             <span class="kw">match</span> <span class="self">self</span>.<span class="ident">decoder_state</span> {
                 <span class="ident">Iso2022JpDecoderState</span>::<span class="ident">Escape</span> <span class="op">|</span>
                 <span class="ident">Iso2022JpDecoderState</span>::<span class="ident">EscapeStart</span> <span class="op">=&gt;</span> <span class="number">1</span>,
-                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="number">0</span>,
+                _ <span class="op">=&gt;</span> <span class="number">0</span>,
             }
         )
     }
@@ -1136,7 +1135,7 @@
                 <span class="comment">// in Escape.</span>
                 <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="self">self</span>.<span class="ident">lead</span> <span class="op">==</span> <span class="number">0x24u8</span> <span class="op">||</span> <span class="self">self</span>.<span class="ident">lead</span> <span class="op">==</span> <span class="number">0x28u8</span>);
                 <span class="kw">match</span> <span class="ident">dest</span>.<span class="ident">check_space_bmp</span>() {
-                    <span class="ident">Space</span>::<span class="ident">Full</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> {
+                    <span class="ident">Space</span>::<span class="ident">Full</span>(_) <span class="op">=&gt;</span> {
                         <span class="kw">return</span> (<span class="ident">DecoderResult</span>::<span class="ident">OutputFull</span>, <span class="number">0</span>, <span class="number">0</span>);
                     }
                     <span class="ident">Space</span>::<span class="ident">Available</span>(<span class="ident">destination_handle</span>) <span class="op">=&gt;</span> {
@@ -1156,7 +1155,7 @@
                             <span class="ident">Iso2022JpDecoderState</span>::<span class="ident">LeadByte</span> <span class="op">=&gt;</span> {
                                 <span class="self">self</span>.<span class="ident">decoder_state</span> <span class="op">=</span> <span class="ident">Iso2022JpDecoderState</span>::<span class="ident">TrailByte</span>;
                             }
-                            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+                            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
                         }
                     }
                 }
@@ -1175,7 +1174,7 @@
                     <span class="self">self</span>.<span class="ident">decoder_state</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">output_state</span>;
                     <span class="kw">return</span> (<span class="ident">DecoderResult</span>::<span class="ident">Malformed</span>(<span class="number">1</span>, <span class="number">1</span>), <span class="ident">src_consumed</span>, <span class="ident">dest</span>.<span class="ident">written</span>());
                 }
-                <span class="kw">_</span> <span class="op">=&gt;</span> {}
+                _ <span class="op">=&gt;</span> {}
             }
         },
         {
@@ -1392,13 +1391,13 @@
     } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">in_inclusive_range16</span>(<span class="ident">bmp</span>, <span class="number">0x4E00</span>, <span class="number">0x9FA0</span>) {
         <span class="kw">if</span> <span class="number">0x4EDD</span> <span class="op">==</span> <span class="ident">bmp</span> {
             <span class="bool-val">true</span>
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=</span> <span class="ident">jis0208_level1_kanji_shift_jis_encode</span>(<span class="ident">bmp</span>) {
+        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(_) <span class="op">=</span> <span class="ident">jis0208_level1_kanji_shift_jis_encode</span>(<span class="ident">bmp</span>) {
             <span class="comment">// Use the shift_jis variant, because we don&#39;t care about the</span>
             <span class="comment">// byte values here.</span>
             <span class="bool-val">true</span>
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=</span> <span class="ident">jis0208_level2_and_additional_kanji_encode</span>(<span class="ident">bmp</span>) {
+        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(_) <span class="op">=</span> <span class="ident">jis0208_level2_and_additional_kanji_encode</span>(<span class="ident">bmp</span>) {
             <span class="bool-val">true</span>
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=</span> <span class="ident">position</span>(<span class="kw-2">&amp;</span><span class="ident">IBM_KANJI</span>[..], <span class="ident">bmp</span>) {
+        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(_) <span class="op">=</span> <span class="ident">position</span>(<span class="kw-2">&amp;</span><span class="ident">IBM_KANJI</span>[..], <span class="ident">bmp</span>) {
             <span class="bool-val">true</span>
         } <span class="kw">else</span> {
             <span class="bool-val">false</span>
@@ -1416,13 +1415,13 @@
                 <span class="bool-val">true</span>
             } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">bmp</span> <span class="op">==</span> <span class="number">0x2212</span> {
                 <span class="bool-val">true</span>
-            } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=</span> <span class="ident">jis0208_range_encode</span>(<span class="ident">bmp</span>) {
+            } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(_) <span class="op">=</span> <span class="ident">jis0208_range_encode</span>(<span class="ident">bmp</span>) {
                 <span class="bool-val">true</span>
             } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">in_inclusive_range16</span>(<span class="ident">bmp</span>, <span class="number">0xFA0E</span>, <span class="number">0xFA2D</span>) <span class="op">||</span> <span class="ident">bmp</span> <span class="op">==</span> <span class="number">0xF929</span> <span class="op">||</span> <span class="ident">bmp</span> <span class="op">==</span> <span class="number">0xF9DC</span> {
                 <span class="bool-val">true</span>
-            } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=</span> <span class="ident">ibm_symbol_encode</span>(<span class="ident">bmp</span>) {
+            } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(_) <span class="op">=</span> <span class="ident">ibm_symbol_encode</span>(<span class="ident">bmp</span>) {
                 <span class="bool-val">true</span>
-            } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=</span> <span class="ident">jis0208_symbol_encode</span>(<span class="ident">bmp</span>) {
+            } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(_) <span class="op">=</span> <span class="ident">jis0208_symbol_encode</span>(<span class="ident">bmp</span>) {
                 <span class="bool-val">true</span>
             } <span class="kw">else</span> {
                 <span class="bool-val">false</span>
@@ -1452,7 +1451,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">has_pending_state</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">state</span> {
             <span class="ident">Iso2022JpEncoderState</span>::<span class="ident">Ascii</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>,
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">true</span>,
+            _ <span class="op">=&gt;</span> <span class="bool-val">true</span>,
         }
     }
 
@@ -1492,7 +1491,7 @@
         {
             <span class="kw">match</span> <span class="self">self</span>.<span class="ident">state</span> {
                 <span class="ident">Iso2022JpEncoderState</span>::<span class="ident">Ascii</span> <span class="op">=&gt;</span> {}
-                <span class="kw">_</span> <span class="op">=&gt;</span> {
+                _ <span class="op">=&gt;</span> {
                     <span class="kw">match</span> <span class="ident">dest</span>.<span class="ident">check_space_three</span>() {
                         <span class="ident">Space</span>::<span class="ident">Full</span>(<span class="ident">dst_written</span>) <span class="op">=&gt;</span> {
                             <span class="kw">return</span> (<span class="ident">EncoderResult</span>::<span class="ident">OutputFull</span>, <span class="ident">src_consumed</span>, <span class="ident">dst_written</span>);
