@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/chrono-0.4.1/src/offset/mod.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/chrono-0.4.1/src/offset/mod.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>mod.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -478,17 +477,17 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">LocalResult</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Returns `Some` only when the conversion result is unique, or `None` otherwise.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">single</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-        <span class="kw">match</span> <span class="self">self</span> { <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">t</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">t</span>), <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span> }
+        <span class="kw">match</span> <span class="self">self</span> { <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">t</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">t</span>), _ <span class="op">=&gt;</span> <span class="prelude-val">None</span> }
     }
 
     <span class="doccomment">/// Returns `Some` for the earliest possible conversion result, or `None` if none.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">earliest</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-        <span class="kw">match</span> <span class="self">self</span> { <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">t</span>) <span class="op">|</span> <span class="ident">LocalResult</span>::<span class="ident">Ambiguous</span>(<span class="ident">t</span>,<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">t</span>), <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span> }
+        <span class="kw">match</span> <span class="self">self</span> { <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">t</span>) <span class="op">|</span> <span class="ident">LocalResult</span>::<span class="ident">Ambiguous</span>(<span class="ident">t</span>,_) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">t</span>), _ <span class="op">=&gt;</span> <span class="prelude-val">None</span> }
     }
 
     <span class="doccomment">/// Returns `Some` for the latest possible conversion result, or `None` if none.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">latest</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-        <span class="kw">match</span> <span class="self">self</span> { <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">t</span>) <span class="op">|</span> <span class="ident">LocalResult</span>::<span class="ident">Ambiguous</span>(<span class="kw">_</span>,<span class="ident">t</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">t</span>), <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span> }
+        <span class="kw">match</span> <span class="self">self</span> { <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">t</span>) <span class="op">|</span> <span class="ident">LocalResult</span>::<span class="ident">Ambiguous</span>(_,<span class="ident">t</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">t</span>), _ <span class="op">=&gt;</span> <span class="prelude-val">None</span> }
     }
 
     <span class="doccomment">/// Maps a `LocalResult&lt;T&gt;` into `LocalResult&lt;U&gt;` with given function.</span>
@@ -511,7 +510,7 @@
         <span class="kw">match</span> <span class="self">self</span> {
             <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">d</span>) <span class="op">=&gt;</span> <span class="ident">d</span>.<span class="ident">and_time</span>(<span class="ident">time</span>)
                                        .<span class="ident">map_or</span>(<span class="ident">LocalResult</span>::<span class="prelude-val">None</span>, <span class="ident">LocalResult</span>::<span class="ident">Single</span>),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">LocalResult</span>::<span class="prelude-val">None</span>,
+            _ <span class="op">=&gt;</span> <span class="ident">LocalResult</span>::<span class="prelude-val">None</span>,
         }
     }
 
@@ -524,7 +523,7 @@
         <span class="kw">match</span> <span class="self">self</span> {
             <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">d</span>) <span class="op">=&gt;</span> <span class="ident">d</span>.<span class="ident">and_hms_opt</span>(<span class="ident">hour</span>, <span class="ident">min</span>, <span class="ident">sec</span>)
                                        .<span class="ident">map_or</span>(<span class="ident">LocalResult</span>::<span class="prelude-val">None</span>, <span class="ident">LocalResult</span>::<span class="ident">Single</span>),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">LocalResult</span>::<span class="prelude-val">None</span>,
+            _ <span class="op">=&gt;</span> <span class="ident">LocalResult</span>::<span class="prelude-val">None</span>,
         }
     }
 
@@ -539,7 +538,7 @@
         <span class="kw">match</span> <span class="self">self</span> {
             <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">d</span>) <span class="op">=&gt;</span> <span class="ident">d</span>.<span class="ident">and_hms_milli_opt</span>(<span class="ident">hour</span>, <span class="ident">min</span>, <span class="ident">sec</span>, <span class="ident">milli</span>)
                                        .<span class="ident">map_or</span>(<span class="ident">LocalResult</span>::<span class="prelude-val">None</span>, <span class="ident">LocalResult</span>::<span class="ident">Single</span>),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">LocalResult</span>::<span class="prelude-val">None</span>,
+            _ <span class="op">=&gt;</span> <span class="ident">LocalResult</span>::<span class="prelude-val">None</span>,
         }
     }
 
@@ -554,7 +553,7 @@
         <span class="kw">match</span> <span class="self">self</span> {
             <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">d</span>) <span class="op">=&gt;</span> <span class="ident">d</span>.<span class="ident">and_hms_micro_opt</span>(<span class="ident">hour</span>, <span class="ident">min</span>, <span class="ident">sec</span>, <span class="ident">micro</span>)
                                        .<span class="ident">map_or</span>(<span class="ident">LocalResult</span>::<span class="prelude-val">None</span>, <span class="ident">LocalResult</span>::<span class="ident">Single</span>),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">LocalResult</span>::<span class="prelude-val">None</span>,
+            _ <span class="op">=&gt;</span> <span class="ident">LocalResult</span>::<span class="prelude-val">None</span>,
         }
     }
 
@@ -569,7 +568,7 @@
         <span class="kw">match</span> <span class="self">self</span> {
             <span class="ident">LocalResult</span>::<span class="ident">Single</span>(<span class="ident">d</span>) <span class="op">=&gt;</span> <span class="ident">d</span>.<span class="ident">and_hms_nano_opt</span>(<span class="ident">hour</span>, <span class="ident">min</span>, <span class="ident">sec</span>, <span class="ident">nano</span>)
                                        .<span class="ident">map_or</span>(<span class="ident">LocalResult</span>::<span class="prelude-val">None</span>, <span class="ident">LocalResult</span>::<span class="ident">Single</span>),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="ident">LocalResult</span>::<span class="prelude-val">None</span>,
+            _ <span class="op">=&gt;</span> <span class="ident">LocalResult</span>::<span class="prelude-val">None</span>,
         }
     }
 

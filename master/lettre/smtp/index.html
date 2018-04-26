@@ -10,11 +10,10 @@
     <title>lettre::smtp - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -55,11 +54,13 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>lettre</a>::<wbr><a class="mod" href=''>smtp</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>lettre</a>::<wbr><a class="mod" href=''>smtp</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/lettre/smtp/mod.rs.html#1-574' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>The SMTP transport sends emails using the SMTP protocol.</p>
+               </span><a class='srclink' href='../../src/lettre/smtp/mod.rs.html#1-574' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>The SMTP transport sends emails using the SMTP protocol.</p>
 <p>This SMTP client follows <a href="https://tools.ietf.org/html/rfc5321">RFC
 5321</a>, and is designed to efficiently send emails from an
 application to a relay email server, as it relies as much as possible on the relay server
@@ -143,17 +144,17 @@ error handling:</p>
 <span class="kw">use</span> <span class="ident">lettre</span>::<span class="ident">smtp</span>::<span class="ident">commands</span>::<span class="kw-2">*</span>;
 
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">email_client</span>: <span class="ident">Client</span><span class="op">&lt;</span><span class="ident">NetworkStream</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Client</span>::<span class="ident">new</span>();
-<span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">connect</span>(<span class="kw-2">&amp;</span>(<span class="string">&quot;localhost&quot;</span>, <span class="ident">SMTP_PORT</span>), <span class="prelude-val">None</span>);
-<span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">smtp_command</span>(<span class="ident">EhloCommand</span>::<span class="ident">new</span>(<span class="ident">ClientId</span>::<span class="ident">new</span>(<span class="string">&quot;my_hostname&quot;</span>.<span class="ident">to_string</span>())));
-<span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">smtp_command</span>(
+<span class="kw">let</span> _ <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">connect</span>(<span class="kw-2">&amp;</span>(<span class="string">&quot;localhost&quot;</span>, <span class="ident">SMTP_PORT</span>), <span class="prelude-val">None</span>);
+<span class="kw">let</span> _ <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">smtp_command</span>(<span class="ident">EhloCommand</span>::<span class="ident">new</span>(<span class="ident">ClientId</span>::<span class="ident">new</span>(<span class="string">&quot;my_hostname&quot;</span>.<span class="ident">to_string</span>())));
+<span class="kw">let</span> _ <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">smtp_command</span>(
             <span class="ident">MailCommand</span>::<span class="ident">new</span>(<span class="prelude-val">Some</span>(<span class="ident">EmailAddress</span>::<span class="ident">new</span>(<span class="string">&quot;user@example.com&quot;</span>.<span class="ident">to_string</span>())), <span class="macro">vec</span><span class="macro">!</span>[])
         );
-<span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">smtp_command</span>(
+<span class="kw">let</span> _ <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">smtp_command</span>(
             <span class="ident">RcptCommand</span>::<span class="ident">new</span>(<span class="ident">EmailAddress</span>::<span class="ident">new</span>(<span class="string">&quot;user@example.org&quot;</span>.<span class="ident">to_string</span>()), <span class="macro">vec</span><span class="macro">!</span>[])
         );
-<span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">smtp_command</span>(<span class="ident">DataCommand</span>);
-<span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">message</span>(<span class="ident">Box</span>::<span class="ident">new</span>(<span class="string">&quot;Test email&quot;</span>.<span class="ident">as_bytes</span>()));
-<span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">smtp_command</span>(<span class="ident">QuitCommand</span>);</pre>
+<span class="kw">let</span> _ <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">smtp_command</span>(<span class="ident">DataCommand</span>);
+<span class="kw">let</span> _ <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">message</span>(<span class="ident">Box</span>::<span class="ident">new</span>(<span class="string">&quot;Test email&quot;</span>.<span class="ident">as_bytes</span>()));
+<span class="kw">let</span> _ <span class="op">=</span> <span class="ident">email_client</span>.<span class="ident">smtp_command</span>(<span class="ident">QuitCommand</span>);</pre>
 </div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
