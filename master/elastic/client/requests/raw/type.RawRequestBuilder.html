@@ -10,10 +10,11 @@
     <title>elastic::client::requests::raw::RawRequestBuilder - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -54,22 +55,18 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Type Definition <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>requests</a>::<wbr><a href='index.html'>raw</a>::<wbr><a class="type" href=''>RawRequestBuilder</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Type Definition <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>requests</a>::<wbr><a href='index.html'>raw</a>::<wbr><a class="type" href=''>RawRequestBuilder</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../../src/elastic/client/requests/raw.rs.html#18' title='goto source code'>[src]</a></span></h1>
-<pre class='rust typedef'>type RawRequestBuilder&lt;TSender, TRequest, TBody&gt; = <a class="struct" href="../../../../elastic/client/requests/struct.RequestBuilder.html" title="struct elastic::client::requests::RequestBuilder">RequestBuilder</a>&lt;TSender, RawRequestInner&lt;TRequest, TBody&gt;&gt;;</pre><div class='docblock'><p>A raw request builder that can be configured before sending.</p>
+               </span><a class='srclink' href='../../../../src/elastic/client/requests/raw.rs.html#18' title='goto source code'>[src]</a></span></h1><pre class='rust typedef'>type RawRequestBuilder&lt;TSender, TRequest, TBody&gt; = <a class="struct" href="../../../../elastic/client/requests/struct.RequestBuilder.html" title="struct elastic::client::requests::RequestBuilder">RequestBuilder</a>&lt;TSender, RawRequestInner&lt;TRequest, TBody&gt;&gt;;</pre><div class='docblock'><p>A raw request builder that can be configured before sending.</p>
 <p>Call <a href="../../struct.Client.html#raw-request"><code>Client.request</code></a> to get an <code>IndexRequest</code>.
 The <code>send</code> method will either send the request synchronously or asynchronously, depending on the <code>Client</code> it was created from.</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
-                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;TSender, TRequest, TBody&gt; <a class="type" href="../../../../elastic/client/requests/raw/type.RawRequestBuilder.html" title="type elastic::client::requests::raw::RawRequestBuilder">RawRequestBuilder</a>&lt;TSender, TRequest, TBody&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;TRequest: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../../../elastic/client/requests/struct.HttpRequest.html" title="struct elastic::client::requests::HttpRequest">HttpRequest</a>&lt;'static, TBody&gt;&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;TBody: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;TSender::<a class="type" href="../../../../elastic/client/trait.Sender.html#associatedtype.Body" title="type elastic::client::Sender::Body">Body</a>&gt;,&nbsp;</span></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/raw.rs.html#85-166' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.send' class="method"><span id='send.v' class='invisible'><code>pub fn <a href='#method.send' class='fnname'>send</a>(self) -&gt; TSender::<a class="type" href="../../../../elastic/client/trait.Sender.html#associatedtype.Response" title="type elastic::client::Sender::Response">Response</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/raw.rs.html#159-165' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Send a <code>RawRequestBuilder</code>.</p>
+                <h3 id='impl' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender, TRequest, TBody&gt; <a class="type" href="../../../../elastic/client/requests/raw/type.RawRequestBuilder.html" title="type elastic::client::requests::raw::RawRequestBuilder">RawRequestBuilder</a>&lt;TSender, TRequest, TBody&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;TRequest: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../../../elastic/client/requests/struct.HttpRequest.html" title="struct elastic::client::requests::HttpRequest">HttpRequest</a>&lt;'static, TBody&gt;&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;TBody: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;TSender::<a class="type" href="../../../../elastic/client/trait.Sender.html#associatedtype.Body" title="type elastic::client::Sender::Body">Body</a>&gt;,&nbsp;</span></code><a href='#impl' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/raw.rs.html#85-166' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.send' class="method"><span id='send.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.send' class='fnname'>send</a>(self) -&gt; TSender::<a class="type" href="../../../../elastic/client/trait.Sender.html#associatedtype.Response" title="type elastic::client::Sender::Response">Response</a></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/raw.rs.html#159-165' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Send a <code>RawRequestBuilder</code>.</p>
 <p>If this request is for a <a href="../../type.SyncClient.html"><code>SyncClient</code></a>, then <code>send</code> will block the current thread until a response arrives and is deserialised.
 The returned <a href="../../responses/struct.SyncResponseBuilder.html"><code>SyncResponseBuilder</code></a> can be used to parse the response.</p>
 <p>If this request is for an <a href="../../type.AsyncClient.html"><code>AsyncClient</code></a>, then <code>send</code> will return a future that will resolve to the deserialised index response.

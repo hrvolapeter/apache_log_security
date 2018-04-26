@@ -10,10 +10,11 @@
     <title>mod.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -930,7 +931,7 @@
             <span class="kw">let</span> <span class="ident">pool</span> <span class="op">=</span> <span class="ident">inner</span>.<span class="ident">pool</span>;
             <span class="kw">let</span> <span class="ident">reactor</span> <span class="op">=</span> <span class="ident">inner</span>.<span class="ident">reactor</span>;
 
-            <span class="ident">pool</span>.<span class="ident">shutdown_on_idle</span>().<span class="ident">and_then</span>(<span class="op">|</span>_<span class="op">|</span> {
+            <span class="ident">pool</span>.<span class="ident">shutdown_on_idle</span>().<span class="ident">and_then</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> {
                 <span class="ident">reactor</span>.<span class="ident">shutdown_on_idle</span>()
             })
         });
@@ -991,7 +992,7 @@
     <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">inner</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">take</span>() {
             <span class="kw">let</span> <span class="ident">shutdown</span> <span class="op">=</span> <span class="ident">Shutdown</span>::<span class="ident">shutdown_now</span>(<span class="ident">inner</span>);
-            <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">shutdown</span>.<span class="ident">wait</span>();
+            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">shutdown</span>.<span class="ident">wait</span>();
         }
     }
 }

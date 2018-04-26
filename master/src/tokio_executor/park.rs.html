@@ -10,10 +10,11 @@
     <title>park.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -597,7 +598,7 @@
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">compare_and_swap</span>(<span class="ident">NOTIFY</span>, <span class="ident">IDLE</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>) {
             <span class="ident">NOTIFY</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Ok</span>(()),
             <span class="ident">IDLE</span> <span class="op">=&gt;</span> {},
-            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
         }
 
         <span class="comment">// The state is currently idle, so obtain the lock and then try to</span>
@@ -613,7 +614,7 @@
                 <span class="kw">return</span> <span class="prelude-val">Ok</span>(());
             }
             <span class="ident">IDLE</span> <span class="op">=&gt;</span> {},
-            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
         }
 
         <span class="ident">m</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">timeout</span> {
@@ -639,7 +640,7 @@
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">compare_and_swap</span>(<span class="ident">IDLE</span>, <span class="ident">NOTIFY</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>) {
             <span class="ident">IDLE</span> <span class="op">|</span> <span class="ident">NOTIFY</span> <span class="op">=&gt;</span> <span class="kw">return</span>,
             <span class="ident">SLEEP</span> <span class="op">=&gt;</span> {}
-            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(),
         }
 
         <span class="comment">// The other half is sleeping, this requires a lock</span>
@@ -648,7 +649,7 @@
         <span class="comment">// Transition from SLEEP -&gt; NOTIFY</span>
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">state</span>.<span class="ident">compare_and_swap</span>(<span class="ident">SLEEP</span>, <span class="ident">NOTIFY</span>, <span class="ident">Ordering</span>::<span class="ident">SeqCst</span>) {
             <span class="ident">SLEEP</span> <span class="op">=&gt;</span> {}
-            _ <span class="op">=&gt;</span> <span class="kw">return</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="kw">return</span>,
         }
 
         <span class="comment">// Wakeup the sleeper</span>
