@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.6.3/src/algorithm/translate.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.6.3/src/algorithm/translate.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>translate.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -251,7 +250,7 @@
         <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> <span class="ident">points_raw</span>
             .<span class="ident">iter</span>()
             .<span class="ident">map</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">e</span>.<span class="number">0</span>, <span class="ident">e</span>.<span class="number">1</span>))
-            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;&gt;</span>();
+            .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;&gt;</span>();
         <span class="kw">let</span> <span class="ident">poly1</span> <span class="op">=</span> <span class="ident">Polygon</span>::<span class="ident">new</span>(<span class="ident">LineString</span>(<span class="ident">points</span>), <span class="macro">vec</span><span class="macro">!</span>[]);
         <span class="kw">let</span> <span class="ident">translated</span> <span class="op">=</span> <span class="ident">poly1</span>.<span class="ident">translate</span>(<span class="number">17.0</span>, <span class="number">18.0</span>);
         <span class="kw">let</span> <span class="ident">correct_outside</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[(<span class="number">22.0</span>, <span class="number">19.0</span>),
@@ -266,7 +265,7 @@
         <span class="kw">let</span> <span class="ident">correct</span> <span class="op">=</span> <span class="ident">Polygon</span>::<span class="ident">new</span>(<span class="ident">LineString</span>(<span class="ident">correct_outside</span>
                                                   .<span class="ident">iter</span>()
                                                   .<span class="ident">map</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">e</span>.<span class="number">0</span>, <span class="ident">e</span>.<span class="number">1</span>))
-                                                  .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;&gt;</span>()),
+                                                  .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;&gt;</span>()),
                                    <span class="macro">vec</span><span class="macro">!</span>[]);
         <span class="comment">// results agree with Shapely / GEOS</span>
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">translated</span>, <span class="ident">correct</span>);
@@ -301,11 +300,11 @@
                                     (<span class="number">22.0</span>, <span class="number">19.0</span>)]
                 .<span class="ident">iter</span>()
                 .<span class="ident">map</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">e</span>.<span class="number">0</span>, <span class="ident">e</span>.<span class="number">1</span>))
-                .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;&gt;</span>();
+                .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;&gt;</span>();
         <span class="kw">let</span> <span class="ident">correct_inside</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[(<span class="number">22.0</span>, <span class="number">19.3</span>), (<span class="number">22.5</span>, <span class="number">20.0</span>), (<span class="number">23.0</span>, <span class="number">19.3</span>), (<span class="number">22.0</span>, <span class="number">19.3</span>)]
                 .<span class="ident">iter</span>()
                 .<span class="ident">map</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">e</span>.<span class="number">0</span>, <span class="ident">e</span>.<span class="number">1</span>))
-                .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;&gt;</span>();
+                .<span class="ident">collect</span>::<span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;&gt;</span>();
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">rotated</span>.<span class="ident">exterior</span>.<span class="number">0</span>, <span class="ident">correct_outside</span>);
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">rotated</span>.<span class="ident">interiors</span>[<span class="number">0</span>].<span class="number">0</span>, <span class="ident">correct_inside</span>);
     }
