@@ -10,10 +10,11 @@
     <title>elastic::client::responses::parse - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -54,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>responses</a>::<wbr><a class="mod" href=''>parse</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>responses</a>::<wbr><a class="mod" href=''>parse</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../../src/elastic/client/responses/parse.rs.html#1-93' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Utility types for response parsing.</p>
+               </span><a class='srclink' href='../../../../src/elastic/client/responses/parse.rs.html#1-93' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Utility types for response parsing.</p>
 <h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
 <p>Implement <code>IsOk</code> for a deserialisable type that converts a http response into a concrete type.
 This example defines a search response that, for whatever reason, only includes the <code>took</code> field:</p>
@@ -81,7 +80,7 @@ This example defines a search response that, for whatever reason, only includes 
             <span class="number">200</span>...<span class="number">299</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">MaybeOkResponse</span>::<span class="ident">ok</span>(<span class="ident">body</span>)),
             <span class="comment">// Otherwise return the response with `ok: false`</span>
             <span class="comment">// The body will be parsed as an `ApiError`.</span>
-            _ <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">MaybeOkResponse</span>::<span class="ident">err</span>(<span class="ident">body</span>))
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">MaybeOkResponse</span>::<span class="ident">err</span>(<span class="ident">body</span>))
         }
     }
 }</pre>

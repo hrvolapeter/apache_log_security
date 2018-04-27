@@ -10,10 +10,11 @@
     <title>namespace.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -627,7 +628,7 @@
             (<span class="ident">NS_NO_PREFIX</span>,    <span class="ident">NS_EMPTY_URI</span>) <span class="op">=&gt;</span> <span class="bool-val">true</span>,
             (<span class="ident">NS_XMLNS_PREFIX</span>, <span class="ident">NS_XMLNS_URI</span>) <span class="op">=&gt;</span> <span class="bool-val">true</span>,
             (<span class="ident">NS_XML_PREFIX</span>,   <span class="ident">NS_XML_URI</span>)   <span class="op">=&gt;</span> <span class="bool-val">true</span>,
-            _ <span class="op">=&gt;</span> <span class="bool-val">false</span>
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>
         })
     }
 
@@ -661,7 +662,7 @@
         <span class="kw">where</span> <span class="ident">P</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>, <span class="ident">U</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>
     {
         <span class="kw">match</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">entry</span>(<span class="ident">prefix</span>.<span class="ident">into</span>()) {
-            <span class="ident">Entry</span>::<span class="ident">Occupied</span>(_) <span class="op">=&gt;</span> <span class="bool-val">false</span>,
+            <span class="ident">Entry</span>::<span class="ident">Occupied</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="bool-val">false</span>,
             <span class="ident">Entry</span>::<span class="ident">Vacant</span>(<span class="ident">ve</span>) <span class="op">=&gt;</span> {
                 <span class="ident">ve</span>.<span class="ident">insert</span>(<span class="ident">uri</span>.<span class="ident">into</span>());
                 <span class="bool-val">true</span>

@@ -10,10 +10,11 @@
     <title>conn.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -764,7 +765,7 @@
                         <span class="prelude-val">Ok</span>(<span class="prelude-val">Ok</span>(<span class="ident">res</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">res</span>),
                         <span class="prelude-val">Ok</span>(<span class="prelude-val">Err</span>(<span class="ident">err</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">err</span>),
                         <span class="comment">// this is definite bug if it happens, but it shouldn&#39;t happen!</span>
-                        <span class="prelude-val">Err</span>(_) <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;dispatch dropped without returning error&quot;</span>),
+                        <span class="prelude-val">Err</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;dispatch dropped without returning error&quot;</span>),
                     }
                 }))
             },
@@ -789,7 +790,7 @@
                         <span class="prelude-val">Ok</span>(<span class="prelude-val">Ok</span>(<span class="ident">res</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">res</span>),
                         <span class="prelude-val">Ok</span>(<span class="prelude-val">Err</span>(<span class="ident">err</span>)) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">err</span>),
                         <span class="comment">// this is definite bug if it happens, but it shouldn&#39;t happen!</span>
-                        <span class="prelude-val">Err</span>(_) <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;dispatch dropped without returning error&quot;</span>),
+                        <span class="prelude-val">Err</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;dispatch dropped without returning error&quot;</span>),
                     }
                 }))
             },
@@ -833,7 +834,7 @@ impl&lt;T, B&gt; Service for SendRequest&lt;T, B&gt; {
 {
     <span class="doccomment">/// Return the inner IO object, and additional information.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_parts</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Parts</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> (<span class="ident">io</span>, <span class="ident">read_buf</span>, _) <span class="op">=</span> <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">into_inner</span>();
+        <span class="kw">let</span> (<span class="ident">io</span>, <span class="ident">read_buf</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">into_inner</span>();
         <span class="ident">Parts</span> {
             <span class="ident">io</span>: <span class="ident">io</span>,
             <span class="ident">read_buf</span>: <span class="ident">read_buf</span>,
