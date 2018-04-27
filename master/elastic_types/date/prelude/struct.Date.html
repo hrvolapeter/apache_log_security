@@ -10,11 +10,8 @@
     <title>elastic_types::date::prelude::Date - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
-    <script src="../../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
     
 
     
@@ -36,13 +33,6 @@
         <p class='location'>Struct Date</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.build">build</a><a href="#method.now">now</a><a href="#method.remap">remap</a></div><a class="sidebar-title" href="#deref-methods">Methods from Deref&lt;Target=ChronoDateTime&gt;</a><div class="sidebar-links"></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Clone">Clone</a><a href="#impl-PartialEq">PartialEq</a><a href="#impl-DateFieldType%3CTMapping%3E">DateFieldType&lt;TMapping&gt;</a><a href="#impl-From%3CDate%3CTMapping%3E%3E">From&lt;Date&lt;TMapping&gt;&gt;</a><a href="#impl-From%3CFormattableDateValue%3CTMapping%3A%3AFormat%3E%3E">From&lt;FormattableDateValue&lt;TMapping::Format&gt;&gt;</a><a href="#impl-From%3CDateValue%3E">From&lt;DateValue&gt;</a><a href="#impl-PartialEq%3CChronoDateTime%3E">PartialEq&lt;ChronoDateTime&gt;</a><a href="#impl-PartialEq%3CDate%3CTMapping%3E%3E">PartialEq&lt;Date&lt;TMapping&gt;&gt;</a><a href="#impl-Deref">Deref</a><a href="#impl-Borrow%3CChronoDateTime%3E">Borrow&lt;ChronoDateTime&gt;</a><a href="#impl-Default">Default</a><a href="#impl-Display">Display</a><a href="#impl-Serialize">Serialize</a><a href="#impl-Deserialize%3C%27de%3E">Deserialize&lt;&#39;de&gt;</a></div></div><p class='location'><a href='../../index.html'>elastic_types</a>::<wbr><a href='../index.html'>date</a>::<wbr><a href='index.html'>prelude</a></p><script>window.sidebarCurrent = {name: 'Date', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -61,17 +51,21 @@
                    </a>
                </span><a class='srclink' href='../../../src/elastic_types/date/impls.rs.html#71-76' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Date&lt;TMapping&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TMapping: <a class="trait" href="../../../elastic_types/date/mapping/trait.DateMapping.html" title="trait elastic_types::date::mapping::DateMapping">DateMapping</a>,&nbsp;</span> { /* fields omitted */ }</pre><div class='docblock'><p>An Elasticsearch <code>date</code> type with a required <code>time</code> component.</p>
+
 <p>The <a href="format/index.html">format</a> is provided as a generic parameter.
 This struct wraps up a <code>chrono::DateTime&lt;Utc&gt;</code> struct, meaning storing time in <code>Utc</code> is required.</p>
-<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
 <p>Defining a date using the default format:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">date</span>: <span class="ident">Date</span><span class="op">&lt;</span><span class="ident">DefaultDateMapping</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Date</span>::<span class="ident">now</span>();</pre>
+
 <p>Defining a date using a named format:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">date</span>: <span class="ident">Date</span><span class="op">&lt;</span><span class="ident">DefaultDateMapping</span><span class="op">&lt;</span><span class="ident">BasicDateTime</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">Date</span>::<span class="ident">now</span>();</pre>
+
 <p>Accessing the values of a date:</p>
 
 <pre class="rust rust-example-rendered">
@@ -87,7 +81,8 @@ This struct wraps up a <code>chrono::DateTime&lt;Utc&gt;</code> struct, meaning 
     <span class="ident">date</span>.<span class="ident">second</span>(),
     <span class="ident">date</span>.<span class="ident">nanosecond</span>() <span class="op">/</span> <span class="number">1000000</span>
 );</pre>
-<h1 id="links" class="section-header"><a href="#links">Links</a></h1>
+
+<h1 id='links' class='section-header'><a href='#links'>Links</a></h1>
 <ul>
 <li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/date.html">Elasticsearch Doc</a></li>
 </ul>
@@ -98,8 +93,10 @@ This struct wraps up a <code>chrono::DateTime&lt;Utc&gt;</code> struct, meaning 
                 <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;TMapping&gt; <a class="struct" href="../../../elastic_types/date/struct.Date.html" title="struct elastic_types::date::Date">Date</a>&lt;TMapping&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TMapping: <a class="trait" href="../../../elastic_types/date/mapping/trait.DateMapping.html" title="trait elastic_types::date::mapping::DateMapping">DateMapping</a>,&nbsp;</span></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/elastic_types/date/impls.rs.html#78-196' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>pub fn <a href='#method.new' class='fnname'>new</a>&lt;I&gt;(date: I) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;I: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../../elastic_types/date/struct.FormattableDateValue.html" title="struct elastic_types::date::FormattableDateValue">FormattableDateValue</a>&lt;TMapping::<a class="type" href="../../../elastic_types/date/mapping/trait.DateMapping.html#associatedtype.Format" title="type elastic_types::date::mapping::DateMapping::Format">Format</a>&gt;&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/elastic_types/date/impls.rs.html#135-140' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Creates a new <code>Date</code> from the given <code>chrono::DateTime&lt;Utc&gt;</code>.</p>
+
 <p>This function will consume the provided <code>chrono</code> date.</p>
-<h1 id="examples-1" class="section-header"><a href="#examples-1">Examples</a></h1>
+
+<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
 <p>Create a <code>Date</code> from a <code>DateValue</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -108,6 +105,7 @@ This struct wraps up a <code>chrono::DateTime&lt;Utc&gt;</code> struct, meaning 
     
 <span class="comment">//Give it to the Date struct</span>
 <span class="kw">let</span> <span class="ident">date</span>: <span class="ident">Date</span><span class="op">&lt;</span><span class="ident">DefaultDateMapping</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Date</span>::<span class="ident">new</span>(<span class="ident">date</span>);</pre>
+
 <p>If the <code>Date</code>s format is <code>ChronoFormat</code>, then it can also be created from <code>chrono::DateTime</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -118,8 +116,9 @@ This struct wraps up a <code>chrono::DateTime&lt;Utc&gt;</code> struct, meaning 
     
 <span class="comment">//Give it to the Date struct</span>
 <span class="kw">let</span> <span class="ident">date</span>: <span class="ident">Date</span><span class="op">&lt;</span><span class="ident">DefaultDateMapping</span><span class="op">&lt;</span><span class="ident">ChronoFormat</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">Date</span>::<span class="ident">new</span>(<span class="ident">chronoDate</span>);</pre>
-<p>If the <code>Date</code>s format isn't <code>ChronoFormat</code>, then the <code>chrono::DateTime</code> will need to be converted into a <code>DateValue</code> first.
-This is to make sure you don't accidentally change the format of a date, which could lead to errors at runtime:</p>
+
+<p>If the <code>Date</code>s format isn&#39;t <code>ChronoFormat</code>, then the <code>chrono::DateTime</code> will need to be converted into a <code>DateValue</code> first.
+This is to make sure you don&#39;t accidentally change the format of a date, which could lead to errors at runtime:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">chrono</span>::<span class="ident">Utc</span>;
@@ -136,12 +135,14 @@ This is to make sure you don't accidentally change the format of a date, which c
 <span class="kw">let</span> <span class="ident">date</span>: <span class="ident">Date</span><span class="op">&lt;</span><span class="ident">DefaultDateMapping</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Date</span>::<span class="ident">build</span>(<span class="number">2015</span>, <span class="number">5</span>, <span class="number">14</span>, <span class="number">16</span>, <span class="number">45</span>, <span class="number">8</span>, <span class="number">886</span>);</pre>
 </div><h4 id='method.now' class="method"><span id='now.v' class='invisible'><code>pub fn <a href='#method.now' class='fnname'>now</a>() -&gt; Self</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/elastic_types/date/impls.rs.html#172-174' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Gets the current system time.</p>
-<h1 id="examples-2" class="section-header"><a href="#examples-2">Examples</a></h1>
+
+<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">date</span>: <span class="ident">Date</span><span class="op">&lt;</span><span class="ident">DefaultDateMapping</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Date</span>::<span class="ident">now</span>();</pre>
 </div><h4 id='method.remap' class="method"><span id='remap.v' class='invisible'><code>pub fn <a href='#method.remap' class='fnname'>remap</a>&lt;TNewMapping&gt;(date: <a class="struct" href="../../../elastic_types/date/struct.Date.html" title="struct elastic_types::date::Date">Date</a>&lt;TMapping&gt;) -&gt; <a class="struct" href="../../../elastic_types/date/struct.Date.html" title="struct elastic_types::date::Date">Date</a>&lt;TNewMapping&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TNewMapping: <a class="trait" href="../../../elastic_types/date/mapping/trait.DateMapping.html" title="trait elastic_types::date::mapping::DateMapping">DateMapping</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../src/elastic_types/date/impls.rs.html#190-195' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Change the format/mapping of this date.</p>
-<h1 id="examples-3" class="section-header"><a href="#examples-3">Examples</a></h1>
+
+<h1 id='examples-3' class='section-header'><a href='#examples-3'>Examples</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="comment">//Get the current datetime formatted as basic_date_time</span>
 <span class="kw">let</span> <span class="ident">date</span>: <span class="ident">Date</span><span class="op">&lt;</span><span class="ident">DefaultDateMapping</span><span class="op">&lt;</span><span class="ident">BasicDateTime</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">Date</span>::<span class="ident">now</span>();
@@ -221,22 +222,20 @@ This is to make sure you don't accidentally change the format of a date, which c
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 

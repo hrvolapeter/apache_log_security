@@ -10,11 +10,8 @@
     <title>xml::reader::EventReader - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
-    <script src="../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
     
 
     
@@ -36,13 +33,6 @@
         <p class='location'>Struct EventReader</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.new">new</a><a href="#method.new_with_config">new_with_config</a><a href="#method.next">next</a><a href="#method.source">source</a><a href="#method.source_mut">source_mut</a><a href="#method.into_inner">into_inner</a><a href="#method.from_str">from_str</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Position">Position</a><a href="#impl-IntoIterator">IntoIterator</a></div></div><p class='location'><a href='../index.html'>xml</a>::<wbr><a href='index.html'>reader</a></p><script>window.sidebarCurrent = {name: 'EventReader', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -72,12 +62,14 @@
 <div class='docblock'><p>Creates a new reader with the provded configuration, consuming the given stream.</p>
 </div><h4 id='method.next' class="method"><span id='next.v' class='invisible'><code>pub fn <a href='#method.next' class='fnname'>next</a>(&amp;mut self) -&gt; <a class="type" href="../../xml/reader/type.Result.html" title="type xml::reader::Result">Result</a>&lt;<a class="enum" href="../../xml/reader/enum.XmlEvent.html" title="enum xml::reader::XmlEvent">XmlEvent</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/xml/reader/mod.rs.html#51-53' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Pulls and returns next XML event from the stream.</p>
+
 <p>If returned event is <code>XmlEvent::Error</code> or <code>XmlEvent::EndDocument</code>, then
 further calls to this method will return this event again.</p>
 </div><h4 id='method.source' class="method"><span id='source.v' class='invisible'><code>pub fn <a href='#method.source' class='fnname'>source</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>R</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/xml/reader/mod.rs.html#55' title='goto source code'>[src]</a></span></h4>
 <h4 id='method.source_mut' class="method"><span id='source_mut.v' class='invisible'><code>pub fn <a href='#method.source_mut' class='fnname'>source_mut</a>(&amp;mut self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>R</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/xml/reader/mod.rs.html#56' title='goto source code'>[src]</a></span></h4>
 <h4 id='method.into_inner' class="method"><span id='into_inner.v' class='invisible'><code>pub fn <a href='#method.into_inner' class='fnname'>into_inner</a>(self) -&gt; R</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/xml/reader/mod.rs.html#63-65' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Unwraps this <code>EventReader</code>, returning the underlying reader.</p>
+
 <p>Note that this operation is destructive; unwrapping the reader and wrapping it
 again with <code>EventReader::new()</code> will create a fresh reader which will attempt
 to parse an XML document from the beginning.</p>
@@ -111,22 +103,20 @@ to parse an XML document from the beginning.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
