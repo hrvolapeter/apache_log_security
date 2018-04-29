@@ -10,10 +10,11 @@
     <title>import_export.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -549,7 +550,7 @@
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">raw_items</span> <span class="op">=</span> <span class="ident">ptr</span>::<span class="ident">null</span>();
         <span class="kw">let</span> <span class="ident">items_ref</span> <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span>.<span class="ident">items</span> {
-            <span class="prelude-val">Some</span>(_) <span class="op">=&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">raw_items</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _,
+            <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">raw_items</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>,
             <span class="prelude-val">None</span> <span class="op">=&gt;</span> <span class="ident">ptr</span>::<span class="ident">null_mut</span>(),
         };
 
@@ -569,14 +570,14 @@
             <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">items</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">items</span> {
                 <span class="kw">let</span> <span class="ident">raw_items</span> <span class="op">=</span> <span class="ident">CFArray</span>::<span class="ident">wrap_under_create_rule</span>(<span class="ident">raw_items</span>);
                 <span class="kw">for</span> <span class="ident">item</span> <span class="kw">in</span> <span class="ident">raw_items</span>.<span class="ident">iter</span>() {
-                    <span class="kw">let</span> <span class="ident">type_id</span> <span class="op">=</span> <span class="ident">CFGetTypeID</span>(<span class="ident">item</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _);
+                    <span class="kw">let</span> <span class="ident">type_id</span> <span class="op">=</span> <span class="ident">CFGetTypeID</span>(<span class="ident">item</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>);
                     <span class="kw">if</span> <span class="ident">type_id</span> <span class="op">==</span> <span class="ident">SecCertificate</span>::<span class="ident">type_id</span>() {
                         <span class="ident">items</span>.<span class="ident">certificates</span>
-                             .<span class="ident">push</span>(<span class="ident">SecCertificate</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">item</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _));
+                             .<span class="ident">push</span>(<span class="ident">SecCertificate</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">item</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>));
                     } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">type_id</span> <span class="op">==</span> <span class="ident">SecIdentity</span>::<span class="ident">type_id</span>() {
-                        <span class="ident">items</span>.<span class="ident">identities</span>.<span class="ident">push</span>(<span class="ident">SecIdentity</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">item</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _));
+                        <span class="ident">items</span>.<span class="ident">identities</span>.<span class="ident">push</span>(<span class="ident">SecIdentity</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">item</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>));
                     } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">type_id</span> <span class="op">==</span> <span class="ident">SecKey</span>::<span class="ident">type_id</span>() {
-                        <span class="ident">items</span>.<span class="ident">keys</span>.<span class="ident">push</span>(<span class="ident">SecKey</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">item</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> _));
+                        <span class="ident">items</span>.<span class="ident">keys</span>.<span class="ident">push</span>(<span class="ident">SecKey</span>::<span class="ident">wrap_under_get_rule</span>(<span class="ident">item</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>));
                     } <span class="kw">else</span> {
                         <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Got bad type from SecItemImport: {}&quot;</span>, <span class="ident">type_id</span>);
                     }

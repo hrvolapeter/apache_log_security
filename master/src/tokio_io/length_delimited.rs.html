@@ -10,10 +10,11 @@
     <title>length_delimited.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -1288,7 +1289,7 @@
         <span class="kw">let</span> <span class="ident">num_skip</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">builder</span>.<span class="ident">get_num_skip</span>();
 
         <span class="kw">if</span> <span class="ident">num_skip</span> <span class="op">&gt;</span> <span class="number">0</span> {
-            <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">src</span>.<span class="ident">split_to</span>(<span class="ident">num_skip</span>);
+            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">src</span>.<span class="ident">split_to</span>(<span class="ident">num_skip</span>);
         }
 
         <span class="comment">// Ensure that the buffer has enough space to read the incoming</span>
