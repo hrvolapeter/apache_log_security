@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.6.3/src/algorithm/intersects.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.4.13/src/algorithm/intersects.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>intersects.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -577,6 +587,11 @@
 <span id="531">531</span>
 <span id="532">532</span>
 <span id="533">533</span>
+<span id="534">534</span>
+<span id="535">535</span>
+<span id="536">536</span>
+<span id="537">537</span>
+<span id="538">538</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">num_traits</span>::<span class="ident">Float</span>;
 <span class="kw">use</span> <span class="ident">types</span>::{<span class="ident">Line</span>, <span class="ident">LineString</span>, <span class="ident">Polygon</span>, <span class="ident">Bbox</span>, <span class="ident">Point</span>};
@@ -677,7 +692,10 @@
     <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
 {
     <span class="kw">fn</span> <span class="ident">intersects</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">linestring</span>: <span class="kw-2">&amp;</span><span class="ident">LineString</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
-        <span class="ident">linestring</span>.<span class="ident">lines</span>().<span class="ident">any</span>(<span class="op">|</span><span class="ident">line</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">intersects</span>(<span class="kw-2">&amp;</span><span class="ident">line</span>))
+        <span class="ident">linestring</span>.<span class="number">0</span>
+                  .<span class="ident">windows</span>(<span class="number">2</span>)
+                  .<span class="ident">map</span>(<span class="op">|</span><span class="ident">pts</span><span class="op">|</span> <span class="ident">Line</span>::<span class="ident">new</span>(<span class="ident">pts</span>[<span class="number">0</span>], <span class="ident">pts</span>[<span class="number">1</span>]))
+                  .<span class="ident">any</span>(<span class="op">|</span><span class="ident">line</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">intersects</span>(<span class="kw-2">&amp;</span><span class="ident">line</span>))
     }
 }
 
@@ -713,20 +731,22 @@
 {
     <span class="comment">// See: https://github.com/brandonxiang/geojson-python-utils/blob/33b4c00c6cf27921fb296052d0c0341bd6ca1af2/geojson_utils.py</span>
     <span class="kw">fn</span> <span class="ident">intersects</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">linestring</span>: <span class="kw-2">&amp;</span><span class="ident">LineString</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">is_empty</span>() <span class="op">||</span> <span class="ident">linestring</span>.<span class="number">0</span>.<span class="ident">is_empty</span>() {
+        <span class="kw">let</span> <span class="ident">vect0</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>;
+        <span class="kw">let</span> <span class="ident">vect1</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">linestring</span>.<span class="number">0</span>;
+        <span class="kw">if</span> <span class="ident">vect0</span>.<span class="ident">is_empty</span>() <span class="op">||</span> <span class="ident">vect1</span>.<span class="ident">is_empty</span>() {
             <span class="kw">return</span> <span class="bool-val">false</span>;
         }
-        <span class="kw">for</span> <span class="ident">a</span> <span class="kw">in</span> <span class="self">self</span>.<span class="ident">lines</span>() {
-            <span class="kw">for</span> <span class="ident">b</span> <span class="kw">in</span> <span class="ident">linestring</span>.<span class="ident">lines</span>() {
-                <span class="kw">let</span> <span class="ident">u_b</span> <span class="op">=</span> (<span class="ident">b</span>.<span class="ident">end</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">b</span>.<span class="ident">start</span>.<span class="ident">y</span>()) <span class="op">*</span> (<span class="ident">a</span>.<span class="ident">end</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">a</span>.<span class="ident">start</span>.<span class="ident">x</span>()) <span class="op">-</span>
-                          (<span class="ident">b</span>.<span class="ident">end</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">b</span>.<span class="ident">start</span>.<span class="ident">x</span>()) <span class="op">*</span> (<span class="ident">a</span>.<span class="ident">end</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">a</span>.<span class="ident">start</span>.<span class="ident">y</span>());
+        <span class="kw">for</span> <span class="ident">a</span> <span class="kw">in</span> <span class="ident">vect0</span>.<span class="ident">windows</span>(<span class="number">2</span>) {
+            <span class="kw">for</span> <span class="ident">b</span> <span class="kw">in</span> <span class="ident">vect1</span>.<span class="ident">windows</span>(<span class="number">2</span>) {
+                <span class="kw">let</span> <span class="ident">u_b</span> <span class="op">=</span> (<span class="ident">b</span>[<span class="number">1</span>].<span class="ident">y</span>() <span class="op">-</span> <span class="ident">b</span>[<span class="number">0</span>].<span class="ident">y</span>()) <span class="op">*</span> (<span class="ident">a</span>[<span class="number">1</span>].<span class="ident">x</span>() <span class="op">-</span> <span class="ident">a</span>[<span class="number">0</span>].<span class="ident">x</span>()) <span class="op">-</span>
+                          (<span class="ident">b</span>[<span class="number">1</span>].<span class="ident">x</span>() <span class="op">-</span> <span class="ident">b</span>[<span class="number">0</span>].<span class="ident">x</span>()) <span class="op">*</span> (<span class="ident">a</span>[<span class="number">1</span>].<span class="ident">y</span>() <span class="op">-</span> <span class="ident">a</span>[<span class="number">0</span>].<span class="ident">y</span>());
                 <span class="kw">if</span> <span class="ident">u_b</span> <span class="op">==</span> <span class="ident">T</span>::<span class="ident">zero</span>() {
                     <span class="kw">continue</span>;
                 }
-                <span class="kw">let</span> <span class="ident">ua_t</span> <span class="op">=</span> (<span class="ident">b</span>.<span class="ident">end</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">b</span>.<span class="ident">start</span>.<span class="ident">x</span>()) <span class="op">*</span> (<span class="ident">a</span>.<span class="ident">start</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">b</span>.<span class="ident">start</span>.<span class="ident">y</span>()) <span class="op">-</span>
-                           (<span class="ident">b</span>.<span class="ident">end</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">b</span>.<span class="ident">start</span>.<span class="ident">y</span>()) <span class="op">*</span> (<span class="ident">a</span>.<span class="ident">start</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">b</span>.<span class="ident">start</span>.<span class="ident">x</span>());
-                <span class="kw">let</span> <span class="ident">ub_t</span> <span class="op">=</span> (<span class="ident">a</span>.<span class="ident">end</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">a</span>.<span class="ident">start</span>.<span class="ident">x</span>()) <span class="op">*</span> (<span class="ident">a</span>.<span class="ident">start</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">b</span>.<span class="ident">start</span>.<span class="ident">y</span>()) <span class="op">-</span>
-                           (<span class="ident">a</span>.<span class="ident">end</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">a</span>.<span class="ident">start</span>.<span class="ident">y</span>()) <span class="op">*</span> (<span class="ident">a</span>.<span class="ident">start</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">b</span>.<span class="ident">start</span>.<span class="ident">x</span>());
+                <span class="kw">let</span> <span class="ident">ua_t</span> <span class="op">=</span> (<span class="ident">b</span>[<span class="number">1</span>].<span class="ident">x</span>() <span class="op">-</span> <span class="ident">b</span>[<span class="number">0</span>].<span class="ident">x</span>()) <span class="op">*</span> (<span class="ident">a</span>[<span class="number">0</span>].<span class="ident">y</span>() <span class="op">-</span> <span class="ident">b</span>[<span class="number">0</span>].<span class="ident">y</span>()) <span class="op">-</span>
+                           (<span class="ident">b</span>[<span class="number">1</span>].<span class="ident">y</span>() <span class="op">-</span> <span class="ident">b</span>[<span class="number">0</span>].<span class="ident">y</span>()) <span class="op">*</span> (<span class="ident">a</span>[<span class="number">0</span>].<span class="ident">x</span>() <span class="op">-</span> <span class="ident">b</span>[<span class="number">0</span>].<span class="ident">x</span>());
+                <span class="kw">let</span> <span class="ident">ub_t</span> <span class="op">=</span> (<span class="ident">a</span>[<span class="number">1</span>].<span class="ident">x</span>() <span class="op">-</span> <span class="ident">a</span>[<span class="number">0</span>].<span class="ident">x</span>()) <span class="op">*</span> (<span class="ident">a</span>[<span class="number">0</span>].<span class="ident">y</span>() <span class="op">-</span> <span class="ident">b</span>[<span class="number">0</span>].<span class="ident">y</span>()) <span class="op">-</span>
+                           (<span class="ident">a</span>[<span class="number">1</span>].<span class="ident">y</span>() <span class="op">-</span> <span class="ident">a</span>[<span class="number">0</span>].<span class="ident">y</span>()) <span class="op">*</span> (<span class="ident">a</span>[<span class="number">0</span>].<span class="ident">x</span>() <span class="op">-</span> <span class="ident">b</span>[<span class="number">0</span>].<span class="ident">x</span>());
                 <span class="kw">let</span> <span class="ident">u_a</span> <span class="op">=</span> <span class="ident">ua_t</span> <span class="op">/</span> <span class="ident">u_b</span>;
                 <span class="kw">let</span> <span class="ident">u_b</span> <span class="op">=</span> <span class="ident">ub_t</span> <span class="op">/</span> <span class="ident">u_b</span>;
                 <span class="kw">if</span> (<span class="ident">T</span>::<span class="ident">zero</span>() <span class="op">&lt;=</span> <span class="ident">u_a</span>) <span class="op">&amp;&amp;</span> (<span class="ident">u_a</span> <span class="op">&lt;=</span> <span class="ident">T</span>::<span class="ident">one</span>()) <span class="op">&amp;&amp;</span> (<span class="ident">T</span>::<span class="ident">zero</span>() <span class="op">&lt;=</span> <span class="ident">u_b</span>) <span class="op">&amp;&amp;</span> (<span class="ident">u_b</span> <span class="op">&lt;=</span> <span class="ident">T</span>::<span class="ident">one</span>()) {
@@ -1125,20 +1145,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

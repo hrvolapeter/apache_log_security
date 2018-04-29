@@ -10,8 +10,11 @@
     <title>geo::algorithm::intersects::Intersects - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Trait Intersects</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.intersects">intersects</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../index.html'>geo</a>::<wbr><a href='../index.html'>algorithm</a>::<wbr><a href='index.html'>intersects</a></p><script>window.sidebarCurrent = {name: 'Intersects', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -78,16 +88,16 @@
     <li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#25-54' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#56-62' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Point.html" title="struct geo::Point">Point</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
 <li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#64-94' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#96-102' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#104-110' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#112-121' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#123-129' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#131-159' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#161-173' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#175-187' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#189-195' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#197-209' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#211-221' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#96-105' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#107-113' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#115-124' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#126-132' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Line.html" title="struct geo::Line">Line</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#134-164' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#166-178' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#180-192' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#194-200' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#202-214' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Bbox.html" title="struct geo::Bbox">Bbox</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/intersects.rs.html#216-226' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Intersects&lt;<a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt;&gt; for <a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
 </ul><script type="text/javascript" async
                          src="../../../implementors/geo/algorithm/intersects/trait.Intersects.js">
                  </script></section>
@@ -103,20 +113,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
