@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/uuid-0.5.1/src/lib.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/uuid-0.5.1/src/lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -1785,7 +1786,7 @@
         <span class="kw">match</span> <span class="ident">v</span> {
             <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v4&quot;</span>)]</span>
             <span class="ident">UuidVersion</span>::<span class="ident">Random</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">Uuid</span>::<span class="ident">new_v4</span>()),
-            _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
         }
     }
     
@@ -2049,7 +2050,7 @@
             <span class="ident">x</span> <span class="kw">if</span> <span class="ident">x</span> <span class="op">&amp;</span> <span class="number">0xc0</span> <span class="op">==</span> <span class="number">0x80</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">UuidVariant</span>::<span class="ident">RFC4122</span>),
             <span class="ident">x</span> <span class="kw">if</span> <span class="ident">x</span> <span class="op">&amp;</span> <span class="number">0xe0</span> <span class="op">==</span> <span class="number">0xc0</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">UuidVariant</span>::<span class="ident">Microsoft</span>),
             <span class="ident">x</span> <span class="kw">if</span> <span class="ident">x</span> <span class="op">&amp;</span> <span class="number">0xe0</span> <span class="op">==</span> <span class="number">0xe0</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">UuidVariant</span>::<span class="ident">Future</span>),
-            _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
         }
     }
 
@@ -2085,7 +2086,7 @@
             <span class="number">3</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">UuidVersion</span>::<span class="ident">Md5</span>),
             <span class="number">4</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">UuidVersion</span>::<span class="ident">Random</span>),
             <span class="number">5</span> <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">UuidVersion</span>::<span class="ident">Sha1</span>),
-            _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
+            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
         }
     }
 
@@ -2232,7 +2233,7 @@
                         <span class="ident">group</span> <span class="op">+=</span> <span class="number">1</span>;
                         <span class="ident">digit</span> <span class="op">-=</span> <span class="number">1</span>;
                     }
-                    _ <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ParseError</span>::<span class="ident">InvalidCharacter</span>(<span class="ident">input</span>[<span class="ident">i_char</span>..].<span class="ident">chars</span>().<span class="ident">next</span>().<span class="ident">unwrap</span>(), <span class="ident">i_char</span>)),
+                    <span class="kw">_</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ParseError</span>::<span class="ident">InvalidCharacter</span>(<span class="ident">input</span>[<span class="ident">i_char</span>..].<span class="ident">chars</span>().<span class="ident">next</span>().<span class="ident">unwrap</span>(), <span class="ident">i_char</span>)),
                 }
             } <span class="kw">else</span> {
                 <span class="comment">// Second digit of the byte, shift the upper half.</span>
@@ -2252,7 +2253,7 @@
                                                                   <span class="ident">found</span> <span class="kw">as</span> <span class="ident">usize</span>,
                                                                   <span class="ident">GROUP_LENS</span>[<span class="ident">group</span>]));
                     }
-                    _ <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ParseError</span>::<span class="ident">InvalidCharacter</span>(<span class="ident">input</span>[<span class="ident">i_char</span>..].<span class="ident">chars</span>().<span class="ident">next</span>().<span class="ident">unwrap</span>(), <span class="ident">i_char</span>)),
+                    <span class="kw">_</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ParseError</span>::<span class="ident">InvalidCharacter</span>(<span class="ident">input</span>[<span class="ident">i_char</span>..].<span class="ident">chars</span>().<span class="ident">next</span>().<span class="ident">unwrap</span>(), <span class="ident">i_char</span>)),
                 }
                 <span class="ident">buffer</span>[(<span class="ident">digit</span> <span class="op">/</span> <span class="number">2</span>) <span class="kw">as</span> <span class="ident">usize</span>] <span class="op">=</span> <span class="ident">acc</span>;
             }
@@ -2488,7 +2489,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v3&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_new_v3</span>() {
-        <span class="kw">for</span> <span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">ns</span>, <span class="kw-2">ref</span> <span class="ident">name</span>, _) <span class="kw">in</span> <span class="ident">FIXTURE_V3</span> {
+        <span class="kw">for</span> <span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">ns</span>, <span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw">_</span>) <span class="kw">in</span> <span class="ident">FIXTURE_V3</span> {
             <span class="kw">let</span> <span class="ident">uuid</span> <span class="op">=</span> <span class="ident">Uuid</span>::<span class="ident">new_v3</span>(<span class="kw-2">*</span><span class="ident">ns</span>, <span class="kw-2">*</span><span class="ident">name</span>);
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">uuid</span>.<span class="ident">get_version</span>().<span class="ident">unwrap</span>() <span class="op">==</span> <span class="ident">UuidVersion</span>::<span class="ident">Md5</span>);
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">uuid</span>.<span class="ident">get_variant</span>().<span class="ident">unwrap</span>() <span class="op">==</span> <span class="ident">UuidVariant</span>::<span class="ident">RFC4122</span>);
@@ -2507,7 +2508,7 @@
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;v5&quot;</span>)]</span>
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_new_v5</span>() {
-        <span class="kw">for</span> <span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">ns</span>, <span class="kw-2">ref</span> <span class="ident">name</span>, _) <span class="kw">in</span> <span class="ident">FIXTURE_V5</span> {
+        <span class="kw">for</span> <span class="kw-2">&amp;</span>(<span class="kw-2">ref</span> <span class="ident">ns</span>, <span class="kw-2">ref</span> <span class="ident">name</span>, <span class="kw">_</span>) <span class="kw">in</span> <span class="ident">FIXTURE_V5</span> {
             <span class="kw">let</span> <span class="ident">uuid</span> <span class="op">=</span> <span class="ident">Uuid</span>::<span class="ident">new_v5</span>(<span class="kw-2">*</span><span class="ident">ns</span>, <span class="kw-2">*</span><span class="ident">name</span>);
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">uuid</span>.<span class="ident">get_version</span>().<span class="ident">unwrap</span>() <span class="op">==</span> <span class="ident">UuidVersion</span>::<span class="ident">Sha1</span>);
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">uuid</span>.<span class="ident">get_variant</span>().<span class="ident">unwrap</span>() <span class="op">==</span> <span class="ident">UuidVariant</span>::<span class="ident">RFC4122</span>);
