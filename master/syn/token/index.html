@@ -1,8 +1,62 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `token` mod in crate `syn`."><meta name="keywords" content="rust, rustlang, rust-lang, token"><title>syn::token - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Module token</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../index.html'>syn</a></p><script>window.sidebarCurrent = {name: 'token', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>syn</a>::<wbr><a class="mod" href=''>token</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/syn/token.rs.html#9-773' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Tokens representing Rust punctuation, keywords, and delimiters.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `token` mod in crate `syn`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, token">
+
+    <title>syn::token - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Module token</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../index.html'>syn</a></p><script>window.sidebarCurrent = {name: 'token', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>syn</a>::<wbr><a class="mod" href=''>token</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/syn/token.rs.html#9-773' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Tokens representing Rust punctuation, keywords, and delimiters.</p>
+
 <p>The type names in this module can be difficult to keep straight, so we
 prefer to use the <a href="../macro.Token.html"><code>Token!</code></a> macro instead. This is a type-macro that
 expands to the token type of the given token.</p>
-<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+
+<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <p>The <a href="../struct.ItemStatic.html"><code>ItemStatic</code></a> syntax tree node is defined like this.</p>
 
 <pre class="rust rust-example-rendered">
@@ -18,7 +72,8 @@ expands to the token type of the given token.</p>
     <span class="kw">pub</span> <span class="ident">expr</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>,
     <span class="kw">pub</span> <span class="ident">semi_token</span>: <span class="macro">Token</span><span class="macro">!</span>[;],
 }</pre>
-<h1 id="parsing" class="section-header"><a href="#parsing">Parsing</a></h1>
+
+<h1 id='parsing' class='section-header'><a href='#parsing'>Parsing</a></h1>
 <p>These tokens can be parsed using the <a href="../synom/trait.Synom.html"><code>Synom</code></a> trait and the parser
 combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href="../macro.keyword.html"><code>keyword!</code></a>, <a href="../macro.parens.html"><code>parens!</code></a>, <a href="../macro.braces.html"><code>braces!</code></a>, and
 <a href="../macro.brackets.html"><code>brackets!</code></a>.</p>
@@ -56,7 +111,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Add'>Add</a></td>
                            <td class='docblock-short'>
                                 <p><code>+</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -64,7 +118,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::AddEq'>AddEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>+=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -72,7 +125,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::And'>And</a></td>
                            <td class='docblock-short'>
                                 <p><code>&amp;</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -80,7 +132,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::AndAnd'>AndAnd</a></td>
                            <td class='docblock-short'>
                                 <p><code>&amp;&amp;</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -88,7 +139,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::AndEq'>AndEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>&amp;=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -96,7 +146,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::As'>As</a></td>
                            <td class='docblock-short'>
                                 <p><code>as</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -104,7 +153,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::At'>At</a></td>
                            <td class='docblock-short'>
                                 <p><code>@</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -112,7 +160,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Auto'>Auto</a></td>
                            <td class='docblock-short'>
                                 <p><code>auto</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -120,7 +167,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Bang'>Bang</a></td>
                            <td class='docblock-short'>
                                 <p><code>!</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -128,7 +174,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Box'>Box</a></td>
                            <td class='docblock-short'>
                                 <p><code>box</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -136,7 +181,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Brace'>Brace</a></td>
                            <td class='docblock-short'>
                                 <p><code>{...}</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -144,7 +188,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Bracket'>Bracket</a></td>
                            <td class='docblock-short'>
                                 <p><code>[...]</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -152,7 +195,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Break'>Break</a></td>
                            <td class='docblock-short'>
                                 <p><code>break</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -160,7 +202,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::CapSelf'>CapSelf</a></td>
                            <td class='docblock-short'>
                                 <p><code>Self</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -168,7 +209,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Caret'>Caret</a></td>
                            <td class='docblock-short'>
                                 <p><code>^</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -176,7 +216,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::CaretEq'>CaretEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>^=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -184,7 +223,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Catch'>Catch</a></td>
                            <td class='docblock-short'>
                                 <p><code>catch</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -192,7 +230,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Colon'>Colon</a></td>
                            <td class='docblock-short'>
                                 <p><code>:</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -200,7 +237,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Colon2'>Colon2</a></td>
                            <td class='docblock-short'>
                                 <p><code>::</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -208,7 +244,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Comma'>Comma</a></td>
                            <td class='docblock-short'>
                                 <p><code>,</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -216,7 +251,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Const'>Const</a></td>
                            <td class='docblock-short'>
                                 <p><code>const</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -224,7 +258,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Continue'>Continue</a></td>
                            <td class='docblock-short'>
                                 <p><code>continue</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -232,7 +265,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Crate'>Crate</a></td>
                            <td class='docblock-short'>
                                 <p><code>crate</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -240,7 +272,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Default'>Default</a></td>
                            <td class='docblock-short'>
                                 <p><code>default</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -248,7 +279,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Div'>Div</a></td>
                            <td class='docblock-short'>
                                 <p><code>/</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -256,7 +286,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::DivEq'>DivEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>/=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -264,7 +293,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Do'>Do</a></td>
                            <td class='docblock-short'>
                                 <p><code>do</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -272,7 +300,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Dot'>Dot</a></td>
                            <td class='docblock-short'>
                                 <p><code>.</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -280,7 +307,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Dot2'>Dot2</a></td>
                            <td class='docblock-short'>
                                 <p><code>..</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -288,7 +314,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Dot3'>Dot3</a></td>
                            <td class='docblock-short'>
                                 <p><code>...</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -296,7 +321,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::DotDotEq'>DotDotEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>..=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -304,7 +328,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Dyn'>Dyn</a></td>
                            <td class='docblock-short'>
                                 <p><code>dyn</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -312,7 +335,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Else'>Else</a></td>
                            <td class='docblock-short'>
                                 <p><code>else</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -320,7 +342,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Enum'>Enum</a></td>
                            <td class='docblock-short'>
                                 <p><code>enum</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -328,7 +349,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Eq'>Eq</a></td>
                            <td class='docblock-short'>
                                 <p><code>=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -336,7 +356,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::EqEq'>EqEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>==</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -344,7 +363,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Extern'>Extern</a></td>
                            <td class='docblock-short'>
                                 <p><code>extern</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -352,7 +370,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::FatArrow'>FatArrow</a></td>
                            <td class='docblock-short'>
                                 <p><code>=&gt;</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -360,7 +377,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Fn'>Fn</a></td>
                            <td class='docblock-short'>
                                 <p><code>fn</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -368,7 +384,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::For'>For</a></td>
                            <td class='docblock-short'>
                                 <p><code>for</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -376,7 +391,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Ge'>Ge</a></td>
                            <td class='docblock-short'>
                                 <p><code>&gt;=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -384,7 +398,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Group'>Group</a></td>
                            <td class='docblock-short'>
                                 <p>None-delimited group</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -392,7 +405,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Gt'>Gt</a></td>
                            <td class='docblock-short'>
                                 <p><code>&gt;</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -400,7 +412,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::If'>If</a></td>
                            <td class='docblock-short'>
                                 <p><code>if</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -408,7 +419,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Impl'>Impl</a></td>
                            <td class='docblock-short'>
                                 <p><code>impl</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -416,7 +426,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::In'>In</a></td>
                            <td class='docblock-short'>
                                 <p><code>in</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -424,7 +433,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::LArrow'>LArrow</a></td>
                            <td class='docblock-short'>
                                 <p><code>&lt;-</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -432,7 +440,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Le'>Le</a></td>
                            <td class='docblock-short'>
                                 <p><code>&lt;=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -440,7 +447,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Let'>Let</a></td>
                            <td class='docblock-short'>
                                 <p><code>let</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -448,7 +454,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Loop'>Loop</a></td>
                            <td class='docblock-short'>
                                 <p><code>loop</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -456,7 +461,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Lt'>Lt</a></td>
                            <td class='docblock-short'>
                                 <p><code>&lt;</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -464,7 +468,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Macro'>Macro</a></td>
                            <td class='docblock-short'>
                                 <p><code>macro</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -472,7 +475,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Match'>Match</a></td>
                            <td class='docblock-short'>
                                 <p><code>match</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -480,7 +482,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Mod'>Mod</a></td>
                            <td class='docblock-short'>
                                 <p><code>mod</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -488,7 +489,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Move'>Move</a></td>
                            <td class='docblock-short'>
                                 <p><code>move</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -496,7 +496,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::MulEq'>MulEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>*=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -504,7 +503,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Mut'>Mut</a></td>
                            <td class='docblock-short'>
                                 <p><code>mut</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -512,7 +510,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Ne'>Ne</a></td>
                            <td class='docblock-short'>
                                 <p><code>!=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -520,7 +517,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Or'>Or</a></td>
                            <td class='docblock-short'>
                                 <p><code>|</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -528,7 +524,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::OrEq'>OrEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>|=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -536,7 +531,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::OrOr'>OrOr</a></td>
                            <td class='docblock-short'>
                                 <p><code>||</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -544,7 +538,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Paren'>Paren</a></td>
                            <td class='docblock-short'>
                                 <p><code>(...)</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -552,7 +545,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Pound'>Pound</a></td>
                            <td class='docblock-short'>
                                 <p><code>#</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -560,7 +552,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Pub'>Pub</a></td>
                            <td class='docblock-short'>
                                 <p><code>pub</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -568,7 +559,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Question'>Question</a></td>
                            <td class='docblock-short'>
                                 <p><code>?</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -576,7 +566,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::RArrow'>RArrow</a></td>
                            <td class='docblock-short'>
                                 <p><code>-&gt;</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -584,7 +573,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Ref'>Ref</a></td>
                            <td class='docblock-short'>
                                 <p><code>ref</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -592,7 +580,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Rem'>Rem</a></td>
                            <td class='docblock-short'>
                                 <p><code>%</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -600,7 +587,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::RemEq'>RemEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>%=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -608,7 +594,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Return'>Return</a></td>
                            <td class='docblock-short'>
                                 <p><code>return</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -616,7 +601,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Self_'>Self_</a></td>
                            <td class='docblock-short'>
                                 <p><code>self</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -624,7 +608,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Semi'>Semi</a></td>
                            <td class='docblock-short'>
                                 <p><code>;</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -632,7 +615,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Shl'>Shl</a></td>
                            <td class='docblock-short'>
                                 <p><code>&lt;&lt;</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -640,7 +622,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::ShlEq'>ShlEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>&lt;&lt;=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -648,7 +629,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Shr'>Shr</a></td>
                            <td class='docblock-short'>
                                 <p><code>&gt;&gt;</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -656,7 +636,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::ShrEq'>ShrEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>&gt;&gt;=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -664,7 +643,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Star'>Star</a></td>
                            <td class='docblock-short'>
                                 <p><code>*</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -672,7 +650,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Static'>Static</a></td>
                            <td class='docblock-short'>
                                 <p><code>static</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -680,7 +657,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Struct'>Struct</a></td>
                            <td class='docblock-short'>
                                 <p><code>struct</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -688,7 +664,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Sub'>Sub</a></td>
                            <td class='docblock-short'>
                                 <p><code>-</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -696,7 +671,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::SubEq'>SubEq</a></td>
                            <td class='docblock-short'>
                                 <p><code>-=</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -704,7 +678,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Super'>Super</a></td>
                            <td class='docblock-short'>
                                 <p><code>super</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -712,7 +685,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Trait'>Trait</a></td>
                            <td class='docblock-short'>
                                 <p><code>trait</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -720,7 +692,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Type'>Type</a></td>
                            <td class='docblock-short'>
                                 <p><code>type</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -728,7 +699,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Underscore'>Underscore</a></td>
                            <td class='docblock-short'>
                                 <p><code>_</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -736,7 +706,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Union'>Union</a></td>
                            <td class='docblock-short'>
                                 <p><code>union</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -744,7 +713,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Unsafe'>Unsafe</a></td>
                            <td class='docblock-short'>
                                 <p><code>unsafe</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -752,7 +720,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Use'>Use</a></td>
                            <td class='docblock-short'>
                                 <p><code>use</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -760,7 +727,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Where'>Where</a></td>
                            <td class='docblock-short'>
                                 <p><code>where</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -768,7 +734,6 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::While'>While</a></td>
                            <td class='docblock-short'>
                                 <p><code>while</code></p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -776,6 +741,67 @@ combinator macros <a href="../macro.punct.html"><code>punct!</code></a>, <a href
                                   title='struct syn::token::Yield'>Yield</a></td>
                            <td class='docblock-short'>
                                 <p><code>yield</code></p>
-
                            </td>
-                       </tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "syn";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "syn";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
