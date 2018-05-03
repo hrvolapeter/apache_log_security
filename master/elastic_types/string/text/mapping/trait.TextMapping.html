@@ -1,56 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `TextMapping` trait in crate `elastic_types`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, TextMapping">
-
-    <title>elastic_types::string::text::mapping::TextMapping - Rust</title>
-
-    <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
-    
-
-    
-    
-</head>
-<body class="rustdoc trait">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        
-        <p class='location'>Trait TextMapping</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#provided-methods">Provided Methods</a><div class="sidebar-links"><a href="#method.analyzer">analyzer</a><a href="#method.boost">boost</a><a href="#method.eager_global_ordinals">eager_global_ordinals</a><a href="#method.fielddata">fielddata</a><a href="#method.fielddata_frequency_filter">fielddata_frequency_filter</a><a href="#method.fields">fields</a><a href="#method.include_in_all">include_in_all</a><a href="#method.ignore_above">ignore_above</a><a href="#method.index">index</a><a href="#method.index_options">index_options</a><a href="#method.norms">norms</a><a href="#method.position_increment_gap">position_increment_gap</a><a href="#method.store">store</a><a href="#method.search_analyzer">search_analyzer</a><a href="#method.search_quote_analyzer">search_quote_analyzer</a><a href="#method.similarity">similarity</a><a href="#method.term_vector">term_vector</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../../index.html'>elastic_types</a>::<wbr><a href='../../index.html'>string</a>::<wbr><a href='../index.html'>text</a>::<wbr><a href='index.html'>mapping</a></p><script>window.sidebarCurrent = {name: 'TextMapping', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
-    </nav>
-
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Trait <a href='../../../index.html'>elastic_types</a>::<wbr><a href='../../index.html'>string</a>::<wbr><a href='../index.html'>text</a>::<wbr><a href='index.html'>mapping</a>::<wbr><a class="trait" href=''>TextMapping</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#71-238' title='goto source code'>[src]</a></span></h1>
-<pre class='rust trait'>pub trait TextMapping <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a>,&nbsp;</span>{
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `TextMapping` trait in crate `elastic_types`."><meta name="keywords" content="rust, rustlang, rust-lang, TextMapping"><title>elastic_types::string::text::mapping::TextMapping - Rust</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css"><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script src="../../../../storage.js"></script></head><body class="rustdoc trait"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Trait TextMapping</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#provided-methods">Provided Methods</a><div class="sidebar-links"><a href="#method.analyzer">analyzer</a><a href="#method.boost">boost</a><a href="#method.eager_global_ordinals">eager_global_ordinals</a><a href="#method.fielddata">fielddata</a><a href="#method.fielddata_frequency_filter">fielddata_frequency_filter</a><a href="#method.fields">fields</a><a href="#method.include_in_all">include_in_all</a><a href="#method.ignore_above">ignore_above</a><a href="#method.index">index</a><a href="#method.index_options">index_options</a><a href="#method.norms">norms</a><a href="#method.position_increment_gap">position_increment_gap</a><a href="#method.store">store</a><a href="#method.search_analyzer">search_analyzer</a><a href="#method.search_quote_analyzer">search_quote_analyzer</a><a href="#method.similarity">similarity</a><a href="#method.term_vector">term_vector</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='../../../index.html'>elastic_types</a>::<wbr><a href='../../index.html'>string</a>::<wbr><a href='../index.html'>text</a>::<wbr><a href='index.html'>mapping</a></p><script>window.sidebarCurrent = {name: 'TextMapping', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../../index.html'>elastic_types</a>::<wbr><a href='../../index.html'>string</a>::<wbr><a href='../index.html'>text</a>::<wbr><a href='index.html'>mapping</a>::<wbr><a class="trait" href=''>TextMapping</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#71-238' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait TextMapping <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a>,&nbsp;</span>{
     fn <a href='#method.analyzer' class='fnname'>analyzer</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; { ... }
 <div class='item-spacer'></div>    fn <a href='#method.boost' class='fnname'>boost</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>&gt; { ... }
 <div class='item-spacer'></div>    fn <a href='#method.eager_global_ordinals' class='fnname'>eager_global_ordinals</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt; { ... }
@@ -68,11 +16,9 @@
 <div class='item-spacer'></div>    fn <a href='#method.search_quote_analyzer' class='fnname'>search_quote_analyzer</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; { ... }
 <div class='item-spacer'></div>    fn <a href='#method.similarity' class='fnname'>similarity</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt; { ... }
 <div class='item-spacer'></div>    fn <a href='#method.term_vector' class='fnname'>term_vector</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../../../elastic_types/string/text/mapping/enum.TermVector.html" title="enum elastic_types::string::text::mapping::TermVector">TermVector</a>&gt; { ... }
-}</pre><div class='docblock'><p>The base requirements for mapping a <code>string</code> type.</p>
-
+}</pre></div><div class='docblock'><p>The base requirements for mapping a <code>string</code> type.</p>
 <p>Custom mappings can be defined by implementing <code>TextMapping</code>.</p>
-
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
 <p>Define a custom <code>TextMapping</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -84,7 +30,6 @@
         <span class="prelude-val">Some</span>(<span class="number">1.5</span>)
     }
 }</pre>
-
 <p>This will produce the following mapping:</p>
 
 <pre class="rust rust-example-rendered">
@@ -111,9 +56,8 @@ By default all values are loaded.</p>
 </div><h3 id='method.fields' class='method'><span id='fields.v' class='invisible'><code>fn <a href='#method.fields' class='fnname'>fields</a>() -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/btree/map/struct.BTreeMap.html" title="struct alloc::btree::map::BTreeMap">BTreeMap</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, <a class="enum" href="../../../../elastic_types/string/mapping/enum.StringField.html" title="enum elastic_types::string::mapping::StringField">StringField</a>&gt;&gt;</code></span></h3><div class='docblock'><p>Multi-fields allow the same string value to be indexed in multiple ways for different purposes,
 such as one field for search and a multi-field for sorting and aggregations,
 or the same string value analyzed by different analyzers.</p>
-
-<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
-<p>Subfields are provided as simple <code>struct</code>s, so you don&#39;t need to define a separate type
+<h1 id="examples-1" class="section-header"><a href="#examples-1">Examples</a></h1>
+<p>Subfields are provided as simple <code>struct</code>s, so you don't need to define a separate type
 to map them:</p>
 
 <pre class="rust rust-example-rendered">
@@ -160,70 +104,8 @@ Defaults to <code>No</code>.</p>
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#243' title='goto source code'>[src]</a></div><code>impl TextMapping for <a class="struct" href="../../../../elastic_types/string/text/mapping/struct.DefaultTextMapping.html" title="struct elastic_types::string::text::mapping::DefaultTextMapping">DefaultTextMapping</a></code></li>
-<li><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_types/string/mapping.rs.html#12-25' title='goto source code'>[src]</a></div><code>impl TextMapping for <a class="struct" href="../../../../elastic_types/string/mapping/struct.DefaultStringMapping.html" title="struct elastic_types::string::mapping::DefaultStringMapping">DefaultStringMapping</a></code></li>
-</ul><script type="text/javascript" async
+    <li><table class='table-display'><tbody><tr><td><code>impl TextMapping for <a class="struct" href="../../../../elastic_types/string/text/mapping/struct.DefaultTextMapping.html" title="struct elastic_types::string::text::mapping::DefaultTextMapping">DefaultTextMapping</a></code><td><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#243' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+<li><table class='table-display'><tbody><tr><td><code>impl TextMapping for <a class="struct" href="../../../../elastic_types/string/mapping/struct.DefaultStringMapping.html" title="struct elastic_types::string::mapping::DefaultStringMapping">DefaultStringMapping</a></code><td><div class='out-of-band'><a class='srclink' href='../../../../src/elastic_types/string/mapping.rs.html#12-25' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
+</ul><script type="text/javascript">window.inlined_types=new Set([]);</script><script type="text/javascript" async
                          src="../../../../implementors/elastic_types/string/text/mapping/trait.TextMapping.js">
-                 </script></section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt>?</dt>
-                    <dd>Show this help dialog</dd>
-                    <dt>S</dt>
-                    <dd>Focus the search field</dd>
-                    <dt>↑</dt>
-                    <dd>Move up in search results</dd>
-                    <dt>↓</dt>
-                    <dd>Move down in search results</dd>
-                    <dt>↹</dt>
-                    <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
-                    <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../../../../";
-        window.currentCrate = "elastic_types";
-    </script>
-    <script src="../../../../main.js"></script>
-    <script defer src="../../../../search-index.js"></script>
-</body>
-</html>
+                 </script></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../../../";window.currentCrate = "elastic_types";</script><script src="../../../../aliases.js"></script><script src="../../../../main.js"></script><script defer src="../../../../search-index.js"></script></body></html>

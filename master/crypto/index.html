@@ -1,56 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `crypto` crate.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, crypto">
-
-    <title>crypto - Rust</title>
-
-    <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
-    
-
-    
-    
-</head>
-<body class="rustdoc mod">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        
-        <p class='location'>Crate crypto</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'crypto', ty: 'mod', relpath: '../'};</script></div>
-    </nav>
-
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>crypto</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../src/crypto/lib.rs.html#7-58' title='goto source code'>[src]</a></span></h1>
-<h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `crypto` crate."><meta name="keywords" content="rust, rustlang, rust-lang, crypto"><title>crypto - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../dark.css"><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script src="../storage.js"></script></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Crate crypto</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'crypto', ty: 'mod', relpath: '../'};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>crypto</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/crypto/lib.rs.html#7-58' title='goto source code'>[src]</a></span></h1><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
                            <td><a class="mod" href="aead/index.html"
@@ -92,6 +40,7 @@ you are processing a single blocks (CFB, OFB, and CBC encryption for example) wh
 are trivially parallelizable (CTR and CBC decryption). Processing more blocks at once allows for
 greater efficiency, especially when using wide registers, such as the XMM registers available in
 x86 processors.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -183,6 +132,7 @@ x86 processors.</p>
                                   title='mod crypto::fortuna'>fortuna</a></td>
                            <td class='docblock-short'>
                                 <p>An implementation of the Fortuna CSPRNG</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -204,7 +154,8 @@ x86 processors.</p>
                                   title='mod crypto::hkdf'>hkdf</a></td>
                            <td class='docblock-short'>
                                 <p>This module implements the HMAC-based Extract-and-Expand Key
-Derivation Function as specified by  <a href="https://tools.ietf.org/html/rfc5869">https://tools.ietf.org/html/rfc5869</a>.</p>
+Derivation Function as specified by  https://tools.ietf.org/html/rfc5869.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -212,6 +163,7 @@ Derivation Function as specified by  <a href="https://tools.ietf.org/html/rfc586
                                   title='mod crypto::hmac'>hmac</a></td>
                            <td class='docblock-short'>
                                 <p>This module implements the Hmac function - a Message Authentication Code using a Digest.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -219,6 +171,7 @@ Derivation Function as specified by  <a href="https://tools.ietf.org/html/rfc586
                                   title='mod crypto::mac'>mac</a></td>
                            <td class='docblock-short'>
                                 <p>The mac module defines the Message Authentication Code (Mac) trait.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -233,7 +186,8 @@ Derivation Function as specified by  <a href="https://tools.ietf.org/html/rfc586
                                   title='mod crypto::pbkdf2'>pbkdf2</a></td>
                            <td class='docblock-short'>
                                 <p>This module implements the PBKDF2 Key Derivation Function as specified by
-<a href="http://tools.ietf.org/html/rfc2898">http://tools.ietf.org/html/rfc2898</a>.</p>
+http://tools.ietf.org/html/rfc2898.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -249,6 +203,7 @@ Derivation Function as specified by  <a href="https://tools.ietf.org/html/rfc586
                            <td class='docblock-short'>
                                 <p>An implementation of the RC4 (also sometimes called ARC4) stream cipher. THIS IMPLEMENTATION IS
 NOT A FIXED TIME IMPLEMENTATION.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -256,6 +211,7 @@ NOT A FIXED TIME IMPLEMENTATION.</p>
                                   title='mod crypto::ripemd160'>ripemd160</a></td>
                            <td class='docblock-short'>
                                 <p>An implementation of the RIPEMD-160 cryptographic hash.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -270,6 +226,7 @@ NOT A FIXED TIME IMPLEMENTATION.</p>
                                   title='mod crypto::scrypt'>scrypt</a></td>
                            <td class='docblock-short'>
                                 <p>This module implements the Scrypt key derivation function as specified in [1].</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -277,6 +234,7 @@ NOT A FIXED TIME IMPLEMENTATION.</p>
                                   title='mod crypto::sha1'>sha1</a></td>
                            <td class='docblock-short'>
                                 <p>An implementation of the SHA-1 cryptographic hash algorithm.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -284,6 +242,7 @@ NOT A FIXED TIME IMPLEMENTATION.</p>
                                   title='mod crypto::sha2'>sha2</a></td>
                            <td class='docblock-short'>
                                 <p>An implementation of the SHA-2 cryptographic hash algorithms.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -291,6 +250,7 @@ NOT A FIXED TIME IMPLEMENTATION.</p>
                                   title='mod crypto::sha3'>sha3</a></td>
                            <td class='docblock-short'>
                                 <p>An implementation of the SHA-3 cryptographic hash algorithms.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -319,67 +279,6 @@ NOT A FIXED TIME IMPLEMENTATION.</p>
                                   title='mod crypto::whirlpool'>whirlpool</a></td>
                            <td class='docblock-short'>
                                 <p>An implementation of the Whirlpool cryptographic hash algorithm.</p>
+
                            </td>
-                       </tr></table></section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt>?</dt>
-                    <dd>Show this help dialog</dd>
-                    <dt>S</dt>
-                    <dd>Focus the search field</dd>
-                    <dt>↑</dt>
-                    <dd>Move up in search results</dd>
-                    <dt>↓</dt>
-                    <dd>Move down in search results</dd>
-                    <dt>↹</dt>
-                    <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
-                    <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../";
-        window.currentCrate = "crypto";
-    </script>
-    <script src="../main.js"></script>
-    <script defer src="../search-index.js"></script>
-</body>
-</html>
+                       </tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../";window.currentCrate = "crypto";</script><script src="../aliases.js"></script><script src="../main.js"></script><script defer src="../search-index.js"></script></body></html>
