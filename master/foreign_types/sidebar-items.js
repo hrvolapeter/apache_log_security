@@ -1,1 +1,0 @@
-initSidebarItems({"macro":[["foreign_type","A macro to easily define wrappers for foreign types."]]});
