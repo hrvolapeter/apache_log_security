@@ -10,10 +10,11 @@
     <title>message.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -166,7 +167,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_ref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">T</span> {
         <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
             <span class="ident">Message</span>::<span class="ident">WithoutBody</span>(<span class="kw-2">ref</span> <span class="ident">v</span>) <span class="op">=&gt;</span> <span class="ident">v</span>,
-            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="kw-2">ref</span> <span class="ident">v</span>, _) <span class="op">=&gt;</span> <span class="ident">v</span>,
+            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="kw-2">ref</span> <span class="ident">v</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">v</span>,
         }
     }
 
@@ -174,7 +175,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">T</span> {
         <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
             <span class="ident">Message</span>::<span class="ident">WithoutBody</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">v</span>) <span class="op">=&gt;</span> <span class="ident">v</span>,
-            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">v</span>, _) <span class="op">=&gt;</span> <span class="ident">v</span>,
+            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">v</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">v</span>,
         }
     }
 
@@ -182,7 +183,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_inner</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
         <span class="kw">match</span> <span class="self">self</span> {
             <span class="ident">Message</span>::<span class="ident">WithoutBody</span>(<span class="ident">v</span>) <span class="op">=&gt;</span> <span class="ident">v</span>,
-            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="ident">v</span>, _) <span class="op">=&gt;</span> <span class="ident">v</span>,
+            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="ident">v</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">v</span>,
         }
     }
 
@@ -223,7 +224,7 @@
     <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">T</span> {
         <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
             <span class="ident">Message</span>::<span class="ident">WithoutBody</span>(<span class="kw-2">ref</span> <span class="ident">v</span>) <span class="op">=&gt;</span> <span class="ident">v</span>,
-            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="kw-2">ref</span> <span class="ident">v</span>, _) <span class="op">=&gt;</span> <span class="ident">v</span>,
+            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="kw-2">ref</span> <span class="ident">v</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">v</span>,
         }
     }
 }
@@ -232,7 +233,7 @@
     <span class="kw">fn</span> <span class="ident">deref_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">T</span> {
         <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
             <span class="ident">Message</span>::<span class="ident">WithoutBody</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">v</span>) <span class="op">=&gt;</span> <span class="ident">v</span>,
-            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">v</span>, _) <span class="op">=&gt;</span> <span class="ident">v</span>,
+            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">v</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="ident">v</span>,
         }
     }
 }
@@ -243,7 +244,7 @@
     <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
         <span class="kw">match</span> <span class="kw-2">*</span><span class="self">self</span> {
             <span class="ident">Message</span>::<span class="ident">WithoutBody</span>(<span class="kw-2">ref</span> <span class="ident">v</span>) <span class="op">=&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">fmt</span>, <span class="string">&quot;Message::WithoutBody({:?})&quot;</span>, <span class="ident">v</span>),
-            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="kw-2">ref</span> <span class="ident">v</span>, _) <span class="op">=&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">fmt</span>, <span class="string">&quot;Message::WithBody({:?}, ...)&quot;</span>, <span class="ident">v</span>),
+            <span class="ident">Message</span>::<span class="ident">WithBody</span>(<span class="kw-2">ref</span> <span class="ident">v</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">fmt</span>, <span class="string">&quot;Message::WithBody({:?}, ...)&quot;</span>, <span class="ident">v</span>),
         }
     }
 }
