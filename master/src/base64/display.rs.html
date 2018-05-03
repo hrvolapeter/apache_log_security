@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.7.0/src/display.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/base64-0.9.0/src/display.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>display.rs.html -- source</title>
@@ -161,11 +161,18 @@
 <span id="104">104</span>
 <span id="105">105</span>
 <span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
 </pre><pre class="rust ">
-<span class="doccomment">//! Enables base64&#39;d output anywhere you might use a Display implementation, like a format string.</span>
+<span class="doccomment">//! Enables base64&#39;d output anywhere you might use a `Display` implementation, like a format string.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```</span>
-<span class="doccomment">//! use base64::STANDARD;</span>
 <span class="doccomment">//! use base64::display::Base64Display;</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! let data = vec![0x0, 0x1, 0x2, 0x3];</span>
@@ -192,20 +199,22 @@
 <span class="doccomment">/// A convenience wrapper for base64&#39;ing bytes into a format string without heap allocation.</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Base64Display</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="ident">bytes</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> [<span class="ident">u8</span>],
-    <span class="ident">chunked_encoder</span>: <span class="ident">ChunkedEncoder</span>
+    <span class="ident">chunked_encoder</span>: <span class="ident">ChunkedEncoder</span>,
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Base64Display</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Create a `Base64Display` with the provided config.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_config</span>(<span class="ident">bytes</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>], <span class="ident">config</span>: <span class="ident">Config</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Base64Display</span>, <span class="ident">DisplayError</span><span class="op">&gt;</span> {
         <span class="ident">ChunkedEncoder</span>::<span class="ident">new</span>(<span class="ident">config</span>)
-                .<span class="ident">map</span>( <span class="op">|</span><span class="ident">c</span><span class="op">|</span> <span class="ident">Base64Display</span> {
+            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">c</span><span class="op">|</span> {
+                <span class="ident">Base64Display</span> {
                     <span class="ident">bytes</span>,
-                    <span class="ident">chunked_encoder</span>: <span class="ident">c</span>
-                })
-                .<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="kw">match</span> <span class="ident">e</span> {
-                    <span class="ident">ChunkedEncoderError</span>::<span class="ident">InvalidLineLength</span> <span class="op">=&gt;</span> <span class="ident">DisplayError</span>::<span class="ident">InvalidLineLength</span>
-                })
+                    <span class="ident">chunked_encoder</span>: <span class="ident">c</span>,
+                }
+            })
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="kw">match</span> <span class="ident">e</span> {
+                <span class="ident">ChunkedEncoderError</span>::<span class="ident">InvalidLineLength</span> <span class="op">=&gt;</span> <span class="ident">DisplayError</span>::<span class="ident">InvalidLineLength</span>,
+            })
     }
 
     <span class="doccomment">/// Convenience method for creating a `Base64Display` with the `STANDARD` configuration.</span>
@@ -217,7 +226,6 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">url_safe</span>(<span class="ident">bytes</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">Base64Display</span> {
         <span class="ident">Base64Display</span>::<span class="ident">with_config</span>(<span class="ident">bytes</span>, <span class="kw">super</span>::<span class="ident">URL_SAFE</span>).<span class="ident">expect</span>(<span class="string">&quot;URL_SAFE is valid&quot;</span>)
     }
-
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Display</span> <span class="kw">for</span> <span class="ident">Base64Display</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
@@ -228,7 +236,7 @@
 }
 
 <span class="kw">struct</span> <span class="ident">FormatterSink</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>: <span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="ident">Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>
+    <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="ident">Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>,
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>: <span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="kw">super</span>::<span class="ident">chunked_encoder</span>::<span class="ident">Sink</span> <span class="kw">for</span> <span class="ident">FormatterSink</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span><span class="op">&gt;</span> {
@@ -237,7 +245,8 @@
     <span class="kw">fn</span> <span class="ident">write_encoded_bytes</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">encoded</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
         <span class="comment">// Avoid unsafe. If max performance is needed, write your own display wrapper that uses</span>
         <span class="comment">// unsafe here to gain about 10-15%.</span>
-        <span class="self">self</span>.<span class="ident">f</span>.<span class="ident">write_str</span>(<span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">encoded</span>).<span class="ident">expect</span>(<span class="string">&quot;base64 data was not utf8&quot;</span>))
+        <span class="self">self</span>.<span class="ident">f</span>
+            .<span class="ident">write_str</span>(<span class="ident">str</span>::<span class="ident">from_utf8</span>(<span class="ident">encoded</span>).<span class="ident">expect</span>(<span class="string">&quot;base64 data was not utf8&quot;</span>))
     }
 }
 
@@ -245,12 +254,19 @@
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw">super</span>::<span class="ident">chunked_encoder</span>::<span class="ident">tests</span>::{<span class="ident">SinkTestHelper</span>, <span class="ident">chunked_encode_matches_normal_encode_random</span>};
+    <span class="kw">use</span> <span class="kw">super</span>::<span class="kw">super</span>::<span class="ident">chunked_encoder</span>::<span class="ident">tests</span>::{<span class="ident">chunked_encode_matches_normal_encode_random</span>,
+                                               <span class="ident">SinkTestHelper</span>};
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">basic_display</span>() {
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="string">&quot;~$Zm9vYmFy#*&quot;</span>, <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;~${}#*&quot;</span>, <span class="ident">Base64Display</span>::<span class="ident">standard</span>(<span class="string">&quot;foobar&quot;</span>.<span class="ident">as_bytes</span>())));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="string">&quot;~$Zm9vYmFyZg==#*&quot;</span>, <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;~${}#*&quot;</span>, <span class="ident">Base64Display</span>::<span class="ident">standard</span>(<span class="string">&quot;foobarf&quot;</span>.<span class="ident">as_bytes</span>())));
+        <span class="macro">assert_eq</span><span class="macro">!</span>(
+            <span class="string">&quot;~$Zm9vYmFy#*&quot;</span>,
+            <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;~${}#*&quot;</span>, <span class="ident">Base64Display</span>::<span class="ident">standard</span>(<span class="string">&quot;foobar&quot;</span>.<span class="ident">as_bytes</span>()))
+        );
+        <span class="macro">assert_eq</span><span class="macro">!</span>(
+            <span class="string">&quot;~$Zm9vYmFyZg==#*&quot;</span>,
+            <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;~${}#*&quot;</span>, <span class="ident">Base64Display</span>::<span class="ident">standard</span>(<span class="string">&quot;foobarf&quot;</span>.<span class="ident">as_bytes</span>()))
+        );
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
