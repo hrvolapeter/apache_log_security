@@ -1,88 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `client` mod in crate `elastic`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, client">
-
-    <title>elastic::client - Rust</title>
-
-    <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
-    
-
-    
-    
-</head>
-<body class="rustdoc mod">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        
-        <p class='location'>Module client</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>elastic</a></p><script>window.sidebarCurrent = {name: 'client', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
-    </nav>
-
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>elastic</a>::<wbr><a class="mod" href=''>client</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../src/elastic/client/mod.rs.html#1-624' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>HTTP client, requests and responses.</p>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `client` mod in crate `elastic`."><meta name="keywords" content="rust, rustlang, rust-lang, client"><title>elastic::client - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Module client</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#traits">Traits</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../index.html'>elastic</a></p><script>window.sidebarCurrent = {name: 'client', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>elastic</a>::<wbr><a class="mod" href=''>client</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/elastic/client/mod.rs.html#1-624' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>HTTP client, requests and responses.</p>
 <p>This module contains the HTTP client, as well as request and response types.</p>
-
-<h1 id='the-gist' class='section-header'><a href='#the-gist'>The gist</a></h1>
+<h1 id="the-gist" class="section-header"><a href="#the-gist">The gist</a></h1>
 <p><code>elastic</code> provides two clients:</p>
-
 <ul>
 <li><a href="type.SyncClient.html"><code>SyncClient</code></a> for making synchronous requests</li>
 <li><a href="type.AsyncClient.html"><code>AsyncClient</code></a> for making asynchronous requests using the <a href="https://tokio.rs"><code>tokio</code></a> stack.</li>
 </ul>
-
-<h2 id='building-a-synchronous-client' class='section-header'><a href='#building-a-synchronous-client'>Building a synchronous client</a></h2>
+<h2 id="building-a-synchronous-client" class="section-header"><a href="#building-a-synchronous-client">Building a synchronous client</a></h2>
 <p>Use a <a href="struct.SyncClientBuilder.html"><code>SyncClientBuilder</code></a> to configure a synchronous client.</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">client</span> <span class="op">=</span> <span class="ident">SyncClientBuilder</span>::<span class="ident">new</span>().<span class="ident">build</span>()<span class="question-mark">?</span>;</pre>
-
 <p>Requests on the synchronous client will block the current thread until a response is received.
 The response is returned as a <code>Result</code>.</p>
-
-<h2 id='building-an-asynchronous-client' class='section-header'><a href='#building-an-asynchronous-client'>Building an asynchronous client</a></h2>
+<h2 id="building-an-asynchronous-client" class="section-header"><a href="#building-an-asynchronous-client">Building an asynchronous client</a></h2>
 <p>Use an <a href="struct.AsyncClientBuilder.html"><code>AsyncClientBuilder</code></a> to configure an asynchronous client.</p>
-
 <p>The asynchronous client requires a handle to a <code>tokio::reactor::Core</code>:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">client</span> <span class="op">=</span> <span class="ident">AsyncClientBuilder</span>::<span class="ident">new</span>().<span class="ident">build</span>(<span class="kw-2">&amp;</span><span class="ident">core</span>.<span class="ident">handle</span>())<span class="question-mark">?</span>;</pre>
-
-<p>Requests on the asynchronous client won&#39;t block the current thread.
+<p>Requests on the asynchronous client won't block the current thread.
 Instead a <code>Future</code> will be returned immediately that will resolve to a response at a later point.</p>
-
-<h2 id='sending-requests' class='section-header'><a href='#sending-requests'>Sending requests</a></h2>
+<h2 id="sending-requests" class="section-header"><a href="#sending-requests">Sending requests</a></h2>
 <p>Requests can be sent with an instance of a client using a builder API:</p>
 
 <pre class="rust rust-example-rendered">
@@ -112,150 +51,61 @@ Instead a <code>Future</code> will be returned immediately that will resolve to 
         <span class="comment">// handle a HTTP or JSON error</span>
     }
 }</pre>
-
 <p><code>SyncClient</code> and <code>AsyncClient</code> offer the same request methods.
 The details are explained below.</p>
-
-<h1 id='request-builders' class='section-header'><a href='#request-builders'>Request builders</a></h1>
+<h1 id="request-builders" class="section-header"><a href="#request-builders">Request builders</a></h1>
 <p>Some commonly used endpoints have high-level builder methods you can use to configure requests easily.
-They&#39;re exposed as methods on the <code>Client</code>:</p>
-
-<table>
-<thead>
-<tr>
-<th>Client method</th>
-<th>Elasticsearch API</th>
-<th>Raw request type</th>
-<th>Response type</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="struct.Client.html#search-request"><code>search</code></a></td>
-<td><a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">Search</a></td>
-<td><a href="requests/endpoints/struct.SearchRequest.html"><code>SearchRequest</code></a></td>
-<td><a href="responses/type.SearchResponse.html"><code>SearchResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#get-document"><code>document_get</code></a></td>
-<td><a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html">Get Document</a></td>
-<td><a href="requests/endpoints/struct.GetRequest.html"><code>GetRequest</code></a></td>
-<td><a href="responses/type.GetResponse.html"><code>GetResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#index-request"><code>document_index</code></a></td>
-<td><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html">Index Document</a></td>
-<td><a href="requests/endpoints/struct.IndexRequest.html"><code>IndexRequest</code></a></td>
-<td><a href="responses/struct.IndexResponse.html"><code>IndexResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#update-document"><code>document_update</code></a></td>
-<td><a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html">Update Document</a></td>
-<td><a href="requests/endpoints/struct.UpdateRequest.html"><code>UpdateRequest</code></a></td>
-<td><a href="responses/type.UpdateResponse.html"><code>UpdateResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#delete-document"><code>document_delete</code></a></td>
-<td><a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html">Delete Document</a></td>
-<td><a href="requests/endpoints/struct.DeleteRequest.html"><code>DeleteRequest</code></a></td>
-<td><a href="responses/type.DeleteResponse.html"><code>DeleteResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#method.document_put_mapping"><code>document_put_mapping</code></a></td>
-<td><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html">Put Mapping</a></td>
-<td><a href="requests/endpoints/struct.IndicesPutMappingRequest.html"><code>IndicesPutMappingRequest</code></a></td>
-<td><a href="responses/struct.CommandResponse.html"><code>CommandResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#create-index-request"><code>index_create</code></a></td>
-<td><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html">Create Index</a></td>
-<td><a href="requests/endpoints/struct.IndicesCreateRequest.html"><code>IndicesCreateRequest</code></a></td>
-<td><a href="responses/struct.CommandResponse.html"><code>CommandResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#open-index-request"><code>index_open</code></a></td>
-<td><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-open-close.html">Open Index</a></td>
-<td><a href="requests/endpoints/struct.IndicesOpenRequest.html"><code>IndicesOpenRequest</code></a></td>
-<td><a href="responses/struct.CommandResponse.html"><code>CommandResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#close-index-request"><code>index_close</code></a></td>
-<td><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-open-close.html">Close Index</a></td>
-<td><a href="requests/endpoints/struct.IndicesCloseRequest.html"><code>IndicesCloseRequest</code></a></td>
-<td><a href="responses/struct.CommandResponse.html"><code>CommandResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#delete-index-request"><code>index_delete</code></a></td>
-<td><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html">Delete Index</a></td>
-<td><a href="requests/endpoints/struct.IndicesDeleteRequest.html"><code>IndicesDeleteRequest</code></a></td>
-<td><a href="responses/struct.CommandResponse.html"><code>CommandResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#index-exists-request"><code>index_exists</code></a></td>
-<td><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-exists.html">Index Exists</a></td>
-<td><a href="requests/endpoints/struct.IndicesExistsRequest.html"><code>IndicesExistsRequest</code></a></td>
-<td><a href="responses/struct.IndicesExistsResponse.html"><code>IndicesExistsResponse</code></a></td>
-</tr>
-<tr>
-<td><a href="struct.Client.html#ping-request"><code>ping</code></a></td>
-<td>-</td>
-<td><a href="requests/endpoints/struct.PingRequest.html"><code>PingRequest</code></a></td>
-<td><a href="responses/struct.PingResponse.html"><code>PingResponse</code></a></td>
-</tr>
-</tbody>
-</table>
-
+They're exposed as methods on the <code>Client</code>:</p>
+<table><thead><tr><th>Client method                                                 </th><th> Elasticsearch API                  </th><th> Raw request type                                        </th><th> Response type</th></tr></thead><tbody>
+<tr><td><a href="struct.Client.html#search-request"><code>search</code></a>                                     </td><td> <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">Search</a>              </td><td> <a href="requests/endpoints/struct.SearchRequest.html"><code>SearchRequest</code></a>                        </td><td> <a href="responses/type.SearchResponse.html"><code>SearchResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#get-document"><code>document_get</code></a>                         </td><td> <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html">Get Document</a>           </td><td> <a href="requests/endpoints/struct.GetRequest.html"><code>GetRequest</code></a>                              </td><td> <a href="responses/type.GetResponse.html"><code>GetResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#index-request"><code>document_index</code></a>                     </td><td> <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html">Index Document</a>       </td><td> <a href="requests/endpoints/struct.IndexRequest.html"><code>IndexRequest</code></a>                          </td><td> <a href="responses/struct.IndexResponse.html"><code>IndexResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#update-document"><code>document_update</code></a>                   </td><td> <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html">Update Document</a>     </td><td> <a href="requests/endpoints/struct.UpdateRequest.html"><code>UpdateRequest</code></a>                        </td><td> <a href="responses/type.UpdateResponse.html"><code>UpdateResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#delete-document"><code>document_delete</code></a>                   </td><td> <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html">Delete Document</a>     </td><td> <a href="requests/endpoints/struct.DeleteRequest.html"><code>DeleteRequest</code></a>                        </td><td> <a href="responses/type.DeleteResponse.html"><code>DeleteResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#method.document_put_mapping"><code>document_put_mapping</code></a>         </td><td> <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html">Put Mapping</a>        </td><td> <a href="requests/endpoints/struct.IndicesPutMappingRequest.html"><code>IndicesPutMappingRequest</code></a>  </td><td> <a href="responses/struct.CommandResponse.html"><code>CommandResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#create-index-request"><code>index_create</code></a>                         </td><td> <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html">Create Index</a>  </td><td> <a href="requests/endpoints/struct.IndicesCreateRequest.html"><code>IndicesCreateRequest</code></a>          </td><td> <a href="responses/struct.CommandResponse.html"><code>CommandResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#open-index-request"><code>index_open</code></a>                             </td><td> <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-open-close.html">Open Index</a>      </td><td> <a href="requests/endpoints/struct.IndicesOpenRequest.html"><code>IndicesOpenRequest</code></a>              </td><td> <a href="responses/struct.CommandResponse.html"><code>CommandResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#close-index-request"><code>index_close</code></a>                           </td><td> <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-open-close.html">Close Index</a>    </td><td> <a href="requests/endpoints/struct.IndicesCloseRequest.html"><code>IndicesCloseRequest</code></a>            </td><td> <a href="responses/struct.CommandResponse.html"><code>CommandResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#delete-index-request"><code>index_delete</code></a>                         </td><td> <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html">Delete Index</a>  </td><td> <a href="requests/endpoints/struct.IndicesDeleteRequest.html"><code>IndicesDeleteRequest</code></a>          </td><td> <a href="responses/struct.CommandResponse.html"><code>CommandResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#index-exists-request"><code>index_exists</code></a>                         </td><td> <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-exists.html">Index Exists</a>  </td><td> <a href="requests/endpoints/struct.IndicesExistsRequest.html"><code>IndicesExistsRequest</code></a>          </td><td> <a href="responses/struct.IndicesExistsResponse.html"><code>IndicesExistsResponse</code></a></td></tr>
+<tr><td><a href="struct.Client.html#ping-request"><code>ping</code></a>                                         </td><td> -                                  </td><td> <a href="requests/endpoints/struct.PingRequest.html"><code>PingRequest</code></a>                            </td><td> <a href="responses/struct.PingResponse.html"><code>PingResponse</code></a></td></tr>
+</tbody></table>
 <p>All builders follow a standard pattern:</p>
-
 <ul>
 <li>The <code>Client</code> method takes all required parameters without type inference</li>
 <li>Optional or inferred parameters can be overridden in builder methods with type inference</li>
 <li><code>send</code> will return a specific response type</li>
 </ul>
-
 <p>The high-level request builders are wrappers around the <a href="struct.Client.html#method.request"><code>Client.request</code></a> method, taking a <a href="requests/endpoints/index.html">raw request type</a>.
 For example, a <code>document_get</code> request for a value:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">document_get</span>::<span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>(<span class="ident">index</span>(<span class="string">&quot;values&quot;</span>), <span class="ident">id</span>(<span class="number">1</span>)).<span class="ident">send</span>()<span class="question-mark">?</span>;</pre>
-
 <p>is equivalent to:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">request</span>(<span class="ident">GetRequest</span>::<span class="ident">for_index_ty_id</span>(<span class="string">&quot;values&quot;</span>, <span class="string">&quot;value&quot;</span>, <span class="number">1</span>))
                      .<span class="ident">send</span>()<span class="question-mark">?</span>
                      .<span class="ident">into_response</span>::<span class="op">&lt;</span><span class="ident">GetResponse</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;&gt;</span>()<span class="question-mark">?</span>;</pre>
-
-<h1 id='raw-request-types' class='section-header'><a href='#raw-request-types'>Raw request types</a></h1>
+<h1 id="raw-request-types" class="section-header"><a href="#raw-request-types">Raw request types</a></h1>
 <p>Not all endpoints have strongly-typed builders, but all Elasticsearch API endpoints have a specific <a href="requests/endpoints/index.html">raw request type</a> that can be used to build a request manually and send with the <a href="struct.Client.html#method.request"><code>Client.request</code></a> method.
-The builders described above are just wrappers around these request types, but that doesn&#39;t mean raw requests are a second-class API.
+The builders described above are just wrappers around these request types, but that doesn't mean raw requests are a second-class API.
 You have more control over how requests are serialised, sent and deserialised using the raw requests API.
 All request endpoints live in the <a href="requests/endpoints/index.html"><code>endpoints</code></a> module.</p>
-
 <p>The process of sending raw requests is described in more detail below.</p>
-
-<h2 id='the-raw-request-process' class='section-header'><a href='#the-raw-request-process'>The raw request process</a></h2>
+<h2 id="the-raw-request-process" class="section-header"><a href="#the-raw-request-process">The raw request process</a></h2>
 <p>The pieces involved in sending an Elasticsearch API request and parsing the response are modular.
-Each one exposes Rust traits you can implement to support your own logic but if you just want to send a search/get request and parse a search/get response then you won&#39;t need to worry about this so much.</p>
-
+Each one exposes Rust traits you can implement to support your own logic but if you just want to send a search/get request and parse a search/get response then you won't need to worry about this so much.</p>
 <p>The basic flow from request to response is:</p>
-
 <p><strong>1)</strong> Turn a concrete <a href="requests/endpoints/index.html">request type</a> into a <a href="requests/type.RawRequestBuilder.html"><code>RawRequestBuilder</code></a>:</p>
-
 <pre><code class="language-text">[RequestType] ---&gt; [Client.request()] ---&gt; [RawRequestBuilder]
 </code></pre>
-
 <p><strong>2)</strong> Send the <a href="requests/type.RawRequestBuilder.html"><code>RawRequestBuilder</code></a> and get a response builder:</p>
-
 <pre><code class="language-text">[RawRequestBuilder.send()] ---&gt; [ResponseBuilder]
 </code></pre>
-
 <p><strong>3)</strong> Parse the response builder to a <a href="responses/parse/trait.IsOk.html#implementors">response type</a>:</p>
-
 <pre><code class="language-text">[ResponseBuilder.into_response()] ---&gt; [ResponseType]
 </code></pre>
-
 <p>The example below shows how these pieces fit together in code  by sending a simple synchronous <code>SearchRequest</code>, with the steps in the above process labelled:</p>
 
 <pre class="rust rust-example-rendered">
@@ -264,11 +114,9 @@ Each one exposes Rust traits you can implement to support your own logic but if 
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">request</span>(<span class="ident">req</span>) <span class="comment">// 1</span>
                      .<span class="ident">send</span>()<span class="question-mark">?</span> <span class="comment">// 2</span>
                      .<span class="ident">into_response</span>::<span class="op">&lt;</span><span class="ident">SearchResponse</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;&gt;</span>()<span class="question-mark">?</span>; <span class="comment">// 3</span></pre>
-
-<h3 id='1-building-raw-requests' class='section-header'><a href='#1-building-raw-requests'>1. Building raw requests</a></h3>
+<h3 id="1-building-raw-requests" class="section-header"><a href="#1-building-raw-requests">1. Building raw requests</a></h3>
 <p>The <a href="requests/endpoints/index.html"><code>endpoints</code></a> module contains code-generated request types for the Elasticsearch REST API.
 Each request type expects its parameters upfront and is generic over the request body.</p>
-
 <p>A raw search request:</p>
 
 <pre class="rust rust-example-rendered">
@@ -283,7 +131,6 @@ Each request type expects its parameters upfront and is generic over the request
 
     <span class="ident">SearchRequest</span>::<span class="ident">for_index_ty</span>(<span class="string">&quot;myindex&quot;</span>, <span class="string">&quot;myty&quot;</span>, <span class="ident">body</span>)
 };</pre>
-
 <p>A raw request to index a document:</p>
 
 <pre class="rust rust-example-rendered">
@@ -292,10 +139,8 @@ Each request type expects its parameters upfront and is generic over the request
 
     <span class="ident">IndexRequest</span>::<span class="ident">for_index_ty_id</span>(<span class="string">&quot;myindex&quot;</span>, <span class="string">&quot;myty&quot;</span>, <span class="number">1</span>, <span class="ident">body</span>)
 };</pre>
-
-<h3 id='2-sending-requests' class='section-header'><a href='#2-sending-requests'>2. Sending requests</a></h3>
+<h3 id="2-sending-requests" class="section-header"><a href="#2-sending-requests">2. Sending requests</a></h3>
 <p>Both high-level request builders and raw requests have some common builder methods:</p>
-
 <ul>
 <li><a href="requests/struct.RequestBuilder.html#method.params"><code>params</code></a> for setting url query parameters</li>
 <li>a <code>send</code> method for sending the request.
@@ -316,8 +161,7 @@ If the request was sent asynchronously, the response is returned as a <code>Futu
 
 <span class="comment">// Send the request</span>
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">request_builder</span>.<span class="ident">send</span>();</pre>
-
-<h3 id='3-parsing-responses-synchronously' class='section-header'><a href='#3-parsing-responses-synchronously'>3. Parsing responses synchronously</a></h3>
+<h3 id="3-parsing-responses-synchronously" class="section-header"><a href="#3-parsing-responses-synchronously">3. Parsing responses synchronously</a></h3>
 <p>Call <a href="responses/struct.SyncResponseBuilder.html#method.into_response"><code>SyncResponseBuilder.into_response</code></a> on a sent request to get a <a href="responses/parse/trait.IsOk.html#implementors">strongly typed response</a>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -339,7 +183,6 @@ If the request was sent asynchronously, the response is returned as a <code>Futu
         <span class="comment">// handle a HTTP or JSON error</span>
     }
 }</pre>
-
 <p>Alternatively, call <a href="responses/struct.SyncResponseBuilder.html#method.into_raw"><code>SyncResponseBuilder.into_raw</code></a> on a sent request to get a raw <a href="responses/struct.SyncHttpResponse.html"><code>SyncHttpResponse</code></a>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -351,11 +194,9 @@ If the request was sent asynchronously, the response is returned as a <code>Futu
 <span class="ident">response</span>.<span class="ident">read_to_string</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">body</span>)<span class="question-mark">?</span>;
 
 <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">body</span>);</pre>
-
 <p><code>SyncHttpResponse</code> implements the standard <code>Read</code> trait so you can buffer out the raw response data.
 For more details see the <a href="responses/index.html"><code>responses</code></a> module.</p>
-
-<h3 id='3-parsing-responses-asynchronously' class='section-header'><a href='#3-parsing-responses-asynchronously'>3. Parsing responses asynchronously</a></h3>
+<h3 id="3-parsing-responses-asynchronously" class="section-header"><a href="#3-parsing-responses-asynchronously">3. Parsing responses asynchronously</a></h3>
 <p>Call <a href="responses/struct.AsyncResponseBuilder.html#method.into_response"><code>AsyncResponseBuilder.into_response</code></a> on a sent request to get a <a href="responses/parse/trait.IsOk.html#implementors">strongly typed response</a>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -371,7 +212,6 @@ For more details see the <a href="responses/index.html"><code>responses</code></
 
     <span class="prelude-val">Ok</span>(())
 });</pre>
-
 <p>Alternatively, call <a href="responses/struct.AsyncResponseBuilder.html#method.into_raw"><code>AsyncResponseBuilder.into_raw</code></a> on a sent request to get a raw <a href="responses/struct.AsyncHttpResponse.html"><code>AsyncHttpResponse</code></a>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -388,7 +228,6 @@ For more details see the <a href="responses/index.html"><code>responses</code></
 
     <span class="prelude-val">Ok</span>(())
 });</pre>
-
 <p><code>AsyncHttpResponse</code> implements the async <code>Stream</code> trait so you can buffer out the raw response data.
 For more details see the <a href="responses/index.html"><code>responses</code></a> module.</p>
 </div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
@@ -398,6 +237,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='mod elastic::client::prelude'>prelude</a></td>
                            <td class='docblock-short'>
                                 <p>A glob import for convenience. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -405,6 +245,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='mod elastic::client::requests'>requests</a></td>
                            <td class='docblock-short'>
                                 <p>Request types for the Elasticsearch REST API.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -412,6 +253,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='mod elastic::client::responses'>responses</a></td>
                            <td class='docblock-short'>
                                 <p>Response types for the Elasticsearch REST API.</p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -420,6 +262,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='struct elastic::client::AsyncClientBuilder'>AsyncClientBuilder</a></td>
                            <td class='docblock-short'>
                                 <p>A builder for an asynchronous client. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -427,6 +270,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='struct elastic::client::AsyncSender'>AsyncSender</a></td>
                            <td class='docblock-short'>
                                 <p>An asynchronous request sender. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -434,6 +278,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='struct elastic::client::Client'>Client</a></td>
                            <td class='docblock-short'>
                                 <p>A HTTP client for the Elasticsearch REST API.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -441,6 +286,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='struct elastic::client::Pending'>Pending</a></td>
                            <td class='docblock-short'>
                                 <p>A future returned by calling <code>send</code>. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -448,6 +294,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='struct elastic::client::RequestParams'>RequestParams</a></td>
                            <td class='docblock-short'>
                                 <p>Misc parameters for any request.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -455,6 +302,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='struct elastic::client::SyncClientBuilder'>SyncClientBuilder</a></td>
                            <td class='docblock-short'>
                                 <p>A builder for a syncronous client. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -462,6 +310,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='struct elastic::client::SyncSender'>SyncSender</a></td>
                            <td class='docblock-short'>
                                 <p>A synchronous request sender. </p>
+
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -470,6 +319,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='trait elastic::client::IntoAsyncHttpClient'>IntoAsyncHttpClient</a></td>
                            <td class='docblock-short'>
                                 <p>A type that can be used to construct an async http client.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -477,6 +327,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='trait elastic::client::Sender'>Sender</a></td>
                            <td class='docblock-short'>
                                 <p>Represents a type that can send a request.</p>
+
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
@@ -485,6 +336,7 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='type elastic::client::AsyncClient'>AsyncClient</a></td>
                            <td class='docblock-short'>
                                 <p>An asynchronous Elasticsearch client.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -492,67 +344,6 @@ For more details see the <a href="responses/index.html"><code>responses</code></
                                   title='type elastic::client::SyncClient'>SyncClient</a></td>
                            <td class='docblock-short'>
                                 <p>A synchronous Elasticsearch client.</p>
+
                            </td>
-                       </tr></table></section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt>?</dt>
-                    <dd>Show this help dialog</dd>
-                    <dt>S</dt>
-                    <dd>Focus the search field</dd>
-                    <dt>↑</dt>
-                    <dd>Move up in search results</dd>
-                    <dt>↓</dt>
-                    <dd>Move down in search results</dd>
-                    <dt>↹</dt>
-                    <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
-                    <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../../";
-        window.currentCrate = "elastic";
-    </script>
-    <script src="../../main.js"></script>
-    <script defer src="../../search-index.js"></script>
-</body>
-</html>
+                       </tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "elastic";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>

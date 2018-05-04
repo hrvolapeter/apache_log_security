@@ -1,69 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `endpoints` mod in crate `elastic`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, endpoints">
-
-    <title>elastic::client::requests::endpoints - Rust</title>
-
-    <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
-    
-
-    
-    
-</head>
-<body class="rustdoc mod">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        
-        <p class='location'>Module endpoints</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>requests</a></p><script>window.sidebarCurrent = {name: 'endpoints', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
-    </nav>
-
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>requests</a>::<wbr><a class="mod" href=''>endpoints</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../../../src/elastic_requests/lib.rs.html#111-113' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>REST API endpoints.</p>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `endpoints` mod in crate `elastic`."><meta name="keywords" content="rust, rustlang, rust-lang, endpoints"><title>elastic::client::requests::endpoints - Rust</title><link rel="stylesheet" type="text/css" href="../../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../../dark.css"><link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle"><script src="../../../../storage.js"></script></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Module endpoints</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>requests</a></p><script>window.sidebarCurrent = {name: 'endpoints', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../../../settings.html"><img src="../../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>requests</a>::<wbr><a class="mod" href=''>endpoints</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../../src/elastic_requests/lib.rs.html#111-113' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>REST API endpoints.</p>
 <p>Each type corresponds to a single HTTP method on a single endpoint.
 Request types have constructor functions that take the form
 <code>for_param_1_param_2_param_n</code>, and accept a <code>Body</code> parameter if the underlying
 method is a <code>POST</code> or <code>PUT</code>.
 Other request parameters accept any type that can be converted into the
 parameter type, usually a <code>String</code> or <code>&amp;str</code>.</p>
-
-<p>Request types don&#39;t take ownership of their inputs unless you pass in owned
+<p>Request types don't take ownership of their inputs unless you pass in owned
 data.
-That means if some function expects a <code>SearchRequest&lt;&#39;static&gt;</code> then you can
+That means if some function expects a <code>SearchRequest&lt;'static&gt;</code> then you can
 either use a <code>SearchRequest</code> with owned <code>String</code> inputs, or one that uses only
-<code>&#39;static</code> inputs.</p>
+<code>'static</code> inputs.</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -71,6 +17,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::BulkRequest'>BulkRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_bulk</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -78,6 +25,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatAliasesRequest'>CatAliasesRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/aliases</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -85,6 +33,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatAllocationRequest'>CatAllocationRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/allocation</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -92,6 +41,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatCountRequest'>CatCountRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/count</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -99,6 +49,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatFielddataRequest'>CatFielddataRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/fielddata</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -106,6 +57,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatHealthRequest'>CatHealthRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/health</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -113,6 +65,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatHelpRequest'>CatHelpRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -120,6 +73,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatIndicesRequest'>CatIndicesRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/indices</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -127,6 +81,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatMasterRequest'>CatMasterRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/master</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -134,6 +89,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatNodeattrsRequest'>CatNodeattrsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/nodeattrs</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -141,6 +97,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatNodesRequest'>CatNodesRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/nodes</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -148,6 +105,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatPendingTasksRequest'>CatPendingTasksRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/pending_tasks</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -155,6 +113,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatPluginsRequest'>CatPluginsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/plugins</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -162,6 +121,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatRecoveryRequest'>CatRecoveryRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/recovery</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -169,6 +129,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatRepositoriesRequest'>CatRepositoriesRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/repositories</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -176,6 +137,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatSegmentsRequest'>CatSegmentsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/segments</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -183,6 +145,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatShardsRequest'>CatShardsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/shards</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -190,6 +153,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatSnapshotsRequest'>CatSnapshotsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/snapshots</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -197,6 +161,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatTasksRequest'>CatTasksRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/tasks</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -204,6 +169,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatTemplatesRequest'>CatTemplatesRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/templates</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -211,6 +177,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CatThreadPoolRequest'>CatThreadPoolRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cat/thread_pool</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -218,6 +185,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ClearScrollRequest'>ClearScrollRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Delete: /_search/scroll/{scroll_id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -225,6 +193,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ClusterAllocationExplainRequest'>ClusterAllocationExplainRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_cluster/allocation/explain</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -232,6 +201,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ClusterGetSettingsRequest'>ClusterGetSettingsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cluster/settings</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -239,6 +209,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ClusterHealthRequest'>ClusterHealthRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cluster/health</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -246,6 +217,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ClusterPendingTasksRequest'>ClusterPendingTasksRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cluster/pending_tasks</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -253,6 +225,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ClusterPutSettingsRequest'>ClusterPutSettingsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Put: /_cluster/settings</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -260,6 +233,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ClusterRerouteRequest'>ClusterRerouteRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_cluster/reroute</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -267,6 +241,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ClusterStateRequest'>ClusterStateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cluster/state</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -274,6 +249,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ClusterStatsRequest'>ClusterStatsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_cluster/stats</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -281,6 +257,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CountPercolateRequest'>CountPercolateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/{type}/_percolate/count</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -288,6 +265,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CountRequest'>CountRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_count</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -295,6 +273,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::CreateRequest'>CreateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/{type}/{id}/_create</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -302,6 +281,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::DeleteByQueryRequest'>DeleteByQueryRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/_delete_by_query</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -309,6 +289,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::DeleteRequest'>DeleteRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Delete: /{index}/{type}/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -316,6 +297,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::DeleteScriptRequest'>DeleteScriptRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Delete: /_scripts/{lang}/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -323,6 +305,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::DeleteTemplateRequest'>DeleteTemplateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Delete: /_search/template/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -330,6 +313,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ExistsRequest'>ExistsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Head: /{index}/{type}/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -337,6 +321,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ExplainRequest'>ExplainRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/{type}/{id}/_explain</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -344,6 +329,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::FieldStatsRequest'>FieldStatsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_field_stats</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -351,6 +337,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::GetRequest'>GetRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /{index}/{type}/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -358,6 +345,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::GetScriptRequest'>GetScriptRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_scripts/{lang}/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -365,6 +353,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::GetSourceRequest'>GetSourceRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /{index}/{type}/{id}/_source</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -372,6 +361,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::GetTemplateRequest'>GetTemplateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_search/template/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -379,6 +369,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndexRequest'>IndexRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/{type}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -386,6 +377,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesAnalyzeRequest'>IndicesAnalyzeRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_analyze</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -393,6 +385,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesClearCacheRequest'>IndicesClearCacheRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_cache/clear</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -400,6 +393,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesCloseRequest'>IndicesCloseRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/_close</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -407,6 +401,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesCreateRequest'>IndicesCreateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Put: /{index}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -414,6 +409,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesDeleteAliasRequest'>IndicesDeleteAliasRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Delete: /{index}/_alias/{name}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -421,6 +417,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesDeleteRequest'>IndicesDeleteRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Delete: /{index}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -428,6 +425,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesDeleteTemplateRequest'>IndicesDeleteTemplateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Delete: /_template/{name}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -435,6 +433,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesExistsAliasRequest'>IndicesExistsAliasRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Head: /_alias/{name}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -442,6 +441,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesExistsRequest'>IndicesExistsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Head: /{index}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -449,6 +449,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesExistsTemplateRequest'>IndicesExistsTemplateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Head: /_template/{name}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -456,6 +457,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesExistsTypeRequest'>IndicesExistsTypeRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Head: /{index}/_mapping/{type}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -463,6 +465,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesFlushRequest'>IndicesFlushRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_flush</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -470,6 +473,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesFlushSyncedRequest'>IndicesFlushSyncedRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_flush/synced</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -477,6 +481,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesForcemergeRequest'>IndicesForcemergeRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_forcemerge</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -484,6 +489,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesGetAliasRequest'>IndicesGetAliasRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_alias/</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -491,6 +497,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesGetFieldMappingRequest'>IndicesGetFieldMappingRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_mapping/field/{fields}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -498,6 +505,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesGetMappingRequest'>IndicesGetMappingRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_mapping</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -505,6 +513,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesGetRequest'>IndicesGetRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /{index}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -512,6 +521,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesGetSettingsRequest'>IndicesGetSettingsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_settings</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -519,6 +529,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesGetTemplateRequest'>IndicesGetTemplateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_template/{name}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -526,6 +537,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesGetUpgradeRequest'>IndicesGetUpgradeRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_upgrade</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -533,6 +545,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesOpenRequest'>IndicesOpenRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/_open</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -540,6 +553,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesPutAliasRequest'>IndicesPutAliasRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/_alias/{name}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -547,6 +561,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesPutMappingRequest'>IndicesPutMappingRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/{type}/_mapping</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -554,6 +569,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesPutSettingsRequest'>IndicesPutSettingsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Put: /_settings</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -561,6 +577,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesPutTemplateRequest'>IndicesPutTemplateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_template/{name}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -568,6 +585,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesRecoveryRequest'>IndicesRecoveryRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_recovery</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -575,6 +593,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesRefreshRequest'>IndicesRefreshRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_refresh</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -582,6 +601,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesRolloverRequest'>IndicesRolloverRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{alias}/_rollover</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -589,6 +609,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesSegmentsRequest'>IndicesSegmentsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_segments</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -596,6 +617,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesShardStoresRequest'>IndicesShardStoresRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_shard_stores</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -603,6 +625,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesShrinkRequest'>IndicesShrinkRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/_shrink/{target}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -610,6 +633,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesStatsRequest'>IndicesStatsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_stats</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -617,6 +641,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesUpdateAliasesRequest'>IndicesUpdateAliasesRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_aliases</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -624,6 +649,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesUpgradeRequest'>IndicesUpgradeRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_upgrade</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -631,6 +657,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IndicesValidateQueryRequest'>IndicesValidateQueryRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_validate/query</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -638,6 +665,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::InfoRequest'>InfoRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -645,6 +673,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IngestDeletePipelineRequest'>IngestDeletePipelineRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Delete: /_ingest/pipeline/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -652,6 +681,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IngestGetPipelineRequest'>IngestGetPipelineRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_ingest/pipeline/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -659,6 +689,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IngestPutPipelineRequest'>IngestPutPipelineRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Put: /_ingest/pipeline/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -666,6 +697,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::IngestSimulateRequest'>IngestSimulateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_ingest/pipeline/_simulate</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -673,6 +705,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::MgetRequest'>MgetRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_mget</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -680,6 +713,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::MpercolateRequest'>MpercolateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_mpercolate</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -687,6 +721,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::MsearchRequest'>MsearchRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_msearch</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -694,6 +729,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::MsearchTemplateRequest'>MsearchTemplateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_msearch/template</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -701,6 +737,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::MtermvectorsRequest'>MtermvectorsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_mtermvectors</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -708,6 +745,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::NodesHotThreadsRequest'>NodesHotThreadsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_nodes/hot_threads</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -715,6 +753,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::NodesInfoRequest'>NodesInfoRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_nodes</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -722,6 +761,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::NodesStatsRequest'>NodesStatsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_nodes/stats</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -729,6 +769,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::PercolateRequest'>PercolateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/{type}/_percolate</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -736,6 +777,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::PingHeadRequest'>PingHeadRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Head: /</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -743,6 +785,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::PingRequest'>PingRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -750,6 +793,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::PutScriptRequest'>PutScriptRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_scripts/{lang}/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -757,6 +801,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::PutTemplateRequest'>PutTemplateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_search/template/{id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -764,6 +809,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ReindexRequest'>ReindexRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_reindex</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -771,6 +817,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ReindexRethrottleRequest'>ReindexRethrottleRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_reindex/{task_id}/_rethrottle</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -778,6 +825,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::RenderSearchTemplateRequest'>RenderSearchTemplateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_render/template</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -785,6 +833,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::ScrollRequest'>ScrollRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_search/scroll</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -792,6 +841,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SearchRequest'>SearchRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_search</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -799,6 +849,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SearchShardsRequest'>SearchShardsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/_search_shards</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -806,6 +857,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SearchTemplateRequest'>SearchTemplateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_search/template</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -813,6 +865,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SimpleSearchRequest'>SimpleSearchRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_search</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -820,6 +873,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SnapshotCreateRepositoryRequest'>SnapshotCreateRepositoryRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_snapshot/{repository}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -827,6 +881,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SnapshotCreateRequest'>SnapshotCreateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_snapshot/{repository}/{snapshot}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -834,6 +889,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SnapshotDeleteRepositoryRequest'>SnapshotDeleteRepositoryRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Delete: /_snapshot/{repository}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -841,6 +897,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SnapshotDeleteRequest'>SnapshotDeleteRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Delete: /_snapshot/{repository}/{snapshot}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -848,6 +905,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SnapshotGetRepositoryRequest'>SnapshotGetRepositoryRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_snapshot</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -855,6 +913,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SnapshotGetRequest'>SnapshotGetRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_snapshot/{repository}/{snapshot}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -862,6 +921,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SnapshotRestoreRequest'>SnapshotRestoreRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_snapshot/{repository}/{snapshot}/_restore</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -869,6 +929,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SnapshotStatusRequest'>SnapshotStatusRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_snapshot/_status</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -876,6 +937,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SnapshotVerifyRepositoryRequest'>SnapshotVerifyRepositoryRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_snapshot/{repository}/_verify</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -883,6 +945,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::SuggestRequest'>SuggestRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_suggest</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -890,6 +953,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::TasksCancelRequest'>TasksCancelRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /_tasks</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -897,6 +961,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::TasksGetRequest'>TasksGetRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_tasks/{task_id}</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -904,6 +969,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::TasksListRequest'>TasksListRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Get: /_tasks</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -911,6 +977,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::TermvectorsRequest'>TermvectorsRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/{type}/_termvectors</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -918,6 +985,7 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::UpdateByQueryRequest'>UpdateByQueryRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/_update_by_query</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -925,67 +993,6 @@ either use a <code>SearchRequest</code> with owned <code>String</code> inputs, o
                                   title='struct elastic::client::requests::endpoints::UpdateRequest'>UpdateRequest</a></td>
                            <td class='docblock-short'>
                                 <p><code>Post: /{index}/{type}/{id}/_update</code></p>
+
                            </td>
-                       </tr></table></section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt>?</dt>
-                    <dd>Show this help dialog</dd>
-                    <dt>S</dt>
-                    <dd>Focus the search field</dd>
-                    <dt>↑</dt>
-                    <dd>Move up in search results</dd>
-                    <dt>↓</dt>
-                    <dd>Move down in search results</dd>
-                    <dt>↹</dt>
-                    <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
-                    <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../../../../";
-        window.currentCrate = "elastic";
-    </script>
-    <script src="../../../../main.js"></script>
-    <script defer src="../../../../search-index.js"></script>
-</body>
-</html>
+                       </tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../../../";window.currentCrate = "elastic";</script><script src="../../../../aliases.js"></script><script src="../../../../main.js"></script><script defer src="../../../../search-index.js"></script></body></html>

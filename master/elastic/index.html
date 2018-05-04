@@ -1,87 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `elastic` crate.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, elastic">
-
-    <title>elastic - Rust</title>
-
-    <link rel="stylesheet" type="text/css" href="../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../main.css">
-    
-
-    
-    
-</head>
-<body class="rustdoc mod">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        
-        <p class='location'>Crate elastic</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'elastic', ty: 'mod', relpath: '../'};</script></div>
-    </nav>
-
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>elastic</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../src/elastic/lib.rs.html#1-328' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Elasticsearch API Client</p>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `elastic` crate."><meta name="keywords" content="rust, rustlang, rust-lang, elastic"><title>elastic - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../dark.css"><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script src="../storage.js"></script></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Crate elastic</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#modules">Modules</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'elastic', ty: 'mod', relpath: '../'};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>elastic</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/elastic/lib.rs.html#1-328' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Elasticsearch API Client</p>
 <p>A modular and efficient native client for the Elasticsearch REST API.</p>
-
-<h1 id='supported-versions' class='section-header'><a href='#supported-versions'>Supported Versions</a></h1>
-<table>
-<thead>
-<tr>
-<th><code>elastic</code></th>
-<th>Elasticsearch</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><code>0.x</code></td>
-<td><code>5.x</code></td>
-</tr>
-</tbody>
-</table>
-
+<h1 id="supported-versions" class="section-header"><a href="#supported-versions">Supported Versions</a></h1><table><thead><tr><th><code>elastic</code>       </th><th> Elasticsearch</th></tr></thead><tbody>
+<tr><td><code>0.x</code>           </td><td> <code>5.x</code></td></tr>
+</tbody></table>
 <p>This crate depends heavily on the following crates:</p>
-
 <ul>
 <li><a href="https://github.com/seanmonstar/reqwest"><code>reqwest</code>/<code>hyper</code></a> as the default HTTP layer</li>
 <li><a href="https://serde.rs/"><code>serde</code>/<code>serde_json</code></a> for serialisation</li>
 <li><a href="https://tokio.rs"><code>futures</code>/<code>tokio</code></a> for async io.</li>
 </ul>
-
-<p><code>elastic</code> is designed to scale up to the complexity of Elasticsearch&#39;s API, and with the complexity of the environments Elasticsearch is deployed in.</p>
-
-<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
+<p><code>elastic</code> is designed to scale up to the complexity of Elasticsearch's API, and with the complexity of the environments Elasticsearch is deployed in.</p>
+<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
 <p>This crate is on <a href="https://crates.io/crates/elastic">crates.io</a>.
 To get stated, add <code>elastic</code> to your <code>Cargo.toml</code>:</p>
 
@@ -89,26 +18,21 @@ To get stated, add <code>elastic</code> to your <code>Cargo.toml</code>:</p>
 [<span class="ident">dependencies</span>]
 <span class="ident">elastic</span> <span class="op">=</span> <span class="string">&quot;*&quot;</span>
 <span class="ident">elastic_derive</span> <span class="op">=</span> <span class="string">&quot;*&quot;</span></pre>
-
 <p>The following optional dependencies may also be useful:</p>
 
 <div class='information'><div class='tooltip ignore'>ⓘ<span class='tooltiptext'>This example is not tested</span></div></div><pre class="rust rust-example-rendered ignore">
 <span class="ident">serde</span> <span class="op">=</span> <span class="string">&quot;*&quot;</span>
 <span class="ident">serde_json</span> <span class="op">=</span> <span class="string">&quot;*&quot;</span>
 <span class="ident">serde_derive</span> <span class="op">=</span> <span class="string">&quot;*&quot;</span></pre>
-
 <p>Then reference in your crate root:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">elastic</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">elastic_derive</span>;</pre>
-
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
-<h2 id='creating-a-synchronous-client' class='section-header'><a href='#creating-a-synchronous-client'>Creating a synchronous client</a></h2>
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1><h2 id="creating-a-synchronous-client" class="section-header"><a href="#creating-a-synchronous-client">Creating a synchronous client</a></h2>
 <p>The <a href="client/type.SyncClient.html"><code>SyncClient</code></a> type is an easy way to interact with an Elasticsearch cluster.
 A synchronous client can be created through the <a href="client/struct.SyncClientBuilder.html"><code>SyncClientBuilder</code></a>.</p>
-
 <p>The builder allows you to configure default parameters for all requests:</p>
 
 <pre class="rust rust-example-rendered">
@@ -122,7 +46,6 @@ A synchronous client can be created through the <a href="client/struct.SyncClien
         .<span class="ident">header</span>(<span class="ident">Authorization</span>(<span class="string">&quot;let me in&quot;</span>.<span class="ident">to_owned</span>())));
 
 <span class="kw">let</span> <span class="ident">client</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">build</span>()<span class="question-mark">?</span>;</pre>
-
 <p>Individual requests can override these parameter values:</p>
 
 <pre class="rust rust-example-rendered">
@@ -131,17 +54,13 @@ A synchronous client can be created through the <a href="client/struct.SyncClien
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">search</span>::<span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>()
                      .<span class="ident">params</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">url_param</span>(<span class="string">&quot;pretty&quot;</span>, <span class="bool-val">false</span>))
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;</pre>
-
 <p><code>elastic</code> also offers an <a href="client/type.AsyncClient.html"><code>AsyncClient</code></a>.
 For more details, see the <a href="client/index.html"><code>client</code></a> and <a href="client/requests/index.html"><code>requests</code></a> modules.</p>
-
-<h2 id='making-requests' class='section-header'><a href='#making-requests'>Making requests</a></h2>
+<h2 id="making-requests" class="section-header"><a href="#making-requests">Making requests</a></h2>
 <p><em>For a list of common client methods, see <a href="client/index.html#request-builders">here</a>.</em></p>
-
 <p>Each endpoint in the Elasticsearch REST API is provided as a strongly-typed structure.
 The client offers high-level request builders for some common Elasticsearch operations.</p>
-
-<h3 id='getting-and-indexing-documents' class='section-header'><a href='#getting-and-indexing-documents'>Getting and Indexing documents</a></h3>
+<h3 id="getting-and-indexing-documents" class="section-header"><a href="#getting-and-indexing-documents">Getting and Indexing documents</a></h3>
 <p>The <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html">Document Mapping API</a> is provided as a custom derive plugin and set of Rust traits.
 Derive <code>Serialize</code>, <code>Deserialize</code> and <code>ElasticType</code> on your document types:</p>
 
@@ -152,13 +71,11 @@ Derive <code>Serialize</code>, <code>Deserialize</code> and <code>ElasticType</c
     <span class="kw">pub</span> <span class="ident">title</span>: <span class="ident">String</span>,
     <span class="kw">pub</span> <span class="ident">timestamp</span>: <span class="ident">Date</span><span class="op">&lt;</span><span class="ident">DefaultDateMapping</span><span class="op">&gt;</span>
 }</pre>
-
 <p>Call <a href="client/struct.Client.html#method.document_put_mapping"><code>Client.document_put_mapping</code></a> to ensure an index has the right mapping for your document types:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="ident">client</span>.<span class="ident">document_put_mapping</span>::<span class="op">&lt;</span><span class="ident">MyType</span><span class="op">&gt;</span>(<span class="ident">index</span>(<span class="string">&quot;myindex&quot;</span>))
       .<span class="ident">send</span>()<span class="question-mark">?</span>;</pre>
-
 <p>Then call <a href="client/struct.Client.html#method.document_index"><code>Client.document_index</code></a> to index documents in Elasticsearch:</p>
 
 <pre class="rust rust-example-rendered">
@@ -170,7 +87,6 @@ Derive <code>Serialize</code>, <code>Deserialize</code> and <code>ElasticType</c
 
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">document_index</span>(<span class="ident">index</span>(<span class="string">&quot;myindex&quot;</span>), <span class="ident">id</span>(<span class="ident">doc</span>.<span class="ident">id</span>), <span class="ident">doc</span>)
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;</pre>
-
 <p>Call <a href="client/struct.Client.html#method.document_get"><code>Client.document_get</code></a> to retrieve a single document from an index:</p>
 
 <pre class="rust rust-example-rendered">
@@ -180,10 +96,8 @@ Derive <code>Serialize</code>, <code>Deserialize</code> and <code>ElasticType</c
 <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">doc</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">into_document</span>() {
     <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;id: {}&quot;</span>, <span class="ident">doc</span>.<span class="ident">id</span>);
 }</pre>
-
 <p>For more details on document types, see the <a href="types/index.html"><code>types</code></a> module.</p>
-
-<h3 id='searching-documents' class='section-header'><a href='#searching-documents'>Searching documents</a></h3>
+<h3 id="searching-documents" class="section-header"><a href="#searching-documents">Searching documents</a></h3>
 <p>Call <a href="client/struct.Client.html#method.search"><code>Client.search</code></a> to execute <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">Query DSL</a> queries:</p>
 
 <pre class="rust rust-example-rendered">
@@ -202,25 +116,21 @@ Derive <code>Serialize</code>, <code>Deserialize</code> and <code>ElasticType</c
 <span class="kw">for</span> <span class="ident">hit</span> <span class="kw">in</span> <span class="ident">response</span>.<span class="ident">hits</span>() {
     <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">hit</span>);
 }</pre>
-
-<h1 id='crate-design' class='section-header'><a href='#crate-design'>Crate design</a></h1>
+<h1 id="crate-design" class="section-header"><a href="#crate-design">Crate design</a></h1>
 <p>This crate is mostly a meta-package composed of a number of smaller pieces including:</p>
-
 <ul>
 <li><code>elastic_reqwest</code> HTTP transport</li>
 <li><code>elastic_requests</code> API request builders</li>
 <li><code>elastic_responses</code> API response parsers</li>
 <li><code>elastic_types</code> tools for document and mapping APIs</li>
 </ul>
-
-<p>This crate glues these libraries together with some simple assumptions about how they&#39;re going to be used.</p>
-
-<h1 id='links' class='section-header'><a href='#links'>Links</a></h1>
+<p>This crate glues these libraries together with some simple assumptions about how they're going to be used.</p>
+<h1 id="links" class="section-header"><a href="#links">Links</a></h1>
 <ul>
 <li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">Elasticsearch Docs</a></li>
 <li><a href="https://github.com/elastic-rs/elastic">Github</a></li>
 </ul>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Re-exports</a></h2>
 <table><tr><td><code>pub use error::<a class="enum" href="../elastic/error/enum.Error.html" title="enum elastic::error::Error">Error</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -228,6 +138,7 @@ Derive <code>Serialize</code>, <code>Deserialize</code> and <code>ElasticType</c
                                   title='mod elastic::client'>client</a></td>
                            <td class='docblock-short'>
                                 <p>HTTP client, requests and responses.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -235,6 +146,7 @@ Derive <code>Serialize</code>, <code>Deserialize</code> and <code>ElasticType</c
                                   title='mod elastic::error'>error</a></td>
                            <td class='docblock-short'>
                                 <p>Client-side error types.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -242,6 +154,7 @@ Derive <code>Serialize</code>, <code>Deserialize</code> and <code>ElasticType</c
                                   title='mod elastic::http'>http</a></td>
                            <td class='docblock-short'>
                                 <p>Raw HTTP modules.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -249,6 +162,7 @@ Derive <code>Serialize</code>, <code>Deserialize</code> and <code>ElasticType</c
                                   title='mod elastic::prelude'>prelude</a></td>
                            <td class='docblock-short'>
                                 <p>A glob import for convenience. </p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -256,67 +170,6 @@ Derive <code>Serialize</code>, <code>Deserialize</code> and <code>ElasticType</c
                                   title='mod elastic::types'>types</a></td>
                            <td class='docblock-short'>
                                 <p>Indexable documents and type mapping.</p>
+
                            </td>
-                       </tr></table></section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt>?</dt>
-                    <dd>Show this help dialog</dd>
-                    <dt>S</dt>
-                    <dd>Focus the search field</dd>
-                    <dt>↑</dt>
-                    <dd>Move up in search results</dd>
-                    <dt>↓</dt>
-                    <dd>Move down in search results</dd>
-                    <dt>↹</dt>
-                    <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
-                    <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../";
-        window.currentCrate = "elastic";
-    </script>
-    <script src="../main.js"></script>
-    <script defer src="../search-index.js"></script>
-</body>
-</html>
+                       </tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../";window.currentCrate = "elastic";</script><script src="../aliases.js"></script><script src="../main.js"></script><script defer src="../search-index.js"></script></body></html>
