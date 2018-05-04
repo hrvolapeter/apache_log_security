@@ -1,4 +1,50 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/spade-1.4.0/src/delaunay/cdt.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>cdt.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css"><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script src="../../../storage.js"></script></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/spade-1.4.0/src/delaunay/cdt.rs`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang">
+
+    <title>cdt.rs.html -- source</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc source">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -1300,7 +1346,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">locate_vertex</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="kw-2">&amp;</span><span class="ident">V</span>::<span class="ident">Point</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">VertexHandle</span><span class="op">&lt;</span><span class="ident">V</span>, <span class="ident">CdtEdge</span><span class="op">&gt;&gt;</span> {
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">locate</span>(<span class="ident">point</span>) {
             <span class="ident">PositionInTriangulation</span>::<span class="ident">OnPoint</span>(<span class="ident">vertex</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="ident">vertex</span>),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>
+            _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>
         }
     }
 
@@ -1347,7 +1393,7 @@
         <span class="kw">use</span> <span class="self">self</span>::<span class="ident">PositionInTriangulation</span>::<span class="kw-2">*</span>;
         <span class="kw">match</span> <span class="self">self</span>.<span class="ident">locate_with_hint_option_fixed</span>(<span class="ident">point</span>, <span class="prelude-val">None</span>) {
             <span class="ident">OnPoint</span>(<span class="ident">handle</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="ident">remove</span>(<span class="ident">handle</span>)),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
+            _ <span class="op">=&gt;</span> <span class="prelude-val">None</span>,
         }
     }
 
@@ -1900,7 +1946,7 @@
     {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">result</span> <span class="op">=</span> <span class="ident">Vec</span>::<span class="ident">with_capacity</span>(<span class="ident">num_points</span>);
         <span class="kw">let</span> <span class="ident">range</span> <span class="op">=</span> <span class="ident">Range</span>::<span class="ident">new</span>(<span class="op">-</span><span class="ident">range</span>, <span class="ident">range</span>);
-        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span> .. <span class="ident">num_points</span> {
+        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span> .. <span class="ident">num_points</span> {
             <span class="kw">let</span> <span class="ident">factor</span> <span class="op">=</span> <span class="ident">range</span>.<span class="ident">ind_sample</span>(<span class="ident">rng</span>);
             <span class="ident">result</span>.<span class="ident">push</span>(<span class="ident">Point2</span>::<span class="ident">from_vec</span>(<span class="ident">line_dir</span> <span class="op">*</span> <span class="ident">factor</span>));
         }
@@ -1916,7 +1962,7 @@
         <span class="kw">const</span> <span class="ident">NUM_POINTS</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">2000</span>;
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">XorShiftRng</span>::<span class="ident">from_seed</span>(<span class="ident">seed</span>);
         <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> <span class="ident">random_points_on_line</span>(<span class="ident">RANGE</span>, <span class="ident">NUM_POINTS</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>, <span class="ident">Vector2</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">1</span>));
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cdt</span> <span class="op">=</span> <span class="ident">ConstrainedDelaunayTriangulation</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">AdaptiveIntKernel</span><span class="op">&gt;</span>::<span class="ident">with_walk_locate</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cdt</span> <span class="op">=</span> <span class="ident">ConstrainedDelaunayTriangulation</span>::<span class="op">&lt;</span>_, <span class="ident">AdaptiveIntKernel</span><span class="op">&gt;</span>::<span class="ident">with_walk_locate</span>();
         <span class="kw">for</span> <span class="ident">ps</span> <span class="kw">in</span> <span class="ident">points</span>.<span class="ident">chunks</span>(<span class="number">2</span>) {
             <span class="kw">let</span> <span class="ident">from</span> <span class="op">=</span> <span class="ident">ps</span>[<span class="number">0</span>];
             <span class="kw">let</span> <span class="ident">to</span> <span class="op">=</span> <span class="ident">ps</span>[<span class="number">1</span>];
@@ -1945,7 +1991,7 @@
         }
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rng</span> <span class="op">=</span> <span class="ident">XorShiftRng</span>::<span class="ident">from_seed</span>(<span class="ident">seed</span>);
         <span class="ident">rng</span>.<span class="ident">shuffle</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">points</span>);
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cdt</span> <span class="op">=</span> <span class="ident">ConstrainedDelaunayTriangulation</span>::<span class="op">&lt;</span><span class="kw">_</span>, <span class="ident">AdaptiveIntKernel</span><span class="op">&gt;</span>::<span class="ident">with_walk_locate</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">cdt</span> <span class="op">=</span> <span class="ident">ConstrainedDelaunayTriangulation</span>::<span class="op">&lt;</span>_, <span class="ident">AdaptiveIntKernel</span><span class="op">&gt;</span>::<span class="ident">with_walk_locate</span>();
         <span class="kw">for</span> <span class="ident">p</span> <span class="kw">in</span> <span class="ident">points</span> {
             <span class="ident">cdt</span>.<span class="ident">insert</span>(<span class="ident">p</span>);
         }
@@ -1953,7 +1999,7 @@
         <span class="kw">let</span> <span class="ident">directions_and_offset</span> <span class="op">=</span> [(<span class="ident">Vector2</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">0</span>), <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">1</span>)),
                                      (<span class="ident">Vector2</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">1</span>), <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">0</span>)),
                                      (<span class="ident">Vector2</span>::<span class="ident">new</span>(<span class="number">1</span>, <span class="number">1</span>), <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="number">0</span>, <span class="number">0</span>))];
-        <span class="kw">for</span> <span class="kw">_</span> <span class="kw">in</span> <span class="number">0</span> .. <span class="ident">NUM_CONSTRAINTS</span> {
+        <span class="kw">for</span> _ <span class="kw">in</span> <span class="number">0</span> .. <span class="ident">NUM_CONSTRAINTS</span> {
             <span class="kw">let</span> <span class="kw-2">&amp;</span>(<span class="ident">direction</span>, <span class="ident">offset</span>) <span class="op">=</span> <span class="ident">rng</span>.<span class="ident">choose</span>(<span class="kw-2">&amp;</span><span class="ident">directions_and_offset</span>).<span class="ident">unwrap</span>();
             <span class="kw">let</span> <span class="ident">factor1</span> <span class="op">=</span> <span class="ident">range</span>.<span class="ident">ind_sample</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
             <span class="kw">let</span> <span class="ident">factor2</span> <span class="op">=</span> <span class="ident">range</span>.<span class="ident">ind_sample</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rng</span>);
@@ -1994,4 +2040,66 @@
     }
 }
 </pre>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../../";window.currentCrate = "spade";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "spade";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

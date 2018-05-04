@@ -1,6 +1,59 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `requests` mod in crate `elastic`."><meta name="keywords" content="rust, rustlang, rust-lang, requests"><title>elastic::client::requests - Rust</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css"><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script src="../../../storage.js"></script></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Module requests</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../../index.html'>elastic</a>::<wbr><a href='../index.html'>client</a></p><script>window.sidebarCurrent = {name: 'requests', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>elastic</a>::<wbr><a href='../index.html'>client</a>::<wbr><a class="mod" href=''>requests</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../../src/elastic/client/requests/mod.rs.html#1-236' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Request types for the Elasticsearch REST API.</p>
-<p>This module contains implementation details that are useful if you want to customise the request process, but aren't generally important for sending requests.</p>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Re-exports</a></h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `requests` mod in crate `elastic`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, requests">
+
+    <title>elastic::client::requests - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Module requests</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'><a href='../../index.html'>elastic</a>::<wbr><a href='../index.html'>client</a></p><script>window.sidebarCurrent = {name: 'requests', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>elastic</a>::<wbr><a href='../index.html'>client</a>::<wbr><a class="mod" href=''>requests</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/elastic/client/requests/mod.rs.html#1-236' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Request types for the Elasticsearch REST API.</p>
+
+<p>This module contains implementation details that are useful if you want to customise the request process, but aren&#39;t generally important for sending requests.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
 <table><tr><td><code>pub use self::<a class="mod" href="../../../elastic/client/requests/params/index.html" title="mod elastic::client::requests::params">params</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../../elastic/client/requests/endpoints/index.html" title="mod elastic::client::requests::endpoints">endpoints</a>::*;</code></td></tr><tr><td><code>pub use self::raw::<a class="type" href="../../../elastic/client/requests/raw/type.RawRequestBuilder.html" title="type elastic::client::requests::raw::RawRequestBuilder">RawRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::search::<a class="type" href="../../../elastic/client/requests/search/type.SearchRequestBuilder.html" title="type elastic::client::requests::search::SearchRequestBuilder">SearchRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::document_get::<a class="type" href="../../../elastic/client/requests/document_get/type.GetRequestBuilder.html" title="type elastic::client::requests::document_get::GetRequestBuilder">GetRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::document_index::<a class="type" href="../../../elastic/client/requests/document_index/type.IndexRequestBuilder.html" title="type elastic::client::requests::document_index::IndexRequestBuilder">IndexRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::document_update::<a class="type" href="../../../elastic/client/requests/document_update/type.UpdateRequestBuilder.html" title="type elastic::client::requests::document_update::UpdateRequestBuilder">UpdateRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::document_delete::<a class="type" href="../../../elastic/client/requests/document_delete/type.DeleteRequestBuilder.html" title="type elastic::client::requests::document_delete::DeleteRequestBuilder">DeleteRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::document_put_mapping::<a class="type" href="../../../elastic/client/requests/document_put_mapping/type.PutMappingRequestBuilder.html" title="type elastic::client::requests::document_put_mapping::PutMappingRequestBuilder">PutMappingRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::index_create::<a class="type" href="../../../elastic/client/requests/index_create/type.IndexCreateRequestBuilder.html" title="type elastic::client::requests::index_create::IndexCreateRequestBuilder">IndexCreateRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::index_open::<a class="type" href="../../../elastic/client/requests/index_open/type.IndexOpenRequestBuilder.html" title="type elastic::client::requests::index_open::IndexOpenRequestBuilder">IndexOpenRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::index_close::<a class="type" href="../../../elastic/client/requests/index_close/type.IndexCloseRequestBuilder.html" title="type elastic::client::requests::index_close::IndexCloseRequestBuilder">IndexCloseRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::index_delete::<a class="type" href="../../../elastic/client/requests/index_delete/type.IndexDeleteRequestBuilder.html" title="type elastic::client::requests::index_delete::IndexDeleteRequestBuilder">IndexDeleteRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::index_exists::<a class="type" href="../../../elastic/client/requests/index_exists/type.IndexExistsRequestBuilder.html" title="type elastic::client::requests::index_exists::IndexExistsRequestBuilder">IndexExistsRequestBuilder</a>;</code></td></tr><tr><td><code>pub use self::ping::<a class="type" href="../../../elastic/client/requests/ping/type.PingRequestBuilder.html" title="type elastic::client::requests::ping::PingRequestBuilder">PingRequestBuilder</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
@@ -8,7 +61,6 @@
                                   title='mod elastic::client::requests::document_delete'>document_delete</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete.html">delete document requests</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -16,7 +68,6 @@
                                   title='mod elastic::client::requests::document_get'>document_get</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-get.html">get document requests</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -24,7 +75,6 @@
                                   title='mod elastic::client::requests::document_index'>document_index</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html">index requests</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -32,7 +82,6 @@
                                   title='mod elastic::client::requests::document_put_mapping'>document_put_mapping</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html">put mapping requests</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -40,7 +89,6 @@
                                   title='mod elastic::client::requests::document_update'>document_update</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-update.html">update document requests</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -48,7 +96,6 @@
                                   title='mod elastic::client::requests::endpoints'>endpoints</a></td>
                            <td class='docblock-short'>
                                 <p>REST API endpoints.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -56,7 +103,6 @@
                                   title='mod elastic::client::requests::index_close'>index_close</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-open-close.html">close index requests</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -64,7 +110,6 @@
                                   title='mod elastic::client::requests::index_create'>index_create</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html">create index requests</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -72,7 +117,6 @@
                                   title='mod elastic::client::requests::index_delete'>index_delete</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-delete-index.html">delete index requests</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -80,7 +124,6 @@
                                   title='mod elastic::client::requests::index_exists'>index_exists</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-exists.html">index exists requests</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -88,7 +131,6 @@
                                   title='mod elastic::client::requests::index_open'>index_open</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-open-close.html">open index requests</a>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -96,7 +138,6 @@
                                   title='mod elastic::client::requests::params'>params</a></td>
                            <td class='docblock-short'>
                                 <p>Common url params like <code>Id</code> and <code>Index</code>.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -104,7 +145,6 @@
                                   title='mod elastic::client::requests::ping'>ping</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for ping requests.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -112,7 +152,6 @@
                                   title='mod elastic::client::requests::prelude'>prelude</a></td>
                            <td class='docblock-short'>
                                 <p>A glob import for convenience. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -120,7 +159,6 @@
                                   title='mod elastic::client::requests::raw'>raw</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for raw requests.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -128,7 +166,6 @@
                                   title='mod elastic::client::requests::search'>search</a></td>
                            <td class='docblock-short'>
                                 <p>Builders for <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">search requests</a>.</p>
-
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -137,7 +174,6 @@
                                   title='struct elastic::client::requests::AsyncBody'>AsyncBody</a></td>
                            <td class='docblock-short'>
                                 <p>A type that can be converted into a request body. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -145,7 +181,6 @@
                                   title='struct elastic::client::requests::HttpRequest'>HttpRequest</a></td>
                            <td class='docblock-short'>
                                 <p>A general request type that all endpoints can be converted into.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -153,7 +188,6 @@
                                   title='struct elastic::client::requests::RequestBuilder'>RequestBuilder</a></td>
                            <td class='docblock-short'>
                                 <p>A builder for a request.</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -161,7 +195,6 @@
                                   title='struct elastic::client::requests::SyncBody'>SyncBody</a></td>
                            <td class='docblock-short'>
                                 <p>A type that can be converted into a request body. </p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -169,7 +202,6 @@
                                   title='struct elastic::client::requests::Url'>Url</a></td>
                            <td class='docblock-short'>
                                 <p>A wrapper around an owned or borrowed url.</p>
-
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -178,7 +210,6 @@
                                   title='enum elastic::client::requests::HttpMethod'>HttpMethod</a></td>
                            <td class='docblock-short'>
                                 <p>A standard HTTP verb.</p>
-
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -187,8 +218,7 @@
                                   title='fn elastic::client::requests::empty_body'>empty_body</a></td>
                            <td class='docblock-short'>
                                 <p>A convenience method for a default, empty body.
-This method doesn't allocate.</p>
-
+This method doesn&#39;t allocate.</p>
                            </td>
                        </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
 <table>
@@ -197,6 +227,67 @@ This method doesn't allocate.</p>
                                   title='type elastic::client::requests::DefaultBody'>DefaultBody</a></td>
                            <td class='docblock-short'>
                                 <p>A default body type.</p>
-
                            </td>
-                       </tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../../";window.currentCrate = "elastic";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script defer src="../../../search-index.js"></script></body></html>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "elastic";
+    </script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>
