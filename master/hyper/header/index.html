@@ -1,73 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `header` mod in crate `hyper`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, header">
-
-    <title>hyper::header - Rust</title>
-
-    <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
-    
-
-    
-    
-</head>
-<body class="rustdoc mod">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        
-        <p class='location'>Module header</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>hyper</a></p><script>window.sidebarCurrent = {name: 'header', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
-    </nav>
-
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>hyper</a>::<wbr><a class="mod" href=''>header</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../src/hyper/header/mod.rs.html#1-1129' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Headers container, and common header fields.</p>
-
-<p>hyper has the opinion that Headers should be strongly-typed, because that&#39;s
-why we&#39;re using Rust in the first place. To set or get any header, an object
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `header` mod in crate `hyper`."><meta name="keywords" content="rust, rustlang, rust-lang, header"><title>hyper::header - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Module header</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../index.html'>hyper</a></p><script>window.sidebarCurrent = {name: 'header', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>hyper</a>::<wbr><a class="mod" href=''>header</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/hyper/header/mod.rs.html#1-1129' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>Headers container, and common header fields.</p>
+<p>hyper has the opinion that Headers should be strongly-typed, because that's
+why we're using Rust in the first place. To set or get any header, an object
 must implement the <code>Header</code> trait from this module. Several common headers
 are already provided, such as <code>Host</code>, <code>ContentType</code>, <code>UserAgent</code>, and others.</p>
-
-<h1 id='why-typed' class='section-header'><a href='#why-typed'>Why Typed?</a></h1>
+<h1 id="why-typed" class="section-header"><a href="#why-typed">Why Typed?</a></h1>
 <p>Or, why not stringly-typed? Types give the following advantages:</p>
-
 <ul>
 <li>More difficult to typo, since typos in types should be caught by the compiler</li>
 <li>Parsing to a proper type by default</li>
 </ul>
-
-<h1 id='defining-custom-headers' class='section-header'><a href='#defining-custom-headers'>Defining Custom Headers</a></h1>
+<h1 id="defining-custom-headers" class="section-header"><a href="#defining-custom-headers">Defining Custom Headers</a></h1>
 <p>Hyper provides many of the most commonly used headers in HTTP. If
-you need to define a custom header, it&#39;s easy to do while still taking
+you need to define a custom header, it's easy to do while still taking
 advantage of the type system. Hyper includes a <code>header!</code> macro for defining
 many wrapper-style headers.</p>
 
@@ -81,11 +25,9 @@ many wrapper-style headers.</p>
 
     <span class="ident">headers</span>.<span class="ident">set</span>(<span class="ident">XRequestGuid</span>(<span class="string">&quot;a proper guid&quot;</span>.<span class="ident">to_owned</span>()))
 }</pre>
-
 <p>This works well for simple &quot;string&quot; headers.  If you need more control,
 you can implement the trait directly.</p>
-
-<h2 id='implementing-the-header-trait' class='section-header'><a href='#implementing-the-header-trait'>Implementing the <code>Header</code> trait</a></h2>
+<h2 id="implementing-the-header-trait" class="section-header"><a href="#implementing-the-header-trait">Implementing the <code>Header</code> trait</a></h2>
 <p>Consider a Do Not Track header. It can be true or false, but it represents
 that via the numerals <code>1</code> and <code>0</code>.</p>
 
@@ -109,7 +51,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                 <span class="kw">match</span> <span class="ident">byte</span> {
                     <span class="string">b&#39;0&#39;</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">Dnt</span>(<span class="bool-val">true</span>)),
                     <span class="string">b&#39;1&#39;</span> <span class="op">=&gt;</span> <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">Dnt</span>(<span class="bool-val">false</span>)),
-                    _ <span class="op">=&gt;</span> ()
+                    <span class="kw">_</span> <span class="op">=&gt;</span> ()
                 }
             }
         }
@@ -132,6 +74,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='mod hyper::header::parsing'>parsing</a></td>
                            <td class='docblock-short'>
                                 <p>Utility functions for Header implementations.</p>
+
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -140,6 +83,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Accept'>Accept</a></td>
                            <td class='docblock-short'>
                                 <p><code>Accept</code> header, defined in <a href="http://tools.ietf.org/html/rfc7231#section-5.3.2">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -148,6 +92,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Accept-Charset</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7231#section-5.3.3">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -156,6 +101,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Accept-Encoding</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7231#section-5.3.4">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -164,6 +110,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Accept-Language</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7231#section-5.3.5">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -172,6 +119,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Accept-Ranges</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7233#section-2.3">RFC7233</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -180,6 +128,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Access-Control-Allow-Credentials</code> header, part of
 <a href="http://www.w3.org/TR/cors/#access-control-allow-headers-response-header">CORS</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -188,6 +137,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Access-Control-Allow-Headers</code> header, part of
 <a href="http://www.w3.org/TR/cors/#access-control-allow-headers-response-header">CORS</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -196,6 +146,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Access-Control-Allow-Methods</code> header, part of
 <a href="http://www.w3.org/TR/cors/#access-control-allow-methods-response-header">CORS</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -204,6 +155,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Access-Control-Expose-Headers</code> header, part of
 <a href="http://www.w3.org/TR/cors/#access-control-expose-headers-response-header">CORS</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -212,6 +164,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Access-Control-Max-Age</code> header, part of
 <a href="http://www.w3.org/TR/cors/#access-control-max-age-response-header">CORS</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -220,6 +173,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Access-Control-Request-Headers</code> header, part of
 <a href="http://www.w3.org/TR/cors/#access-control-request-headers-request-header">CORS</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -228,6 +182,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Access-Control-Request-Method</code> header, part of
 <a href="http://www.w3.org/TR/cors/#access-control-request-method-request-header">CORS</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -235,6 +190,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Allow'>Allow</a></td>
                            <td class='docblock-short'>
                                 <p><code>Allow</code> header, defined in <a href="http://tools.ietf.org/html/rfc7231#section-7.4.1">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -242,6 +198,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Authorization'>Authorization</a></td>
                            <td class='docblock-short'>
                                 <p><code>Authorization</code> header, defined in <a href="https://tools.ietf.org/html/rfc7235#section-4.2">RFC7235</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -249,6 +206,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Basic'>Basic</a></td>
                            <td class='docblock-short'>
                                 <p>Credential holder for Basic Authentication</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -256,6 +214,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Bearer'>Bearer</a></td>
                            <td class='docblock-short'>
                                 <p>Token holder for Bearer Authentication, most often seen with oauth</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -263,6 +222,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::CacheControl'>CacheControl</a></td>
                            <td class='docblock-short'>
                                 <p><code>Cache-Control</code> header, defined in <a href="https://tools.ietf.org/html/rfc7234#section-5.2">RFC7234</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -271,6 +231,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Connection</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7230#section-6.1">RFC7230</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -278,6 +239,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::ContentDisposition'>ContentDisposition</a></td>
                            <td class='docblock-short'>
                                 <p>A <code>Content-Disposition</code> header, (re)defined in <a href="https://tools.ietf.org/html/rfc6266">RFC6266</a>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -286,6 +248,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Content-Encoding</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7231#section-3.1.2.2">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -294,6 +257,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Content-Language</code> header, defined in
 <a href="https://tools.ietf.org/html/rfc7231#section-3.1.3.2">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -302,6 +266,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Content-Length</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7230#section-3.3.2">RFC7230</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -310,6 +275,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Content-Location</code> header, defined in
 <a href="https://tools.ietf.org/html/rfc7231#section-3.1.4.2">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -318,6 +284,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Content-Range</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7233#section-4.2">RFC7233</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -326,6 +293,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Content-Type</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7231#section-3.1.1.5">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -333,6 +301,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Cookie'>Cookie</a></td>
                            <td class='docblock-short'>
                                 <p><code>Cookie</code> header, defined in <a href="http://tools.ietf.org/html/rfc6265#section-5.4">RFC6265</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -340,6 +309,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::CookieIter'>CookieIter</a></td>
                            <td class='docblock-short'>
                                 <p>Iterator for cookie.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -347,6 +317,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Date'>Date</a></td>
                            <td class='docblock-short'>
                                 <p><code>Date</code> header, defined in <a href="http://tools.ietf.org/html/rfc7231#section-7.1.1.2">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -354,6 +325,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::ETag'>ETag</a></td>
                            <td class='docblock-short'>
                                 <p><code>ETag</code> header, defined in <a href="http://tools.ietf.org/html/rfc7232#section-2.3">RFC7232</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -361,6 +333,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::EntityTag'>EntityTag</a></td>
                            <td class='docblock-short'>
                                 <p>An entity tag, defined in <a href="https://tools.ietf.org/html/rfc7232#section-2.3">RFC7232</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -368,6 +341,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Expires'>Expires</a></td>
                            <td class='docblock-short'>
                                 <p><code>Expires</code> header, defined in <a href="http://tools.ietf.org/html/rfc7234#section-5.3">RFC7234</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -375,6 +349,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Formatter'>Formatter</a></td>
                            <td class='docblock-short'>
                                 <p>A formatter used to serialize headers to an output stream.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -382,6 +357,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::From'>From</a></td>
                            <td class='docblock-short'>
                                 <p><code>From</code> header, defined in <a href="http://tools.ietf.org/html/rfc7231#section-5.5.1">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -389,6 +365,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::HeaderView'>HeaderView</a></td>
                            <td class='docblock-short'>
                                 <p>Returned with the <code>HeadersItems</code> iterator.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -396,6 +373,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Headers'>Headers</a></td>
                            <td class='docblock-short'>
                                 <p>A map of header fields on requests and responses.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -403,6 +381,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::HeadersItems'>HeadersItems</a></td>
                            <td class='docblock-short'>
                                 <p>An <code>Iterator</code> over the fields in a <code>Headers</code> map.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -410,6 +389,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Host'>Host</a></td>
                            <td class='docblock-short'>
                                 <p>The <code>Host</code> header.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -417,6 +397,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::HttpDate'>HttpDate</a></td>
                            <td class='docblock-short'>
                                 <p>A timestamp with HTTP formatting and parsing</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -425,6 +406,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>If-Modified-Since</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7232#section-3.3">RFC7232</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -433,6 +415,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>If-Unmodified-Since</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7232#section-3.4">RFC7232</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -440,6 +423,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::LanguageTag'>LanguageTag</a></td>
                            <td class='docblock-short'>
                                 <p>A language tag as described in <a href="http://tools.ietf.org/html/bcp47">BCP47</a>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -448,6 +432,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Last-Event-ID</code> header, defined in
 <a href="https://html.spec.whatwg.org/multipage/references.html#refsRFC3864">RFC3864</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -456,6 +441,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Last-Modified</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7232#section-2.2">RFC7232</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -464,6 +450,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p>The <code>Link</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc5988#section-5">RFC5988</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -472,6 +459,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p>A single <code>link-value</code> of a <code>Link</code> header, based on:
 <a href="http://tools.ietf.org/html/rfc5988#section-5">RFC5988</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -480,6 +468,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Location</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7231#section-7.1.2">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -487,6 +476,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Origin'>Origin</a></td>
                            <td class='docblock-short'>
                                 <p>The <code>Origin</code> header.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -494,6 +484,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Prefer'>Prefer</a></td>
                            <td class='docblock-short'>
                                 <p><code>Prefer</code> header, defined in <a href="http://tools.ietf.org/html/rfc7240">RFC7240</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -501,6 +492,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::PreferenceApplied'>PreferenceApplied</a></td>
                            <td class='docblock-short'>
                                 <p><code>Preference-Applied</code> header, defined in <a href="http://tools.ietf.org/html/rfc7240">RFC7240</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -508,6 +500,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Protocol'>Protocol</a></td>
                            <td class='docblock-short'>
                                 <p>Protocols that appear in the <code>Upgrade</code> header field</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -515,6 +508,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::ProxyAuthorization'>ProxyAuthorization</a></td>
                            <td class='docblock-short'>
                                 <p><code>Proxy-Authorization</code> header, defined in <a href="https://tools.ietf.org/html/rfc7235#section-4.4">RFC7235</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -522,6 +516,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Quality'>Quality</a></td>
                            <td class='docblock-short'>
                                 <p>Represents a quality used in quality values.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -530,6 +525,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p>Represents an item with a quality value as defined in
 <a href="https://tools.ietf.org/html/rfc7231#section-5.3.1">RFC7231</a>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -537,6 +533,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Raw'>Raw</a></td>
                            <td class='docblock-short'>
                                 <p>A raw header value.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -545,6 +542,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Referer</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7231#section-5.5.2">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -552,6 +550,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Server'>Server</a></td>
                            <td class='docblock-short'>
                                 <p><code>Server</code> header, defined in <a href="http://tools.ietf.org/html/rfc7231#section-7.4.2">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -559,6 +558,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::SetCookie'>SetCookie</a></td>
                            <td class='docblock-short'>
                                 <p><code>Set-Cookie</code> header, defined <a href="http://tools.ietf.org/html/rfc6265#section-4.1">RFC6265</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -566,6 +566,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::StrictTransportSecurity'>StrictTransportSecurity</a></td>
                            <td class='docblock-short'>
                                 <p><code>StrictTransportSecurity</code> header, defined in <a href="https://tools.ietf.org/html/rfc6797">RFC6797</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -574,6 +575,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>TE</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7230#section-4.3">RFC7230</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -582,6 +584,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>Transfer-Encoding</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7230#section-3.3.1">RFC7230</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -589,6 +592,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Upgrade'>Upgrade</a></td>
                            <td class='docblock-short'>
                                 <p><code>Upgrade</code> header, defined in <a href="http://tools.ietf.org/html/rfc7230#section-6.7">RFC7230</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -597,6 +601,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p><code>User-Agent</code> header, defined in
 <a href="http://tools.ietf.org/html/rfc7231#section-5.5.3">RFC7231</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -604,6 +609,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                                   title='struct hyper::header::Warning'>Warning</a></td>
                            <td class='docblock-short'>
                                 <p><code>Warning</code> header, defined in <a href="https://tools.ietf.org/html/rfc7234#section-5.5">RFC7234</a></p>
+
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -613,6 +619,7 @@ that via the numerals <code>1</code> and <code>0</code>.</p>
                            <td class='docblock-short'>
                                 <p>The <code>Access-Control-Allow-Origin</code> response header,
 part of <a href="http://www.w3.org/TR/cors/#access-control-allow-origin-response-header">CORS</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -621,6 +628,7 @@ part of <a href="http://www.w3.org/TR/cors/#access-control-allow-origin-response
                            <td class='docblock-short'>
                                 <p>Each <code>Range::Bytes</code> header can contain one or more <code>ByteRangeSpecs</code>.
 Each <code>ByteRangeSpec</code> defines a range of bytes to fetch</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -628,6 +636,7 @@ Each <code>ByteRangeSpec</code> defines a range of bytes to fetch</p>
                                   title='enum hyper::header::CacheDirective'>CacheDirective</a></td>
                            <td class='docblock-short'>
                                 <p><code>CacheControl</code> contains a list of these directives.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -635,6 +644,7 @@ Each <code>ByteRangeSpec</code> defines a range of bytes to fetch</p>
                                   title='enum hyper::header::Charset'>Charset</a></td>
                            <td class='docblock-short'>
                                 <p>A Mime charset.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -642,6 +652,7 @@ Each <code>ByteRangeSpec</code> defines a range of bytes to fetch</p>
                                   title='enum hyper::header::ConnectionOption'>ConnectionOption</a></td>
                            <td class='docblock-short'>
                                 <p>Values that can be in the <code>Connection</code> header.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -649,6 +660,7 @@ Each <code>ByteRangeSpec</code> defines a range of bytes to fetch</p>
                                   title='enum hyper::header::ContentRangeSpec'>ContentRangeSpec</a></td>
                            <td class='docblock-short'>
                                 <p>Content-Range, described in <a href="https://tools.ietf.org/html/rfc7233#section-4.2">RFC7233</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -656,6 +668,7 @@ Each <code>ByteRangeSpec</code> defines a range of bytes to fetch</p>
                                   title='enum hyper::header::DispositionParam'>DispositionParam</a></td>
                            <td class='docblock-short'>
                                 <p>A parameter to the disposition type.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -663,6 +676,7 @@ Each <code>ByteRangeSpec</code> defines a range of bytes to fetch</p>
                                   title='enum hyper::header::DispositionType'>DispositionType</a></td>
                            <td class='docblock-short'>
                                 <p>The implied disposition of the content of the HTTP body.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -671,6 +685,7 @@ Each <code>ByteRangeSpec</code> defines a range of bytes to fetch</p>
                            <td class='docblock-short'>
                                 <p>A value to represent an encoding used in <code>Transfer-Encoding</code>
 or <code>Accept-Encoding</code> header.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -678,6 +693,7 @@ or <code>Accept-Encoding</code> header.</p>
                                   title='enum hyper::header::Expect'>Expect</a></td>
                            <td class='docblock-short'>
                                 <p>The <code>Expect</code> header.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -686,6 +702,7 @@ or <code>Accept-Encoding</code> header.</p>
                            <td class='docblock-short'>
                                 <p><code>If-Match</code> header, defined in
 <a href="https://tools.ietf.org/html/rfc7232#section-3.1">RFC7232</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -694,6 +711,7 @@ or <code>Accept-Encoding</code> header.</p>
                            <td class='docblock-short'>
                                 <p><code>If-None-Match</code> header, defined in
 <a href="https://tools.ietf.org/html/rfc7232#section-3.2">RFC7232</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -701,6 +719,7 @@ or <code>Accept-Encoding</code> header.</p>
                                   title='enum hyper::header::IfRange'>IfRange</a></td>
                            <td class='docblock-short'>
                                 <p><code>If-Range</code> header, defined in <a href="http://tools.ietf.org/html/rfc7233#section-3.2">RFC7233</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -709,6 +728,7 @@ or <code>Accept-Encoding</code> header.</p>
                            <td class='docblock-short'>
                                 <p>A Media Descriptors Enum based on:
 <a href="https://www.w3.org/TR/html401/types.html#h-6.13">https://www.w3.org/TR/html401/types.html#h-6.13</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -716,6 +736,7 @@ or <code>Accept-Encoding</code> header.</p>
                                   title='enum hyper::header::Pragma'>Pragma</a></td>
                            <td class='docblock-short'>
                                 <p>The <code>Pragma</code> header defined by HTTP/1.0.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -723,6 +744,7 @@ or <code>Accept-Encoding</code> header.</p>
                                   title='enum hyper::header::Preference'>Preference</a></td>
                            <td class='docblock-short'>
                                 <p>Prefer contains a list of these preferences.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -731,6 +753,7 @@ or <code>Accept-Encoding</code> header.</p>
                            <td class='docblock-short'>
                                 <p>A protocol name used to identify a specific protocol. Names are case-sensitive
 except for the <code>WebSocket</code> value.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -738,6 +761,7 @@ except for the <code>WebSocket</code> value.</p>
                                   title='enum hyper::header::Range'>Range</a></td>
                            <td class='docblock-short'>
                                 <p><code>Range</code> header, defined in <a href="https://tools.ietf.org/html/rfc7233#section-3.1">RFC7233</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -745,6 +769,7 @@ except for the <code>WebSocket</code> value.</p>
                                   title='enum hyper::header::RangeUnit'>RangeUnit</a></td>
                            <td class='docblock-short'>
                                 <p>Range Units, described in <a href="http://tools.ietf.org/html/rfc7233#section-2">RFC7233</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -753,6 +778,7 @@ except for the <code>WebSocket</code> value.</p>
                            <td class='docblock-short'>
                                 <p><code>Referrer-Policy</code> header, part of
 <a href="https://www.w3.org/TR/referrer-policy/#referrer-policy-header">Referrer Policy</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -761,6 +787,7 @@ except for the <code>WebSocket</code> value.</p>
                            <td class='docblock-short'>
                                 <p>A Link Relation Type Enum based on:
 <a href="https://tools.ietf.org/html/rfc5988#section-6.2.2">RFC5988</a></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -768,6 +795,7 @@ except for the <code>WebSocket</code> value.</p>
                                   title='enum hyper::header::RetryAfter'>RetryAfter</a></td>
                            <td class='docblock-short'>
                                 <p>The <code>Retry-After</code> header.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -775,6 +803,7 @@ except for the <code>WebSocket</code> value.</p>
                                   title='enum hyper::header::Vary'>Vary</a></td>
                            <td class='docblock-short'>
                                 <p><code>Vary</code> header, defined in <a href="https://tools.ietf.org/html/rfc7231#section-7.1.4">RFC7231</a></p>
+
                            </td>
                        </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
 <table>
@@ -783,6 +812,7 @@ except for the <code>WebSocket</code> value.</p>
                                   title='trait hyper::header::Header'>Header</a></td>
                            <td class='docblock-short'>
                                 <p>A trait for any object that will represent a header field and value.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -790,6 +820,7 @@ except for the <code>WebSocket</code> value.</p>
                                   title='trait hyper::header::Scheme'>Scheme</a></td>
                            <td class='docblock-short'>
                                 <p>An Authorization scheme to be used in the header.</p>
+
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -798,6 +829,7 @@ except for the <code>WebSocket</code> value.</p>
                                   title='fn hyper::header::q'>q</a></td>
                            <td class='docblock-short'>
                                 <p>Convenience function to create a <code>Quality</code> from a float or integer.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -806,67 +838,6 @@ except for the <code>WebSocket</code> value.</p>
                            <td class='docblock-short'>
                                 <p>Convenience function to wrap a value in a <code>QualityItem</code>
 Sets <code>q</code> to the default 1.0</p>
+
                            </td>
-                       </tr></table></section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt>?</dt>
-                    <dd>Show this help dialog</dd>
-                    <dt>S</dt>
-                    <dd>Focus the search field</dd>
-                    <dt>↑</dt>
-                    <dd>Move up in search results</dd>
-                    <dt>↓</dt>
-                    <dd>Move down in search results</dd>
-                    <dt>↹</dt>
-                    <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
-                    <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../../";
-        window.currentCrate = "hyper";
-    </script>
-    <script src="../../main.js"></script>
-    <script defer src="../../search-index.js"></script>
-</body>
-</html>
+                       </tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "hyper";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>

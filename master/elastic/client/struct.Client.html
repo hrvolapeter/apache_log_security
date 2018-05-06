@@ -1,66 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `Client` struct in crate `elastic`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, Client">
-
-    <title>elastic::client::Client - Rust</title>
-
-    <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
-    
-
-    
-    
-</head>
-<body class="rustdoc struct">
-    <!--[if lte IE 8]>
-    <div class="warning">
-        This old browser is unsupported and will most likely display funky
-        things.
-    </div>
-    <![endif]-->
-
-    
-
-    <nav class="sidebar">
-        <div class="sidebar-menu">&#9776;</div>
-        
-        <p class='location'>Struct Client</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.request">request</a><a href="#method.search">search</a><a href="#method.document_get">document_get</a><a href="#method.document_index">document_index</a><a href="#method.document_update">document_update</a><a href="#method.document_delete">document_delete</a><a href="#method.document_put_mapping">document_put_mapping</a><a href="#method.index_create">index_create</a><a href="#method.index_open">index_open</a><a href="#method.index_close">index_close</a><a href="#method.index_delete">index_delete</a><a href="#method.index_exists">index_exists</a><a href="#method.ping">ping</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>elastic</a>::<wbr><a href='index.html'>client</a></p><script>window.sidebarCurrent = {name: 'Client', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
-    </nav>
-
-    <nav class="sub">
-        <form class="search-form js-only">
-            <div class="search-container">
-                <input class="search-input" name="search"
-                       autocomplete="off"
-                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
-                       type="search">
-            </div>
-        </form>
-    </nav>
-
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>elastic</a>::<wbr><a href='index.html'>client</a>::<wbr><a class="struct" href=''>Client</a></span><span class='out-of-band'><span id='render-detail'>
-                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
-                       [<span class='inner'>&#x2212;</span>]
-                   </a>
-               </span><a class='srclink' href='../../src/elastic/client/mod.rs.html#601-604' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct Client&lt;TSender&gt; { /* fields omitted */ }</pre><div class='docblock'><p>A HTTP client for the Elasticsearch REST API.</p>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `Client` struct in crate `elastic`."><meta name="keywords" content="rust, rustlang, rust-lang, Client"><title>elastic::client::Client - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script></head><body class="rustdoc struct"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><p class='location'>Struct Client</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.request">request</a><a href="#method.search">search</a><a href="#method.document_get">document_get</a><a href="#method.document_index">document_index</a><a href="#method.document_update">document_update</a><a href="#method.document_delete">document_delete</a><a href="#method.document_put_mapping">document_put_mapping</a><a href="#method.index_create">index_create</a><a href="#method.index_open">index_open</a><a href="#method.index_close">index_close</a><a href="#method.index_delete">index_delete</a><a href="#method.index_exists">index_exists</a><a href="#method.ping">ping</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Clone">Clone</a></div><a class="sidebar-title" href="#synthetic-implementations">Auto Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a></div></div><p class='location'><a href='../index.html'>elastic</a>::<wbr><a href='index.html'>client</a></p><script>window.sidebarCurrent = {name: 'Client', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><input class="search-input" name="search" autocomplete="off" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>elastic</a>::<wbr><a href='index.html'>client</a>::<wbr><a class="struct" href=''>Client</a></span><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../../src/elastic/client/mod.rs.html#601-604' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct Client&lt;TSender&gt; { /* fields omitted */ }</pre></div><div class='docblock'><p>A HTTP client for the Elasticsearch REST API.</p>
 <p>The <code>Client</code> is a structure that lets you create and send request builders.
 <code>Client</code> is generic over a <code>Sender</code>, but rather than use <code>Client</code> directly, use one of:</p>
-
 <ul>
 <li><a href="type.SyncClient.html"><code>SyncClient</code></a></li>
 <li><a href="type.AsyncClient.html"><code>AsyncClient</code></a></li>
 </ul>
-
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
 <p>Create a synchronous <code>Client</code> and send a ping request:</p>
 
 <pre class="rust rust-example-rendered">
@@ -69,7 +14,6 @@
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">request</span>(<span class="ident">PingRequest</span>::<span class="ident">new</span>())
                      .<span class="ident">send</span>()<span class="question-mark">?</span>
                      .<span class="ident">into_response</span>::<span class="op">&lt;</span><span class="ident">PingResponse</span><span class="op">&gt;</span>()<span class="question-mark">?</span>;</pre>
-
 <p>Create an asynchronous <code>Client</code> and send a ping request:</p>
 
 <pre class="rust rust-example-rendered">
@@ -85,15 +29,10 @@
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
-                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/raw.rs.html#38-83' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='raw-request' class='section-header'><a href='#raw-request'>Raw request</a></h1></div><div class='impl-items'><h4 id='method.request' class="method"><span id='request.v' class='invisible'><code>pub fn <a href='#method.request' class='fnname'>request</a>&lt;TRequest, TBody&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;req: TRequest<br>) -&gt; <a class="type" href="../../elastic/client/requests/raw/type.RawRequestBuilder.html" title="type elastic::client::requests::raw::RawRequestBuilder">RawRequestBuilder</a>&lt;TSender, TRequest, TBody&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TRequest: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../elastic/client/requests/struct.HttpRequest.html" title="struct elastic::client::requests::HttpRequest">HttpRequest</a>&lt;'static, TBody&gt;&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;TBody: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;TSender::<a class="type" href="../../elastic/client/trait.Sender.html#associatedtype.Body" title="type elastic::client::Sender::Body">Body</a>&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/raw.rs.html#76-82' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create a <a href="requests/raw/type.RawRequestBuilder.html"><code>RawRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
-<p>The <code>request</code> method accepts any type that can be converted into a <a href="requests/struct.HttpRequest.html"><code>HttpRequest&lt;&#39;static&gt;</code></a>,
+                <h3 id='impl' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/raw.rs.html#38-83' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="raw-request" class="section-header"><a href="#raw-request">Raw request</a></h1></div><div class='impl-items'><h4 id='method.request' class="method"><span id='request.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.request' class='fnname'>request</a>&lt;TRequest, TBody&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;req: TRequest<br>) -&gt; <a class="type" href="../../elastic/client/requests/raw/type.RawRequestBuilder.html" title="type elastic::client::requests::raw::RawRequestBuilder">RawRequestBuilder</a>&lt;TSender, TRequest, TBody&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TRequest: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../elastic/client/requests/struct.HttpRequest.html" title="struct elastic::client::requests::HttpRequest">HttpRequest</a>&lt;'static, TBody&gt;&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;TBody: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;TSender::<a class="type" href="../../elastic/client/trait.Sender.html#associatedtype.Body" title="type elastic::client::Sender::Body">Body</a>&gt;,&nbsp;</span></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/raw.rs.html#76-82' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Create a <a href="requests/raw/type.RawRequestBuilder.html"><code>RawRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
+<p>The <code>request</code> method accepts any type that can be converted into a <a href="requests/struct.HttpRequest.html"><code>HttpRequest&lt;'static&gt;</code></a>,
 which includes the endpoint types in the <a href="requests/endpoints/index.html"><code>endpoints</code></a> module.</p>
-
-<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
+<h1 id="examples-1" class="section-header"><a href="#examples-1">Examples</a></h1>
 <p>Send a cluster ping and read the returned metadata:</p>
 
 <pre class="rust rust-example-rendered">
@@ -107,20 +46,14 @@ which includes the endpoint types in the <a href="requests/endpoints/index.html"
 <span class="kw">let</span> <span class="ident">ping</span> <span class="op">=</span> <span class="ident">builder</span>.<span class="ident">send</span>()<span class="question-mark">?</span>.<span class="ident">into_response</span>::<span class="op">&lt;</span><span class="ident">PingResponse</span><span class="op">&gt;</span>()<span class="question-mark">?</span>;
 
 <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;cluster: {}&quot;</span>, <span class="ident">ping</span>.<span class="ident">name</span>());</pre>
-</div></div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/search.rs.html#43-127' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='search-request' class='section-header'><a href='#search-request'>Search request</a></h1></div><div class='impl-items'><h4 id='method.search' class="method"><span id='search.v' class='invisible'><code>pub fn <a href='#method.search' class='fnname'>search</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self<br>) -&gt; <a class="type" href="../../elastic/client/requests/search/type.SearchRequestBuilder.html" title="type elastic::client::requests::search::SearchRequestBuilder">SearchRequestBuilder</a>&lt;TSender, TDocument, <a class="type" href="../../elastic/client/requests/prelude/type.DefaultBody.html" title="type elastic::client::requests::prelude::DefaultBody">DefaultBody</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../serde/de/trait.DeserializeOwned.html" title="trait serde::de::DeserializeOwned">DeserializeOwned</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/search.rs.html#121-126' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create a <a href="requests/search/type.SearchRequestBuilder.html"><code>SearchRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-1' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-1' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/search.rs.html#43-127' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="search-request" class="section-header"><a href="#search-request">Search request</a></h1></div><div class='impl-items'><h4 id='method.search' class="method"><span id='search.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.search' class='fnname'>search</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self<br>) -&gt; <a class="type" href="../../elastic/client/requests/search/type.SearchRequestBuilder.html" title="type elastic::client::requests::search::SearchRequestBuilder">SearchRequestBuilder</a>&lt;TSender, TDocument, <a class="type" href="../../elastic/client/requests/prelude/type.DefaultBody.html" title="type elastic::client::requests::prelude::DefaultBody">DefaultBody</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../serde/de/trait.DeserializeOwned.html" title="trait serde::de::DeserializeOwned">DeserializeOwned</a>,&nbsp;</span></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/search.rs.html#121-126' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Create a <a href="requests/search/type.SearchRequestBuilder.html"><code>SearchRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/search/type.SearchRequestBuilder.html#builder-methods">builder methods</a></li>
 <li><a href="requests/search/type.SearchRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/search/type.SearchRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-2' class='section-header'><a href='#examples-2'>Examples</a></h1>
+<h1 id="examples-2" class="section-header"><a href="#examples-2">Examples</a></h1>
 <p>Run a simple <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html">Query String</a> query for a <a href="../../types/document/index.html"><code>DocumentType</code></a> called <code>MyType</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -141,30 +74,22 @@ which includes the endpoint types in the <a href="requests/endpoints/index.html"
 <span class="kw">for</span> <span class="ident">hit</span> <span class="kw">in</span> <span class="ident">response</span>.<span class="ident">hits</span>() {
     <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">hit</span>);
 }</pre>
-
 <p>For more details on document types and mapping, see the <a href="../../types/index.html"><code>types</code></a> module.</p>
-
-<p>It&#39;s also possible to use <code>serde_json::Value</code>s as documents when searching:</p>
+<p>It's also possible to use <code>serde_json::Value</code>s as documents when searching:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">search</span>::<span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>()
                      .<span class="ident">index</span>(<span class="string">&quot;myindex&quot;</span>)
                      .<span class="ident">ty</span>(<span class="prelude-val">Some</span>(<span class="string">&quot;mytype&quot;</span>))
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;</pre>
-</div></div><h3 id='impl-2' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-2' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_get.rs.html#44-134' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='get-document' class='section-header'><a href='#get-document'>Get document</a></h1></div><div class='impl-items'><h4 id='method.document_get' class="method"><span id='document_get.v' class='invisible'><code>pub fn <a href='#method.document_get' class='fnname'>document_get</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;id: <a class="struct" href="../../elastic/client/requests/params/struct.Id.html" title="struct elastic::client::requests::params::Id">Id</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/document_get/type.GetRequestBuilder.html" title="type elastic::client::requests::document_get::GetRequestBuilder">GetRequestBuilder</a>&lt;TSender, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../serde/de/trait.DeserializeOwned.html" title="trait serde::de::DeserializeOwned">DeserializeOwned</a> + <a class="trait" href="../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_get.rs.html#117-133' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create a <a href="requests/document_get/type.GetRequestBuilder.html"><code>GetRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-2' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-2' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_get.rs.html#44-134' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="get-document" class="section-header"><a href="#get-document">Get document</a></h1></div><div class='impl-items'><h4 id='method.document_get' class="method"><span id='document_get.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.document_get' class='fnname'>document_get</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;id: <a class="struct" href="../../elastic/client/requests/params/struct.Id.html" title="struct elastic::client::requests::params::Id">Id</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/document_get/type.GetRequestBuilder.html" title="type elastic::client::requests::document_get::GetRequestBuilder">GetRequestBuilder</a>&lt;TSender, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../serde/de/trait.DeserializeOwned.html" title="trait serde::de::DeserializeOwned">DeserializeOwned</a> + <a class="trait" href="../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_get.rs.html#117-133' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Create a <a href="requests/document_get/type.GetRequestBuilder.html"><code>GetRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/document_get/type.GetRequestBuilder.html#builder-methods">builder methods</a></li>
 <li><a href="requests/document_get/type.GetRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/document_get/type.GetRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-3' class='section-header'><a href='#examples-3'>Examples</a></h1>
+<h1 id="examples-3" class="section-header"><a href="#examples-3">Examples</a></h1>
 <p>Get a <a href="../types/document/index.html"><code>DocumentType</code></a> called <code>MyType</code> with an id of <code>1</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -174,29 +99,21 @@ which includes the endpoint types in the <a href="requests/endpoints/index.html"
 <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">doc</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">into_document</span>() {
     <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;id: {}&quot;</span>, <span class="ident">doc</span>.<span class="ident">id</span>);
 }</pre>
-
 <p>For more details on document types, see the <a href="../types/index.html"><code>types</code></a> module.</p>
-
 <p>Get the same document as a <code>serde_json::Value</code>:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">document_get</span>::<span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>(<span class="ident">index</span>(<span class="string">&quot;myindex&quot;</span>), <span class="ident">id</span>(<span class="number">1</span>))
                      .<span class="ident">ty</span>(<span class="string">&quot;mytype&quot;</span>)
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;</pre>
-</div></div><h3 id='impl-3' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-3' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_index.rs.html#44-116' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='index-document' class='section-header'><a href='#index-document'>Index document</a></h1></div><div class='impl-items'><h4 id='method.document_index' class="method"><span id='document_index.v' class='invisible'><code>pub fn <a href='#method.document_index' class='fnname'>document_index</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;id: <a class="struct" href="../../elastic/client/requests/params/struct.Id.html" title="struct elastic::client::requests::params::Id">Id</a>&lt;'static&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;doc: TDocument<br>) -&gt; <a class="type" href="../../elastic/client/requests/document_index/type.IndexRequestBuilder.html" title="type elastic::client::requests::document_index::IndexRequestBuilder">IndexRequestBuilder</a>&lt;TSender, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../serde/ser/trait.Serialize.html" title="trait serde::ser::Serialize">Serialize</a> + <a class="trait" href="../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_index.rs.html#99-115' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create a <a href="requests/document_index/type.IndexRequestBuilder.html"><code>IndexRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-3' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-3' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_index.rs.html#44-116' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="index-document" class="section-header"><a href="#index-document">Index document</a></h1></div><div class='impl-items'><h4 id='method.document_index' class="method"><span id='document_index.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.document_index' class='fnname'>document_index</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;id: <a class="struct" href="../../elastic/client/requests/params/struct.Id.html" title="struct elastic::client::requests::params::Id">Id</a>&lt;'static&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;doc: TDocument<br>) -&gt; <a class="type" href="../../elastic/client/requests/document_index/type.IndexRequestBuilder.html" title="type elastic::client::requests::document_index::IndexRequestBuilder">IndexRequestBuilder</a>&lt;TSender, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../serde/ser/trait.Serialize.html" title="trait serde::ser::Serialize">Serialize</a> + <a class="trait" href="../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_index.rs.html#99-115' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Create a <a href="requests/document_index/type.IndexRequestBuilder.html"><code>IndexRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/document_index/type.IndexRequestBuilder.html#builder-methods">builder methods</a></li>
 <li><a href="requests/document_index/type.IndexRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/document_index/type.IndexRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-4' class='section-header'><a href='#examples-4'>Examples</a></h1>
+<h1 id="examples-4" class="section-header"><a href="#examples-4">Examples</a></h1>
 <p>Index a <a href="../types/document/index.html"><code>DocumentType</code></a> called <code>MyType</code> with an id of <code>1</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -210,22 +127,15 @@ which includes the endpoint types in the <a href="requests/endpoints/index.html"
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;
     
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">created</span>());</pre>
-
 <p>For more details on document types and mapping, see the <a href="../types/index.html"><code>types</code></a> module.</p>
-</div></div><h3 id='impl-4' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-4' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_update.rs.html#46-206' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='update-document' class='section-header'><a href='#update-document'>Update document</a></h1></div><div class='impl-items'><h4 id='method.document_update' class="method"><span id='document_update.v' class='invisible'><code>pub fn <a href='#method.document_update' class='fnname'>document_update</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;id: <a class="struct" href="../../elastic/client/requests/params/struct.Id.html" title="struct elastic::client::requests::params::Id">Id</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/document_update/type.UpdateRequestBuilder.html" title="type elastic::client::requests::document_update::UpdateRequestBuilder">UpdateRequestBuilder</a>&lt;TSender, <a class="struct" href="../../elastic/client/requests/document_update/struct.Doc.html" title="struct elastic::client::requests::document_update::Doc">Doc</a>&lt;TDocument&gt;&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_update.rs.html#188-205' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create an <a href="requests/document_update/type.UpdateRequestBuilder.html"><code>UpdateRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-4' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-4' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_update.rs.html#46-206' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="update-document" class="section-header"><a href="#update-document">Update document</a></h1></div><div class='impl-items'><h4 id='method.document_update' class="method"><span id='document_update.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.document_update' class='fnname'>document_update</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;id: <a class="struct" href="../../elastic/client/requests/params/struct.Id.html" title="struct elastic::client::requests::params::Id">Id</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/document_update/type.UpdateRequestBuilder.html" title="type elastic::client::requests::document_update::UpdateRequestBuilder">UpdateRequestBuilder</a>&lt;TSender, <a class="struct" href="../../elastic/client/requests/document_update/struct.Doc.html" title="struct elastic::client::requests::document_update::Doc">Doc</a>&lt;TDocument&gt;&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_update.rs.html#188-205' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Create an <a href="requests/document_update/type.UpdateRequestBuilder.html"><code>UpdateRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/document_update/type.UpdateRequestBuilder.html#builder-methods">builder methods</a></li>
 <li><a href="requests/document_update/type.UpdateRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/document_update/type.UpdateRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-5' class='section-header'><a href='#examples-5'>Examples</a></h1>
+<h1 id="examples-5" class="section-header"><a href="#examples-5">Examples</a></h1>
 <p>Update a <a href="../types/document/index.html"><code>DocumentType</code></a> called <code>MyType</code> with an id of <code>1</code> using a new document value:</p>
 
 <pre class="rust rust-example-rendered">
@@ -234,9 +144,8 @@ which includes the endpoint types in the <a href="requests/endpoints/index.html"
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">updated</span>());</pre>
-
-<p>The document doesn&#39;t necessarily need to be of the same type so partial updates can be made.
-Be careful though because this can lead to unexpected results or runtime errors if the document types don&#39;t align:</p>
+<p>The document doesn't necessarily need to be of the same type so partial updates can be made.
+Be careful though because this can lead to unexpected results or runtime errors if the document types don't align:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">document_update</span>::<span class="op">&lt;</span><span class="ident">MyType</span><span class="op">&gt;</span>(<span class="ident">index</span>(<span class="string">&quot;myindex&quot;</span>), <span class="ident">id</span>(<span class="number">1</span>))
@@ -246,7 +155,6 @@ Be careful though because this can lead to unexpected results or runtime errors 
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">updated</span>());</pre>
-
 <p>Documents can also be updated using a script:</p>
 
 <pre class="rust rust-example-rendered">
@@ -255,7 +163,6 @@ Be careful though because this can lead to unexpected results or runtime errors 
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">updated</span>());</pre>
-
 <p>Scripts can be configured with parameters:</p>
 
 <pre class="rust rust-example-rendered">
@@ -265,20 +172,14 @@ Be careful though because this can lead to unexpected results or runtime errors 
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">updated</span>());</pre>
-</div></div><h3 id='impl-5' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-5' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_delete.rs.html#43-108' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='delete-document' class='section-header'><a href='#delete-document'>Delete document</a></h1></div><div class='impl-items'><h4 id='method.document_delete' class="method"><span id='document_delete.v' class='invisible'><code>pub fn <a href='#method.document_delete' class='fnname'>document_delete</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;id: <a class="struct" href="../../elastic/client/requests/params/struct.Id.html" title="struct elastic::client::requests::params::Id">Id</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/document_delete/type.DeleteRequestBuilder.html" title="type elastic::client::requests::document_delete::DeleteRequestBuilder">DeleteRequestBuilder</a>&lt;TSender, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_delete.rs.html#91-107' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create a <a href="requests/document_delete/type.DeleteRequestBuilder.html"><code>DeleteRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-5' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-5' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_delete.rs.html#43-108' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="delete-document" class="section-header"><a href="#delete-document">Delete document</a></h1></div><div class='impl-items'><h4 id='method.document_delete' class="method"><span id='document_delete.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.document_delete' class='fnname'>document_delete</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;, <br>&nbsp;&nbsp;&nbsp;&nbsp;id: <a class="struct" href="../../elastic/client/requests/params/struct.Id.html" title="struct elastic::client::requests::params::Id">Id</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/document_delete/type.DeleteRequestBuilder.html" title="type elastic::client::requests::document_delete::DeleteRequestBuilder">DeleteRequestBuilder</a>&lt;TSender, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_delete.rs.html#91-107' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Create a <a href="requests/document_delete/type.DeleteRequestBuilder.html"><code>DeleteRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/document_delete/type.DeleteRequestBuilder.html#builder-methods">builder methods</a></li>
 <li><a href="requests/document_delete/type.DeleteRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/document_delete/type.DeleteRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-6' class='section-header'><a href='#examples-6'>Examples</a></h1>
+<h1 id="examples-6" class="section-header"><a href="#examples-6">Examples</a></h1>
 <p>Delete a <a href="../types/document/index.html"><code>DocumentType</code></a> called <code>MyType</code> with an id of <code>1</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -286,20 +187,14 @@ Be careful though because this can lead to unexpected results or runtime errors 
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">deleted</span>());</pre>
-</div></div><h3 id='impl-6' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-6' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_put_mapping.rs.html#44-105' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='put-mapping-request' class='section-header'><a href='#put-mapping-request'>Put mapping request</a></h1></div><div class='impl-items'><h4 id='method.document_put_mapping' class="method"><span id='document_put_mapping.v' class='invisible'><code>pub fn <a href='#method.document_put_mapping' class='fnname'>document_put_mapping</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/document_put_mapping/type.PutMappingRequestBuilder.html" title="type elastic::client::requests::document_put_mapping::PutMappingRequestBuilder">PutMappingRequestBuilder</a>&lt;TSender, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../serde/ser/trait.Serialize.html" title="trait serde::ser::Serialize">Serialize</a> + <a class="trait" href="../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_put_mapping.rs.html#89-104' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create a <a href="requests/document_put_mapping/type.PutMappingRequestBuilder.html"><code>PutMappingRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-6' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-6' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_put_mapping.rs.html#44-105' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="put-mapping-request" class="section-header"><a href="#put-mapping-request">Put mapping request</a></h1></div><div class='impl-items'><h4 id='method.document_put_mapping' class="method"><span id='document_put_mapping.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.document_put_mapping' class='fnname'>document_put_mapping</a>&lt;TDocument&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/document_put_mapping/type.PutMappingRequestBuilder.html" title="type elastic::client::requests::document_put_mapping::PutMappingRequestBuilder">PutMappingRequestBuilder</a>&lt;TSender, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../serde/ser/trait.Serialize.html" title="trait serde::ser::Serialize">Serialize</a> + <a class="trait" href="../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/document_put_mapping.rs.html#89-104' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Create a <a href="requests/document_put_mapping/type.PutMappingRequestBuilder.html"><code>PutMappingRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/document_put_mapping/type.PutMappingRequestBuilder.html#builder-methods">builder methods</a></li>
 <li><a href="requests/document_put_mapping/type.PutMappingRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/document_put_mapping/type.PutMappingRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-7' class='section-header'><a href='#examples-7'>Examples</a></h1>
+<h1 id="examples-7" class="section-header"><a href="#examples-7">Examples</a></h1>
 <p>Put the document mapping for a <a href="../types/document/index.html"><code>DocumentType</code></a> called <code>MyType</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -307,22 +202,15 @@ Be careful though because this can lead to unexpected results or runtime errors 
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">acknowledged</span>());</pre>
-
 <p>For more details on document types and mapping, see the <a href="../types/index.html"><code>types</code></a> module.</p>
-</div></div><h3 id='impl-7' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-7' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_create.rs.html#39-125' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='create-index-request' class='section-header'><a href='#create-index-request'>Create index request</a></h1></div><div class='impl-items'><h4 id='method.index_create' class="method"><span id='index_create.v' class='invisible'><code>pub fn <a href='#method.index_create' class='fnname'>index_create</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/index_create/type.IndexCreateRequestBuilder.html" title="type elastic::client::requests::index_create::IndexCreateRequestBuilder">IndexCreateRequestBuilder</a>&lt;TSender, <a class="type" href="../../elastic/client/requests/prelude/type.DefaultBody.html" title="type elastic::client::requests::prelude::DefaultBody">DefaultBody</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_create.rs.html#115-124' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create an <a href="requests/index_create/type.IndexCreateRequestBuilder.html"><code>IndexCreateRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-7' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-7' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_create.rs.html#39-125' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="create-index-request" class="section-header"><a href="#create-index-request">Create index request</a></h1></div><div class='impl-items'><h4 id='method.index_create' class="method"><span id='index_create.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.index_create' class='fnname'>index_create</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/index_create/type.IndexCreateRequestBuilder.html" title="type elastic::client::requests::index_create::IndexCreateRequestBuilder">IndexCreateRequestBuilder</a>&lt;TSender, <a class="type" href="../../elastic/client/requests/prelude/type.DefaultBody.html" title="type elastic::client::requests::prelude::DefaultBody">DefaultBody</a>&gt;</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_create.rs.html#115-124' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Create an <a href="requests/index_create/type.IndexCreateRequestBuilder.html"><code>IndexCreateRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/index_create/type.IndexCreateRequestBuilder.html#builder-methods">builder methods</a></li>
 <li><a href="requests/index_create/type.IndexCreateRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/index_create/type.IndexCreateRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-8' class='section-header'><a href='#examples-8'>Examples</a></h1>
+<h1 id="examples-8" class="section-header"><a href="#examples-8">Examples</a></h1>
 <p>Create an index called <code>myindex</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -331,7 +219,6 @@ Be careful though because this can lead to unexpected results or runtime errors 
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">index_create</span>(<span class="ident">my_index</span>).<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">acknowledged</span>());</pre>
-
 <p>Create an index with settings and document mappings for a <a href="../types/document/index.html"><code>DocumentType</code></a> called <code>MyType</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -352,97 +239,66 @@ Be careful though because this can lead to unexpected results or runtime errors 
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">acknowledged</span>());</pre>
-
 <p>For more details on document types and mapping, see the <a href="../types/index.html"><code>types</code></a> module.</p>
-</div></div><h3 id='impl-8' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-8' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_open.rs.html#38-75' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='open-index-request' class='section-header'><a href='#open-index-request'>Open index request</a></h1></div><div class='impl-items'><h4 id='method.index_open' class="method"><span id='index_open.v' class='invisible'><code>pub fn <a href='#method.index_open' class='fnname'>index_open</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/index_open/type.IndexOpenRequestBuilder.html" title="type elastic::client::requests::index_open::IndexOpenRequestBuilder">IndexOpenRequestBuilder</a>&lt;TSender&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_open.rs.html#72-74' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Open an <a href="requests/index_open/type.IndexOpenRequestBuilder.html"><code>IndexOpenRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-8' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-8' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_open.rs.html#38-75' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="open-index-request" class="section-header"><a href="#open-index-request">Open index request</a></h1></div><div class='impl-items'><h4 id='method.index_open' class="method"><span id='index_open.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.index_open' class='fnname'>index_open</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/index_open/type.IndexOpenRequestBuilder.html" title="type elastic::client::requests::index_open::IndexOpenRequestBuilder">IndexOpenRequestBuilder</a>&lt;TSender&gt;</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_open.rs.html#72-74' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Open an <a href="requests/index_open/type.IndexOpenRequestBuilder.html"><code>IndexOpenRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/index_open/type.IndexOpenRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/index_open/type.IndexOpenRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-9' class='section-header'><a href='#examples-9'>Examples</a></h1>
+<h1 id="examples-9" class="section-header"><a href="#examples-9">Examples</a></h1>
 <p>Open an index called <code>myindex</code>:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">index_open</span>(<span class="ident">index</span>(<span class="string">&quot;myindex&quot;</span>)).<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">acknowledged</span>());</pre>
-</div></div><h3 id='impl-9' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-9' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_close.rs.html#38-75' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='close-index-request' class='section-header'><a href='#close-index-request'>Close index request</a></h1></div><div class='impl-items'><h4 id='method.index_close' class="method"><span id='index_close.v' class='invisible'><code>pub fn <a href='#method.index_close' class='fnname'>index_close</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/index_close/type.IndexCloseRequestBuilder.html" title="type elastic::client::requests::index_close::IndexCloseRequestBuilder">IndexCloseRequestBuilder</a>&lt;TSender&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_close.rs.html#72-74' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create an <a href="requests/index_close/type.IndexCloseRequestBuilder.html"><code>IndexCloseRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-9' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-9' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_close.rs.html#38-75' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="close-index-request" class="section-header"><a href="#close-index-request">Close index request</a></h1></div><div class='impl-items'><h4 id='method.index_close' class="method"><span id='index_close.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.index_close' class='fnname'>index_close</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/index_close/type.IndexCloseRequestBuilder.html" title="type elastic::client::requests::index_close::IndexCloseRequestBuilder">IndexCloseRequestBuilder</a>&lt;TSender&gt;</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_close.rs.html#72-74' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Create an <a href="requests/index_close/type.IndexCloseRequestBuilder.html"><code>IndexCloseRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/index_close/type.IndexCloseRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/index_close/type.IndexCloseRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-10' class='section-header'><a href='#examples-10'>Examples</a></h1>
+<h1 id="examples-10" class="section-header"><a href="#examples-10">Examples</a></h1>
 <p>Close an index called <code>myindex</code>:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">index_close</span>(<span class="ident">index</span>(<span class="string">&quot;myindex&quot;</span>)).<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">acknowledged</span>());</pre>
-</div></div><h3 id='impl-10' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-10' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_delete.rs.html#38-75' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='delete-index-request' class='section-header'><a href='#delete-index-request'>Delete index request</a></h1></div><div class='impl-items'><h4 id='method.index_delete' class="method"><span id='index_delete.v' class='invisible'><code>pub fn <a href='#method.index_delete' class='fnname'>index_delete</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/index_delete/type.IndexDeleteRequestBuilder.html" title="type elastic::client::requests::index_delete::IndexDeleteRequestBuilder">IndexDeleteRequestBuilder</a>&lt;TSender&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_delete.rs.html#72-74' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Delete a <a href="requests/index_delete/type.IndexDeleteRequestBuilder.html"><code>IndexDeleteRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-10' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-10' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_delete.rs.html#38-75' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="delete-index-request" class="section-header"><a href="#delete-index-request">Delete index request</a></h1></div><div class='impl-items'><h4 id='method.index_delete' class="method"><span id='index_delete.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.index_delete' class='fnname'>index_delete</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/index_delete/type.IndexDeleteRequestBuilder.html" title="type elastic::client::requests::index_delete::IndexDeleteRequestBuilder">IndexDeleteRequestBuilder</a>&lt;TSender&gt;</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_delete.rs.html#72-74' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Delete a <a href="requests/index_delete/type.IndexDeleteRequestBuilder.html"><code>IndexDeleteRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/index_delete/type.IndexDeleteRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/index_delete/type.IndexDeleteRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-11' class='section-header'><a href='#examples-11'>Examples</a></h1>
+<h1 id="examples-11" class="section-header"><a href="#examples-11">Examples</a></h1>
 <p>Delete an index called <code>myindex</code>:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">index_delete</span>(<span class="ident">index</span>(<span class="string">&quot;myindex&quot;</span>)).<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">acknowledged</span>());</pre>
-</div></div><h3 id='impl-11' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-11' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_exists.rs.html#38-75' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='index-exists-request' class='section-header'><a href='#index-exists-request'>Index exists request</a></h1></div><div class='impl-items'><h4 id='method.index_exists' class="method"><span id='index_exists.v' class='invisible'><code>pub fn <a href='#method.index_exists' class='fnname'>index_exists</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/index_exists/type.IndexExistsRequestBuilder.html" title="type elastic::client::requests::index_exists::IndexExistsRequestBuilder">IndexExistsRequestBuilder</a>&lt;TSender&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_exists.rs.html#72-74' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Open an <a href="requests/index_exists/type.IndexExistsRequestBuilder.html"><code>IndexExistsRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-11' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-11' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_exists.rs.html#38-75' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="index-exists-request" class="section-header"><a href="#index-exists-request">Index exists request</a></h1></div><div class='impl-items'><h4 id='method.index_exists' class="method"><span id='index_exists.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.index_exists' class='fnname'>index_exists</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;index: <a class="struct" href="../../elastic/client/requests/params/struct.Index.html" title="struct elastic::client::requests::params::Index">Index</a>&lt;'static&gt;<br>) -&gt; <a class="type" href="../../elastic/client/requests/index_exists/type.IndexExistsRequestBuilder.html" title="type elastic::client::requests::index_exists::IndexExistsRequestBuilder">IndexExistsRequestBuilder</a>&lt;TSender&gt;</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/index_exists.rs.html#72-74' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Open an <a href="requests/index_exists/type.IndexExistsRequestBuilder.html"><code>IndexExistsRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/index_exists/type.IndexExistsRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/index_exists/type.IndexExistsRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-12' class='section-header'><a href='#examples-12'>Examples</a></h1>
+<h1 id="examples-12" class="section-header"><a href="#examples-12">Examples</a></h1>
 <p>Check whether an index called <code>myindex</code> exists:</p>
 
 <pre class="rust rust-example-rendered">
 <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">index_exists</span>(<span class="ident">index</span>(<span class="string">&quot;myindex&quot;</span>)).<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">exists</span>());</pre>
-</div></div><h3 id='impl-12' class='impl'><span class='in-band'><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-12' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/ping.rs.html#32-74' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='ping-request' class='section-header'><a href='#ping-request'>Ping request</a></h1></div><div class='impl-items'><h4 id='method.ping' class="method"><span id='ping.v' class='invisible'><code>pub fn <a href='#method.ping' class='fnname'>ping</a>(&amp;self) -&gt; <a class="type" href="../../elastic/client/requests/ping/type.PingRequestBuilder.html" title="type elastic::client::requests::ping::PingRequestBuilder">PingRequestBuilder</a>&lt;TSender&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/ping.rs.html#71-73' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create a <a href="requests/ping/type.PingRequestBuilder.html"><code>PingRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
-
+</div></div><h3 id='impl-12' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl-12' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/ping.rs.html#32-74' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="ping-request" class="section-header"><a href="#ping-request">Ping request</a></h1></div><div class='impl-items'><h4 id='method.ping' class="method"><span id='ping.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.ping' class='fnname'>ping</a>(&amp;self) -&gt; <a class="type" href="../../elastic/client/requests/ping/type.PingRequestBuilder.html" title="type elastic::client::requests::ping::PingRequestBuilder">PingRequestBuilder</a>&lt;TSender&gt;</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/requests/ping.rs.html#71-73' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Create a <a href="requests/ping/type.PingRequestBuilder.html"><code>PingRequestBuilder</code></a> with this <code>Client</code> that can be configured before sending.</p>
 <p>For more details, see:</p>
-
 <ul>
 <li><a href="requests/ping/type.PingRequestBuilder.html#send-synchronously">send synchronously</a></li>
 <li><a href="requests/ping/type.PingRequestBuilder.html#send-asynchronously">send asynchronously</a></li>
 </ul>
-
-<h1 id='examples-13' class='section-header'><a href='#examples-13'>Examples</a></h1>
+<h1 id="examples-13" class="section-header"><a href="#examples-13">Examples</a></h1>
 <p>Ping an Elasticsearch node.</p>
 
 <pre class="rust rust-example-rendered">
@@ -450,74 +306,14 @@ Be careful though because this can lead to unexpected results or runtime errors 
 
 <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;node: {}&quot;</span>, <span class="ident">response</span>.<span class="ident">name</span>());</pre>
 </div></div>
-            <h2 id='implementations' class='small-section-header'>
-              Trait Implementations<a href='#implementations' class='anchor'></a>
-            </h2>
-        <h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl&lt;TSender:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt;</code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/mod.rs.html#600' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/mod.rs.html#600' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
-</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
-</div></div></section>
-    <section id='search' class="content hidden"></section>
-
-    <section class="footer"></section>
-
-    <aside id="help" class="hidden">
-        <div>
-            <h1 class="hidden">Help</h1>
-
-            <div class="shortcuts">
-                <h2>Keyboard Shortcuts</h2>
-
-                <dl>
-                    <dt>?</dt>
-                    <dd>Show this help dialog</dd>
-                    <dt>S</dt>
-                    <dd>Focus the search field</dd>
-                    <dt>↑</dt>
-                    <dd>Move up in search results</dd>
-                    <dt>↓</dt>
-                    <dd>Move down in search results</dd>
-                    <dt>↹</dt>
-                    <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
-                    <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
-                </dl>
-            </div>
-
-            <div class="infos">
-                <h2>Search Tricks</h2>
-
-                <p>
-                    Prefix searches with a type followed by a colon (e.g.
-                    <code>fn:</code>) to restrict the search to a given type.
-                </p>
-
-                <p>
-                    Accepted types are: <code>fn</code>, <code>mod</code>,
-                    <code>struct</code>, <code>enum</code>,
-                    <code>trait</code>, <code>type</code>, <code>macro</code>,
-                    and <code>const</code>.
-                </p>
-
-                <p>
-                    Search functions by type signature (e.g.
-                    <code>vec -> usize</code> or <code>* -> vec</code>)
-                </p>
-            </div>
-        </div>
-    </aside>
-
-    
-
-    <script>
-        window.rootPath = "../../";
-        window.currentCrate = "elastic";
-    </script>
-    <script src="../../main.js"></script>
-    <script defer src="../../search-index.js"></script>
-</body>
-</html>
+                <h2 id='implementations' class='small-section-header'>
+                  Trait Implementations<a href='#implementations' class='anchor'></a>
+                </h2>
+                <div id='implementations-list'><h3 id='impl-Clone' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a>&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt;</code><a href='#impl-Clone' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/mod.rs.html#600' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt;</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/elastic/client/mod.rs.html#600' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span></td><td><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#130-132' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></div>
+                <h2 id='synthetic-implementations' class='small-section-header'>
+                  Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
+                </h2>
+                <div id='synthetic-implementations-list'>
+            <h3 id='impl-Send' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a>,&nbsp;</span></code><a href='#impl-Send' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../../elastic/client/struct.Client.html" title="struct elastic::client::Client">Client</a>&lt;TSender&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a>,&nbsp;</span></code><a href='#impl-Sync' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div></div></section><section id="search" class="content hidden"></section><section class="footer"></section><aside id="help" class="hidden"><div><h1 class="hidden">Help</h1><div class="shortcuts"><h2>Keyboard Shortcuts</h2><dl><dt><kbd>?</kbd></dt><dd>Show this help dialog</dd><dt><kbd>S</kbd></dt><dd>Focus the search field</dd><dt><kbd>↑</kbd></dt><dd>Move up in search results</dd><dt><kbd>↓</kbd></dt><dd>Move down in search results</dd><dt><kbd>↹</kbd></dt><dd>Switch tab</dd><dt><kbd>&#9166;</kbd></dt><dd>Go to active search result</dd><dt><kbd>+</kbd></dt><dd>Expand all sections</dd><dt><kbd>-</kbd></dt><dd>Collapse all sections</dd></dl></div><div class="infos"><h2>Search Tricks</h2><p>Prefix searches with a type followed by a colon (e.g. <code>fn:</code>) to restrict the search to a given type.</p><p>Accepted types are: <code>fn</code>, <code>mod</code>, <code>struct</code>, <code>enum</code>, <code>trait</code>, <code>type</code>, <code>macro</code>, and <code>const</code>.</p><p>Search functions by type signature (e.g. <code>vec -> usize</code> or <code>* -> vec</code>)</p><p>Search multiple things at once by splitting your query with comma (e.g. <code>str,u8</code> or <code>String,struct:Vec,test</code>)</p></div></div></aside><script>window.rootPath = "../../";window.currentCrate = "elastic";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script defer src="../../search-index.js"></script></body></html>
