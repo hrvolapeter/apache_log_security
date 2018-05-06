@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.4.13/src/lib.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.6.3/src/lib.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>lib.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -71,11 +72,34 @@
 <span id="15">15</span>
 <span id="16">16</span>
 <span id="17">17</span>
+<span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
 </pre><pre class="rust ">
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">num_traits</span>;
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">serde_derive</span>;
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">serde</span>;
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">num_traits</span>;
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">spade</span>;
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">traits</span>::<span class="ident">ToGeo</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">types</span>::<span class="kw-2">*</span>;
@@ -89,6 +113,29 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">approx</span>;
+
+<span class="doccomment">/// A prelude which re-exports the traits for manipulating objects in this</span>
+<span class="doccomment">/// crate. Typically imported with `use geo::prelude::*`.</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">prelude</span> {
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">area</span>::<span class="ident">Area</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">boundingbox</span>::<span class="ident">BoundingBox</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">centroid</span>::<span class="ident">Centroid</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">contains</span>::<span class="ident">Contains</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">convexhull</span>::<span class="ident">ConvexHull</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">distance</span>::<span class="ident">Distance</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">extremes</span>::<span class="ident">ExtremePoints</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">haversine_destination</span>::<span class="ident">HaversineDestination</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">haversine_distance</span>::<span class="ident">HaversineDistance</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">intersects</span>::<span class="ident">Intersects</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">length</span>::<span class="ident">Length</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">map_coords</span>::<span class="ident">MapCoords</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">orient</span>::<span class="ident">Orient</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">rotate</span>::{<span class="ident">Rotate</span>, <span class="ident">RotatePoint</span>};
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">simplify</span>::<span class="ident">Simplify</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">simplifyvw</span>::<span class="ident">SimplifyVW</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">translate</span>::<span class="ident">Translate</span>;
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">closest_point</span>::<span class="ident">ClosestPoint</span>;
+}
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
