@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["InputErr",""],["LibErr",""],["ReportingErr",""]]});
+initSidebarItems({"enum":[["InputErr","If error happend during loading logs or parsing it should return this error."],["LibErr","Errors are separated depending on place where they occur."],["ReportingErr","If error happend during incident reporting it should return this error."]]});
