@@ -18,20 +18,38 @@ extern crate serde_json;
 /// Analyzers for all log types
 pub mod analyses;
 /// Log inputs
+///
+/// The bottom most layer containing modules for input processing e.g. 
+/// `Elasticsearch`, `File`.
 pub mod input;
 /// Configuration of library
+///
+/// This module is used to provide configuration to library with settings
 pub mod config;
 /// Incident reporting
+///
+/// This is the top layer containing modules for incident reporting e.g.
+/// `Email`, `Std`.
 pub mod reporting;
 /// Helper function
+///
+/// Module with helper functions.
 pub mod helper;
 /// Library errors
+///
+/// Module for library error handling.
+/// This is used if any error is encountered during run.
+/// Library should never directly exit main application and
+/// only return Errors.
 pub mod error;
 
 use rayon::prelude::*;
 use error::LibErr;
 
 /// Run library with given configuration.
+/// Library is divided into three layers. Each layers contains modules
+/// that can be configued to perform required task be specifing their
+/// composition using `Config` structure.
 /// Logs are beeing read, analyzed and then reported as configured.
 ///
 /// Runing with default configuration:

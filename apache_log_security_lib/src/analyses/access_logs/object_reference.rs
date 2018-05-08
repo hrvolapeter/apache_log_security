@@ -7,7 +7,7 @@ use helper::url;
 /// Steps done before detection:
 ///   1. url decoding
 pub fn analyse<'a>(log: &'a AccessLog) -> Option<Incident<'a>> {
-    let disallowed = vec!["/etc/", "/tmp/", "/../", "\\system32"];
+    let disallowed = vec!["/etc/", "/tmp/", "/../", "\\system32", ".cgi", "c:", "/test-cgi/", "/bash", ".dll", "/cgi-bin/"];
 
     let result = disallowed.iter().fold(false, |acc, &x| {
         acc || url::url_decode(&log.path.to_lowercase()).contains(x)

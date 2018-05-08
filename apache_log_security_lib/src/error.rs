@@ -4,6 +4,7 @@ use elastic;
 use elastic::client::responses::bulk::ErrorItem;
 use lettre::sendmail;
 
+/// Errors are separated depending on place where they occur.
 #[derive(Debug)]
 pub enum LibErr {
     ReportingErr(ReportingErr),
@@ -22,6 +23,7 @@ impl std::convert::From<ReportingErr> for LibErr {
     }
 }
 
+/// If error happend during incident reporting it should return this error.
 #[derive(Debug)]
 pub enum ReportingErr {
     Elastic(elastic::Error),
@@ -41,6 +43,7 @@ impl std::convert::From<sendmail::error::Error> for ReportingErr {
     }
 }
 
+/// If error happend during loading logs or parsing it should return this error.
 #[derive(Debug)]
 pub enum InputErr {
     Io(io::Error),

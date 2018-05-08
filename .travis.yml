@@ -23,6 +23,7 @@ os:
 matrix:
   allow_failures:
   - rust: nightly
+  - rust: beta
 before_script:
   - export PATH=$HOME/.cargo/bin:$PATH
   - cargo install cargo-update || echo "cargo-update already installed"

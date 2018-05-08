@@ -11,12 +11,15 @@ pub mod email;
 /// Reporting to elasticsearch
 pub mod elasticsearch;
 
-/// Trait for output. All new reporters must implement this trait.
+/// Trait for output. All new reporters inside reporting layer
+/// must implement this trait.
 pub trait Reporting: serde::de::DeserializeOwned {
     fn report_incidents(&self, incidents: &Vec<Incident>) -> Result<(), ReportingErr>;
 }
 
 /// Reports passed incidents using configuration.
+///
+/// New modules for reporting have to be added here.
 pub fn report_incidents(incidents: Vec<Incident>, config: &Config) -> Result<(), ReportingErr> {
     for report in config.reporting.iter() {
         match report {
