@@ -10,8 +10,12 @@
     <title>lettre::smtp::response - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         <p class='location'>Module response</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li></ul></div><p class='location'><a href='../../index.html'>lettre</a>::<wbr><a href='../index.html'>smtp</a></p><script>window.sidebarCurrent = {name: 'response', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>lettre</a>::<wbr><a href='../index.html'>smtp</a>::<wbr><a class="mod" href=''>response</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>lettre</a>::<wbr><a href='../index.html'>smtp</a>::<wbr><a class="mod" href=''>response</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/lettre/smtp/response.rs.html#1-670' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>SMTP response, containing a mandatory return code and an optional text
+               </span><a class='srclink' href='../../../src/lettre/smtp/response.rs.html#1-670' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>SMTP response, containing a mandatory return code and an optional text
 message</p>
 </div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
@@ -59,6 +68,7 @@ message</p>
                                   title='struct lettre::smtp::response::Code'>Code</a></td>
                            <td class='docblock-short'>
                                 <p>Represents a 3 digit SMTP response code</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -66,6 +76,7 @@ message</p>
                                   title='struct lettre::smtp::response::Detail'>Detail</a></td>
                            <td class='docblock-short'>
                                 <p>The detail digit of a response code (third digit)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -73,6 +84,7 @@ message</p>
                                   title='struct lettre::smtp::response::Response'>Response</a></td>
                            <td class='docblock-short'>
                                 <p>Contains an SMTP reply, with separated code and message</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -80,6 +92,7 @@ message</p>
                                   title='struct lettre::smtp::response::ResponseParser'>ResponseParser</a></td>
                            <td class='docblock-short'>
                                 <p>Parses an SMTP response</p>
+
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
@@ -88,6 +101,7 @@ message</p>
                                   title='enum lettre::smtp::response::Category'>Category</a></td>
                            <td class='docblock-short'>
                                 <p>Second digit</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -95,6 +109,7 @@ message</p>
                                   title='enum lettre::smtp::response::Severity'>Severity</a></td>
                            <td class='docblock-short'>
                                 <p>First digit indicates severity</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -109,20 +124,22 @@ message</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

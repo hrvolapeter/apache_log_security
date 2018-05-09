@@ -10,8 +10,12 @@
     <title>cgmath::prelude - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <script src="../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         <p class='location'>Module prelude</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#traits">Traits</a></li></ul></div><p class='location'><a href='../index.html'>cgmath</a></p><script>window.sidebarCurrent = {name: 'prelude', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>cgmath</a>::<wbr><a class="mod" href=''>prelude</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>cgmath</a>::<wbr><a class="mod" href=''>prelude</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../src/cgmath/prelude.rs.html#1-13' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>This module contains the most common traits used in <code>cgmath</code>. By
+               </span><a class='srclink' href='../../src/cgmath/prelude.rs.html#1-13' title='goto source code'>[src]</a></span></h1><div class='docblock'><p>This module contains the most common traits used in <code>cgmath</code>. By
 glob-importing this module, you can avoid the need to import each trait
 individually, while still being selective about what types you import.</p>
 </div><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
@@ -60,6 +69,7 @@ individually, while still being selective about what types you import.</p>
                                   title='trait cgmath::prelude::Angle'>Angle</a></td>
                            <td class='docblock-short'>
                                 <p>Angles and their associated trigonometric functions.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -67,6 +77,7 @@ individually, while still being selective about what types you import.</p>
                                   title='trait cgmath::prelude::Array'>Array</a></td>
                            <td class='docblock-short'>
                                 <p>An array containing elements of type <code>Element</code></p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -74,6 +85,7 @@ individually, while still being selective about what types you import.</p>
                                   title='trait cgmath::prelude::Bounded'>Bounded</a></td>
                            <td class='docblock-short'>
                                 <p>Numbers which have upper and lower bounds</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -82,6 +94,7 @@ individually, while still being selective about what types you import.</p>
                            <td class='docblock-short'>
                                 <p>Element-wise arithmetic operations. These are supplied for pragmatic
 reasons, but will usually fall outside of traditional algebraic properties.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -90,6 +103,7 @@ reasons, but will usually fall outside of traditional algebraic properties.</p>
                            <td class='docblock-short'>
                                 <p>Points in a <a href="https://en.wikipedia.org/wiki/Euclidean_space">Euclidean space</a>
 with an associated space of displacement vectors.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -98,6 +112,7 @@ with an associated space of displacement vectors.</p>
                            <td class='docblock-short'>
                                 <p>Vectors that also have a <a href="https://en.wikipedia.org/wiki/Dot_product">dot</a>
 (or <a href="https://en.wikipedia.org/wiki/Inner_product_space">inner</a>) product.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -105,6 +120,7 @@ with an associated space of displacement vectors.</p>
                                   title='trait cgmath::prelude::Matrix'>Matrix</a></td>
                            <td class='docblock-short'>
                                 <p>A column-major matrix of arbitrary dimensions.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -112,6 +128,7 @@ with an associated space of displacement vectors.</p>
                                   title='trait cgmath::prelude::MetricSpace'>MetricSpace</a></td>
                            <td class='docblock-short'>
                                 <p>A type with a distance function between values.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -119,6 +136,7 @@ with an associated space of displacement vectors.</p>
                                   title='trait cgmath::prelude::One'>One</a></td>
                            <td class='docblock-short'>
                                 <p>Defines a multiplicative identity element for <code>Self</code>.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -127,6 +145,7 @@ with an associated space of displacement vectors.</p>
                            <td class='docblock-short'>
                                 <p>A trait for a generic rotation. A rotation is a transformation that
 creates a circular motion, and preserves at least one point in the space.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -134,6 +153,7 @@ creates a circular motion, and preserves at least one point in the space.</p>
                                   title='trait cgmath::prelude::Rotation2'>Rotation2</a></td>
                            <td class='docblock-short'>
                                 <p>A two-dimensional rotation.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -141,6 +161,7 @@ creates a circular motion, and preserves at least one point in the space.</p>
                                   title='trait cgmath::prelude::Rotation3'>Rotation3</a></td>
                            <td class='docblock-short'>
                                 <p>A three-dimensional rotation.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -148,6 +169,7 @@ creates a circular motion, and preserves at least one point in the space.</p>
                                   title='trait cgmath::prelude::SquareMatrix'>SquareMatrix</a></td>
                            <td class='docblock-short'>
                                 <p>A column-major major matrix where the rows and column vectors are of the same dimensions.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -157,6 +179,7 @@ creates a circular motion, and preserves at least one point in the space.</p>
                                 <p>A trait representing an <a href="https://en.wikipedia.org/wiki/Affine_transformation">affine
 transformation</a> that
 can be applied to points or vectors. An affine transformation is one which</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -180,6 +203,7 @@ can be applied to points or vectors. An affine transformation is one which</p>
                                 <p>Vectors that can be <a href="http://mathworld.wolfram.com/VectorAddition.html">added</a>
 together and <a href="https://en.wikipedia.org/wiki/Scalar_multiplication">multiplied</a>
 by scalars.</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -187,6 +211,7 @@ by scalars.</p>
                                   title='trait cgmath::prelude::Zero'>Zero</a></td>
                            <td class='docblock-short'>
                                 <p>Defines an additive identity element for <code>Self</code>.</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -201,20 +226,22 @@ by scalars.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

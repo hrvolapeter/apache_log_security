@@ -4,14 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/spade-1.4.0/src/delaunay/line_intersection_iterator.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/spade-1.4.0/src/delaunay/line_intersection_iterator.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>line_intersection_iterator.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -561,7 +572,7 @@
             (<span class="kw-2">&amp;</span><span class="ident">EdgeIntersection</span>(<span class="ident">h0</span>), <span class="kw-2">&amp;</span><span class="ident">EdgeIntersection</span>(<span class="ident">h1</span>)) <span class="op">=&gt;</span> <span class="ident">h0</span> <span class="op">==</span> <span class="ident">h1</span>,
             (<span class="kw-2">&amp;</span><span class="ident">VertexIntersection</span>(<span class="ident">h0</span>), <span class="kw-2">&amp;</span><span class="ident">VertexIntersection</span>(<span class="ident">h1</span>)) <span class="op">=&gt;</span> <span class="ident">h0</span> <span class="op">==</span> <span class="ident">h1</span>,
             (<span class="kw-2">&amp;</span><span class="ident">EdgeOverlap</span>(<span class="ident">h0</span>), <span class="kw-2">&amp;</span><span class="ident">EdgeOverlap</span>(<span class="ident">h1</span>)) <span class="op">=&gt;</span> <span class="ident">h0</span> <span class="op">==</span> <span class="ident">h1</span>,
-             _ <span class="op">=&gt;</span> <span class="bool-val">false</span>,
+             <span class="kw">_</span> <span class="op">=&gt;</span> <span class="bool-val">false</span>,
         }
     }
 }
@@ -806,10 +817,10 @@
              <span class="ident">from</span>: <span class="ident">Point2</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>,
              <span class="ident">to</span>: <span class="ident">Point2</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>,
              <span class="kw-2">mut</span> <span class="ident">expected</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Intersection</span><span class="op">&lt;</span><span class="ident">Point2</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;&gt;</span><span class="op">&gt;</span>) {
-        <span class="kw">let</span> <span class="ident">collected</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">LineIntersectionIterator</span>::<span class="ident">new</span>(<span class="ident">delaunay</span>, <span class="kw-2">&amp;</span><span class="ident">from</span>, <span class="kw-2">&amp;</span><span class="ident">to</span>).<span class="ident">collect</span>();
+        <span class="kw">let</span> <span class="ident">collected</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">LineIntersectionIterator</span>::<span class="ident">new</span>(<span class="ident">delaunay</span>, <span class="kw-2">&amp;</span><span class="ident">from</span>, <span class="kw-2">&amp;</span><span class="ident">to</span>).<span class="ident">collect</span>();
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">collected</span>, <span class="ident">expected</span>);
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">reversed</span> <span class="op">=</span> <span class="ident">Vec</span>::<span class="ident">new</span>();
-        <span class="kw">let</span> <span class="ident">rev_collected</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">LineIntersectionIterator</span>::<span class="ident">new</span>(<span class="ident">delaunay</span>, <span class="kw-2">&amp;</span><span class="ident">to</span>, <span class="kw-2">&amp;</span><span class="ident">from</span>).<span class="ident">collect</span>();
+        <span class="kw">let</span> <span class="ident">rev_collected</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">LineIntersectionIterator</span>::<span class="ident">new</span>(<span class="ident">delaunay</span>, <span class="kw-2">&amp;</span><span class="ident">to</span>, <span class="kw-2">&amp;</span><span class="ident">from</span>).<span class="ident">collect</span>();
         <span class="kw">for</span> <span class="ident">intersection</span> <span class="kw">in</span> <span class="ident">rev_collected</span>.<span class="ident">iter</span>() {
             <span class="ident">reversed</span>.<span class="ident">push</span>(<span class="ident">reverse</span>(<span class="ident">intersection</span>));
         }
@@ -832,7 +843,7 @@
     
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_single_line_intersection</span>() {
-        <span class="kw">let</span> (<span class="ident">delaunay</span>, _, _, <span class="ident">v2</span>, <span class="ident">v3</span>) <span class="op">=</span> <span class="ident">create_test_triangulation</span>();
+        <span class="kw">let</span> (<span class="ident">delaunay</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="ident">v2</span>, <span class="ident">v3</span>) <span class="op">=</span> <span class="ident">create_test_triangulation</span>();
         <span class="kw">let</span> <span class="ident">from</span> <span class="op">=</span> <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">0.5</span>, <span class="op">-</span><span class="number">0.5</span>);
         <span class="kw">let</span> <span class="ident">to</span> <span class="op">=</span> <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="number">0.5</span>, <span class="number">0.5</span>);
         <span class="kw">let</span> <span class="ident">edge</span> <span class="op">=</span> <span class="ident">delaunay</span>.<span class="ident">get_edge_from_neighbors</span>(<span class="ident">v3</span>, <span class="ident">v2</span>).<span class="ident">unwrap</span>();
@@ -841,7 +852,7 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_empty_inner_intersection</span>() {
-        <span class="kw">let</span> (<span class="ident">delaunay</span>, _, _, _, _) <span class="op">=</span> <span class="ident">create_test_triangulation</span>();
+        <span class="kw">let</span> (<span class="ident">delaunay</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=</span> <span class="ident">create_test_triangulation</span>();
         <span class="kw">let</span> <span class="ident">from</span> <span class="op">=</span> <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">0.5</span>, <span class="op">-</span><span class="number">0.5</span>);
         <span class="kw">let</span> <span class="ident">to</span> <span class="op">=</span> <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">0.25</span>, <span class="op">-</span><span class="number">0.25</span>);
         <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">LineIntersectionIterator</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">delaunay</span>, <span class="kw-2">&amp;</span><span class="ident">from</span>, <span class="kw-2">&amp;</span><span class="ident">to</span>).<span class="ident">next</span>().<span class="ident">is_none</span>());
@@ -855,13 +866,13 @@
         <span class="kw">let</span> <span class="ident">edge</span> <span class="op">=</span> <span class="ident">delaunay</span>.<span class="ident">get_edge_from_neighbors</span>(<span class="ident">v3</span>, <span class="ident">v2</span>).<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">first</span> <span class="op">=</span> <span class="ident">VertexIntersection</span>(<span class="ident">delaunay</span>.<span class="ident">vertex</span>(<span class="ident">v0</span>));
         <span class="kw">let</span> <span class="ident">last</span> <span class="op">=</span> <span class="ident">VertexIntersection</span>(<span class="ident">delaunay</span>.<span class="ident">vertex</span>(<span class="ident">v1</span>));
-        <span class="kw">let</span> <span class="ident">edges</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">LineIntersectionIterator</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">delaunay</span>, <span class="kw-2">&amp;</span><span class="ident">from</span>, <span class="kw-2">&amp;</span><span class="ident">to</span>).<span class="ident">collect</span>();
+        <span class="kw">let</span> <span class="ident">edges</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">LineIntersectionIterator</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">delaunay</span>, <span class="kw-2">&amp;</span><span class="ident">from</span>, <span class="kw-2">&amp;</span><span class="ident">to</span>).<span class="ident">collect</span>();
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">edges</span>, <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">first</span>, <span class="ident">EdgeIntersection</span>(<span class="ident">edge</span>), <span class="ident">last</span>]);
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_mixed_intersections</span>() {
-        <span class="kw">let</span> (<span class="kw-2">mut</span> <span class="ident">delaunay</span>, _, <span class="ident">v1</span>, <span class="ident">v2</span>, <span class="ident">v3</span>) <span class="op">=</span> <span class="ident">create_test_triangulation</span>();
+        <span class="kw">let</span> (<span class="kw-2">mut</span> <span class="ident">delaunay</span>, <span class="kw">_</span>, <span class="ident">v1</span>, <span class="ident">v2</span>, <span class="ident">v3</span>) <span class="op">=</span> <span class="ident">create_test_triangulation</span>();
         <span class="kw">let</span> <span class="ident">v4</span> <span class="op">=</span> <span class="ident">delaunay</span>.<span class="ident">insert</span>(<span class="ident">Point2</span>::<span class="ident">new</span>(<span class="number">1.0</span>, <span class="number">1.0</span>));
         <span class="kw">let</span> <span class="ident">from</span> <span class="op">=</span> <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="op">-</span><span class="number">1.0</span>, <span class="op">-</span><span class="number">1.0</span>);
         <span class="kw">let</span> <span class="ident">to</span> <span class="op">=</span> <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="number">2.0</span>, <span class="number">2.0</span>);
@@ -917,7 +928,7 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_on_line_intersection</span>() {
-        <span class="kw">let</span> (<span class="ident">d</span>, _, <span class="ident">v1</span>, <span class="ident">v2</span>, <span class="ident">v3</span>) <span class="op">=</span> <span class="ident">create_test_triangulation</span>();
+        <span class="kw">let</span> (<span class="ident">d</span>, <span class="kw">_</span>, <span class="ident">v1</span>, <span class="ident">v2</span>, <span class="ident">v3</span>) <span class="op">=</span> <span class="ident">create_test_triangulation</span>();
 
         <span class="kw">let</span> <span class="ident">edge</span> <span class="op">=</span> <span class="ident">d</span>.<span class="ident">get_edge_from_neighbors</span>(<span class="ident">v2</span>, <span class="ident">v3</span>).<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">e32</span> <span class="op">=</span> <span class="ident">EdgeIntersection</span>(<span class="ident">edge</span>.<span class="ident">sym</span>());
@@ -930,7 +941,7 @@
 
         <span class="kw">let</span> <span class="ident">from</span> <span class="op">=</span> <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="number">0.0</span>, <span class="number">0.0</span>);
         <span class="kw">let</span> <span class="ident">to</span> <span class="op">=</span> <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="number">0.0</span>, <span class="number">0.0</span>);
-        <span class="kw">let</span> <span class="ident">collected</span>: <span class="ident">Vec</span><span class="op">&lt;</span>_<span class="op">&gt;</span> <span class="op">=</span> <span class="ident">LineIntersectionIterator</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">d</span>, <span class="kw-2">&amp;</span><span class="ident">from</span>, <span class="kw-2">&amp;</span><span class="ident">to</span>).<span class="ident">collect</span>();
+        <span class="kw">let</span> <span class="ident">collected</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">LineIntersectionIterator</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="ident">d</span>, <span class="kw-2">&amp;</span><span class="ident">from</span>, <span class="kw-2">&amp;</span><span class="ident">to</span>).<span class="ident">collect</span>();
         <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">collected</span> <span class="op">==</span> <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">o23</span>] <span class="op">||</span> <span class="ident">collected</span> <span class="op">==</span> <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">o32</span>]);
         <span class="kw">let</span> <span class="ident">to</span> <span class="op">=</span> <span class="ident">Point2</span>::<span class="ident">new</span>(<span class="number">0.2</span>, <span class="number">0.2</span>);
         <span class="ident">check</span>(<span class="kw-2">&amp;</span><span class="ident">d</span>, <span class="ident">from</span>, <span class="ident">to</span>, <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">e32</span>]);
@@ -999,20 +1010,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
