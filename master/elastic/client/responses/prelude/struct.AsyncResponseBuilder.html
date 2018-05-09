@@ -10,8 +10,12 @@
     <title>elastic::client::responses::prelude::AsyncResponseBuilder - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <script src="../../../../storage.js"></script>
     
 
     
@@ -30,9 +34,16 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'>Struct AsyncResponseBuilder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.status">status</a><a href="#method.into_raw">into_raw</a><a href="#method.into_response">into_response</a></div></div><p class='location'><a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>responses</a>::<wbr><a href='index.html'>prelude</a></p><script>window.sidebarCurrent = {name: 'AsyncResponseBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+        <p class='location'>Struct AsyncResponseBuilder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.status">status</a><a href="#method.into_raw">into_raw</a><a href="#method.into_response">into_response</a></div><a class="sidebar-title" href="#synthetic-implementations">Auto Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">!Sync</a></div></div><p class='location'><a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>responses</a>::<wbr><a href='index.html'>prelude</a></p><script>window.sidebarCurrent = {name: 'AsyncResponseBuilder', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,36 +55,25 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Struct <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>responses</a>::<wbr><a href='index.html'>prelude</a>::<wbr><a class="struct" href=''>AsyncResponseBuilder</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>responses</a>::<wbr><a href='index.html'>prelude</a>::<wbr><a class="struct" href=''>AsyncResponseBuilder</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#17-20' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct AsyncResponseBuilder { /* fields omitted */ }</pre><div class='docblock'><p>A builder for a response.</p>
-
+               </span><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#17-20' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct AsyncResponseBuilder { /* fields omitted */ }</pre></div><div class='docblock'><p>A builder for a response.</p>
 <p>This structure wraps the completed HTTP response but gives you options for converting it into a concrete type.
 You can also <code>Read</code> directly from the response body.</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
-                <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../../../elastic/client/responses/struct.AsyncResponseBuilder.html" title="struct elastic::client::responses::AsyncResponseBuilder">AsyncResponseBuilder</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#29-132' title='goto source code'>[src]</a></span></h3>
-<div class='impl-items'><h4 id='method.status' class="method"><span id='status.v' class='invisible'><code>pub fn <a href='#method.status' class='fnname'>status</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#31-33' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Get the HTTP status for the response. </p>
-</div><h4 id='method.into_raw' class="method"><span id='into_raw.v' class='invisible'><code>pub fn <a href='#method.into_raw' class='fnname'>into_raw</a>(self) -&gt; <a class="struct" href="../../../../elastic/client/responses/struct.AsyncHttpResponse.html" title="struct elastic::client::responses::AsyncHttpResponse">AsyncHttpResponse</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#40-42' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Get the response body from JSON.</p>
-
+                <h3 id='impl' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="struct" href="../../../../elastic/client/responses/struct.AsyncResponseBuilder.html" title="struct elastic::client::responses::AsyncResponseBuilder">AsyncResponseBuilder</a></code><a href='#impl' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#29-132' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.status' class="method"><span id='status.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.status' class='fnname'>status</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#31-33' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Get the HTTP status for the response. </p>
+</div><h4 id='method.into_raw' class="method"><span id='into_raw.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.into_raw' class='fnname'>into_raw</a>(self) -&gt; <a class="struct" href="../../../../elastic/client/responses/struct.AsyncHttpResponse.html" title="struct elastic::client::responses::AsyncHttpResponse">AsyncHttpResponse</a></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#40-42' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Get the response body from JSON.</p>
 <p>Convert the builder into a raw HTTP response that implements <code>Read</code>.</p>
-</div><h4 id='method.into_response' class="method"><span id='into_response.v' class='invisible'><code>pub fn <a href='#method.into_response' class='fnname'>into_response</a>&lt;T&gt;(self) -&gt; <a class="struct" href="../../../../elastic/client/responses/struct.IntoResponse.html" title="struct elastic::client::responses::IntoResponse">IntoResponse</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../../elastic/client/responses/parse/trait.IsOk.html" title="trait elastic::client::responses::parse::IsOk">IsOk</a> + <a class="trait" href="../../../../serde/de/trait.DeserializeOwned.html" title="trait serde::de::DeserializeOwned">DeserializeOwned</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#111-131' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Parse an API response type from the HTTP body.</p>
-
+</div><h4 id='method.into_response' class="method"><span id='into_response.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.into_response' class='fnname'>into_response</a>&lt;T&gt;(self) -&gt; <a class="struct" href="../../../../elastic/client/responses/struct.IntoResponse.html" title="struct elastic::client::responses::IntoResponse">IntoResponse</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../../elastic/client/responses/parse/trait.IsOk.html" title="trait elastic::client::responses::parse::IsOk">IsOk</a> + <a class="trait" href="../../../../serde/de/trait.DeserializeOwned.html" title="trait serde::de::DeserializeOwned">DeserializeOwned</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static,&nbsp;</span></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/responses/async.rs.html#111-131' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Parse an API response type from the HTTP body.</p>
 <p>The deserialisation may occur on a background thread.
 This will consume the <code>AsyncResponseBuilder</code> and return a <a href="parse/trait.IsOk.html#implementors">concrete response type</a> or an error.</p>
-
 <p>The response is parsed according to the <code>IsOk</code> implementation for <code>T</code> that will inspect the response and either return an <code>Ok(T)</code> or an <code>Err(ApiError)</code>.</p>
-
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
 <p>Get a strongly typed <code>SearchResponse</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -89,7 +89,6 @@ This will consume the <code>AsyncResponseBuilder</code> and return a <a href="pa
 
     <span class="prelude-val">Ok</span>(())
 });</pre>
-
 <p>You can also read a response as a <code>serde_json::Value</code>, which will be <code>Ok(Value)</code>
 if the HTTP status code is <code>Ok</code> or <code>Err(ApiError)</code> otherwise:</p>
 
@@ -97,7 +96,17 @@ if the HTTP status code is <code>Ok</code> or <code>Err(ApiError)</code> otherwi
 <span class="kw">let</span> <span class="ident">future</span> <span class="op">=</span> <span class="ident">client</span>.<span class="ident">request</span>(<span class="ident">SimpleSearchRequest</span>::<span class="ident">for_index_ty</span>(<span class="string">&quot;myindex&quot;</span>, <span class="string">&quot;mytype&quot;</span>))
                    .<span class="ident">send</span>()
                    .<span class="ident">and_then</span>(<span class="op">|</span><span class="ident">response</span><span class="op">|</span> <span class="ident">response</span>.<span class="ident">into_response</span>::<span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span>());</pre>
-</div></div></section>
+</div></div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+            <div id='implementations-list'>
+        </div>
+                <h2 id='synthetic-implementations' class='small-section-header'>
+                  Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
+                </h2>
+                <div id='synthetic-implementations-list'>
+            <h3 id='impl-Send' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="../../../../elastic/client/responses/struct.AsyncResponseBuilder.html" title="struct elastic::client::responses::AsyncResponseBuilder">AsyncResponseBuilder</a></code><a href='#impl-Send' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl !<a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../../../../elastic/client/responses/struct.AsyncResponseBuilder.html" title="struct elastic::client::responses::AsyncResponseBuilder">AsyncResponseBuilder</a></code><a href='#impl-Sync' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div></div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -110,20 +119,22 @@ if the HTTP status code is <code>Ok</code> or <code>Err(ApiError)</code> otherwi
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

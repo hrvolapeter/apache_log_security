@@ -10,8 +10,12 @@
     <title>elastic::client::requests::document_put_mapping::PutMappingRequestBuilder - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <script src="../../../../storage.js"></script>
     
 
     
@@ -33,6 +37,13 @@
         <p class='location'>Type Definition PutMappingRequestBuilder</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.ty">ty</a><a href="#method.send">send</a><a href="#method.send">send</a></div></div><p class='location'><a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>requests</a>::<wbr><a href='index.html'>document_put_mapping</a></p><script>window.sidebarCurrent = {name: 'PutMappingRequestBuilder', ty: 'type', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -44,34 +55,23 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Type Definition <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>requests</a>::<wbr><a href='index.html'>document_put_mapping</a>::<wbr><a class="type" href=''>PutMappingRequestBuilder</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Type Definition <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>client</a>::<wbr><a href='../index.html'>requests</a>::<wbr><a href='index.html'>document_put_mapping</a>::<wbr><a class="type" href=''>PutMappingRequestBuilder</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#32' title='goto source code'>[src]</a></span></h1>
-<pre class='rust typedef'>type PutMappingRequestBuilder&lt;TSender, TDocument&gt; = <a class="struct" href="../../../../elastic/client/requests/struct.RequestBuilder.html" title="struct elastic::client::requests::RequestBuilder">RequestBuilder</a>&lt;TSender, PutMappingRequestInner&lt;TDocument&gt;&gt;;</pre><div class='docblock'><p>A <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html">put mapping request</a> builder that can be configured before sending.</p>
-
-<p>Call <a href="../../struct.Client.html#put-mapping-request"><code>Client.document_put_mapping</code></a> to get a <code>PutMappingRequestBuilder</code>. 
+               </span><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#32' title='goto source code'>[src]</a></span></h1><pre class='rust typedef'>type PutMappingRequestBuilder&lt;TSender, TDocument&gt; = <a class="struct" href="../../../../elastic/client/requests/struct.RequestBuilder.html" title="struct elastic::client::requests::RequestBuilder">RequestBuilder</a>&lt;TSender, PutMappingRequestInner&lt;TDocument&gt;&gt;;</pre><div class='docblock'><p>A <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html">put mapping request</a> builder that can be configured before sending.</p>
+<p>Call <a href="../../struct.Client.html#put-mapping-request"><code>Client.document_put_mapping</code></a> to get a <code>PutMappingRequestBuilder</code>.
 The <code>send</code> method will either send the request <a href="#send-synchronously">synchronously</a> or <a href="#send-asynchronously">asynchronously</a>, depending on the <code>Client</code> it was created from.</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
                       Methods<a href='#methods' class='anchor'></a>
                     </h2>
-                <h3 id='impl' class='impl'><span class='in-band'><code>impl&lt;TSender, TDocument&gt; <a class="type" href="../../../../elastic/client/requests/document_put_mapping/type.PutMappingRequestBuilder.html" title="type elastic::client::requests::document_put_mapping::PutMappingRequestBuilder">PutMappingRequestBuilder</a>&lt;TSender, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#127-139' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='builder-methods' class='section-header'><a href='#builder-methods'>Builder methods</a></h1>
+                <h3 id='impl' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TSender, TDocument&gt; <a class="type" href="../../../../elastic/client/requests/document_put_mapping/type.PutMappingRequestBuilder.html" title="type elastic::client::requests::document_put_mapping::PutMappingRequestBuilder">PutMappingRequestBuilder</a>&lt;TSender, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TSender: <a class="trait" href="../../../../elastic/client/trait.Sender.html" title="trait elastic::client::Sender">Sender</a>,&nbsp;</span></code><a href='#impl' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#127-139' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="builder-methods" class="section-header"><a href="#builder-methods">Builder methods</a></h1>
 <p>Configure a <code>PutMappingRequestBuilder</code> before sending it.</p>
-</div><div class='impl-items'><h4 id='method.ty' class="method"><span id='ty.v' class='invisible'><code>pub fn <a href='#method.ty' class='fnname'>ty</a>&lt;I&gt;(self, ty: I) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;I: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../../../elastic/client/requests/params/struct.Type.html" title="struct elastic::client::requests::params::Type">Type</a>&lt;'static&gt;&gt;,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#132-138' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Set the type for the put mapping request. </p>
-</div></div><h3 id='impl-1' class='impl'><span class='in-band'><code>impl&lt;TDocument&gt; <a class="type" href="../../../../elastic/client/requests/document_put_mapping/type.PutMappingRequestBuilder.html" title="type elastic::client::requests::document_put_mapping::PutMappingRequestBuilder">PutMappingRequestBuilder</a>&lt;<a class="struct" href="../../../../elastic/client/struct.SyncSender.html" title="struct elastic::client::SyncSender">SyncSender</a>, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code><a href='#impl-1' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#144-185' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='send-synchronously' class='section-header'><a href='#send-synchronously'>Send synchronously</a></h1></div><div class='impl-items'><h4 id='method.send' class="method"><span id='send.v' class='invisible'><code>pub fn <a href='#method.send' class='fnname'>send</a>(self) -&gt; <a class="type" href="../../../../elastic/error/type.Result.html" title="type elastic::error::Result">Result</a>&lt;<a class="struct" href="../../../../elastic/client/responses/prelude/struct.CommandResponse.html" title="struct elastic::client::responses::prelude::CommandResponse">CommandResponse</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#178-184' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Send a <code>PutMappingRequestBuilder</code> synchronously using a <a href="../../type.SyncClient.html"><code>SyncClient</code></a>.</p>
-
+</div><div class='impl-items'><h4 id='method.ty' class="method"><span id='ty.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.ty' class='fnname'>ty</a>&lt;I&gt;(self, ty: I) -&gt; Self <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;I: <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.Into.html" title="trait core::convert::Into">Into</a>&lt;<a class="struct" href="../../../../elastic/client/requests/params/struct.Type.html" title="struct elastic::client::requests::params::Type">Type</a>&lt;'static&gt;&gt;,&nbsp;</span></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#132-138' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Set the type for the put mapping request. </p>
+</div></div><h3 id='impl-1' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TDocument&gt; <a class="type" href="../../../../elastic/client/requests/document_put_mapping/type.PutMappingRequestBuilder.html" title="type elastic::client::requests::document_put_mapping::PutMappingRequestBuilder">PutMappingRequestBuilder</a>&lt;<a class="struct" href="../../../../elastic/client/struct.SyncSender.html" title="struct elastic::client::SyncSender">SyncSender</a>, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a>,&nbsp;</span></code><a href='#impl-1' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#144-185' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="send-synchronously" class="section-header"><a href="#send-synchronously">Send synchronously</a></h1></div><div class='impl-items'><h4 id='method.send' class="method"><span id='send.v' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.send' class='fnname'>send</a>(self) -&gt; <a class="type" href="../../../../elastic/error/type.Result.html" title="type elastic::error::Result">Result</a>&lt;<a class="struct" href="../../../../elastic/client/responses/prelude/struct.CommandResponse.html" title="struct elastic::client::responses::prelude::CommandResponse">CommandResponse</a>&gt;</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#178-184' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Send a <code>PutMappingRequestBuilder</code> synchronously using a <a href="../../type.SyncClient.html"><code>SyncClient</code></a>.</p>
 <p>This will block the current thread until a response arrives and is deserialised.</p>
-
-<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<h1 id="examples" class="section-header"><a href="#examples">Examples</a></h1>
 <p>Put the mapping for a document type called <code>MyType</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -79,14 +79,9 @@ The <code>send</code> method will either send the request <a href="#send-synchro
                      .<span class="ident">send</span>()<span class="question-mark">?</span>;
 
 <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">response</span>.<span class="ident">acknowledged</span>());</pre>
-</div></div><h3 id='impl-2' class='impl'><span class='in-band'><code>impl&lt;TDocument&gt; <a class="type" href="../../../../elastic/client/requests/document_put_mapping/type.PutMappingRequestBuilder.html" title="type elastic::client::requests::document_put_mapping::PutMappingRequestBuilder">PutMappingRequestBuilder</a>&lt;<a class="struct" href="../../../../elastic/client/struct.AsyncSender.html" title="struct elastic::client::AsyncSender">AsyncSender</a>, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static,&nbsp;</span></code><a href='#impl-2' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#190-245' title='goto source code'>[src]</a></span></h3>
-<div class='docblock'>
-<h1 id='send-asynchronously' class='section-header'><a href='#send-asynchronously'>Send asynchronously</a></h1></div><div class='impl-items'><h4 id='method.send-1' class="method"><span id='send.v-1' class='invisible'><code>pub fn <a href='#method.send-1' class='fnname'>send</a>(self) -&gt; <a class="struct" href="../../../../elastic/client/requests/document_put_mapping/struct.Pending.html" title="struct elastic::client::requests::document_put_mapping::Pending">Pending</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#232-244' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Send a <code>PutMappingRequestBuilder</code> asynchronously using an <a href="../../type.AsyncClient.html"><code>AsyncClient</code></a>.</p>
-
+</div></div><h3 id='impl-2' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl&lt;TDocument&gt; <a class="type" href="../../../../elastic/client/requests/document_put_mapping/type.PutMappingRequestBuilder.html" title="type elastic::client::requests::document_put_mapping::PutMappingRequestBuilder">PutMappingRequestBuilder</a>&lt;<a class="struct" href="../../../../elastic/client/struct.AsyncSender.html" title="struct elastic::client::AsyncSender">AsyncSender</a>, TDocument&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;TDocument: <a class="trait" href="../../../../elastic/types/prelude/trait.DocumentType.html" title="trait elastic::types::prelude::DocumentType">DocumentType</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'static,&nbsp;</span></code><a href='#impl-2' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#190-245' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='docblock'><h1 id="send-asynchronously" class="section-header"><a href="#send-asynchronously">Send asynchronously</a></h1></div><div class='impl-items'><h4 id='method.send-1' class="method"><span id='send.v-1' class='invisible'><table class='table-display'><tbody><tr><td><code>pub fn <a href='#method.send-1' class='fnname'>send</a>(self) -&gt; <a class="struct" href="../../../../elastic/client/requests/document_put_mapping/struct.Pending.html" title="struct elastic::client::requests::document_put_mapping::Pending">Pending</a></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic/client/requests/document_put_mapping.rs.html#232-244' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Send a <code>PutMappingRequestBuilder</code> asynchronously using an <a href="../../type.AsyncClient.html"><code>AsyncClient</code></a>.</p>
 <p>This will return a future that will resolve to the deserialised command response.</p>
-
-<h1 id='examples-1' class='section-header'><a href='#examples-1'>Examples</a></h1>
+<h1 id="examples-1" class="section-header"><a href="#examples-1">Examples</a></h1>
 <p>Put the mapping for a document type called <code>MyType</code>:</p>
 
 <pre class="rust rust-example-rendered">
@@ -111,20 +106,22 @@ The <code>send</code> method will either send the request <a href="#send-synchro
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
