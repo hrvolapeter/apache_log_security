@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `TextFieldMapping` struct in crate `elastic`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, TextFieldMapping">
+
+    <title>elastic::types::string::prelude::TextFieldMapping - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
+          id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <script src="../../../../storage.js"></script>
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Struct TextFieldMapping</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#fields">Fields</a><div class="sidebar-links"><a href="#structfield.analyzer">analyzer</a><a href="#structfield.eager_global_ordinals">eager_global_ordinals</a><a href="#structfield.fielddata">fielddata</a><a href="#structfield.fielddata_frequency_filter">fielddata_frequency_filter</a><a href="#structfield.include_in_all">include_in_all</a><a href="#structfield.ignore_above">ignore_above</a><a href="#structfield.index">index</a><a href="#structfield.index_options">index_options</a><a href="#structfield.norms">norms</a><a href="#structfield.position_increment_gap">position_increment_gap</a><a href="#structfield.store">store</a><a href="#structfield.search_analyzer">search_analyzer</a><a href="#structfield.search_quote_analyzer">search_quote_analyzer</a><a href="#structfield.similarity">similarity</a><a href="#structfield.term_vector">term_vector</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Serialize">Serialize</a><a href="#impl-Clone">Clone</a><a href="#impl-Debug">Debug</a><a href="#impl-Copy">Copy</a><a href="#impl-Default">Default</a></div><a class="sidebar-title" href="#synthetic-implementations">Auto Trait Implementations</a><div class="sidebar-links"><a href="#impl-Send">Send</a><a href="#impl-Sync">Sync</a></div></div><p class='location'><a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>types</a>::<wbr><a href='../index.html'>string</a>::<wbr><a href='index.html'>prelude</a></p><script>window.sidebarCurrent = {name: 'TextFieldMapping', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../../theme.js"></script>
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Struct <a href='../../../index.html'>elastic</a>::<wbr><a href='../../index.html'>types</a>::<wbr><a href='../index.html'>string</a>::<wbr><a href='index.html'>prelude</a>::<wbr><a class="struct" href=''>TextFieldMapping</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#295-365' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust struct'>pub struct TextFieldMapping {
+    pub analyzer: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
+    pub eager_global_ordinals: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;,
+    pub fielddata: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;,
+    pub fielddata_frequency_filter: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../../../elastic/types/string/prelude/struct.FieldDataFrequencyFilter.html" title="struct elastic::types::string::prelude::FieldDataFrequencyFilter">FieldDataFrequencyFilter</a>&gt;,
+    pub include_in_all: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;,
+    pub ignore_above: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;,
+    pub index: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;,
+    pub index_options: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../../../elastic/types/string/prelude/enum.IndexOptions.html" title="enum elastic::types::string::prelude::IndexOptions">IndexOptions</a>&gt;,
+    pub norms: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;,
+    pub position_increment_gap: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;,
+    pub store: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;,
+    pub search_analyzer: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
+    pub search_quote_analyzer: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
+    pub similarity: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;,
+    pub term_vector: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../../../elastic/types/string/prelude/enum.TermVector.html" title="enum elastic::types::string::prelude::TermVector">TermVector</a>&gt;,
+}</pre></div><div class='docblock'><p>A multi-field string mapping. </p>
+</div><h2 id='fields' class='fields small-section-header'>
+                       Fields<a href='#fields' class='anchor'></a></h2><span id="structfield.analyzer" class="structfield small-section-header">
+                           <a href="#structfield.analyzer" class="anchor field"></a>
+                           <span id="analyzer.v" class='invisible'>
+                           <code>analyzer: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code>
+                           </span></span><div class='docblock'><p>The analyzer which should be used for analyzed string fields,
+both at index-time and at search-time (unless overridden by the <code>search_analyzer</code>).
+Defaults to the default index analyzer, or the <code>standard</code> analyzer.</p>
+</div><span id="structfield.eager_global_ordinals" class="structfield small-section-header">
+                           <a href="#structfield.eager_global_ordinals" class="anchor field"></a>
+                           <span id="eager_global_ordinals.v" class='invisible'>
+                           <code>eager_global_ordinals: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Should global ordinals be loaded eagerly on refresh?
+Accepts <code>true</code> or <code>false</code> (default).
+Enabling this is a good idea on fields that are frequently used for (significant) terms aggregations.</p>
+</div><span id="structfield.fielddata" class="structfield small-section-header">
+                           <a href="#structfield.fielddata" class="anchor field"></a>
+                           <span id="fielddata.v" class='invisible'>
+                           <code>fielddata: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Can the field use in-memory fielddata for sorting, aggregations, or scripting?
+Accepts <code>true</code> or <code>false</code> (default).</p>
+</div><span id="structfield.fielddata_frequency_filter" class="structfield small-section-header">
+                           <a href="#structfield.fielddata_frequency_filter" class="anchor field"></a>
+                           <span id="fielddata_frequency_filter.v" class='invisible'>
+                           <code>fielddata_frequency_filter: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="../../../../elastic/types/string/prelude/struct.FieldDataFrequencyFilter.html" title="struct elastic::types::string::prelude::FieldDataFrequencyFilter">FieldDataFrequencyFilter</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Expert settings which allow to decide which values to load in memory when <code>fielddata</code> is enabled.
+By default all values are loaded.</p>
+</div><span id="structfield.include_in_all" class="structfield small-section-header">
+                           <a href="#structfield.include_in_all" class="anchor field"></a>
+                           <span id="include_in_all.v" class='invisible'>
+                           <code>include_in_all: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Whether or not the field value should be included in the <code>_all</code> field?
+Accepts true or false.
+Defaults to <code>false</code> if index is set to <code>no</code>, or if a parent object field sets <code>include_in_all</code> to false.
+Otherwise defaults to <code>true</code>.</p>
+</div><span id="structfield.ignore_above" class="structfield small-section-header">
+                           <a href="#structfield.ignore_above" class="anchor field"></a>
+                           <span id="ignore_above.v" class='invisible'>
+                           <code>ignore_above: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;</code>
+                           </span></span><div class='docblock'><p>The maximum number of characters to index.
+Any characters over this length will be ignored.</p>
+</div><span id="structfield.index" class="structfield small-section-header">
+                           <a href="#structfield.index" class="anchor field"></a>
+                           <span id="index.v" class='invisible'>
+                           <code>index: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Should the field be searchable? Accepts <code>true</code> (default) or <code>false</code>. </p>
+</div><span id="structfield.index_options" class="structfield small-section-header">
+                           <a href="#structfield.index_options" class="anchor field"></a>
+                           <span id="index_options.v" class='invisible'>
+                           <code>index_options: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../../../elastic/types/string/prelude/enum.IndexOptions.html" title="enum elastic::types::string::prelude::IndexOptions">IndexOptions</a>&gt;</code>
+                           </span></span><div class='docblock'><p>What information should be stored in the index, for search and highlighting purposes. Defaults to <code>Positions</code>. </p>
+</div><span id="structfield.norms" class="structfield small-section-header">
+                           <a href="#structfield.norms" class="anchor field"></a>
+                           <span id="norms.v" class='invisible'>
+                           <code>norms: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Whether field-length should be taken into account when scoring queries. Accepts <code>true</code> (default) or <code>false</code>. </p>
+</div><span id="structfield.position_increment_gap" class="structfield small-section-header">
+                           <a href="#structfield.position_increment_gap" class="anchor field"></a>
+                           <span id="position_increment_gap.v" class='invisible'>
+                           <code>position_increment_gap: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>&gt;</code>
+                           </span></span><div class='docblock'><p>The number of fake term position which should be inserted between each element of an array of strings.
+Defaults to the <code>position_increment_gap</code> configured on the analyzer which defaults to <code>100</code>.
+<code>100</code> was chosen because it prevents phrase queries with reasonably large slops (less than <code>100</code>)
+from matching terms across field values.</p>
+</div><span id="structfield.store" class="structfield small-section-header">
+                           <a href="#structfield.store" class="anchor field"></a>
+                           <span id="store.v" class='invisible'>
+                           <code>store: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Whether the field value should be stored and retrievable separately from the <code>_source</code> field.
+Accepts <code>true</code> or <code>false</code> (default).</p>
+</div><span id="structfield.search_analyzer" class="structfield small-section-header">
+                           <a href="#structfield.search_analyzer" class="anchor field"></a>
+                           <span id="search_analyzer.v" class='invisible'>
+                           <code>search_analyzer: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code>
+                           </span></span><div class='docblock'><p>The analyzer that should be used at search time on analyzed fields.
+Defaults to the analyzer setting.</p>
+</div><span id="structfield.search_quote_analyzer" class="structfield small-section-header">
+                           <a href="#structfield.search_quote_analyzer" class="anchor field"></a>
+                           <span id="search_quote_analyzer.v" class='invisible'>
+                           <code>search_quote_analyzer: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code>
+                           </span></span><div class='docblock'><p>The analyzer that should be used at search time when a phrase is encountered.
+Defaults to the <code>search_analyzer</code> setting.</p>
+</div><span id="structfield.similarity" class="structfield small-section-header">
+                           <a href="#structfield.similarity" class="anchor field"></a>
+                           <span id="similarity.v" class='invisible'>
+                           <code>similarity: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;'static <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Which scoring algorithm or similarity should be used.
+Defaults to <code>&quot;classic&quot;</code>, which uses TF/IDF.</p>
+</div><span id="structfield.term_vector" class="structfield small-section-header">
+                           <a href="#structfield.term_vector" class="anchor field"></a>
+                           <span id="term_vector.v" class='invisible'>
+                           <code>term_vector: <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="enum" href="../../../../elastic/types/string/prelude/enum.TermVector.html" title="enum elastic::types::string::prelude::TermVector">TermVector</a>&gt;</code>
+                           </span></span><div class='docblock'><p>Whether term vectors should be stored for an <code>analyzed</code> field.
+Defaults to <code>No</code>.</p>
+</div>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+            <div id='implementations-list'>
+        <h3 id='impl-Serialize' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="../../../../serde/ser/trait.Serialize.html" title="trait serde::ser::Serialize">Serialize</a> for <a class="struct" href="../../../../elastic/types/string/prelude/struct.TextFieldMapping.html" title="struct elastic::types::string::prelude::TextFieldMapping">TextFieldMapping</a></code><a href='#impl-Serialize' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#367-398' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.serialize' class="method"><span id='serialize.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='../../../../serde/ser/trait.Serialize.html#tymethod.serialize' class='fnname'>serialize</a>&lt;S&gt;(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;serializer: S<br>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;&lt;S as <a class="trait" href="../../../../serde/ser/trait.Serializer.html" title="trait serde::ser::Serializer">Serializer</a>&gt;::<a class="type" href="../../../../serde/ser/trait.Serializer.html#associatedtype.Ok" title="type serde::ser::Serializer::Ok">Ok</a>, &lt;S as <a class="trait" href="../../../../serde/ser/trait.Serializer.html" title="trait serde::ser::Serializer">Serializer</a>&gt;::<a class="type" href="../../../../serde/ser/trait.Serializer.html#associatedtype.Error" title="type serde::ser::Serializer::Error">Error</a>&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;S: <a class="trait" href="../../../../serde/ser/trait.Serializer.html" title="trait serde::ser::Serializer">Serializer</a>,&nbsp;</span></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#368-397' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Serialize this value into the given Serde serializer. <a href="../../../../serde/ser/trait.Serialize.html#tymethod.serialize">Read more</a></p>
+</div></div><h3 id='impl-Clone' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="struct" href="../../../../elastic/types/string/prelude/struct.TextFieldMapping.html" title="struct elastic::types::string::prelude::TextFieldMapping">TextFieldMapping</a></code><a href='#impl-Clone' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#294' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="struct" href="../../../../elastic/types/string/prelude/struct.TextFieldMapping.html" title="struct elastic::types::string::prelude::TextFieldMapping">TextFieldMapping</a></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#294' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span></td><td><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#117-119' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="struct" href="../../../../elastic/types/string/prelude/struct.TextFieldMapping.html" title="struct elastic::types::string::prelude::TextFieldMapping">TextFieldMapping</a></code><a href='#impl-Debug' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#294' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>, <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Error.html" title="struct core::fmt::Error">Error</a>&gt;</code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#294' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-Copy' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="struct" href="../../../../elastic/types/string/prelude/struct.TextFieldMapping.html" title="struct elastic::types::string::prelude::TextFieldMapping">TextFieldMapping</a></code><a href='#impl-Copy' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#294' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'></div><h3 id='impl-Default' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html" title="trait core::default::Default">Default</a> for <a class="struct" href="../../../../elastic/types/string/prelude/struct.TextFieldMapping.html" title="struct elastic::types::string::prelude::TextFieldMapping">TextFieldMapping</a></code><a href='#impl-Default' class='anchor'></a></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#294' title='goto source code'>[src]</a></span></td></tr></tbody></table></h3><div class='impl-items'><h4 id='method.default' class="method"><span id='default.v' class='invisible'><table class='table-display'><tbody><tr><td><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class="struct" href="../../../../elastic/types/string/prelude/struct.TextFieldMapping.html" title="struct elastic::types::string::prelude::TextFieldMapping">TextFieldMapping</a></code></span></td><td><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../src/elastic_types/string/text/mapping.rs.html#294' title='goto source code'>[src]</a></td></tr></tbody></table></span></h4><div class='docblock'><p>Returns the &quot;default value&quot; for a type. <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Read more</a></p>
+</div></div></div>
+                <h2 id='synthetic-implementations' class='small-section-header'>
+                  Auto Trait Implementations<a href='#synthetic-implementations' class='anchor'></a>
+                </h2>
+                <div id='synthetic-implementations-list'>
+            <h3 id='impl-Send' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> for <a class="struct" href="../../../../elastic/types/string/prelude/struct.TextFieldMapping.html" title="struct elastic::types::string::prelude::TextFieldMapping">TextFieldMapping</a></code><a href='#impl-Send' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div><h3 id='impl-Sync' class='impl'><span class='in-band'><table class='table-display'><tbody><tr><td><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html" title="trait core::marker::Sync">Sync</a> for <a class="struct" href="../../../../elastic/types/string/prelude/struct.TextFieldMapping.html" title="struct elastic::types::string::prelude::TextFieldMapping">TextFieldMapping</a></code><a href='#impl-Sync' class='anchor'></a></span></td><td><span class='out-of-band'></span></td></tr></tbody></table></h3><div class='impl-items'></div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt><kbd>?</kbd></dt>
+                    <dd>Show this help dialog</dd>
+                    <dt><kbd>S</kbd></dt>
+                    <dd>Focus the search field</dd>
+                    <dt><kbd>↑</kbd></dt>
+                    <dd>Move up in search results</dd>
+                    <dt><kbd>↓</kbd></dt>
+                    <dd>Move down in search results</dd>
+                    <dt><kbd>↹</kbd></dt>
+                    <dd>Switch tab</dd>
+                    <dt><kbd>&#9166;</kbd></dt>
+                    <dd>Go to active search result</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../";
+        window.currentCrate = "elastic";
+    </script>
+    <script src="../../../../main.js"></script>
+    <script defer src="../../../../search-index.js"></script>
+</body>
+</html>
