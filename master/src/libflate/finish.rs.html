@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/libflate-0.1.14/src/finish.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/libflate-0.1.14/src/finish.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>finish.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -469,7 +468,7 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Complete</span><span class="op">&gt;</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">AutoFinishUnchecked</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">inner</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">inner</span>.<span class="ident">take</span>() {
-            <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">inner</span>.<span class="ident">complete</span>();
+            <span class="kw">let</span> _ <span class="op">=</span> <span class="ident">inner</span>.<span class="ident">complete</span>();
         }
     }
 }

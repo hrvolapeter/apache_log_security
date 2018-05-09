@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/xml-rs-0.7.0/src/name.rs`.">
+    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/xml-rs-0.7.0/src/name.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>name.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
     <script src="../../storage.js"></script>
     
 
@@ -421,7 +420,7 @@
         <span class="kw">match</span> (<span class="ident">parts</span>.<span class="ident">next</span>(), <span class="ident">parts</span>.<span class="ident">next</span>()) {
             (<span class="prelude-val">Some</span>(<span class="ident">name</span>), <span class="prelude-val">None</span>) <span class="op">=&gt;</span> <span class="ident">Name</span>::<span class="ident">local</span>(<span class="ident">name</span>),
             (<span class="prelude-val">Some</span>(<span class="ident">prefix</span>), <span class="prelude-val">Some</span>(<span class="ident">name</span>)) <span class="op">=&gt;</span> <span class="ident">Name</span>::<span class="ident">prefixed</span>(<span class="ident">name</span>, <span class="ident">prefix</span>),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>()
+            _ <span class="op">=&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>()
         }
     }
 }
@@ -623,7 +622,7 @@
                 <span class="prelude-val">Some</span>((<span class="ident">local_name</span>.<span class="ident">into</span>(), <span class="prelude-val">Some</span>(<span class="ident">prefix</span>.<span class="ident">into</span>()))),
             (<span class="prelude-val">Some</span>(<span class="ident">local_name</span>), <span class="prelude-val">None</span>, <span class="prelude-val">None</span>) <span class="kw">if</span> <span class="op">!</span><span class="ident">local_name</span>.<span class="ident">is_empty</span>() <span class="op">=&gt;</span>
                 <span class="prelude-val">Some</span>((<span class="ident">local_name</span>.<span class="ident">into</span>(), <span class="prelude-val">None</span>)),
-            (<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="prelude-val">None</span>
+            (_, _, _) <span class="op">=&gt;</span> <span class="prelude-val">None</span>
         };
         <span class="ident">r</span>.<span class="ident">map</span>(<span class="op">|</span>(<span class="ident">local_name</span>, <span class="ident">prefix</span>)<span class="op">|</span> <span class="ident">OwnedName</span> {
             <span class="ident">local_name</span>: <span class="ident">local_name</span>,

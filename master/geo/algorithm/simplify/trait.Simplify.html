@@ -10,11 +10,10 @@
     <title>geo::algorithm::simplify::Simplify - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -55,13 +54,15 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>geo</a>::<wbr><a href='../index.html'>algorithm</a>::<wbr><a href='index.html'>simplify</a>::<wbr><a class="trait" href=''>Simplify</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../../index.html'>geo</a>::<wbr><a href='../index.html'>algorithm</a>::<wbr><a href='index.html'>simplify</a>::<wbr><a class="trait" href=''>Simplify</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/geo/algorithm/simplify.rs.html#58-82' title='goto source code'>[src]</a></span></h1><div class="docblock type-decl"><pre class='rust trait'>pub trait Simplify&lt;T, Epsilon&nbsp;=&nbsp;T&gt; {
+               </span><a class='srclink' href='../../../src/geo/algorithm/simplify.rs.html#58-82' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Simplify&lt;T, Epsilon&nbsp;=&nbsp;T&gt; {
     fn <a href='#tymethod.simplify' class='fnname'>simplify</a>(&amp;self, epsilon: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; Self<br>&nbsp;&nbsp;&nbsp; <span class="where">where<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a></span>;
-}</pre></div><div class='docblock'><p>Simplifies a geometry.</p>
+}</pre><div class='docblock'><p>Simplifies a geometry.</p>
 <p>The <a href="https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm">Ramer–Douglas–Peucker
 algorithm</a> simplifes a
 linestring. Polygons are simplified by running the RDP algorithm on all their constituent
@@ -98,11 +99,11 @@ rings. This may result in invalid Polygons, and has no guarantee of preserving t
           Implementors<a href='#implementors' class='anchor'></a>
         </h2>
         <ul class='item-list' id='implementors-list'>
-    <li><table class='table-display'><tbody><tr><td><code>impl&lt;T&gt; Simplify&lt;T&gt; for <a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code><td><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/simplify.rs.html#84-90' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
-<li><table class='table-display'><tbody><tr><td><code>impl&lt;T&gt; Simplify&lt;T&gt; for <a class="struct" href="../../../geo/struct.MultiLineString.html" title="struct geo::MultiLineString">MultiLineString</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code><td><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/simplify.rs.html#92-98' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
-<li><table class='table-display'><tbody><tr><td><code>impl&lt;T&gt; Simplify&lt;T&gt; for <a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code><td><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/simplify.rs.html#100-106' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
-<li><table class='table-display'><tbody><tr><td><code>impl&lt;T&gt; Simplify&lt;T&gt; for <a class="struct" href="../../../geo/struct.MultiPolygon.html" title="struct geo::MultiPolygon">MultiPolygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code><td><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/simplify.rs.html#108-114' title='goto source code'>[src]</a></div></td></tr></tbody></table></li>
-</ul><script type="text/javascript">window.inlined_types=new Set([]);</script><script type="text/javascript" async
+    <li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/simplify.rs.html#84-90' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Simplify&lt;T&gt; for <a class="struct" href="../../../geo/struct.LineString.html" title="struct geo::LineString">LineString</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/simplify.rs.html#92-98' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Simplify&lt;T&gt; for <a class="struct" href="../../../geo/struct.MultiLineString.html" title="struct geo::MultiLineString">MultiLineString</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/simplify.rs.html#100-106' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Simplify&lt;T&gt; for <a class="struct" href="../../../geo/struct.Polygon.html" title="struct geo::Polygon">Polygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../../../src/geo/algorithm/simplify.rs.html#108-114' title='goto source code'>[src]</a></div><code>impl&lt;T&gt; Simplify&lt;T&gt; for <a class="struct" href="../../../geo/struct.MultiPolygon.html" title="struct geo::MultiPolygon">MultiPolygon</a>&lt;T&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/float/trait.Float.html" title="trait num_traits::float::Float">Float</a>,&nbsp;</span></code></li>
+</ul><script type="text/javascript" async
                          src="../../../implementors/geo/algorithm/simplify/trait.Simplify.js">
                  </script></section>
     <section id='search' class="content hidden"></section>
