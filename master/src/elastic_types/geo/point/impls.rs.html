@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/elastic_types-0.20.9/src/geo/point/impls.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/elastic_types-0.20.9/src/geo/point/impls.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>impls.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -453,7 +452,7 @@ println!(&quot;({},{})&quot;,
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">can_change_point_mapping</span>() {
-        <span class="kw">fn</span> <span class="ident">takes_custom_mapping</span>(<span class="kw">_</span>: <span class="ident">GeoPoint</span><span class="op">&lt;</span><span class="ident">DefaultGeoPointMapping</span><span class="op">&lt;</span><span class="ident">GeoPointObject</span><span class="op">&gt;&gt;</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
+        <span class="kw">fn</span> <span class="ident">takes_custom_mapping</span>(_: <span class="ident">GeoPoint</span><span class="op">&lt;</span><span class="ident">DefaultGeoPointMapping</span><span class="op">&lt;</span><span class="ident">GeoPointObject</span><span class="op">&gt;&gt;</span>) <span class="op">-&gt;</span> <span class="ident">bool</span> {
             <span class="bool-val">true</span>
         }
 
@@ -478,7 +477,7 @@ println!(&quot;({},{})&quot;,
 
         <span class="kw">match</span> <span class="ident">geo</span> {
             <span class="ident">Geometry</span>::<span class="ident">Point</span>(<span class="ident">point</span>) <span class="op">=&gt;</span> <span class="macro">assert_eq</span><span class="macro">!</span>((<span class="number">1.0</span>, <span class="number">1.0</span>), (<span class="ident">point</span>.<span class="ident">x</span>(), <span class="ident">point</span>.<span class="ident">y</span>())),
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;expected point&quot;</span>),
+            _ <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;expected point&quot;</span>),
         }
     }
 }

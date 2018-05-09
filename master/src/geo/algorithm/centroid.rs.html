@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.4.13/src/algorithm/centroid.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.6.3/src/algorithm/centroid.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>centroid.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -368,15 +367,29 @@
 <span id="311">311</span>
 <span id="312">312</span>
 <span id="313">313</span>
+<span id="314">314</span>
+<span id="315">315</span>
+<span id="316">316</span>
+<span id="317">317</span>
+<span id="318">318</span>
+<span id="319">319</span>
+<span id="320">320</span>
+<span id="321">321</span>
+<span id="322">322</span>
+<span id="323">323</span>
+<span id="324">324</span>
+<span id="325">325</span>
 </pre><pre class="rust ">
 <span class="kw">use</span> <span class="ident">num_traits</span>::{<span class="ident">Float</span>, <span class="ident">FromPrimitive</span>};
 
 <span class="kw">use</span> <span class="ident">types</span>::{<span class="ident">Point</span>, <span class="ident">Line</span>, <span class="ident">LineString</span>, <span class="ident">Polygon</span>, <span class="ident">MultiPolygon</span>, <span class="ident">Bbox</span>};
 <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">area</span>::<span class="ident">Area</span>;
-<span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">distance</span>::<span class="ident">Distance</span>;
+<span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">length</span>::<span class="ident">Length</span>;
 
 <span class="doccomment">/// Calculation of the centroid.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Centroid</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Float</span><span class="op">&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Output</span>;
+
     <span class="doccomment">/// See: https://en.wikipedia.org/wiki/Centroid</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ```</span>
@@ -391,7 +404,7 @@
     <span class="doccomment">/// assert_eq!(linestring.centroid().unwrap(), Point::new(40.02, 117.285));</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
-    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span>;
 }
 
 <span class="comment">// Calculation of simple (no interior holes) Polygon area</span>
@@ -402,8 +415,8 @@
         <span class="kw">return</span> <span class="ident">T</span>::<span class="ident">zero</span>();
     }
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">tmp</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">zero</span>();
-    <span class="kw">for</span> <span class="ident">ps</span> <span class="kw">in</span> <span class="ident">linestring</span>.<span class="number">0</span>.<span class="ident">windows</span>(<span class="number">2</span>) {
-        <span class="ident">tmp</span> <span class="op">=</span> <span class="ident">tmp</span> <span class="op">+</span> (<span class="ident">ps</span>[<span class="number">0</span>].<span class="ident">x</span>() <span class="op">*</span> <span class="ident">ps</span>[<span class="number">1</span>].<span class="ident">y</span>() <span class="op">-</span> <span class="ident">ps</span>[<span class="number">1</span>].<span class="ident">x</span>() <span class="op">*</span> <span class="ident">ps</span>[<span class="number">0</span>].<span class="ident">y</span>());
+    <span class="kw">for</span> <span class="ident">line</span> <span class="kw">in</span> <span class="ident">linestring</span>.<span class="ident">lines</span>() {
+        <span class="ident">tmp</span> <span class="op">=</span> <span class="ident">tmp</span> <span class="op">+</span> (<span class="ident">line</span>.<span class="ident">start</span>.<span class="ident">x</span>() <span class="op">*</span> <span class="ident">line</span>.<span class="ident">end</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">line</span>.<span class="ident">end</span>.<span class="ident">x</span>() <span class="op">*</span> <span class="ident">line</span>.<span class="ident">start</span>.<span class="ident">y</span>());
     }
     <span class="ident">tmp</span> <span class="op">/</span> (<span class="ident">T</span>::<span class="ident">one</span>() <span class="op">+</span> <span class="ident">T</span>::<span class="ident">one</span>())
 }
@@ -412,14 +425,13 @@
 <span class="kw">fn</span> <span class="ident">simple_polygon_centroid</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">poly_ext</span>: <span class="kw-2">&amp;</span><span class="ident">LineString</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span>
     <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span> <span class="op">+</span> <span class="ident">FromPrimitive</span>
 {
-    <span class="kw">let</span> <span class="ident">vect</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">poly_ext</span>.<span class="number">0</span>;
     <span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="ident">simple_polygon_area</span>(<span class="ident">poly_ext</span>);
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sum_x</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">zero</span>();
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sum_y</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">zero</span>();
-    <span class="kw">for</span> <span class="ident">ps</span> <span class="kw">in</span> <span class="ident">vect</span>.<span class="ident">windows</span>(<span class="number">2</span>) {
-        <span class="kw">let</span> <span class="ident">tmp</span> <span class="op">=</span> <span class="ident">ps</span>[<span class="number">0</span>].<span class="ident">x</span>() <span class="op">*</span> <span class="ident">ps</span>[<span class="number">1</span>].<span class="ident">y</span>() <span class="op">-</span> <span class="ident">ps</span>[<span class="number">1</span>].<span class="ident">x</span>() <span class="op">*</span> <span class="ident">ps</span>[<span class="number">0</span>].<span class="ident">y</span>();
-        <span class="ident">sum_x</span> <span class="op">=</span> <span class="ident">sum_x</span> <span class="op">+</span> ((<span class="ident">ps</span>[<span class="number">1</span>].<span class="ident">x</span>() <span class="op">+</span> <span class="ident">ps</span>[<span class="number">0</span>].<span class="ident">x</span>()) <span class="op">*</span> <span class="ident">tmp</span>);
-        <span class="ident">sum_y</span> <span class="op">=</span> <span class="ident">sum_y</span> <span class="op">+</span> ((<span class="ident">ps</span>[<span class="number">1</span>].<span class="ident">y</span>() <span class="op">+</span> <span class="ident">ps</span>[<span class="number">0</span>].<span class="ident">y</span>()) <span class="op">*</span> <span class="ident">tmp</span>);
+    <span class="kw">for</span> <span class="ident">line</span> <span class="kw">in</span> <span class="ident">poly_ext</span>.<span class="ident">lines</span>() {
+        <span class="kw">let</span> <span class="ident">tmp</span> <span class="op">=</span> <span class="ident">line</span>.<span class="ident">start</span>.<span class="ident">x</span>() <span class="op">*</span> <span class="ident">line</span>.<span class="ident">end</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">line</span>.<span class="ident">end</span>.<span class="ident">x</span>() <span class="op">*</span> <span class="ident">line</span>.<span class="ident">start</span>.<span class="ident">y</span>();
+        <span class="ident">sum_x</span> <span class="op">=</span> <span class="ident">sum_x</span> <span class="op">+</span> ((<span class="ident">line</span>.<span class="ident">end</span>.<span class="ident">x</span>() <span class="op">+</span> <span class="ident">line</span>.<span class="ident">start</span>.<span class="ident">x</span>()) <span class="op">*</span> <span class="ident">tmp</span>);
+        <span class="ident">sum_y</span> <span class="op">=</span> <span class="ident">sum_y</span> <span class="op">+</span> ((<span class="ident">line</span>.<span class="ident">end</span>.<span class="ident">y</span>() <span class="op">+</span> <span class="ident">line</span>.<span class="ident">start</span>.<span class="ident">y</span>()) <span class="op">*</span> <span class="ident">tmp</span>);
     }
     <span class="kw">let</span> <span class="ident">six</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">from_i32</span>(<span class="number">6</span>).<span class="ident">unwrap</span>();
     <span class="prelude-val">Some</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">sum_x</span> <span class="op">/</span> (<span class="ident">six</span> <span class="op">*</span> <span class="ident">area</span>), <span class="ident">sum_y</span> <span class="op">/</span> (<span class="ident">six</span> <span class="op">*</span> <span class="ident">area</span>)))
@@ -428,33 +440,36 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Centroid</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Line</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
     <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
 {
-    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>;
+
+    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">let</span> <span class="ident">two</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">one</span>() <span class="op">+</span> <span class="ident">T</span>::<span class="ident">one</span>();
         <span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> (<span class="self">self</span>.<span class="ident">start</span>.<span class="ident">x</span>() <span class="op">+</span> <span class="self">self</span>.<span class="ident">end</span>.<span class="ident">x</span>()) <span class="op">/</span> <span class="ident">two</span>;
         <span class="kw">let</span> <span class="ident">y</span> <span class="op">=</span> (<span class="self">self</span>.<span class="ident">start</span>.<span class="ident">y</span>() <span class="op">+</span> <span class="self">self</span>.<span class="ident">end</span>.<span class="ident">y</span>()) <span class="op">/</span> <span class="ident">two</span>;
-        <span class="prelude-val">Some</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">x</span>, <span class="ident">y</span>))
+        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">x</span>, <span class="ident">y</span>)
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Centroid</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">LineString</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
     <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
 {
+    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span>;
+
     <span class="comment">// The Centroid of a LineString is the mean of the middle of the segment</span>
     <span class="comment">// weighted by the length of the segments.</span>
-    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> {
-        <span class="kw">let</span> <span class="ident">vect</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">0</span>;
-        <span class="kw">if</span> <span class="ident">vect</span>.<span class="ident">is_empty</span>() {
+    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+        <span class="kw">if</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">is_empty</span>() {
             <span class="kw">return</span> <span class="prelude-val">None</span>;
         }
-        <span class="kw">if</span> <span class="ident">vect</span>.<span class="ident">len</span>() <span class="op">==</span> <span class="number">1</span> {
-            <span class="prelude-val">Some</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="ident">vect</span>[<span class="number">0</span>].<span class="ident">x</span>(), <span class="ident">vect</span>[<span class="number">0</span>].<span class="ident">y</span>()))
+        <span class="kw">if</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">len</span>() <span class="op">==</span> <span class="number">1</span> {
+            <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="number">0</span>[<span class="number">0</span>].<span class="ident">clone</span>())
         } <span class="kw">else</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sum_x</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">zero</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sum_y</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">zero</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">total_length</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">zero</span>();
-            <span class="kw">for</span> <span class="ident">ps</span> <span class="kw">in</span> <span class="ident">vect</span>.<span class="ident">windows</span>(<span class="number">2</span>) {
-                <span class="kw">let</span> <span class="ident">segment_len</span> <span class="op">=</span> <span class="ident">ps</span>[<span class="number">0</span>].<span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="ident">ps</span>[<span class="number">1</span>]);
-                <span class="kw">let</span> (<span class="ident">x1</span>, <span class="ident">y1</span>, <span class="ident">x2</span>, <span class="ident">y2</span>) <span class="op">=</span> (<span class="ident">ps</span>[<span class="number">0</span>].<span class="ident">x</span>(), <span class="ident">ps</span>[<span class="number">0</span>].<span class="ident">y</span>(), <span class="ident">ps</span>[<span class="number">1</span>].<span class="ident">x</span>(), <span class="ident">ps</span>[<span class="number">1</span>].<span class="ident">y</span>());
+            <span class="kw">for</span> <span class="ident">line</span> <span class="kw">in</span> <span class="self">self</span>.<span class="ident">lines</span>() {
+                <span class="kw">let</span> <span class="ident">segment_len</span> <span class="op">=</span> <span class="ident">line</span>.<span class="ident">length</span>();
+                <span class="kw">let</span> (<span class="ident">x1</span>, <span class="ident">y1</span>, <span class="ident">x2</span>, <span class="ident">y2</span>) <span class="op">=</span> (<span class="ident">line</span>.<span class="ident">start</span>.<span class="ident">x</span>(), <span class="ident">line</span>.<span class="ident">start</span>.<span class="ident">y</span>(), <span class="ident">line</span>.<span class="ident">end</span>.<span class="ident">x</span>(), <span class="ident">line</span>.<span class="ident">end</span>.<span class="ident">y</span>());
                 <span class="ident">total_length</span> <span class="op">=</span> <span class="ident">total_length</span> <span class="op">+</span> <span class="ident">segment_len</span>;
                 <span class="ident">sum_x</span> <span class="op">=</span> <span class="ident">sum_x</span> <span class="op">+</span> <span class="ident">segment_len</span> <span class="op">*</span> ((<span class="ident">x1</span> <span class="op">+</span> <span class="ident">x2</span>) <span class="op">/</span> (<span class="ident">T</span>::<span class="ident">one</span>() <span class="op">+</span> <span class="ident">T</span>::<span class="ident">one</span>()));
                 <span class="ident">sum_y</span> <span class="op">=</span> <span class="ident">sum_y</span> <span class="op">+</span> <span class="ident">segment_len</span> <span class="op">*</span> ((<span class="ident">y1</span> <span class="op">+</span> <span class="ident">y2</span>) <span class="op">/</span> (<span class="ident">T</span>::<span class="ident">one</span>() <span class="op">+</span> <span class="ident">T</span>::<span class="ident">one</span>()));
@@ -467,6 +482,8 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Centroid</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Polygon</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
     <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span> <span class="op">+</span> <span class="ident">FromPrimitive</span>
 {
+    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span>;
+
     <span class="comment">// Calculate the centroid of a Polygon.</span>
     <span class="comment">// We distinguish between a simple polygon, which has no interior holes,</span>
     <span class="comment">// and a complex polygon, which has one or more interior holes.</span>
@@ -476,7 +493,7 @@
     <span class="comment">// this calculation.</span>
     <span class="comment">// See here for a formula: http://math.stackexchange.com/a/623849</span>
     <span class="comment">// See here for detail on alternative methods: https://fotino.me/calculating-centroids/</span>
-    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">let</span> <span class="ident">linestring</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">exterior</span>;
         <span class="kw">let</span> <span class="ident">vect</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">linestring</span>.<span class="number">0</span>;
         <span class="kw">if</span> <span class="ident">vect</span>.<span class="ident">is_empty</span>() {
@@ -512,7 +529,9 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Centroid</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">MultiPolygon</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
     <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span> <span class="op">+</span> <span class="ident">FromPrimitive</span>
 {
-    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span>;
+
+    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sum_x</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">zero</span>();
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">sum_y</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">zero</span>();
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">total_area</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">zero</span>();
@@ -536,17 +555,21 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Centroid</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Bbox</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
     <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
 {
-    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>;
+
+    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
         <span class="kw">let</span> <span class="ident">two</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">one</span>() <span class="op">+</span> <span class="ident">T</span>::<span class="ident">one</span>();
-        <span class="prelude-val">Some</span>(<span class="ident">Point</span>::<span class="ident">new</span>((<span class="self">self</span>.<span class="ident">xmax</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">xmin</span>) <span class="op">/</span> <span class="ident">two</span>, (<span class="self">self</span>.<span class="ident">ymax</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">ymin</span>) <span class="op">/</span> <span class="ident">two</span>))
+        <span class="ident">Point</span>::<span class="ident">new</span>((<span class="self">self</span>.<span class="ident">xmax</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">xmin</span>) <span class="op">/</span> <span class="ident">two</span>, (<span class="self">self</span>.<span class="ident">ymax</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">ymin</span>) <span class="op">/</span> <span class="ident">two</span>)
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Centroid</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
     <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
 {
-    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> {
-        <span class="prelude-val">Some</span>(<span class="ident">Point</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span>(), <span class="self">self</span>.<span class="ident">y</span>()))
+    <span class="kw">type</span> <span class="ident">Output</span> <span class="op">=</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>;
+
+    <span class="kw">fn</span> <span class="ident">centroid</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">Output</span> {
+        <span class="ident">Point</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">x</span>(), <span class="self">self</span>.<span class="ident">y</span>())
     }
 }
 
@@ -673,13 +696,13 @@
             <span class="ident">ymin</span>: <span class="number">50.</span>,
         };
         <span class="kw">let</span> <span class="ident">point</span> <span class="op">=</span> <span class="ident">Point</span>(<span class="ident">Coordinate</span> { <span class="ident">x</span>: <span class="number">2.</span>, <span class="ident">y</span>: <span class="number">75.</span> });
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">point</span>, <span class="ident">bbox</span>.<span class="ident">centroid</span>().<span class="ident">unwrap</span>());
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">point</span>, <span class="ident">bbox</span>.<span class="ident">centroid</span>());
     }
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">line_test</span>() {
         <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="op">|</span><span class="ident">x</span>, <span class="ident">y</span><span class="op">|</span> <span class="ident">Point</span>(<span class="ident">Coordinate</span> { <span class="ident">x</span>: <span class="ident">x</span>, <span class="ident">y</span>: <span class="ident">y</span> });
         <span class="kw">let</span> <span class="ident">line1</span> <span class="op">=</span> <span class="ident">Line</span>::<span class="ident">new</span>(<span class="ident">p</span>(<span class="number">0.</span>, <span class="number">1.</span>), <span class="ident">p</span>(<span class="number">1.</span>, <span class="number">3.</span>));
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">line1</span>.<span class="ident">centroid</span>(), <span class="prelude-val">Some</span>(<span class="ident">p</span>(<span class="number">0.5</span>, <span class="number">2.</span>)));
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">line1</span>.<span class="ident">centroid</span>(), <span class="ident">p</span>(<span class="number">0.5</span>, <span class="number">2.</span>));
     }
 }
 </pre>

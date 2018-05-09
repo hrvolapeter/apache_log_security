@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.4.13/src/algorithm/distance.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/geo-0.6.3/src/algorithm/distance.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>distance.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -596,27 +595,7 @@
 <span id="539">539</span>
 <span id="540">540</span>
 <span id="541">541</span>
-<span id="542">542</span>
-<span id="543">543</span>
-<span id="544">544</span>
-<span id="545">545</span>
-<span id="546">546</span>
-<span id="547">547</span>
-<span id="548">548</span>
-<span id="549">549</span>
-<span id="550">550</span>
-<span id="551">551</span>
-<span id="552">552</span>
-<span id="553">553</span>
-<span id="554">554</span>
-<span id="555">555</span>
-<span id="556">556</span>
-<span id="557">557</span>
-<span id="558">558</span>
-<span id="559">559</span>
 </pre><pre class="rust ">
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">cmp</span>::<span class="ident">Ordering</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">collections</span>::<span class="ident">BinaryHeap</span>;
 <span class="kw">use</span> <span class="ident">num_traits</span>::{<span class="ident">Float</span>, <span class="ident">ToPrimitive</span>};
 <span class="kw">use</span> <span class="ident">types</span>::{<span class="ident">Point</span>, <span class="ident">Line</span>, <span class="ident">MultiPoint</span>, <span class="ident">LineString</span>, <span class="ident">MultiLineString</span>, <span class="ident">Polygon</span>, <span class="ident">MultiPolygon</span>};
 <span class="kw">use</span> <span class="ident">algorithm</span>::<span class="ident">contains</span>::<span class="ident">Contains</span>;
@@ -694,46 +673,20 @@
     }
     <span class="kw">let</span> <span class="ident">dx</span> <span class="op">=</span> <span class="ident">end</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">start</span>.<span class="ident">x</span>();
     <span class="kw">let</span> <span class="ident">dy</span> <span class="op">=</span> <span class="ident">end</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">start</span>.<span class="ident">y</span>();
-    <span class="kw">let</span> <span class="ident">r</span> <span class="op">=</span> ((<span class="ident">point</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">start</span>.<span class="ident">x</span>()) <span class="op">*</span> <span class="ident">dx</span> <span class="op">+</span> (<span class="ident">point</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">start</span>.<span class="ident">y</span>()) <span class="op">*</span> <span class="ident">dy</span>) <span class="op">/</span>
-        (<span class="ident">dx</span>.<span class="ident">powi</span>(<span class="number">2</span>) <span class="op">+</span> <span class="ident">dy</span>.<span class="ident">powi</span>(<span class="number">2</span>));
-   <span class="kw">if</span> <span class="ident">r</span> <span class="op">&lt;=</span> <span class="ident">T</span>::<span class="ident">zero</span>() {
+    <span class="kw">let</span> <span class="ident">r</span> <span class="op">=</span> ((<span class="ident">point</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">start</span>.<span class="ident">x</span>()) <span class="op">*</span> <span class="ident">dx</span> <span class="op">+</span> (<span class="ident">point</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">start</span>.<span class="ident">y</span>()) <span class="op">*</span> <span class="ident">dy</span>) <span class="op">/</span> (<span class="ident">dx</span>.<span class="ident">powi</span>(<span class="number">2</span>) <span class="op">+</span> <span class="ident">dy</span>.<span class="ident">powi</span>(<span class="number">2</span>));
+    <span class="kw">if</span> <span class="ident">r</span> <span class="op">&lt;=</span> <span class="ident">T</span>::<span class="ident">zero</span>() {
         <span class="kw">return</span> <span class="ident">point</span>.<span class="ident">distance</span>(<span class="ident">start</span>);
     }
     <span class="kw">if</span> <span class="ident">r</span> <span class="op">&gt;=</span> <span class="ident">T</span>::<span class="ident">one</span>() {
         <span class="kw">return</span> <span class="ident">point</span>.<span class="ident">distance</span>(<span class="ident">end</span>);
     }
-    <span class="kw">let</span> <span class="ident">s</span> <span class="op">=</span> ((<span class="ident">start</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">point</span>.<span class="ident">y</span>()) <span class="op">*</span> <span class="ident">dx</span> <span class="op">-</span> (<span class="ident">start</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">point</span>.<span class="ident">x</span>()) <span class="op">*</span> <span class="ident">dy</span>) <span class="op">/</span>
-        (<span class="ident">dx</span> <span class="op">*</span> <span class="ident">dx</span> <span class="op">+</span> <span class="ident">dy</span> <span class="op">*</span> <span class="ident">dy</span>);
-    <span class="ident">s</span>.<span class="ident">abs</span>() <span class="op">*</span> ((<span class="ident">dx</span> <span class="op">*</span> <span class="ident">dx</span> <span class="op">+</span> <span class="ident">dy</span> <span class="op">*</span> <span class="ident">dy</span>)).<span class="ident">sqrt</span>()
+    <span class="kw">let</span> <span class="ident">s</span> <span class="op">=</span> ((<span class="ident">start</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">point</span>.<span class="ident">y</span>()) <span class="op">*</span> <span class="ident">dx</span> <span class="op">-</span> (<span class="ident">start</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">point</span>.<span class="ident">x</span>()) <span class="op">*</span> <span class="ident">dy</span>) <span class="op">/</span> (<span class="ident">dx</span> <span class="op">*</span> <span class="ident">dx</span> <span class="op">+</span> <span class="ident">dy</span> <span class="op">*</span> <span class="ident">dy</span>);
+    <span class="ident">s</span>.<span class="ident">abs</span>() <span class="op">*</span> (<span class="ident">dx</span> <span class="op">*</span> <span class="ident">dx</span> <span class="op">+</span> <span class="ident">dy</span> <span class="op">*</span> <span class="ident">dy</span>).<span class="ident">sqrt</span>()
 }
-
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">PartialEq</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">struct</span> <span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
-{
-    <span class="ident">distance</span>: <span class="ident">T</span>,
-}
-
-<span class="comment">// These impls give us a min-heap when used with BinaryHeap</span>
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Ord</span> <span class="kw">for</span> <span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
-{
-    <span class="kw">fn</span> <span class="ident">cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">Ordering</span> {
-        <span class="ident">other</span>.<span class="ident">distance</span>.<span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">distance</span>).<span class="ident">unwrap</span>()
-    }
-}
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">PartialOrd</span> <span class="kw">for</span> <span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
-{
-    <span class="kw">fn</span> <span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Ordering</span><span class="op">&gt;</span> {
-        <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="ident">cmp</span>(<span class="ident">other</span>))
-    }
-}
-
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Eq</span> <span class="kw">for</span> <span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span> {}
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance between two Points</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">p</span>: <span class="kw-2">&amp;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
@@ -743,21 +696,25 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">MultiPoint</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a Point to a MultiPoint</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">points</span>: <span class="kw-2">&amp;</span><span class="ident">MultiPoint</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">dist_queue</span>: <span class="ident">BinaryHeap</span><span class="op">&lt;</span><span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">BinaryHeap</span>::<span class="ident">new</span>();
-        <span class="kw">for</span> <span class="ident">p</span> <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">points</span>.<span class="number">0</span> {
-            <span class="kw">let</span> (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="op">=</span> (<span class="self">self</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">p</span>.<span class="ident">x</span>(), <span class="self">self</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">p</span>.<span class="ident">y</span>());
-            <span class="ident">dist_queue</span>.<span class="ident">push</span>(<span class="ident">Mindist</span> { <span class="ident">distance</span>: <span class="ident">dx</span>.<span class="ident">hypot</span>(<span class="ident">dy</span>) })
-        }
-        <span class="ident">dist_queue</span>.<span class="ident">pop</span>().<span class="ident">unwrap</span>().<span class="ident">distance</span>
+        <span class="ident">points</span>
+            .<span class="number">0</span>
+            .<span class="ident">iter</span>()
+            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> {
+                <span class="kw">let</span> (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="op">=</span> (<span class="self">self</span>.<span class="ident">x</span>() <span class="op">-</span> <span class="ident">p</span>.<span class="ident">x</span>(), <span class="self">self</span>.<span class="ident">y</span>() <span class="op">-</span> <span class="ident">p</span>.<span class="ident">y</span>());
+                <span class="ident">dx</span>.<span class="ident">hypot</span>(<span class="ident">dy</span>)
+            })
+            .<span class="ident">fold</span>(<span class="ident">T</span>::<span class="ident">max_value</span>(), <span class="op">|</span><span class="ident">accum</span>, <span class="ident">val</span><span class="op">|</span> <span class="ident">accum</span>.<span class="ident">min</span>(<span class="ident">val</span>))
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">MultiPoint</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a MultiPoint to a Point</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="kw-2">&amp;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
@@ -766,34 +723,35 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Polygon</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a Point to a Polygon</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">polygon</span>: <span class="kw-2">&amp;</span><span class="ident">Polygon</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
-        <span class="comment">// get exterior ring</span>
-        <span class="kw">let</span> <span class="ident">exterior</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">polygon</span>.<span class="ident">exterior</span>;
-        <span class="comment">// exterior ring as a LineString</span>
-        <span class="kw">let</span> <span class="ident">ext_ring</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">exterior</span>.<span class="number">0</span>;
         <span class="comment">// No need to continue if the polygon contains the point, or is zero-length</span>
-        <span class="kw">if</span> <span class="ident">polygon</span>.<span class="ident">contains</span>(<span class="self">self</span>) <span class="op">||</span> <span class="ident">ext_ring</span>.<span class="ident">is_empty</span>() {
+        <span class="kw">if</span> <span class="ident">polygon</span>.<span class="ident">contains</span>(<span class="self">self</span>) <span class="op">||</span> <span class="ident">polygon</span>.<span class="ident">exterior</span>.<span class="number">0</span>.<span class="ident">is_empty</span>() {
             <span class="kw">return</span> <span class="ident">T</span>::<span class="ident">zero</span>();
         }
-        <span class="comment">// minimum priority queue</span>
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">dist_queue</span>: <span class="ident">BinaryHeap</span><span class="op">&lt;</span><span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">BinaryHeap</span>::<span class="ident">new</span>();
-        <span class="comment">// we&#39;ve got interior rings</span>
-        <span class="kw">for</span> <span class="ident">ring</span> <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">polygon</span>.<span class="ident">interiors</span> {
-            <span class="ident">dist_queue</span>.<span class="ident">push</span>(<span class="ident">Mindist</span> { <span class="ident">distance</span>: <span class="self">self</span>.<span class="ident">distance</span>(<span class="ident">ring</span>) })
-        }
-        <span class="kw">for</span> <span class="ident">chunk</span> <span class="kw">in</span> <span class="ident">ext_ring</span>.<span class="ident">windows</span>(<span class="number">2</span>) {
-            <span class="kw">let</span> <span class="ident">dist</span> <span class="op">=</span> <span class="ident">line_segment_distance</span>(<span class="self">self</span>, <span class="kw-2">&amp;</span><span class="ident">chunk</span>[<span class="number">0</span>], <span class="kw-2">&amp;</span><span class="ident">chunk</span>[<span class="number">1</span>]);
-            <span class="ident">dist_queue</span>.<span class="ident">push</span>(<span class="ident">Mindist</span> { <span class="ident">distance</span>: <span class="ident">dist</span> });
-        }
-        <span class="ident">dist_queue</span>.<span class="ident">pop</span>().<span class="ident">unwrap</span>().<span class="ident">distance</span>
+        <span class="comment">// fold the minimum interior ring distance if any, followed by the exterior</span>
+        <span class="comment">// shell distance, returning the minimum of the two distances</span>
+        <span class="ident">polygon</span>
+            .<span class="ident">interiors</span>
+            .<span class="ident">iter</span>()
+            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">ring</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">distance</span>(<span class="ident">ring</span>))
+            .<span class="ident">fold</span>(<span class="ident">T</span>::<span class="ident">max_value</span>(), <span class="op">|</span><span class="ident">accum</span>, <span class="ident">val</span><span class="op">|</span> <span class="ident">accum</span>.<span class="ident">min</span>(<span class="ident">val</span>))
+            .<span class="ident">min</span>(
+                <span class="ident">polygon</span>
+                    .<span class="ident">exterior</span>
+                    .<span class="ident">lines</span>()
+                    .<span class="ident">map</span>(<span class="op">|</span><span class="ident">line</span><span class="op">|</span> <span class="ident">line_segment_distance</span>(<span class="self">self</span>, <span class="kw-2">&amp;</span><span class="ident">line</span>.<span class="ident">start</span>, <span class="kw-2">&amp;</span><span class="ident">line</span>.<span class="ident">end</span>))
+                    .<span class="ident">fold</span>(<span class="ident">T</span>::<span class="ident">max_value</span>(), <span class="op">|</span><span class="ident">accum</span>, <span class="ident">val</span><span class="op">|</span> <span class="ident">accum</span>.<span class="ident">min</span>(<span class="ident">val</span>)),
+            )
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Polygon</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a Polygon to a Point</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="kw-2">&amp;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
@@ -802,20 +760,23 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">MultiPolygon</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a Point to a MultiPolygon</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">mpolygon</span>: <span class="kw-2">&amp;</span><span class="ident">MultiPolygon</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">dist_queue</span>: <span class="ident">BinaryHeap</span><span class="op">&lt;</span><span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">BinaryHeap</span>::<span class="ident">new</span>();
-        <span class="kw">for</span> <span class="ident">poly</span> <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">mpolygon</span>.<span class="number">0</span> {
-            <span class="ident">dist_queue</span>.<span class="ident">push</span>(<span class="ident">Mindist</span> { <span class="ident">distance</span>: <span class="self">self</span>.<span class="ident">distance</span>(<span class="ident">poly</span>) });
-        }
-        <span class="ident">dist_queue</span>.<span class="ident">pop</span>().<span class="ident">unwrap</span>().<span class="ident">distance</span>
+        <span class="ident">mpolygon</span>.<span class="number">0</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">distance</span>(<span class="ident">p</span>)).<span class="ident">fold</span>(
+            <span class="ident">T</span>::<span class="ident">max_value</span>(),
+            <span class="op">|</span><span class="ident">accum</span>, <span class="ident">val</span><span class="op">|</span> {
+                <span class="ident">accum</span>.<span class="ident">min</span>(<span class="ident">val</span>)
+            },
+        )
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">MultiPolygon</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a MultiPolygon to a Point</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="kw-2">&amp;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
@@ -824,20 +785,23 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">MultiLineString</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a Point to a MultiLineString</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">mls</span>: <span class="kw-2">&amp;</span><span class="ident">MultiLineString</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">dist_queue</span>: <span class="ident">BinaryHeap</span><span class="op">&lt;</span><span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">BinaryHeap</span>::<span class="ident">new</span>();
-        <span class="kw">for</span> <span class="ident">ls</span> <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">mls</span>.<span class="number">0</span> {
-            <span class="ident">dist_queue</span>.<span class="ident">push</span>(<span class="ident">Mindist</span> { <span class="ident">distance</span>: <span class="self">self</span>.<span class="ident">distance</span>(<span class="ident">ls</span>) });
-        }
-        <span class="ident">dist_queue</span>.<span class="ident">pop</span>().<span class="ident">unwrap</span>().<span class="ident">distance</span>
+        <span class="ident">mls</span>.<span class="number">0</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">ls</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">distance</span>(<span class="ident">ls</span>)).<span class="ident">fold</span>(
+            <span class="ident">T</span>::<span class="ident">max_value</span>(),
+            <span class="op">|</span><span class="ident">accum</span>, <span class="ident">val</span><span class="op">|</span> {
+                <span class="ident">accum</span>.<span class="ident">min</span>(<span class="ident">val</span>)
+            },
+        )
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">MultiLineString</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a MultiLineString to a Point</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="kw-2">&amp;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
@@ -846,7 +810,8 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">LineString</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a Point to a LineString</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">linestring</span>: <span class="kw-2">&amp;</span><span class="ident">LineString</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
@@ -854,20 +819,16 @@
         <span class="kw">if</span> <span class="ident">linestring</span>.<span class="ident">contains</span>(<span class="self">self</span>) <span class="op">||</span> <span class="ident">linestring</span>.<span class="number">0</span>.<span class="ident">is_empty</span>() {
             <span class="kw">return</span> <span class="ident">T</span>::<span class="ident">zero</span>();
         }
-        <span class="comment">// minimum priority queue</span>
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">dist_queue</span>: <span class="ident">BinaryHeap</span><span class="op">&lt;</span><span class="ident">Mindist</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="op">=</span> <span class="ident">BinaryHeap</span>::<span class="ident">new</span>();
-        <span class="comment">// get points vector</span>
-        <span class="kw">let</span> <span class="ident">points</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">linestring</span>.<span class="number">0</span>;
-        <span class="kw">for</span> <span class="ident">chunk</span> <span class="kw">in</span> <span class="ident">points</span>.<span class="ident">windows</span>(<span class="number">2</span>) {
-            <span class="kw">let</span> <span class="ident">dist</span> <span class="op">=</span> <span class="ident">line_segment_distance</span>(<span class="self">self</span>, <span class="kw-2">&amp;</span><span class="ident">chunk</span>[<span class="number">0</span>], <span class="kw-2">&amp;</span><span class="ident">chunk</span>[<span class="number">1</span>]);
-            <span class="ident">dist_queue</span>.<span class="ident">push</span>(<span class="ident">Mindist</span> { <span class="ident">distance</span>: <span class="ident">dist</span> });
-        }
-        <span class="ident">dist_queue</span>.<span class="ident">pop</span>().<span class="ident">unwrap</span>().<span class="ident">distance</span>
+        <span class="ident">linestring</span>
+            .<span class="ident">lines</span>()
+            .<span class="ident">map</span>(<span class="op">|</span><span class="ident">line</span><span class="op">|</span> <span class="ident">line_segment_distance</span>(<span class="self">self</span>, <span class="kw-2">&amp;</span><span class="ident">line</span>.<span class="ident">start</span>, <span class="kw-2">&amp;</span><span class="ident">line</span>.<span class="ident">end</span>))
+            .<span class="ident">fold</span>(<span class="ident">T</span>::<span class="ident">max_value</span>(), <span class="op">|</span><span class="ident">accum</span>, <span class="ident">val</span><span class="op">|</span> <span class="ident">accum</span>.<span class="ident">min</span>(<span class="ident">val</span>))
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">LineString</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a LineString to a Point</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="kw-2">&amp;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
@@ -876,7 +837,8 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Line</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a Line to a Point</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">point</span>: <span class="kw-2">&amp;</span><span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {
@@ -884,7 +846,8 @@
     }
 }
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Distance</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Line</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">Point</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
-    <span class="kw">where</span> <span class="ident">T</span>: <span class="ident">Float</span>
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Float</span>,
 {
     <span class="doccomment">/// Minimum distance from a Line to a Point</span>
     <span class="kw">fn</span> <span class="ident">distance</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">line</span>: <span class="kw-2">&amp;</span><span class="ident">Line</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="ident">T</span> {

@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `/home/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-0.11.25/src/header/common/range.rs`.">
+    <meta name="description" content="Source to the Rust file `/Users/travis/.cargo/registry/src/github.com-1ecc6299db9ec823/hyper-0.11.25/src/header/common/range.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
     <title>range.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css"
-          id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css" id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../../light.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css" id="themeStyle">
     <script src="../../../../storage.js"></script>
     
 
@@ -662,7 +661,7 @@
                 <span class="prelude-val">Ok</span>(<span class="ident">Range</span>::<span class="ident">Unregistered</span>(<span class="ident">unit</span>.<span class="ident">to_owned</span>(), <span class="ident">range_str</span>.<span class="ident">to_owned</span>()))
 
             },
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Header</span>)
+            _ <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Header</span>)
         }
     }
 }
@@ -683,10 +682,10 @@
             (<span class="prelude-val">Some</span>(<span class="ident">start</span>), <span class="prelude-val">Some</span>(<span class="ident">end</span>)) <span class="op">=&gt;</span> {
                 <span class="kw">match</span> (<span class="ident">start</span>.<span class="ident">parse</span>(), <span class="ident">end</span>.<span class="ident">parse</span>()) {
                     (<span class="prelude-val">Ok</span>(<span class="ident">start</span>), <span class="prelude-val">Ok</span>(<span class="ident">end</span>)) <span class="kw">if</span> <span class="ident">start</span> <span class="op">&lt;=</span> <span class="ident">end</span> <span class="op">=&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">ByteRangeSpec</span>::<span class="ident">FromTo</span>(<span class="ident">start</span>, <span class="ident">end</span>)),
-                    <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Header</span>)
+                    _ <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Header</span>)
                 }
             },
-            <span class="kw">_</span> <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Header</span>)
+            _ <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(::<span class="ident">Error</span>::<span class="ident">Header</span>)
         }
     }
 }
