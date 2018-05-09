@@ -10,11 +10,8 @@
     <title>tokio_timer::timer::Handle - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
-    <script src="../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
     
 
     
@@ -36,13 +33,6 @@
         <p class='location'>Struct Handle</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#methods">Methods</a><div class="sidebar-links"><a href="#method.current">current</a><a href="#method.delay">delay</a><a href="#method.deadline">deadline</a><a href="#method.interval">interval</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Debug">Debug</a><a href="#impl-Clone">Clone</a></div></div><p class='location'><a href='../index.html'>tokio_timer</a>::<wbr><a href='index.html'>timer</a></p><script>window.sidebarCurrent = {name: 'Handle', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -61,8 +51,10 @@
                    </a>
                </span><a class='srclink' href='../../src/tokio_timer/timer/handle.rs.html#19-21' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Handle { /* fields omitted */ }</pre><div class='docblock'><p>Handle to timer instance.</p>
+
 <p>The <code>Handle</code> allows creating <code>Delay</code> instances that are driven by the
 associated timer.</p>
+
 <p>A <code>Handle</code> is obtained by calling <a href="struct.Timer.html#method.handle"><code>Timer::handle</code></a>.</p>
 </div>
                     <h2 id='methods' class='small-section-header'>
@@ -71,17 +63,19 @@ associated timer.</p>
                 <h3 id='impl' class='impl'><span class='in-band'><code>impl <a class="struct" href="../../tokio_timer/timer/struct.Handle.html" title="struct tokio_timer::timer::Handle">Handle</a></code><a href='#impl' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/tokio_timer/timer/handle.rs.html#68-127' title='goto source code'>[src]</a></span></h3>
 <div class='impl-items'><h4 id='method.current' class="method"><span id='current.v' class='invisible'><code>pub fn <a href='#method.current' class='fnname'>current</a>() -&gt; <a class="struct" href="../../tokio_timer/timer/struct.Handle.html" title="struct tokio_timer::timer::Handle">Handle</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/tokio_timer/timer/handle.rs.html#84-87' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Returns a handle to the current timer.</p>
+
 <p>The current timer is the timer that is currently set as default using
 <a href="../fn.with_default.html"><code>with_default</code></a>.</p>
+
 <p>This function should only be called from within the context of
 <a href="../fn.with_default.html"><code>with_default</code></a>. Calling this function from outside of this context
 will return a <code>Handle</code> that does not reference a timer. <code>Delay</code>
 instances created with this handle will error.</p>
 </div><h4 id='method.delay' class="method"><span id='delay.v' class='invisible'><code>pub fn <a href='#method.delay' class='fnname'>delay</a>(&amp;self, deadline: <a class="struct" href="https://doc.rust-lang.org/nightly/std/time/struct.Instant.html" title="struct std::time::Instant">Instant</a>) -&gt; <a class="struct" href="../../tokio_timer/struct.Delay.html" title="struct tokio_timer::Delay">Delay</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/tokio_timer/timer/handle.rs.html#90-93' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create a <code>Delay</code> driven by this handle's associated <code>Timer</code>.</p>
+<div class='docblock'><p>Create a <code>Delay</code> driven by this handle&#39;s associated <code>Timer</code>.</p>
 </div><h4 id='method.deadline' class="method"><span id='deadline.v' class='invisible'><code>pub fn <a href='#method.deadline' class='fnname'>deadline</a>&lt;T&gt;(&amp;self, future: T, deadline: <a class="struct" href="https://doc.rust-lang.org/nightly/std/time/struct.Instant.html" title="struct std::time::Instant">Instant</a>) -&gt; <a class="struct" href="../../tokio_timer/struct.Deadline.html" title="struct tokio_timer::Deadline">Deadline</a>&lt;T&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/tokio_timer/timer/handle.rs.html#96-98' title='goto source code'>[src]</a></span></h4>
-<div class='docblock'><p>Create a <code>Deadline</code> driven by this handle's associated <code>Timer</code>.</p>
-</div><h4 id='method.interval' class="method"><span id='interval.v' class='invisible'><code>pub fn <a href='#method.interval' class='fnname'>interval</a>(&amp;self, at: <a class="struct" href="https://doc.rust-lang.org/nightly/std/time/struct.Instant.html" title="struct std::time::Instant">Instant</a>, duration: <a class="struct" href="https://doc.rust-lang.org/nightly/core/time/struct.Duration.html" title="struct core::time::Duration">Duration</a>) -&gt; <a class="struct" href="../../tokio_timer/struct.Interval.html" title="struct tokio_timer::Interval">Interval</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/tokio_timer/timer/handle.rs.html#102-104' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Create a <code>Deadline</code> driven by this handle&#39;s associated <code>Timer</code>.</p>
+</div><h4 id='method.interval' class="method"><span id='interval.v' class='invisible'><code>pub fn <a href='#method.interval' class='fnname'>interval</a>(&amp;self, at: <a class="struct" href="https://doc.rust-lang.org/nightly/std/time/struct.Instant.html" title="struct std::time::Instant">Instant</a>, duration: <a class="struct" href="https://doc.rust-lang.org/nightly/std/time/duration/struct.Duration.html" title="struct std::time::duration::Duration">Duration</a>) -&gt; <a class="struct" href="../../tokio_timer/struct.Interval.html" title="struct tokio_timer::Interval">Interval</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/tokio_timer/timer/handle.rs.html#102-104' title='goto source code'>[src]</a></span></h4>
 <div class='docblock'><p>Create a new <code>Interval</code> that starts at <code>at</code> and yields every <code>duration</code>
 interval after that.</p>
 </div></div>
@@ -109,22 +103,20 @@ interval after that.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
