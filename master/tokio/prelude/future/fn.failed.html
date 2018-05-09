@@ -50,7 +50,7 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../../src/futures/future/result.rs.html#64-66' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn failed&lt;T, E&gt;(e: E) -&gt; <a class="struct" href="../../../tokio/prelude/future/struct.Finished.html" title="struct tokio::prelude::future::Finished">FutureResult</a>&lt;T, E&gt;</pre><div class='docblock'><p>Creates a &quot;leaf future&quot; from an immediate value of a failed computation.</p>
+<pre class='rust fn'>pub fn failed&lt;T, E&gt;(e: E) -&gt; <a class="struct" href="../../../tokio/prelude/future/struct.Failed.html" title="struct tokio::prelude::future::Failed">FutureResult</a>&lt;T, E&gt;</pre><div class='docblock'><p>Creates a &quot;leaf future&quot; from an immediate value of a failed computation.</p>
 
 <p>The returned future is similar to <code>result</code> where it will immediately run a
 scheduled callback with the provided value.</p>
